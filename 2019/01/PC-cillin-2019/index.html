@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="預防電腦中毒很重要，但是資安問題，例如防止個資外洩、防止重要檔案落入外人手中，卻是更加的重要！或許每天只會開 YouTube 看看影片、滑滑臉書的人會認為，使用微軟內建的 Windows Defender 就好；但是當外人有機會使用自己的電腦時，例如電腦送修、中午吃個飯外出等情況，往往密碼和私密檔案就是這樣被流出的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] PC-cillin 2019 雲端版：輕快又省資源的防毒軟體、多種防護及管理讓人放心！">
+<meta property="og:url" content="https://ed521.github.io/2019/01/PC-cillin-2019/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="預防電腦中毒很重要，但是資安問題，例如防止個資外洩、防止重要檔案落入外人手中，卻是更加的重要！或許每天只會開 YouTube 看看影片、滑滑臉書的人會認為，使用微軟內建的 Windows Defender 就好；但是當外人有機會使用自己的電腦時，例如電腦送修、中午吃個飯外出等情況，往往密碼和私密檔案就是這樣被流出的。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250038/original/ceaa245c6be69160a858c47ccbd25d99.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250054/original/2f72227b07b2827e8104f7b367a99241.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250055/original/1fca73f9c99761d575dca3db5241743f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250056/original/0776b4ae51255f377b7f3315ac54502d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250057/original/9d56962b928d705e8337190d04fc66ce.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250039/original/014c936d706b23edbcd6da36212ae8c8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250040/original/4f201e1edbd267693ace92ab49caceb4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249976/original/b7e6413c050ebc961e6e9c52d6c77014.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249977/original/d99b6e3c63f29ae4457c225d277737be.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249978/original/097c4c6f59daa30362c588dbf9990045.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249979/original/fccd8158d787f6ba7ce211d3a2965002.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249980/original/e8085e3ddff1dcddd81aa863aa7e719c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249981/original/369f698086dc606c5e7fd1a39d98c59e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249982/original/f85a37d6e799f71aec33defe0d990972.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249983/original/e5b934fb6e9aced9419f1a02072a2b73.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249984/original/cd44152f4813bf36810a18c744b5411a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249985/original/f7d6de3d94cd0b145c1037f97778202b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250037/original/86260af2db40604000cadf9cb1875ef2.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250041/original/0dda6270470c4fba796d0f5956e7a53b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249986/original/ef091069cfd3f83f642cd0c89c15aac7.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249987/original/fe2764e659d478b3cfb3a5729e49fb11.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249988/original/dced02dba6cb5435cec9a7eb79c8e918.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249989/original/d3357af9d08f918c236cb4a59a272de4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249990/original/22ac46ba221c9d2954b7702375086f95.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250046/original/cc4e24915878cd91a5c0e7680e77d75c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250047/original/28ef73ca423b7226f60e0d0855a9b088.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249993/original/ea9a108e4805296a06e5c739c9640ebf.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249994/original/efd83b47ffc54678ec83679cb52e8711.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250042/original/9b3dacd442e31e416e087eb3fc283ec1.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249995/original/a4a73f1f7b26ff8a6c89773b1fd32512.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250048/original/a665ed810e71698ccd08aa1721011eff.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250001/original/a988dd2831f4d4a2a6c871db435fa32d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250002/original/f3e1c213ce775f9469088f600090f3b2.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250049/original/888f3ace72f54b393e4ccacae68314dd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250004/original/1ed2fe3ba4eec5b76a8a4c573e14e491.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250010/original/7a8f28aa845ef2c390a9133e27d0488d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250011/original/a5e12543d65390280b75414f7d973f84.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250012/original/a08801bc47abe3847a29630c08abb61b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250013/original/5236eb7ee8fe5b08e413fba5ec45ef12.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250014/original/700eea4917df8da9f630af33e5016aa4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250015/original/1f89db35c406c55197640730ba008e7e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250043/original/71eab6f47b8a378e6a10a2d483bb65e4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250016/original/5dfc91e5d897adcd5080ae54c03e794f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250017/original/271a356b8c9d25feb703f03b92e3fc96.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250018/original/1c3f321eb4cefc48013c06232b2d58fc.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250019/original/313b31f8052fd9165a3bf1bd342556a8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250020/original/432a9cd59c3f2f76888ae7985f943fcd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250021/original/483e8afcf246af569a7520fcea42f485.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250022/original/4032452e4430eaa1dd5b08908b3f46dd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250023/original/1df7c995f8423e7ae02f912815ac9804.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250024/original/9da53f2d0f0237f5780478a9fcf78bea.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250044/original/a809bb5e8a2bf8fd03c996e6201d12be.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250025/original/3b88259b36960b46e7f4ecb4419fb252.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250026/original/89010f451834b27d53d70327fa8ed9a2.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250027/original/8046e2ce71cc47d1c41be70026c38c81.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250028/original/c05b7c46742e1ad2c18559f18350b2db.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250029/original/559747b35b076102288cd0abd4eb3dfc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250030/original/0f7a864405fc76da564794ed499a4bc2.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250031/original/d42798a8c32867fc8a5c5f214d8825ca.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250032/original/90ffbf21b69030f7a5e064a83f01b19b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250033/original/17a92b07f91e0fe88ae70618ec04c1ac.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250053/original/4f3064d8553fb3994a865f633601f767.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250051/original/fc9c36779949d0a09ff115d1fed90371.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250052/original/6c4fae4dbefe2dd84dad1f90a91f9303.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250045/original/89bb9910d5c8d6eefe5d0c0dd9be656d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250058/original/40f09fc34b35af585ccf0c1129e832a5.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250059/original/a77f78354fb902a7ba89606851f25655.png">
+<meta property="article:published_time" content="2019-01-01T12:22:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:31:04.079Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 防毒軟體">
+<meta property="article:tag" content=" PC-cillin">
+<meta property="article:tag" content=" PCcillin">
+<meta property="article:tag" content=" 防毒">
+<meta property="article:tag" content=" 中毒">
+<meta property="article:tag" content=" 資安">
+<meta property="article:tag" content=" 掃毒">
+<meta property="article:tag" content=" 檔案保險箱">
+<meta property="article:tag" content=" 密碼管理通">
+<meta property="article:tag" content=" 上網">
+<meta property="article:tag" content=" 安全">
+<meta property="article:tag" content=" 檔案強制刪除工具">
+<meta property="article:tag" content=" 家長防護網">
+<meta property="article:tag" content=" 推薦">
+<meta property="article:tag" content=" 2019">
+<meta property="article:tag" content=" 應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250038/original/ceaa245c6be69160a858c47ccbd25d99.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2019/01/PC-cillin-2019/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] PC-cillin 2019 雲端版：輕快又省資源的防毒軟體、多種防護及管理讓人放心！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2019/01/PC-cillin-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] PC-cillin 2019 雲端版：輕快又省資源的防毒軟體、多種防護及管理讓人放心！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-01-01 20:22:00" itemprop="dateCreated datePublished" datetime="2019-01-01T20:22:00+08:00">2019-01-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/antivirus/" itemprop="url" rel="index"><span itemprop="name">防毒軟體</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/01/PC-cillin-2019/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] PC-cillin 2019 雲端版：輕快又省資源的防毒軟體、多種防護及管理讓人放心！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>5.4k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250038/original/ceaa245c6be69160a858c47ccbd25d99.jpg" />
+
+<p><span style="color: #800000;"><strong>預防電腦中毒很重要，但是資安問題，例如防止個資外洩、防止重要檔案落入外人手中，卻是更加的重要！</strong></span>或許每天只會開 YouTube 看看影片、滑滑臉書的人會認為，使用微軟內建的 Windows Defender 就好；但是當外人有機會使用自己的電腦時，例如電腦送修、中午吃個飯外出等情況，往往密碼和私密檔案就是這樣被流出的。</p>
+<a id="more"></a>
+
+<p>▼ 有心人士只要簡單幾個步驟，所有瀏覽器內的帳密全都無所遁形。<br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250054/original/2f72227b07b2827e8104f7b367a99241.png" /></p>
+<p>不僅如此，<strong><span style="color: #800000;">臉書上所有的連結也不一定都安全，單憑網址和連結名稱是無法知道它安不安全的。</span></strong>有些人會說：我怎麼會笨到去點那些連結？<br>那如果是好友透過聊天室傳來的訊息呢？例如之前的報導：”臉書就會中毒病自動挑選好友傳送影片連結，廣大傳播造成好友也跟著中毒，且更改密碼也沒有用”。（<a href="https://news.tvbs.com.tw/fun/760339" target="_blank" rel="noopener">新聞來源：TVBS</a>）</p>
+<p>▼ 《不要按！臉書病毒癱瘓訊息　影片連結一點就中獎》<br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250055/original/1fca73f9c99761d575dca3db5241743f.png" /></p>
+<p>因此<strong><span style="color: #800000;">趨勢科技推出的 PC-cillin 2019 雲端版能有效解決以上問題，該防毒軟體創新融合 AI 人工智慧的多層式防護技術，可以預先防範精準抵禦詭譎多變的各種安全威脅，俗稱「AI 智能防毒」。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250056/original/0776b4ae51255f377b7f3315ac54502d.jpg" />
+
+<p>PC-cillin 也獨創 <strong><span style="color: #800000;">AI 混合式預測掃瞄技術，根據病毒檔案特徵進一步預測惡意行為，大幅強化對挖礦病毒的偵測力，更能精準洞悉即時抵禦未知威脅，並與現有多層式防護完美結合，大幅提高精準度。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250057/original/9d56962b928d705e8337190d04fc66ce.jpg" />
+
+<hr />
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250039/original/014c936d706b23edbcd6da36212ae8c8.png" alt="內容大綱" />
+
+<p>★ <a href="#a">PC-cillin 安裝及功能簡介</a> ★</p>
+<p>㊣ <a href="#b">資安防毒篇</a> ㊣<br>★ <a href="#b-1">掃毒：防止電腦遭受病毒侵害</a> ★<br>★ <a href="#b-2">安心Pay：瀏覽銀行網站或購物網站時更安全</a> ★<br>★ <a href="#b-3">瀏覽器上網防護：防止使用者誤擊有毒或木馬網站</a> ★</p>
+<p>㊣ <a href="#c">個人隱私篇</a> ㊣<br>★ <a href="#c-1">密碼管理通：管理所有瀏覽器的登入帳號密碼</a> ★<br>★ <a href="#c-2">檔案強制刪除工具：防止個人檔案刪除後遭有心人士還原</a> ★<br>★ <a href="#c-3">檔案保險箱：保護私密資料不會被其他人存取</a> ★</p>
+<p>㊣ <a href="#d">家長防護篇</a> ㊣<br>★ <a href="#d-1">家長防護網：提供小孩一個良好的上網環境</a> ★</p>
+<p>㊣ <a href="#e">行動裝置防護篇</a> ㊣<br>★ <a href="#e-1">行動安全防護與防毒</a> ★</p>
+<p>★ <a href="#f">總結與心得</a> ★</p>
+<hr />
+
+<p><a id="a" name="a"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250040/original/4f201e1edbd267693ace92ab49caceb4.png" alt="PC-cillin 安裝及功能簡介" /></p>
+<p>PC-cillin 2019 對於四大裝置平台的防護一次到位，<strong><span style="color: #800000;">提供 Windows、Mac、Android、iOS 跨平台防護。</span></strong>（<a href="https://www.trendmicro.com/zh_tw/forHome/trial.html" target="_blank" rel="noopener">PC-cillin 2019 30天免費試用網址</a>）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249976/original/b7e6413c050ebc961e6e9c52d6c77014.png" />
+
+<p>點選 Windows 版本後，接著會下載 PC-cillin 2019 的安裝檔。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249977/original/d99b6e3c63f29ae4457c225d277737be.gif" />
+
+<p>在安裝之前，會先進行系統檢查。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249978/original/097c4c6f59daa30362c588dbf9990045.gif" />
+
+<p>安裝完成後，防毒軟體會要求進行「勒索剋星」的設定。</p>
+<p>究竟什麼是勒索剋星呢？簡單來說，<strong><span style="color: #800000;">如果電腦中了勒索軟體的病毒，使用者不會在第一時間得知中毒訊息，勒索軟體會先偷偷地將電腦裡的檔案全部加密，讓使用者無法開啟，直到全部加密後才會告訴使用者”所有檔案都被加密，要解密就必須支付一筆金額”。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249979/original/fccd8158d787f6ba7ce211d3a2965002.png" />
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249980/original/e8085e3ddff1dcddd81aa863aa7e719c.png" />
+
+<p>因此<strong><span style="color: #800000;">「勒索剋星」能夠在惡意軟體嘗試更改電腦檔案（加密檔案）時，立即封鎖並通知使用者</span></strong>；使用者僅需將習慣存放個人影音文件的資料夾加入保護即可。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249981/original/369f698086dc606c5e7fd1a39d98c59e.png" />
+
+<p>如果 30 天試用到期，可以點選左下角的”提供產品序號”來延長使用期限，輸入序號後，會要求登入或註冊趨勢科技帳號。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249982/original/f85a37d6e799f71aec33defe0d990972.png" />
+
+<p>成功註冊或登入後，最後能看到自己的訂購服務資訊，而這個資訊也可以在<a href="https://account.trendmicro.com/my_account/?LANG=ZH-TW" target="_blank" rel="noopener">趨勢科技 - 我的帳號</a>做查詢。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249983/original/e5b934fb6e9aced9419f1a02072a2b73.png" />
+
+<p>而 PC-cillin 雲端版 除了防毒功能，還有隱私安全、資料防護，以及家長防護功能：</p>
+<p><strong><span style="color: #008000;">【隱私安全】</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249984/original/cd44152f4813bf36810a18c744b5411a.png" />
+
+<p><strong>「網路隱私偵測」</strong>：檢查瀏覽器或社群網站（如：FB、Twitter等）的隱私設定問題，防止個人隱私曝光。</p>
+<p><strong>「社群網路防護」</strong>：主動偵測社群網站上的惡意網址。</p>
+<p><strong>「安心 Pay」</strong>：另開一個專屬的預設瀏覽器，可以保護財務資料和信用卡交易時的安全。</p>
+<p><strong>「私密資料保全」</strong>：可以設定文字或數字進行防護（文字或數字，像是地址、信用卡號、手機號碼等等），以防止未經許可下被外傳出去。</p>
+<p><strong><span style="color: #008000;">【資料防護】</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249985/original/f7d6de3d94cd0b145c1037f97778202b.png" />
+
+<p><strong>「勒索剋星」</strong>：對於設定好的資料夾，若有惡意軟體對其加密或擅自更動，防毒軟體立即封鎖並通知使用者。</p>
+<p><strong>「檔案強制刪除工具」</strong>：對於已刪除的檔案，透過某些軟體是有辦法還原的；”檔案強制刪除工具”可以確保檔案完全刪除並無法還原。</p>
+<p><strong>「密碼管理通」</strong>：將多個瀏覽器的登入帳密統一管理，並實現”一鍵登入”的功能。</p>
+<p><strong>「雲端檔案掃描」</strong>：可進行雲端硬碟（支援 OneDrive 和 Dropbox）中的檔案進行掃毒作業。</p>
+<p><strong>「檔案保險箱」</strong>：需要密碼登入才能存取電腦中檔案保險箱內的檔案，支援遠端封鎖存取功能。</p>
+<p><strong><span style="color: #008000;">【家長防護】</span></strong></p>
+<p><strong>「家長防護網」</strong>：能主動封鎖不適當內容的影像和網站，並能管理電腦使用時間和特定程式的使用時間。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250037/original/86260af2db40604000cadf9cb1875ef2.png" />
+
+<hr />
+
+<p><a id="b" name="b"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250041/original/0dda6270470c4fba796d0f5956e7a53b.png" alt="資安防毒篇" /></p>
+<p><a id="b-1" name="b-1"></a><br><span style="color: #0000ff;"><strong>★ 掃毒：防止電腦遭受病毒侵害 ★</strong></span></p>
+<p>防毒軟體最基本的功能就是對電腦的檔案進行掃毒作業，而 <strong><span style="color: #800000;">PC-cillin 2019 根據掃描檔案的詳細程度，提供了快速/完整/自訂三種掃描模式。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249986/original/ef091069cfd3f83f642cd0c89c15aac7.gif" />
+
+<p>主畫面中間的「電腦健檢」就是快速掃毒，只會掃描電腦裡的一些系統檔、登入檔等比較容易暗藏病毒的地方。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249987/original/fe2764e659d478b3cfb3a5729e49fb11.gif" />
+
+<p>從掃描的結果可以看到「快速掃毒」未發現安全威脅，也因為只掃描一千多個檔案，通常幾分鐘內就會完成。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249988/original/dced02dba6cb5435cec9a7eb79c8e918.png" />
+
+<p>另外，下圖是「完整掃毒」，由於會把電腦內所有檔案檢查一遍，約需 1~2 小時完成；掃描的檔案數有 48 萬多個檔案，並且發現了一個安全威脅，同時也完成清除。由此可知，<strong><span style="color: #800000;">完整掃毒才能有效的抓出電腦中有問題的檔案，切勿因貪圖方便就只執行快速掃描。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249989/original/d3357af9d08f918c236cb4a59a272de4.png" />
+
+<p>最後，從網站下載下來的檔案在打開之前，務必也要先執行掃毒作業。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249990/original/22ac46ba221c9d2954b7702375086f95.gif" />
+
+<p><a id="b-2" name="b-2"></a><br><strong><span style="color: #0000ff;">★ 安心 Pay：瀏覽銀行網站或購物網站時更安全 ★</span></strong></p>
+<p>「安心 Pay」是 PC-cillin 2019 的新功能，當使用安心 Pay 功能時：</p>
+<p><strong>● 可防止瀏覽器的預設值被未經授權執行的程序竄改。</strong><br><strong>● 可監控瀏覽器的行為並阻止異常行為。</strong><br><strong>● 可預防預設瀏覽器被植入惡意程序。</strong></p>
+<p>PS. 官方建議”僅將安心 Pay 用於線上交易”。</p>
+<p>▼ 使用「安心 Pay」開啟的瀏覽器會以天空藍的外框做標示。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250046/original/cc4e24915878cd91a5c0e7680e77d75c.png" />
+
+<p><a id="b-3" name="b-3"></a><br><strong><span style="color: #0000ff;">★ 瀏覽器上網防護：防止使用者誤擊有毒或木馬網站 ★</span></strong></p>
+<p>除了來路不明的檔案會造成電腦中毒，其它多數情況都是因為打開了來路不明的網站；因此<strong><span style="color: #800000;">趨勢科技可以在點入該連結之前，事先分析此連結是否安全。</span></strong></p>
+<p>在安裝 PC-cillin 後，打開 Chrome 瀏覽器，會自動新增「趨勢科技工具列」套件。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250047/original/28ef73ca423b7226f60e0d0855a9b088.png" />
+
+<p>針對連結的安全性，會以三種顏色標示：</p>
+<p>● <span style="color: #008000;">綠色 V</span>：此連結安全，可以放心打開網頁。</p>
+<p>● <span style="color: #808080;">灰色 ?</span>：此連結未測試過是否安全，但不代表是危險連結，還是可以打開。</p>
+<p>● <span style="color: #ff0000;">紅色 X</span>：此連結為”惡意網站”或是”經由 家長防護網 封鎖”的連結，無法開啟。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249993/original/ea9a108e4805296a06e5c739c9640ebf.gif" />
+
+<p>誤點的以紅色標示的網頁也不用擔心，網站自動會導向 PC-cillin 的封鎖畫面，無法讀取。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249994/original/efd83b47ffc54678ec83679cb52e8711.png" />
+
+<hr />
+
+<p><a id="c" name="c"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250042/original/9b3dacd442e31e416e087eb3fc283ec1.png" alt="個人隱私篇" /></p>
+<p><a id="c-1" name="c-1"></a><br><span style="color: #0000ff;"><strong>★ 密碼管理通：管理所有瀏覽器的登入帳號密碼 ★</strong></span></p>
+<p>「密碼管理通」最大的特色就是：<strong><span style="color: #800000;">只要建立一組超級密碼，就能儲存不同瀏覽器的密碼，並快速登入！</span></strong></p>
+<p>要開啟密碼管理通，首先請至 PC-cillin → 「資料防護」頁面 → 開啟「密碼管理通」。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/249995/original/a4a73f1f7b26ff8a6c89773b1fd32512.png" />
+
+<p>接著需要設定一組”超級密碼”，由於筆者已於之前設定過，這邊作登入的動作。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250048/original/a665ed810e71698ccd08aa1721011eff.png" />
+
+<p>最後只要在 Chrome 瀏覽器上安裝密碼管理通套件即可。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250001/original/a988dd2831f4d4a2a6c871db435fa32d.png" />
+
+<p>下面為實測透過”密碼管理通”來登入 GitHub 網站。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250002/original/f3e1c213ce775f9469088f600090f3b2.gif" />
+
+<p>進入密碼管理通的管理主控台，這裡可以對密碼作管理、新增或刪除等動作，並檢查自己不安全的密碼。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250049/original/888f3ace72f54b393e4ccacae68314dd.png" />
+
+<p><a id="c-2" name="c-2"></a><br><strong><span style="color: #0000ff;">★ 檔案強制刪除工具：防止個人檔案刪除後遭有心人士還原 ★</span></strong></p>
+<p>由於檔案都是存放在硬碟的”磁區”中，而<strong><span style="color: #800000;">檔案被刪除後，只要那個磁區沒有再被寫入資料，原本在該磁區的檔案是有機會被還原的</span></strong>；因此「檔案強制刪除工具」的原理就是<strong><span style="color: #800000;">在檔案被刪除後，還會用隨機字元來覆寫該磁區，防止檔案被還原的可能。</span></strong></p>
+<p>要開啟檔案強制刪除工具，首先請至 PC-cillin → 「資料防護」頁面 → 開啟「檔案強制刪除工具」。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250004/original/1ed2fe3ba4eec5b76a8a4c573e14e491.png" />
+
+<p>接下來會看到”快速刪除”和”永久刪除”兩種選項，基本上就是檔案被覆寫一次和七次的差別；照理來說被覆寫一次後，檔案就不太可能會被還原，而覆寫七次雖然更安全，但也較費時。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250010/original/7a8f28aa845ef2c390a9133e27d0488d.png" />
+
+<p>下面實測透過「檔案強制刪除工具」來刪除約 36 MB 的檔案，使用”永久刪除”約需耗時 3 秒多的時間來刪除檔案（檔案越大，花的時間也越久）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250011/original/a5e12543d65390280b75414f7d973f84.gif" />
+
+<p><a id="c-3" name="c-3"></a><br><strong><span style="color: #0000ff;">★ 檔案保險箱：保護私密資料不會被其他人存取 ★</span></strong></p>
+<p>「檔案保險箱」使用含有 128 位元金鑰的”進階加密標準”(Advanced Encryption Standard, AES) 演算法來保護檔案的安全。除非使用非常複雜的工具，否則很難在短時間內破解這種加密方法。</p>
+<p>要開啟檔案保險箱，首先請至 PC-cillin → 「資料防護」頁面 → 開啟「檔案保險箱」。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250012/original/a08801bc47abe3847a29630c08abb61b.png" />
+
+<p>開啟「檔案保險箱」功能後，桌面上會新增一個”檔案保險箱”圖示，點兩下開啟後，會要求輸入 PC-cillin 防毒軟體密碼。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250013/original/5236eb7ee8fe5b08e413fba5ec45ef12.gif" />
+
+<p>解鎖後，圖示右下方會有個綠色解鎖頭符號，代表為解鎖狀態；此時使用者可以在該”秘密資料夾”內放入不想被人看到的機密檔案/資料夾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250014/original/700eea4917df8da9f630af33e5016aa4.png" />
+
+<p>如果電腦遺失，可以到趨勢科技提供的<a href="https://www.trendsecure.com/report_stolen/locker/report" target="_blank" rel="noopener">檔案掛失服務</a>來遠端”回報遭竊”。此時回報掛失的電腦，若沒有到該網站”回報尋回”，「檔案保險箱」會消失不見且無法使用。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250015/original/1f89db35c406c55197640730ba008e7e.png" />
+
+<hr />
+
+<p><a id="d" name="d"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250043/original/71eab6f47b8a378e6a10a2d483bb65e4.png" alt="家長防護篇" /></p>
+<p><a id="d-1" name="d-1"></a><br><span style="color: #0000ff;"><strong>★ 家長防護網：提供小孩一個良好的上網環境 ★</strong></span></p>
+<p>家長防護網擁有四大功能：</p>
+<p><strong>● 網站內容過濾</strong>：依照網站類別過濾。</p>
+<p><strong>● 時間管理</strong>：可控制電腦使用時數（平日/假日）。</p>
+<p><strong>● Internet 管理</strong>：控制上網的詳細排程（平日/假日/星期一到日詳細設定）。</p>
+<p><strong>● 程式監控</strong>：控制上網的詳細排程（平日/假日/星期一到日詳細設定）。</p>
+<p>要開啟家長防護網，首先請至 PC-cillin → 「家長防護」頁面 → 開啟「家長防護網」，接著要輸入 PC-cillin 的防毒軟體密碼。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250016/original/5dfc91e5d897adcd5080ae54c03e794f.png" />
+
+<p><strong><span style="color: #008000;">【網站內容過濾】</span></strong></p>
+<p>「網站內容過濾」可以選擇年齡層，PC-cillin 會對於不適合該年齡層觀看的網頁加以封鎖（年齡層越高，封鎖的類別越少）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250017/original/271a356b8c9d25feb703f03b92e3fc96.gif" />
+
+<p>「網站內容過濾」的功能實測：筆者欲開啟 WooTalk 網頁，但因為被「家長防護網」歸類為”聊天/即時通訊”類別，因此網頁打不開。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250018/original/1c3f321eb4cefc48013c06232b2d58fc.gif" />
+
+<p><strong><span style="color: #008000;">【時間管理】</span></strong></p>
+<p>「時間管理」能設定平日或假日的電腦使用時數。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250019/original/313b31f8052fd9165a3bf1bd342556a8.png" />
+
+<p>「時間管理」的功能實測：電腦開啟時，計時器就會啟動；時間到的時候，防毒軟體會出現提示小視窗，並多給五分鐘的緩衝時間。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250020/original/432a9cd59c3f2f76888ae7985f943fcd.png" />
+
+<p><strong><span style="color: #008000;">【Internet 管理】</span></strong></p>
+<p>「Internet 管理」具有簡單排程（僅設定平日和假日的上網時段）和詳細的每日排程（星期一到日的各別設定，如下圖）；只要紅色框框畫出來的區域就無法使用瀏覽器上網。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250021/original/483e8afcf246af569a7520fcea42f485.png" />
+
+<p>「Internet 管理」的功能實測：只要在禁止存取上網的時間打開任何瀏覽器，一律無法上網。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250022/original/4032452e4430eaa1dd5b08908b3f46dd.png" />
+
+<p><strong><span style="color: #008000;">【程式監控】</span></strong></p>
+<p>不過根據前面的說法，Internet 管理只會限制”瀏覽器”上網的部分，其它需要網路的軟體（如：Line、Skype、Steam 等）是無法管理的；而這時候就要用「程式監控」來設定特定程式的使用時間。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250023/original/1df7c995f8423e7ae02f912815ac9804.png" />
+
+<p>「程式監控」的功能實測：在封鎖時間內，打開指定的程式就會顯示”禁止存取”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250024/original/9da53f2d0f0237f5780478a9fcf78bea.gif" />
+
+<hr />
+
+<p><a id="e" name="e"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250044/original/a809bb5e8a2bf8fd03c996e6201d12be.png" alt="行動裝置防護篇" /></p>
+<p><a id="e-1" name="e-1"></a><br><strong><span style="color: #0000ff;">★ 行動安全防護與防毒 ★</span></strong></p>
+<p>購買 PC-cillin 雲端版多裝置的使用者，也一樣能對安卓和 iOS 系統作防護。使用者只要上 Google Play 商店或 App Store 搜尋：”PC-cillin” 或是 “趨勢科技”，就能找到行動裝置版的防毒 App：「趨勢科技行動安全防護」。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250025/original/3b88259b36960b46e7f4ecb4419fb252.png" />
+
+<p>安裝完成並打開 App 後，可以看到下面列出 10 大功能；而在初次開啟時，它會先對手機的所有應用程式和相關權限設定完整掃描一次（手機健檢）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250026/original/89010f451834b27d53d70327fa8ed9a2.png" />
+
+<p>以下是行動版 App 的功能介紹：</p>
+<p><span style="color: #008000;"><strong>【手機健檢】</strong></span></p>
+<p>「手機健檢」能可以<strong><span style="color: #800000;">檢查手機內的應用程式有無潛在的惡意/間諜程式、或是廣告 App 等</span></strong>；如果沒有開啟一些重要功能或允許相關權限也會在此通知。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250027/original/8046e2ce71cc47d1c41be70026c38c81.png" />
+
+<p><strong><span style="color: #008000;">【安全上網 &amp; Wi-Fi 安全檢查】</span></strong></p>
+<p>「安全上網」和「Wi-Fi 安全檢查」主要作用為<strong><span style="color: #800000;">檢查有無惡意的安全威脅</span></strong>，預設開啟。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250028/original/c05b7c46742e1ad2c18559f18350b2db.png" />
+
+<p><strong><span style="color: #008000;">【安心 Pay】</span></strong></p>
+<p>「安心 Pay」會針對一些購物和金融 App，在<strong><span style="color: #800000;">開啟時檢查 Wi-Fi 網路、裝置和應用程式有無安全風險。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250029/original/559747b35b076102288cd0abd4eb3dfc.png" />
+
+<p><strong><span style="color: #008000;">【系統加速】</span></strong></p>
+<p>「系統加速」能<strong><span style="color: #800000;">延長電池使用時間和增加記憶體使用量</span></strong>，有下列兩種模式：</p>
+<p><strong>純手機模式</strong>：停用如3G/4G行動網路、Wi-Fi、藍牙等功能以節省電力。</p>
+<p><strong>省電模式</strong>：自動變更3G/4G行動網路、Wi-Fi、藍牙的連線方式以節省電力。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250030/original/0f7a864405fc76da564794ed499a4bc2.png" />
+
+<p><strong><span style="color: #008000;">【App 管理】</span></strong></p>
+<p>「App 管理」能對手機中的<strong><span style="color: #800000;">應用程式解除安裝，尤其是對特別占空間又不常使用到的應用程式</span></strong>，從這裡就能得知。另外，還能一併查看<strong><span style="color: #800000;">已安裝和未安裝的 Apk 安裝檔，進行刪除動作。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250031/original/d42798a8c32867fc8a5c5f214d8825ca.png" />
+
+<p><strong><span style="color: #008000;">【家長防護網】</span></strong></p>
+<p>手機版也有「家長防護網」的功能，不過還多了個<strong><span style="color: #800000;">“App 安心鎖”，能對應用程式上鎖，防止外人使用。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250032/original/90ffbf21b69030f7a5e064a83f01b19b.png" />
+
+<p>現在的安心鎖功能還能透過<strong>指紋辨識</strong>解鎖，非常方便；不想要透過指紋解鎖的人，也能在鎖定設定的地方變更。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250033/original/17a92b07f91e0fe88ae70618ec04c1ac.png" />
+
+<p><strong><span style="color: #008000;">【來電過濾】</span></strong></p>
+<p>「來電過濾」可以把<strong><span style="color: #800000;">不想接聽的號碼加入黑名單，如此就可以防止接到其來電。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250053/original/4f3064d8553fb3994a865f633601f767.png" />
+
+<p><strong><span style="color: #008000;">【行動裝置失竊防護】</span></strong></p>
+<p>最後是「行動裝置失竊防護」，也是筆者認為這個 App 相對強大的功能。因為<strong><span style="color: #800000;">使用者可以遠端察看手機位置，並且在輸入錯誤密碼時，偷偷拍下偷窺者的的畫面！</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250051/original/fc9c36779949d0a09ff115d1fed90371.png" />
+
+<p>進入<a href="https://mobilesecurity.trendmicro.com/" target="_blank" rel="noopener">行動裝置失竊防護網站</a>就能遠端查看手機位置。經過實測，位置的顯示非常精確；此外，還能進行<strong><span style="color: #800000;">遠端警報、分享、鎖定、清除手機等功能</span></strong>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250052/original/6c4fae4dbefe2dd84dad1f90a91f9303.png" />
+
+<hr />
+
+<p><a id="f" name="f"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250045/original/89bb9910d5c8d6eefe5d0c0dd9be656d.png" alt="總結與心得" /></p>
+<p><strong>或許有人會說，防毒軟體的重點還是要防毒呀，那這款的防毒能力好不好呀？所以我們來看看<a href="https://www.trendmicro.com/zh_tw/forHome/products/pccillin.html#t4" target="_blank" rel="noopener">防毒軟體評比及市場調查</a>怎麼說：</strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250058/original/40f09fc34b35af585ccf0c1129e832a5.jpg" />
+
+<p><strong>而筆者學校的計網中心也規定到，校內的電腦掃毒軟體掃毒結果，僅能以國際資安信評來源(Gartner Report 2018)所推薦的三款防毒來進行回報，趨勢科技 Trend Micro 就占了其中之一。</strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2019/01/250059/original/a77f78354fb902a7ba89606851f25655.png" />
+
+<p><strong><span style="color: #800000;">PC-cillin 2019 雲端版 大概是筆者看過眾多防毒軟體中，功能最齊全的一款了。</span>除了防毒、掃毒，還有勒索剋星、密碼管理通、家長防護網、檔案保險箱等功能，不管是工作性質需要加密電腦檔案的人，還是怕小孩亂開網頁的家庭主婦，甚至是常常在線上購物刷卡、深怕個資外洩的上班族通通不用擔心，<span style="color: #800000;">安裝 PC-cillin 雲端版後，就能使用它各種實用的功能，並杜絕以上可能發生的任何問題！</span></strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/antivirus/" rel="tag"># 防毒軟體</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/D-Link-DIR-2660-DRA-2060/" rel="prev" title="[開箱] D-Link DIR-2660 Mesh 路由器 搭配 DRA-2060 無線延伸器，從此家中 Wi-Fi 訊號零死角 !">
+      <i class="fa fa-chevron-left"></i> [開箱] D-Link DIR-2660 Mesh 路由器 搭配 DRA-2060 無線延伸器，從此家中 Wi-Fi 訊號零死角 !
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/12/DIKE-DS603/" rel="next" title="[開箱] DIKE 禪聲 DS603 多功能木紋藍牙音響，體驗高 CP 值的音樂饗宴！">
+      [開箱] DIKE 禪聲 DS603 多功能木紋藍牙音響，體驗高 CP 值的音樂饗宴！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '993b0f739c4482116fb37cb052762ea1',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="隨著智慧家庭的市場崛起，家中需要連接的無線設備愈來愈多，此時挑選一款訊號佳、連線穩定、頻寬大的路由器亦顯得特別重要。筆者使用過許多款路由器，目前家中架設兩台 Router：小米路由器 mini 置於客廳，而筆者房間距離客廳較遠、Wi-Fi訊號也較差，且電腦和 NAS 也需要接有線網路，因此又牽線架了一台 D-Link DIR-817LW 在房間。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[開箱] D-Link COVR-2202 三頻 Mesh 全覆蓋家用路由器，讓您的手機上網再也不卡卡、不中斷！">
+<meta property="og:url" content="https://ed521.github.io/2018/09/D-Link-COVR-2202/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="隨著智慧家庭的市場崛起，家中需要連接的無線設備愈來愈多，此時挑選一款訊號佳、連線穩定、頻寬大的路由器亦顯得特別重要。筆者使用過許多款路由器，目前家中架設兩台 Router：小米路由器 mini 置於客廳，而筆者房間距離客廳較遠、Wi-Fi訊號也較差，且電腦和 NAS 也需要接有線網路，因此又牽線架了一台 D-Link DIR-817LW 在房間。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243929/original/c914299ed607beb16a6b8699bceae31e.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243879/original/4a5f767f4b4021329bdc37b5f4ef5ce6.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243880/original/bad193fd671bf824f5bd4d472bb6d22f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243881/original/f8ea0a2155045337684e5fe4fb6d9039.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243923/original/c76ea57ab2e461f482aa9f141a1e6a2d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243924/original/3df63f43471df44f5551f1e6937f4bd0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243882/original/c8a566832baae26ff5669cafc7e45f5c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243883/original/63a9e37ccd2466172500debfd14a43ae.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243884/original/f388857c08fbccbe473c31c51133636e.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243885/original/57f549617ee8b869862176821fe05d1d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243886/original/ca1429281c0133e8d44cf74dbe454140.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243887/original/921f0bb04075437c7fc50dad600f0710.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243888/original/d36ce187992df7ac3ed26e7eebef9aa5.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243889/original/43d3e4c9072e1601f519ff248ad00c7c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243890/original/7f3f3a04e7897e20cb8c1977ad8c8e46.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243891/original/fd20ff71e8b5deb0c629ed038c256073.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243892/original/d2292784ab9eca5f0c07f073aa2b5b92.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243893/original/b5eba387f7b9d977a5b507af0979145e.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243894/original/2c386d0a3ecbe3522f073147902c054a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243895/original/6b3b133ab6909cf0363f71060fe07626.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243896/original/3ec9e896fb00039d94b6eb3e9696ea6e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243897/original/1828e89d989d2efca0d670f597f677e0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243898/original/b2feb8653e811ff3ade2f8d3ddde282d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243899/original/cc4375e66be066bf7efdf7cfe379b44a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243900/original/a015e0c698434ea66a48a802fb5f6be3.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243901/original/b17a0d239a0ace53d1cdadb1a513a986.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243902/original/4665822bb3837049d9f915b88ff7b50c.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243925/original/5da62a90dae9aed8e8da642ce644b1ff.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243903/original/6c2c006787aaaa7085026565eac369c0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243904/original/d28c88bf6ecb12331e1f93310ec5e5b0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243905/original/4f562be4ebb105ab3a6da292b261f520.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243906/original/f8097899e76acfeab8abb4fcb166033e.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243926/original/18f44a437b33e2cb28ca45291a5aab1c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243907/original/88b7a1bcdce86febee299987d54592aa.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243908/original/abbde7397e88434fea5d84699fec79ae.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244024/original/4d930a20de5ebb40ff6643bd27fb1d19.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243910/original/778ec319fd0f4f93d3c5f158f7b0aace.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244025/original/c6fb5772acd6f9c696bfa10d7ba0aa4f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244026/original/e94bb3203381ca7ae4439ed0f8b488f3.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244027/original/9d677d5a501de5d2fe97729314472854.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243914/original/7d4f466e671de7b49a4deb6776531341.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243915/original/e6c49dbd7c0cd551cba2ee1ce70ec350.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243916/original/5ac9d20685f8b46ddcf185fe33698d3b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243917/original/63d0ddd46fce468e09dbf55b210df36c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243918/original/c739a75f3d665559057fff6979ef8eef.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243919/original/5a718ccaf2629249e3fba81eaf45e420.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243920/original/d36ca7064320429366aa36faad3dfcec.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243927/original/df39db50447528e93c5cea83be87a288.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243922/original/443f4f7625f79d4f0aef4fa7427eab9a.jpg">
+<meta property="article:published_time" content="2018-09-12T12:38:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:30:09.424Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" D-Link">
+<meta property="article:tag" content=" DLink">
+<meta property="article:tag" content=" COVR-2202">
+<meta property="article:tag" content=" 2202">
+<meta property="article:tag" content=" COVR2202">
+<meta property="article:tag" content=" Mesh">
+<meta property="article:tag" content=" 路由器">
+<meta property="article:tag" content=" router">
+<meta property="article:tag" content=" 三頻">
+<meta property="article:tag" content=" 家用">
+<meta property="article:tag" content=" 全覆蓋">
+<meta property="article:tag" content=" 上網">
+<meta property="article:tag" content=" 收訊好">
+<meta property="article:tag" content=" 訊號">
+<meta property="article:tag" content=" 推薦">
+<meta property="article:tag" content=" 應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243929/original/c914299ed607beb16a6b8699bceae31e.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2018/09/D-Link-COVR-2202/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[開箱] D-Link COVR-2202 三頻 Mesh 全覆蓋家用路由器，讓您的手機上網再也不卡卡、不中斷！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2018/09/D-Link-COVR-2202/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [開箱] D-Link COVR-2202 三頻 Mesh 全覆蓋家用路由器，讓您的手機上網再也不卡卡、不中斷！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2018-09-12 20:38:00" itemprop="dateCreated datePublished" datetime="2018-09-12T20:38:00+08:00">2018-09-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/router/" itemprop="url" rel="index"><span itemprop="name">路由器</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/09/D-Link-COVR-2202/" class="post-meta-item leancloud_visitors" data-flag-title="[開箱] D-Link COVR-2202 三頻 Mesh 全覆蓋家用路由器，讓您的手機上網再也不卡卡、不中斷！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>5.6k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243929/original/c914299ed607beb16a6b8699bceae31e.jpg" />
+
+<p><span style="color: #800000;">隨著智慧家庭的市場崛起，家中需要連接的無線設備愈來愈多，此時挑選一款訊號佳、連線穩定、頻寬大的路由器亦顯得特別重要。</span>筆者使用過許多款路由器，目前家中架設兩台 Router：小米路由器 mini 置於客廳，而筆者房間距離客廳較遠、Wi-Fi訊號也較差，且電腦和 NAS 也需要接有線網路，因此又牽線架了一台 D-Link DIR-817LW 在房間。</p>
+<a id="more"></a>
+
+<p>▼ 家中包含汰換和服役中的路由器，不過都有相同的問題：距離一但過遠，網路訊號就會不佳。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243879/original/4a5f767f4b4021329bdc37b5f4ef5ce6.jpg" />
+
+<p>不過架兩台路由器有很多缺點，首先就是<strong>從客廳進到房間、或是從房間進到客廳時就要切換無線網路，不然 Wi-Fi 的訊號就會不佳。</strong>由於筆者家中的網速是 下載100M / 上傳40M，本人也實測過，訊號強度低於 85% 的話，下載速度大概會衰退到 40M 以下。從下圖的結果來看，如果在筆者房間連客廳的 Wi-Fi，實測的網速只剩下 28.5M / 18M（訊號強度 83%），速度非常慢。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243880/original/bad193fd671bf824f5bd4d472bb6d22f.png" />
+
+<p>再來就是，家中印表機型號為 Epson L355，是支援區網無線列印的型號，但是印表機是連客廳的 Wi-Fi（也就是連小米路由器 Wi-Fi），<strong>每次筆者在房間要列印東西時，還要將電腦插上無線網卡，連到客廳網路才能印東西</strong>，十分地麻煩。（至於為何沒有把 D-Link 路由器直接接在小米路由器後面，是因為 D-Link 的 port 轉發設定較方便且穩定）</p>
+<p>這時後，<strong><span style="color: #800000;">支援 Mesh 網路技術的路由器</span></strong>就能解決以上問題了。不過也有人會說：使用 Wi-Fi 訊號延伸器就行了呀？但其實<span style="color: #800000;">訊號延伸器的連線穩定度與速度相對於 Mesh 路由器會差一些</span>；那 Mesh 是什麼呢？</p>
+<p>簡單來說，Mesh 路由器擁有以下特點：</p>
+<p><span style="color: #008000;"><strong>● 無縫漫遊，到哪都能使用 Wi-Fi 而不會斷線（不會瞬斷）</strong></span><br><span style="color: #008000;"><strong>● 自動調整最佳的路由路徑，也就是自動連線至最佳訊號</strong></span></p>
+<p>因此本次介紹的 <a href="http://www.dlinktw.com.tw/home/product?id=1036" target="_blank" rel="noopener">D-Link COVR-2202 三頻 Mesh 全覆蓋家用 Wi-Fi 系統</a> 是由<span style="color: #800000;">兩台 COVR-2200 所組成，它支援三頻網路，也就是除了給設備連的 2.4G 和 5G Wi-Fi，還有一條 5G 專屬的無線傳輸通道，確保兩台路由器間的連線</span>，如下圖：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243881/original/f8ea0a2155045337684e5fe4fb6d9039.png" />
+
+<p>另外，<span style="color: #800000;">COVR-2202 的訊號涵蓋範圍非常廣，可達 170 坪。</span>還有最重要的就是「<span style="color: #800000;">設定非常簡單</span>」，有些人會怕買了這麼厲害的產品不會設定或操作，這點完全不用擔心，因為<span style="color: #800000;">透過 app 就能完成全部的設定</span>！</p>
+<hr />
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243923/original/c76ea57ab2e461f482aa9f141a1e6a2d.png" alt="內容大綱" />
+
+<p><a href="#a">★ D-Link COVR-2202 開箱及超簡易設定 ★</a><br>└ <a href="#a-1">COVR-2202 產品開箱</a><br>└ <a href="#a-2">COVR-2202 超簡易設定</a></p>
+<p><a href="#b">★ D-Link COVR-2202 特色介紹 ★</a></p>
+<p><a href="#c">★ D-Link COVR-2202 詳細評測與應用 ★</a><br>└ <a href="#c-1">COVR-2202 詳細評測</a><br>└ <a href="#c-2">COVR-2202 應用</a></p>
+<p><a href="#d">★ 總結與心得 ★</a></p>
+<hr />
+
+<p><a id="a" name="a"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243924/original/3df63f43471df44f5551f1e6937f4bd0.png" alt="D-Link COVR-2202 開箱及超簡易設定" /><br><a id="a-1" name="a-1"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td style="background-color: #49CEEF;"><strong>　COVR-2202 產品開箱　</strong></td>
+</tr>
+</tbody>
+</table>
+D-Link COVR-2202 是由兩台 COVR-2200 所組成的「雙包組」；兩台同時使用時，訊號涵蓋範圍可達170坪。
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243882/original/c8a566832baae26ff5669cafc7e45f5c.jpg" />
+
+<p>外盒的其他面則介紹了 COVR-2202 的特色與外觀，且使用 D-Link Wi-Fi app 就能一手掌握路由器的設定及管理；盒子底部列出產品包裝內容、系統需求，以及廠商等資訊。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243883/original/63a9e37ccd2466172500debfd14a43ae.jpg" />
+
+<p>接著打開外盒上蓋可以看到兩台 COVR-2200，左邊那台標註”A”代表是要連接數據機的機器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243884/original/f388857c08fbccbe473c31c51133636e.jpg" />
+
+<p>除了產品主體，相關配件則是用一個白色紙盒包裝著。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243885/original/57f549617ee8b869862176821fe05d1d.jpg" />
+
+<p>配件一共有兩個變壓器(各附有兩腳扁型和三腳扁型兩種插頭)、一條網路線，以及快速安裝指南、售後服務指南等說明書。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243886/original/ca1429281c0133e8d44cf74dbe454140.jpg" />
+
+<p>變壓器的製造商為亞源科技，型號為 WA-24Q12R，電壓輸入為 100V~240V，輸出 12V—2A；並各附有兩腳扁型（適合台灣、日本、美國等地）和三腳扁型（適合港澳、新加坡、馬來西亞等地）兩款插頭，可供交替使用。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243887/original/921f0bb04075437c7fc50dad600f0710.jpg" />
+
+<p>網路線一公尺長的白色扁線，採用 Cat.5e 線材規格；而水晶頭使用鍍金鐵殼，增加線材的耐用性。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243888/original/d36ce187992df7ac3ed26e7eebef9aa5.jpg" />
+
+<p>最後看到 D-Link COVR-2202，<span style="color: #800000;">兩台在出廠時就已完成配對設定</span>；只要<span style="color: #800000;">左邊標註 A 的機器接上數據機並設定好網路，再將右邊的機器插電即自動設定配對</span>，非常簡單！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243889/original/43d3e4c9072e1601f519ff248ad00c7c.jpg" />
+
+<p>COVR-2200 的機身為三角柱體、頂部採用斜面的三角散熱孔洞，且底部的玫瑰金線條更讓路由器宛如精品一般；正面左側有個 WPS 按鈕，方便其它無線設備配對。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243890/original/7f3f3a04e7897e20cb8c1977ad8c8e46.jpg" />
+
+<p>底部設計大量的三角形孔洞來幫助散熱，而兩個網路孔、電源接孔、電源按鈕和 Reset 孔，還有機器序號等產品資訊皆位於機器底部。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243891/original/fd20ff71e8b5deb0c629ed038c256073.jpg" />
+
+<p>不過為了產品美觀，路由器上”COVR Point A”橘色貼紙是可以撕掉的，此時兩台機器從外觀來看就會完全相同；那麼究竟我們要如何分辨差異呢？</p>
+<p>其實 A 機器底部的產品資訊也會標註這台是”Point A”，它的 1 號網路孔就是用來接數據機；而 2 號網路孔和另一台的兩個網路孔能接要上網的有線設備。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243892/original/d2292784ab9eca5f0c07f073aa2b5b92.jpg" />
+
+<hr />
+
+<p><a id="a-2" name="a-2"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td style="background-color: #49CEEF;"><strong>　COVR-2202 超簡易設定　</strong></td>
+</tr>
+</tbody>
+</table>
+安裝 COVR-2202 非常容易，我們首先拿 Point A 機器接電、1 號網路孔接上數據機，然後按下開關按鈕，COVR-2200 會先亮紅燈，接著轉為橘燈閃爍，即可開始設定。
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243893/original/b5eba387f7b9d977a5b507af0979145e.gif" />
+
+<p>以往我們可能需要電腦打開瀏覽器來設定路由器，但 <span style="color: #800000;">COVR-2202 的所有一次性設定都能在 D-Link Wi-Fi app 上執行</span>；下載完 app 後，按下”安裝新裝置”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243894/original/2c386d0a3ecbe3522f073147902c054a.png" />
+
+<p>然後掃描快速安裝卡上的 QR Code，而機器底部也有 QR Code 供掃描。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243895/original/6b3b133ab6909cf0363f71060fe07626.png" />
+
+<p>接下來的步驟看似繁瑣，不過其實只要一直按”下一步”就行了：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243896/original/3ec9e896fb00039d94b6eb3e9696ea6e.png" />
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243897/original/1828e89d989d2efca0d670f597f677e0.png" />
+
+<p>這時要打開手機的 Wi-Fi，並連接到指定的無線網路名稱。（如果沒正確地連上機器 Wi-Fi 才需進行此步驟）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243898/original/b2feb8653e811ff3ade2f8d3ddde282d.png" />
+
+<p>然後輸入相關資訊，包含撥號連線的 PPPoE 帳密、Wi-Fi 帳密（使用者自訂），以及未來要登入 D-Link 管理介面的密碼（使用者自訂）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243899/original/cc4375e66be066bf7efdf7cfe379b44a.png" />
+
+<p>最後看到”Congratulations”就代表全部設定完成了，此時的 A Point COVR-2200 應維持白燈恆亮。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243900/original/a015e0c698434ea66a48a802fb5f6be3.png" />
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243901/original/b17a0d239a0ace53d1cdadb1a513a986.png" />
+
+<p>可能有些人會想說：「不會吧，那我另外一台還要全部重新設定嗎？」</p>
+<p><span style="color: #800000;">完全不用！由於出廠時兩台路由器已完成配對，第二台 COVR-2200 只要接上電源，等待它自己去抓 A 路由器的設定資料就行了</span>；設定完成後一樣會亮白燈，非常的淺顯易懂！</p>
+<p>但是另外一台路由器能放多遠呢？這邊附上亮燈狀態指示：白燈恆亮、白燈閃爍和橘燈閃爍三種，使用者只要<span style="color: #800000;">記得兩台 COVR-2200 都應該要 <strong>恆亮白燈</strong> 才正常</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243902/original/4665822bb3837049d9f915b88ff7b50c.gif" />
+
+<hr />
+
+<p><a id="b" name="b"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243925/original/5da62a90dae9aed8e8da642ce644b1ff.png" alt="D-Link COVR-2202 特色介紹" /></p>
+<p>以下列舉出 D-Link COVR-2202 三頻全覆蓋家用 Wi-Fi 系統的優點：</p>
+<p><strong><span style="color: #008000;">● Mesh Router 智能漫遊，打造無縫上網空間，連接最強的無線訊號，不再需要手動重新連網。</span></strong></p>
+<p>根據開頭的介紹，支援 Mesh 的 COVR-2202 擁有「<span style="color: #800000;">無縫漫遊</span>」，也就是<span style="color: #800000;">在 Wi-Fi 訊號範圍內沒有瞬間斷線問題</span>；以及<span style="color: #800000;">能自動調整最佳路由路徑，也就是自動連線至最佳訊號</span>。</p>
+<p><strong><span style="color: #008000;">● 內建六組高效能天線，搭配 High Power 高功率訊號放大器增強無線訊號，一組兩台訊號範圍可達170坪。</span></strong></p>
+<p>一台 COVR-2200 的訊號範圍是 100 坪，不過兩台為了要傳輸會有一部份訊號重疊，因此一組的訊號範圍可達170坪。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243903/original/6c2c006787aaaa7085026565eac369c0.png" />
+
+<p><strong><span style="color: #008000;">● 三頻同時發送 Wi-Fi 訊號，低干擾 / 傳輸快的 5G 專用無線延伸傳輸通道，提升無線訊號品質，讓居家連網更順暢。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243904/original/d28c88bf6ecb12331e1f93310ec5e5b0.png" />
+
+<p><strong><span style="color: #008000;">● 支援 120 個裝置同時連網，裝置再多也不怕。</span></strong></p>
+<p>如今家中的連網設備越來越多，除了手機平板、電腦等裝置，像筆者家中還有電視盒、NAS、智慧音箱、印表機、智慧插座、網路攝影機等設備。</p>
+<p><strong><span style="color: #008000;">● MU-MIMO 技術提升整體無線傳輸效能，多人同步高速傳輸。</span></strong></p>
+<p><span style="color: #800000;">最新的 MU-MIMO 技術 (Multi-User MIMO) 可同步提供多裝置高速傳輸作業，倍速提升無線傳輸效能！</span>無論是 電腦筆電、手機平板、多媒體播放器或遊戲主機（前提是裝置要支援 MU-MIMO）等多個裝置同時連線時，以避免可能出現的天線閒置以及排隊塞車問題。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243905/original/4f562be4ebb105ab3a6da292b261f520.png" />
+
+<p><strong><span style="color: #008000;">● 無線訊號狀態淺顯易懂。</span></strong></p>
+<p>無線訊號強弱可透過 LED 燈號指示找出最佳擺放位置。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243906/original/f8097899e76acfeab8abb4fcb166033e.gif" />
+
+<p><strong><span style="color: #008000;">● D-Link Wi-Fi app 透過手機或是平板 app 即可輕鬆設定並且管理 Covr，安裝步驟最簡單。</span></strong></p>
+<p>透過前面的設定教學，<span style="color: #800000;">不用電腦打開瀏覽器來設定路由器，只要使用 D-Link Wi-Fi app 設定即可！</span></p>
+<hr />
+
+<p><a id="c" name="c"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243926/original/18f44a437b33e2cb28ca45291a5aab1c.png" alt="D-Link COVR-2202 詳細評測與應用" /><br><a id="c-1" name="c-1"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td style="background-color: #49CEEF;"><strong>　COVR-2202 詳細評測　</strong></td>
+</tr>
+</tbody>
+</table>
+下圖是筆者家中的 COVR-2202 的接線配置。首先 Point A 的 COVR-2200 一孔接數據機、一孔接客廳的電腦；另外一台 COVR-2200 一孔接筆者房間電腦、一孔接房間的 NAS。跟文章開頭圖片不一樣的是，<span style="color: #800000;">筆者房間的路由器走的是無線，不用從客廳的數據機拉一條網路線過來。</span>
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243907/original/88b7a1bcdce86febee299987d54592aa.png" />
+
+<p><span style="color: #0000ff;"><strong>〔筆者房間電腦測速〕</strong></span></p>
+<p>首先測試兩台透過 5GHz 的無線傳輸，接線及測試如下：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243908/original/abbde7397e88434fea5d84699fec79ae.png" />
+
+<p>因此我們要測試接在另一台 COVR-2200 的電腦網速如何，從下圖可知，其<span style="color: #800000;">測試結果就和接實體線路差不多，網速為 93.98M / 39.37M；而行動裝置的測速也在理想值，速度為 92.1M / 39.3M。</span></p>
+<p>PS. 家中網路為中華電信光世代 100M/40M，由於是 FTTB，走的是電話線路，下載速度最高只能到 94M。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244024/original/4d930a20de5ebb40ff6643bd27fb1d19.png" />
+
+<p><strong><span style="color: #0000ff;">〔客廳電腦測試筆者房間 NAS 的傳檔速度，也就是測試兩台 COVR-2200 之間的 5GHz 實際頻寬</span></strong><strong><span style="color: #0000ff;">〕</span></strong></p>
+<p>接著測試 5GHz 的無線傳輸頻寬大小，接線及測試如下：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243910/original/778ec319fd0f4f93d3c5f158f7b0aace.png" />
+
+<p>因此我們要測試區網中透過 5GHz 無線傳輸，電腦和 NAS 的傳檔速度，從下圖可知，<span style="color: #800000;">傳檔速度約 40 MB / 秒，換算後約 320 Mbps。</span></p>
+<p>PS. 雖然兩台 COVR-2200 是用 5GHz 無線傳輸，理論速率為 866 Mbps，但因為距離關係，實際的速率只剩下 320 Mbps。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244025/original/c6fb5772acd6f9c696bfa10d7ba0aa4f.png" />
+
+<p><span style="color: #0000ff;"><strong>〔訊號範圍測試〕</strong></span></p>
+<p>D-Link COVR-2202 讓家中的 Wi-Fi 訊號均無死角；筆者也實測過家裡的訊號都能維持滿格， Wi-Fi 下載速度也有 80M 以上，非常穩定；而<span style="color: #800000;">筆者實測在對街一樓的 Wi-Fi 訊號還有 94%（筆者的家在對面三樓），而</span><span style="color: #800000;">測試速度看似不高，但如果架設另一台 COVR-2202 就能讓訊號做延伸，並提升無線網路速度。</span></p>
+<p>因此，<span style="color: #800000;">如果住在對街的家庭各放一台 COVR-2200 在陽台，就能讓兩家都有 Wi-Fi 可用！</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244026/original/e94bb3203381ca7ae4439ed0f8b488f3.jpg" />
+
+<p>至於垂直訊號，由於筆者的家在三樓，在逃生梯四樓半的地方，Wi-Fi 訊號有 82 %；但 Wi-Fi 速度測試下來並不太理想，大約只有 15M，因此可以<span style="color: #800000;">將另一台 COVR-2200 接在這裡讓訊號延伸，以提升無線網路速度。</span></p>
+<p>由此可見，<span style="color: #800000;">如果是一個家中有四層樓的透天厝，COVR-2200 分別擺在一樓和三樓，就能讓四層樓都有 Wi-Fi 訊號！</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/244027/original/9d677d5a501de5d2fe97729314472854.jpg" />
+
+<p><strong><span style="color: #0000ff;">〔D-Link Wi-Fi app〕</span></strong></p>
+<p>D-Link COVR-2200 的所有初始設定都能於 D-Link Wi-Fi app 上執行，設定完後的主畫面顯示如下：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243914/original/7d4f466e671de7b49a4deb6776531341.png" />
+
+<p>點開設定畫面，app 僅提供一些路由器最常用的功能，像是<span style="color: #800000;">更改 Wi-Fi 密碼、設定訪客無線網路、查看已連線裝置等</span>，而較專業的設定還是要打開瀏覽器輸入 192.168.0.1 來設定；在”管理”頁面能看到裝置相關資訊。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243915/original/e6c49dbd7c0cd551cba2ee1ce70ec350.png" />
+
+<p>這邊筆者介紹一個比較實用的功能，就是 <strong>Wi-Fi 排程功能</strong>，例如家長不想讓小孩在晚上 10 點到隔天早上六點上網，就可以透過下圖來設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243916/original/5ac9d20685f8b46ddcf185fe33698d3b.png" />
+
+<hr />
+
+<p><a id="c-2" name="c-2"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td style="background-color: #49CEEF;"><strong>　COVR-2202 應用　</strong></td>
+</tr>
+</tbody>
+</table>
+過去筆者家中架設兩台不同的路由器，如果房間電腦要印東西，就必須用 USB 網卡去切換到客廳的網路（因為印表機和客廳網路在同一網域中），十分麻煩；可是現在<span style="color: #800000;">使用 COVR-2202 後，全家都在同一個區網中，因此在房間就能直接進行列印了。</span>
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243917/original/63d0ddd46fce468e09dbf55b210df36c.png" />
+
+<p>另外，如果有影片要投放到電視上，目前筆者是使用 Chromecast 來投放，不過也是要在同一個區網內才能看到投放按鈕；而<span style="color: #800000;">現在只要使用房間電腦，就能控制客廳電視要投放什麼影片了，非常方便。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243918/original/c739a75f3d665559057fff6979ef8eef.png" />
+
+<p>也許有些人會有以下問題，就是<span style="color: #800000;">自己在房間內打線上遊戲，但是家人在看影片、載 BT，有時候電腦就因為這樣突然爆 ping 或沒有網路，此時透過”QoS 引擎”，把電腦的流量優先權調到最高。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243919/original/5a718ccaf2629249e3fba81eaf45e420.png" />
+
+<p>而即時對戰的手機遊戲如：傳說對決、皇室戰爭等，<span style="color: #800000;">Wi-Fi 訊號不能中斷非常重要，但是現在本人可以在玩遊戲的時候從客廳走回房間，或是去廁所蹲個馬桶都沒有斷網問題。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243920/original/d36ca7064320429366aa36faad3dfcec.jpg" />
+
+<p>最後，下面的影片為 <span style="color: #800000;">COVR-2200 自動調整至最佳的路由演示</span>，從影片可以看到，筆者從一台 COVR-2200 走到另一台 COVR-2200，其 Wi-Fi 訊號強度從 100% 降至 81% → 72% → 60%，接著再提升回 100%，中間切換過程完全沒有斷訊。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e1I3nxw-v90?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<hr />
+
+<p><a id="d" name="d"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243927/original/df39db50447528e93c5cea83be87a288.png" alt="總結與心得" /></p>
+<p><strong><span style="color: #800000;">D-Link 友訊科技是一間台灣品牌的公司，該公司著重於該網通產品的設計與開發</span>，像是這台 COVR-2202 就榮獲了 <span style="color: #0000ff;">CES 2018 創新大獎 (CES 2018 Innovation Awards Honoree)</span>，代表 D-Link 的產品不論在創新、功能、設計等方面皆一應俱全。而 <span style="color: #800000;">COVR-2202 採用最新三頻的 Mesh 網狀網路技術</span>，除了能夠支援<span style="color: #800000;">大量裝置同時上網，並提供高品質的連線，讓用戶不再為 Wi-Fi 覆蓋率或死角等問題而苦惱。</span></strong></p>
+<p><strong>在這一星期的測試，最讓本人驚訝的是，<span style="color: #800000;">筆者房間的電腦網路非常穩定、玩遊戲時沒有爆 ping</span>，且測速也都在理想的速度 94M/40M。畢竟<span style="color: #800000;">兩台 COVR-2200 走的是「專用」的 5GHz 無線通訊，也就是沒有牽一條實體網路到房間中</span>，能有這樣的連線品質實在是令人驚訝！另外一個印象深刻的事情就是，<span style="color: #800000;">無線訊號涵蓋範圍非常廣，現在在家中的各個角落，不管是離路由器較遠的廚房，還是在密閉空間的廁所，基本上網路訊號都是滿格狀態！</span></strong></p>
+<p><strong>而這台 D-Link COVR-2202 不僅訊號廣、連線又非常穩定穩定，筆者也推薦以下客群來使用：</strong></p>
+<p><strong>● <span style="color: #0000ff;">大坪數的家庭</span>：不管是百坪以上的豪宅、或是 2~4 層樓以上的透天厝都適合。</strong></p>
+<p><strong>● <span style="color: #0000ff;">多隔間的地方</span>：例如把一個大空間隔了許多小房間的場所。</strong></p>
+<p><strong>● <span style="color: #0000ff;">活動會場</span>：像是黑客松、工作坊等需要多裝置連線的場地。</strong></p>
+<p><strong>● <span style="color: #0000ff;">開放式的戶外空間</span>：例如三合院、農場、露天式活動會場等戶外空間。</strong></p>
+<p><strong>● <span style="color: #0000ff;">電腦需要接有線網路，但又有「牽線困難」的問題</span>，像是隔兩層樓不好牽、礙於美觀不想牽等原因。</strong></p>
+<p><strong>● <span style="color: #0000ff;">不希望家裡有任一個角落收不到 Wi-Fi 訊號</span>、或是上個廁所，無線網路就會不穩。</strong></p>
+<p><strong>● <span style="color: #0000ff;">常玩即時對戰類型的手遊、用行動裝置看劇的人。</span></strong></p>
+<p><strong>最後不得不說，D-Link COVR-2202 看起來完全不像是路由器！ 筆者第一眼看到，還以為是一台智慧音箱呢！因為網路線和電源線都藏到了機器背面底部，加上正面還會發光的”COVR” logo，<span style="color: #800000;">讓路由器也擁有了自己的美學</span>！</strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/09/243922/original/443f4f7625f79d4f0aef4fa7427eab9a.jpg" />
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/router/" rel="tag"># 路由器</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/DIKE-DS603/" rel="prev" title="[開箱] DIKE 禪聲 DS603 多功能木紋藍牙音響，體驗高 CP 值的音樂饗宴！">
+      <i class="fa fa-chevron-left"></i> [開箱] DIKE 禪聲 DS603 多功能木紋藍牙音響，體驗高 CP 值的音樂饗宴！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/Synology-Docker-Minecraft/" rel="next" title="[教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器">
+      [教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '57858e6ea248ae2c29c6c08179a0c90d',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

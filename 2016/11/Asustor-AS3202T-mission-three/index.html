@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="很多人都沒有備份電腦資料的習慣，就像筆者以前一樣，總是想說硬碟故障之類的事情不會發生在自己身上吧？但在幾年前，自從家中的電腦因硬碟故障而沒辦法讀取，甚至不惜花上萬元只為了去救一顆硬碟，還是無法救回寶貴的照片、文件時，才瞭解到資料的備份有多麼的重要；而下圖就是家裡的電腦突然無法開機而進行磁碟檢查(因此硬碟故障隨時都有可能發生)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務三 同步備份，安全無虞！">
+<meta property="og:url" content="https://ed521.github.io/2016/11/Asustor-AS3202T-mission-three/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="很多人都沒有備份電腦資料的習慣，就像筆者以前一樣，總是想說硬碟故障之類的事情不會發生在自己身上吧？但在幾年前，自從家中的電腦因硬碟故障而沒辦法讀取，甚至不惜花上萬元只為了去救一顆硬碟，還是無法救回寶貴的照片、文件時，才瞭解到資料的備份有多麼的重要；而下圖就是家裡的電腦突然無法開機而進行磁碟檢查(因此硬碟故障隨時都有可能發生)。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/11/203161/original/31457f2696042cfab7671b7586405bca.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201229/original/9914c179e7236f8fcd2b6205a5b511de.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201230/original/0993ffd0178b6cc87f6dabb1100bed80.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201231/original/6d054f2f8cd7b65423be9a47bdcb265c.jpg">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201232/original/07d55d84c082d7d201b2c2d8260d3711.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201233/original/7333fa6404887629e6b4985b41a65adf.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201234/original/94c742d70c47040435ec0b8defb988bf.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201235/original/5aa1f018d24ff8236fcfce8c6f2caf71.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201236/original/f41503919cf455f86ec4badba507909a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201237/original/5989b9c1dd4bd4defa895d7a513c626a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201238/original/5b5aaa4b06573a8f61eda4b0ffd31573.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201239/original/c981adfea84501a41d278606468b2d53.gif">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201240/original/994a93a8f8ab560557a8992f2dc025c8.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201241/original/7edec19e7d20d5ba427ab5c22678e495.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201242/original/17126cbf74ac204ac725a59643e0c4cb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201243/original/bcff9b3d5d1e0e1d82c1a4d7b1ed4d8c.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201261/original/f2e50e4a617d17225fa3e33a4f74c504.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201262/original/d79377758a5676e723fd0f548fa28f3e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201263/original/1ee6f0e2705dd208babbcb2c7b253216.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201264/original/8eb8a8c074355c01e73d19ffac4e4577.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201265/original/7beb2591b070103a4a6ff33ee07ecf0b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201249/original/5e37d490f64d322d97662de4a4a0df9a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201250/original/d512de61795699e740e63c63cc78bbb5.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201251/original/169efda965419f01ce14168b7743b788.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201252/original/e3ceb6bdc4d8d96fea5000acea6412bd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201253/original/139fb8f7d044b7b169efb8b0336bd766.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201254/original/f62686f405812b7c829bd647280da97b.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201255/original/68188ee602c6a239fde9bf0e0462a16d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201256/original/0735514d8bb28a4e7bdc8bc0968cb51e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201257/original/6ed191cd01a1e78bab5153f43f4979ca.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201258/original/2ad3c5c60ff865e60cea8c96038e088a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201259/original/65d0379a649c23b0d3e583ee756ed362.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201260/original/86896be91bf51ea14ca467a5744d3153.png">
+<meta property="article:published_time" content="2016-11-12T04:58:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:29:47.799Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 華芸">
+<meta property="article:tag" content=" Asustor">
+<meta property="article:tag" content=" AS3202T">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 同步">
+<meta property="article:tag" content=" 資料">
+<meta property="article:tag" content=" 備份">
+<meta property="article:tag" content=" 檔案">
+<meta property="article:tag" content=" 應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/11/203161/original/31457f2696042cfab7671b7586405bca.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2016/11/Asustor-AS3202T-mission-three/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務三 同步備份，安全無虞！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/11/Asustor-AS3202T-mission-three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務三 同步備份，安全無虞！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-11-12 12:58:00" itemprop="dateCreated datePublished" datetime="2016-11-12T12:58:00+08:00">2016-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/asustor/" itemprop="url" rel="index"><span itemprop="name">Asustor NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/11/Asustor-AS3202T-mission-three/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務三 同步備份，安全無虞！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.8k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn1-t17.techbang.com/system/attached_images/2016/11/203161/original/31457f2696042cfab7671b7586405bca.jpg" />
+
+<p>很多人都沒有備份電腦資料的習慣，就像筆者以前一樣，總是想說硬碟故障之類的事情不會發生在自己身上吧？但在幾年前，自從家中的電腦因硬碟故障而沒辦法讀取，甚至不惜花上萬元只為了去救一顆硬碟，還是無法救回寶貴的照片、文件時，才瞭解到資料的備份有多麼的重要；而下圖就是家裡的電腦突然無法開機而進行磁碟檢查(因此硬碟故障隨時都有可能發生)。</p>
+<a id="more"></a>
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201229/original/9914c179e7236f8fcd2b6205a5b511de.jpg" />
+
+<p>因此，與其等到資料遺失才在後悔，筆者現在至少每個月都會將電腦資料完整備份一次。不過說到備份方式，最簡單的就是拿一顆行動硬碟，然後把電腦資料全部丟進去，可是卻有以下幾個缺點：</p>
+<ol>
+<li><p>如之前提到的，<span style="color: #008000;"><strong>移除行動硬碟後，除了有遺失的風險，也容易增加硬碟因碰撞而造成使用壽命減少。</strong></span></p>
+</li>
+<li><p><span style="color: #008000;"><strong>忘記備份或是懶得備份。</strong></span></p>
+</li>
+<li><p>為了解決第二點造成的不便，有人會使用軟體排程備份 + 行動硬碟長期插在電腦上。</p>
+</li>
+</ol>
+<p>第三點看似沒什麼問題，可是近年來<span style="color: #008000;"><strong>「勒索病毒」卻是造成資料無法救回的另一種原因。由於該勒索病毒會將磁碟內的所有檔案加密，包含行動硬碟，因此使用隨身裝置備份資料也不是最安全的。</strong></span></p>
+<p>所以<span style="color: #800000;"><strong>利用ASUSTOR AS3202T來備份資料，就不用擔心電腦資料遺失、中勒索病毒，或是忘記備份了。</strong></span>此外，筆者將介紹一些AS3202T的額外備份與同步功能，如USB外接裝置備份、公有雲同步與備份等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201230/original/0993ffd0178b6cc87f6dabb1100bed80.png" />
+
+<p><span style="color: #ff6600;"><strong>【USB外接裝置備份】</strong></span></p>
+<p>「USB外接裝置備份」可設定要把NAS所有資料 → 外接裝置，還是外接裝置的資料 → NAS，並設定單次備份和排程備份。</p>
+<p>首先，將外接裝置插入ASUSTOR AS3202T的前置USB 3.0埠。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201231/original/6d054f2f8cd7b65423be9a47bdcb265c.jpg" />
+
+<p>打開ADM → 備份與還原 → 外接裝置備份 → 建立，選擇備份方式和外接裝置。(這裡選擇外接裝置 → NAS)</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201232/original/07d55d84c082d7d201b2c2d8260d3711.png" />
+
+<p>接著選擇要備份的檔案(下左圖)，以及備份到哪個資料夾(下右圖)。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201233/original/7333fa6404887629e6b4985b41a65adf.png" />
+
+<p>備份的時間有立即備份與單次/每天/周/月的排程備份。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201234/original/94c742d70c47040435ec0b8defb988bf.png" />
+
+<p>最後輸入”任務名稱”和確認設定。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201235/original/5aa1f018d24ff8236fcfce8c6f2caf71.png" />
+
+<p>由於剛才選擇”立即備份”，任務馬上就會執行。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201236/original/f41503919cf455f86ec4badba507909a.png" />
+
+<p>打開檔案總管，全部資料均備分至指定資料夾了。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201237/original/5989b9c1dd4bd4defa895d7a513c626a.png" />
+
+<p><span style="color: #ff6600;"><strong>【電腦資料備份：同步&amp;排程&amp;單次】</strong></span></p>
+<p>「Backup Plan」可以將電腦中的檔案備份至NAS或是本機端，而備份後也支援還原功能，可以說是一套非常方便的軟體；首先請先至<a href="http://www.asustor.com/service/downloads?product_id=46" target="_blank">官網下載頁面</a>下載該軟體。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201238/original/5b5aaa4b06573a8f61eda4b0ffd31573.png" />
+
+<p>下載完成並安裝，此為「Backup Plan」的介面；如果點選”建立”，有四種傳輸方式及目的端可供選擇：</p>
+<ol>
+<li><span style="color: #008000;"><strong>ASUSTOR NAS</strong></span>：資料將傳遞至區網內的ASUSTOR NAS。(適合與NAS”同一網域”內的電腦)</li>
+<li><span style="color: #008000;"><strong>本機端電腦</strong></span>：資料將傳遞至本機，如：電腦D槽、USB隨身裝置等。</li>
+<li><span style="color: #008000;"><strong>FTP站台</strong></span>：資料將傳遞至支援FTB功能的NAS。(適合經由”外網”連線到NAS的電腦)</li>
+<li><span style="color: #008000;"><strong>其他</strong></span>：資料將傳遞至經由samba服務的檔案伺服器。</li>
+</ol>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201239/original/c981adfea84501a41d278606468b2d53.gif" />
+
+<p><strong>備份計畫設定：選擇連線方式/目的端 → 備份模式 → 要備份的資料路徑 → 目的端路徑。</strong></p>
+<p>簡單來說，<span style="color: #800000;">如果NAS和電腦在同一網域內，就選擇”ASUSTOR NAS”(下左圖)；而經由外網連線者，則選擇”FTP站台”(下右圖)。</span><br>PS.不過”FTP站台”是只要支援FTP的伺服器都可以使用，非常貼心。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201240/original/994a93a8f8ab560557a8992f2dc025c8.png" />
+
+<p>選擇好連線方式後，下一步為備份模式，一共有三種：</p>
+<ol>
+<li><span style="color: #008000;"><strong>僅備份一次</strong></span>：只會備份此任務”一次”。</li>
+</ol>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201241/original/7edec19e7d20d5ba427ab5c22678e495.png" />
+
+<ol start="2">
+<li><span style="color: #008000;"><strong>同步</strong></span>：本機端資料一有新增就會同步至NAS，預設為目的端資料 &gt; 本地端，也就是本地端資料刪除後，目的端不會被刪除。(當然這樣才有備份的意義，不過也可將下面選項勾選，讓兩邊資料保持相同)</li>
+</ol>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201242/original/17126cbf74ac204ac725a59643e0c4cb.png" />
+
+<ol start="3">
+<li><span style="color: #008000;"><strong>排程備份</strong></span>：可設定單次/每天/周/月的某時間定期備份。(最適合電腦備份的選項)</li>
+</ol>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201243/original/bcff9b3d5d1e0e1d82c1a4d7b1ed4d8c.png" />
+
+<p>由於有連不上NAS的可能性，在任務模式中可以設定”重新連線次數”、”連線逾時”等資訊。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201261/original/f2e50e4a617d17225fa3e33a4f74c504.png" />
+
+<p>接著選擇要備份的資料路徑；但有些人可能不想要把所有用不到的資料都上傳，例如執行檔、暫存黨等，這時候就可利用”<strong>檔案過濾器</strong>“來篩選。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201262/original/d79377758a5676e723fd0f548fa28f3e.png" />
+
+<p>最後一步，選擇NAS的備份目的端路徑。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201263/original/1ee6f0e2705dd208babbcb2c7b253216.png" />
+
+<p>除了排程，剛建立好的任務會直接進行備份，不過也能點選上方的”備份”來手動備份；而備份前也可以調整備份完成時是否自動關機。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201264/original/8eb8a8c074355c01e73d19ffac4e4577.png" />
+
+<p>備份完成後，電腦右下方會跳出”備份完成”的訊息。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201265/original/7beb2591b070103a4a6ff33ee07ecf0b.png" />
+
+<p>建議按一下右上角設定，把”開機時自動啟動Backup Plan”勾選，以利排程計畫執行。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201249/original/5e37d490f64d322d97662de4a4a0df9a.png" />
+
+<p><span style="color: #ff6600;"><strong>【電腦資料還原】</strong></span></p>
+<p>打開ADM中的檔案總管，可以看到備份的路徑和電腦內完全相同，包含電腦名稱、磁碟等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201250/original/d512de61795699e740e63c63cc78bbb5.png" />
+
+<p>若要還原檔案，選擇好「Backup Plan」的特定計劃，點選上方的”還原”按鈕，能選是要直接回復還是部份回復檔案。<br>PS. 為了不要讓自己對於什麼計畫是什麼的備份不清楚，因此<span style="color: #800000;">最初的”計劃名稱命名”十分重要！</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201251/original/169efda965419f01ce14168b7743b788.png" />
+
+<p>以”直接回復”為例(還原所有備份檔)，下一步選擇要還原至原目錄還是指定目錄就完成了。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201252/original/e3ceb6bdc4d8d96fea5000acea6412bd.png" />
+
+<p>像筆者剛才把文件裡的資料全刪除後，利用”還原”功能又全都回來了！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201253/original/139fb8f7d044b7b169efb8b0336bd766.png" />
+
+<p><span style="color: #ff6600;"><strong>【公有雲同步與備份】</strong></span></p>
+<p>ASUSTOR支援許多公有雲備份，例如常見的Google Drive, Dropbox, Onedrive…等。使用公有雲固然方便，不過唯一的缺點是<span style="color: #800000;">容量上限</span>的問題。另外，以前發生過Dropbox服務掛掉好幾個小時，相信那時候絕對讓不少人傷腦筋吧。</p>
+<p>為了防止以上情況發生，個人建議可以<span style="color: #800000;">將公有雲備份至NAS，並且是NAS不刪檔的情況下備份(公有雲刪除檔案後，NAS不刪除)，如此一來遇到空間不足臨時要刪除檔案，以利挪出空間，或是公有雲服務掛點時，就不用為此而擔心了。</span></p>
+<p>以Google Drive示範，打開DataSync for GoogleDrive 套件，首先要取得帳號授權。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201254/original/f62686f405812b7c829bd647280da97b.png" />
+
+<p>第二步選擇要同步/備份的資料夾。(預設會在個人home資料夾，新增一個GoogleDrive資料夾)</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201255/original/68188ee602c6a239fde9bf0e0462a16d.png" />
+
+<p>為了不要所有檔案都同步/備份，這裡能過濾檔案類型和大小限制。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201256/original/0735514d8bb28a4e7bdc8bc0968cb51e.png" />
+
+<p>最後同步設定有以下三種，如果像前面提到的，要Google Drive備份至NAS，且公有雲刪檔時NAS不要刪檔，那就選擇第二個(Google Drive to NAS)，並取消勾選下面選項。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201257/original/6ed191cd01a1e78bab5153f43f4979ca.png" />
+
+<p>設定完成後，就會開始備份/同步了！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201258/original/2ad3c5c60ff865e60cea8c96038e088a.png" />
+
+<p><span style="color: #ff6600;"><strong>【Rsync備份】</strong></span></p>
+<p>Rsync為了快速地完成備份工作，在開始傳輸檔案之前會先比較NAS兩端的檔案，<span style="color: #800000;">找出資料有異動的部份，並將這些異動的部份傳輸到目的端，完成備份工作。</span>(可選擇本地NAS → 遠端NAS or 遠端NAS → 本地NAS)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201259/original/65d0379a649c23b0d3e583ee756ed362.png" />
+
+<p><span style="color: #ff6600;"><strong>【FTP備份】</strong></span></p>
+<p>如果遠端NAS不支援Rsync，那也可以使用FTP備份。(可選擇本地NAS → 遠端NAS or 遠端NAS → 本地NAS)</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201260/original/86896be91bf51ea14ca467a5744d3153.png" />
+
+<p><span style="color: #ff6600;"><strong>【結論】</strong></span></p>
+<p>筆者整理了使用ASUSTOR AS3202T來備份與同步資料的好處：</p>
+<p><span style="color: #0000ff;"><strong>*隨身裝置插上NAS，輕鬆將資料全部複製到NAS。</strong></span></p>
+<p><span style="color: #0000ff;"><strong>*支援Rsync備份、FTP備份等。</strong></span></p>
+<p><span style="color: #000000;">電腦備份「Backup Plan」：</span></p>
+<p><span style="color: #0000ff;"><strong>*如果使用行動硬碟來備份電腦資料，遇到勒索病毒時，所有資料被加密一樣沒用；因此備份至家中NAS不會有此問題。</strong></span></p>
+<p><span style="color: #0000ff;"><strong>*具有三種模式的備份：單次/同步/排程。</strong></span></p>
+<p><span style="color: #0000ff;"><strong>*備份完成後可設定自動關機。</strong></span></p>
+<p><span style="color: #0000ff;"><strong>*NAS上的備份路徑和電腦”完全相同”，也因此在還原時，電腦資料可以回到原始路徑(也可選擇其他路徑)。</strong></span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/asustor/" rel="tag"># Asustor NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/11/Asustor-AS3202T/" rel="prev" title="[開箱] 功能齊全，完整呈現！ASUSTOR AS3202T NAS 搭配 Seagate 那嘶狼，十八般武藝樣樣精通！">
+      <i class="fa fa-chevron-left"></i> [開箱] 功能齊全，完整呈現！ASUSTOR AS3202T NAS 搭配 Seagate 那嘶狼，十八般武藝樣樣精通！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/11/Asustor-AS3202T-mission-two/" rel="next" title="[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務二 影視享受，自由無限！">
+      [教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務二 影視享受，自由無限！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '7b3b8e9241ab99e1bb54368e212965f8',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

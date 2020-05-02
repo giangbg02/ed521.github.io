@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ H-1 VPN架設H-2 VPN連線與實測H-3 架設郵件伺服器H-4 郵件測試&amp;《Synology MailPlus》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Tip H. 架VPN&#x2F;郵件伺服器篇">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-Tip-H/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ H-1 VPN架設H-2 VPN連線與實測H-3 架設郵件伺服器H-4 郵件測試&amp;《Synology MailPlus》">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270712/original/6b52ae6dbb874072957d7a3d0dd47874.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270674/original/978e012f1d1f1c2fc6faa51254f297df.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270675/original/5851e7614df3c9c6355aac357d040af8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270676/original/2580d8af831fe3c607bad390cbecebf2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270677/original/dea9cacce8b8124bf11bdd33083f2404.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270678/original/d226595f11269d979184e9c09de0f79a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270679/original/f49660cdbb640388ab4882782c492c69.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270713/original/7aa6b052923555b5c270cd71b7f61383.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270680/original/0f7be4f9b121574841c4f8bc354aeb99.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270681/original/d6e90bcc0816fdc5e51c124d2cd2c03d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270682/original/92081f5ba300fcaf9911d207fa7fc738.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270683/original/27119d2bd906662ce0b594e3119f7874.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270684/original/849093c3475c2135aa0021fd0bec39d2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270685/original/4347d723eb0d989e99c51cbab50415e1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270686/original/39f2d665cc127659ff74d3c96b6c67dc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270714/original/03340e8ac2cac2bfd11bc5c5feb6ab42.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270687/original/db02bede4adf92b360c6869f2e255c84.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270688/original/9804db4aab04a51025243d1ee568b4ae.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270689/original/520b4578c419b9340533e5a2925539bb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270690/original/578aacc1cfdd974c38decc976f2188c0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270691/original/6a715be0a5e6c066e15cf9cf69860c06.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270692/original/f374296f3c7a21114b997e4ed3070919.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270693/original/64ea443444c072dc569be6a8c1a04702.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270694/original/5c0c4d97af3ee1047280a2b2a4983479.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270695/original/99c19bdcabe9a755148c35ab477f2dde.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270696/original/53043b3bd5ab685ad4e8bfb8184dac7d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270697/original/cfa6fc95636702f404dc5342d0824481.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270698/original/19031a9ce69270caa7c66475d222ec7b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270699/original/accc11d7f33f9a4e330651354dd9e085.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270715/original/380b536bea84bb5cb6331b8f70b3b2dd.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270700/original/4618e1db83fbd9a48698c8ed2700fa8d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270701/original/068e574beeac3e0325b8ff4ec0a72e23.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270702/original/7ba162383ea6684a8e2bef508d18c497.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270703/original/638a7cf921e8074ffafb5f13a6bccbe5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270704/original/bf239c2424830b7fdc7c06b289e33479.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270705/original/8cfc402626a3e0545a7d242b231e395c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270706/original/0e613ded4d777178a5881e7068cc3d53.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270707/original/68e9e582e275e4e10c1cab59d21e66c4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270708/original/3e88889d772f95bb4f92c4f18d55d1fc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270709/original/658b201018959e503a1d9565d9d85aa5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270710/original/1262b70ffa390f36920b0a39d2471d84.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270711/original/18e807109d46ed41db51839239f674e4.png">
+<meta property="article:published_time" content="2016-07-27T05:37:00.000Z">
+<meta property="article:modified_time" content="2019-12-23T11:30:59.632Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" VPN">
+<meta property="article:tag" content=" 郵件">
+<meta property="article:tag" content=" MailPlus">
+<meta property="article:tag" content=" 伺服器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270712/original/6b52ae6dbb874072957d7a3d0dd47874.png">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-Tip-H/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Tip H. 架VPN/郵件伺服器篇 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-Tip-H/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Tip H. 架VPN/郵件伺服器篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-27 13:37:00" itemprop="dateCreated datePublished" datetime="2016-07-27T13:37:00+08:00">2016-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-Tip-H/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Tip H. 架VPN/郵件伺服器篇" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.6k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>※本文章為<a href="https://ed521.github.io/2016/07/Synology-DS916plus/" target="_blank">NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！</a>之分支※</p>
+<p><a href="#H-1">H-1 VPN架設</a><br><a href="#H-2">H-2 VPN連線與實測</a><br><a href="#H-3">H-3 架設郵件伺服器</a><br><a href="#H-4">H-4 郵件測試&amp;《Synology MailPlus》</a></p>
+<a id="more"></a>
+
+<p><a id="H-1" name="H-1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270712/original/6b52ae6dbb874072957d7a3d0dd47874.png" /></p>
+<p>架設VPN有幾個好處，首先就是大家最常用的”翻牆”功能，<span style="color: #800000;">如果人在大陸，就能夠利用VPN來連接FB、LINE等</span>。第二種好處就是當<span style="color: #800000;">使用者連線到此網站或遊戲有IP限制</span>(例如：8591只要IP登入跟之前記錄不一致，就會安全鎖定)，<span style="color: #800000;">VPN能擺脫這個限制</span>；最後一種好處則是能夠存取<span style="color: #800000;">Synology產品所在區域網路中的分享資源</span>(例如：同一個網域下，電腦裡的公開分享資料)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270674/original/978e012f1d1f1c2fc6faa51254f297df.png" />
+
+<p>打開『<span style="color: #800080;">VPN Server</span>』，以下三種連線方式擇一開啟就好，筆者選擇”<span style="color: #0000ff;">PPTP</span>“；其實只要將”<span style="color: #0000ff;">啟動PPTP VPN 伺服器</span>“打開就好了，其他設定不用更動。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270675/original/5851e7614df3c9c6355aac357d040af8.png" />
+
+<p>接著會<span style="color: #800000;">要求打開port:1723(沒開啟連線會失敗)</span>，請到控制台新增通訊埠或是進入路由器設定頁面的”通訊埠轉發”設定。(詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-2" target="_blank">B-2 通訊埠轉送設定</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270676/original/2580d8af831fe3c607bad390cbecebf2.png" />
+
+<p>在「<span style="color: #0000ff;">一般設定</span>」裡，可勾選是否要授予權限給新使用者，以及”<span style="color: #0000ff;">自動封鎖</span>“功能(幾分鐘內連線失敗幾次即封鎖該IP)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270677/original/dea9cacce8b8124bf11bdd33083f2404.png" />
+
+<p>由於勾選了”<span style="color: #0000ff;">授予權限給新使用者</span>“，新增的使用者預設都能使用VPN。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270678/original/d226595f11269d979184e9c09de0f79a.png" />
+
+<p>「<span style="color: #0000ff;">連線清單</span>」裡會顯示那些使用者正在連線。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270679/original/f49660cdbb640388ab4882782c492c69.png" />
+
+<p><a id="H-2" name="H-2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270713/original/7aa6b052923555b5c270cd71b7f61383.png" /></p>
+<p><span style="color: #ff6600;"><strong>【VPN連線：以Windows 10為例】</strong></span></p>
+<p>點選電腦工具列左下角的”<span style="color: #0000ff;">開始</span>“ → “<span style="color: #0000ff;">設定</span>“ → “<span style="color: #0000ff;">網路與網際網路</span>“，到「<span style="color: #0000ff;">VPN</span>」頁面 → “<span style="color: #0000ff;">新增VPN連線</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270680/original/0f7be4f9b121574841c4f8bc354aeb99.png" />
+
+<p>輸入連線名稱(自訂)、伺服器位址(例如：sy916.ddns.net)，VPN類型選擇”PPTP”，並且輸入帳號及密碼。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270681/original/d6e90bcc0816fdc5e51c124d2cd2c03d.png" />
+
+<p>新增完還要點選”<span style="color: #0000ff;">連線</span>“，出現”已連線”才算完成唷！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270682/original/92081f5ba300fcaf9911d207fa7fc738.png" />
+
+<p><span style="color: #ff6600;"><strong>【VPN連線：以Andriod手機為例】</strong></span></p>
+<p>打開”<span style="color: #0000ff;">設定</span>“程式 → “<span style="color: #0000ff;">更多</span>“ → “<span style="color: #0000ff;">VPN</span>“(注意不同廠牌的手機可能路徑不同)，點選右上角”<span style="color: #0000ff;">更多</span>“圖示 → “<span style="color: #0000ff;">新增VPN設定檔</span>“(下左圖)；接著填入伺服器位址，類型選擇”<span style="color: #0000ff;">PPTP</span>“(下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270683/original/27119d2bd906662ce0b594e3119f7874.png" />
+
+<p>點選剛剛的設定檔，會要求輸入帳號密碼(記得勾選”<span style="color: #0000ff;">儲存帳號資訊</span>“)，接著按”<span style="color: #0000ff;">連線</span>“(下左圖)；連線成功後看到畫面最上方有個”鎖”的圖示就成功了(下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270684/original/849093c3475c2135aa0021fd0bec39d2.png" />
+
+<p><span style="color: #ff6600;"><strong>【VPN功能實測】</strong></span></p>
+<p>從前面提到的三個好處中，筆者請教大陸的朋友實測VPN，看看是不是能順利真的能”翻牆”來連FB；從下圖中，此人使用的手機位置在北京，並且FB無法登入。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270685/original/4347d723eb0d989e99c51cbab50415e1.png" />
+
+<p>在連接VPN之後(手機畫面最上方有個VPN圖示)，可以看到IP位址已更換到台灣地區，且FB也能正常登入。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270686/original/39f2d665cc127659ff74d3c96b6c67dc.png" />
+
+<p><a id="H-3" name="H-3"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270714/original/03340e8ac2cac2bfd11bc5c5feb6ab42.png" /></p>
+<p>『<span style="color: #800080;">MailPlus Server</span>』可以為NAS上建立專屬的郵件服務。如此一來就能儲存個人的電子郵件、存取郵件伺服器日誌，並完全掌握完整的電子郵件服務。架設一個郵件伺服器一點都不難，而且使用自己的郵件伺服器，<span style="color: #800000;">使用者就不用在意信箱配額的限制，或是免費信箱收不到信等問題</span>了。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270687/original/db02bede4adf92b360c6869f2e255c84.png" />
+
+<p>舉例來說，有些網址的底部有寫道《有任何問題，請聯絡我們<a href="mailto:contact@qk415.ddns.net">contact@qk415.ddns.net</a>》這類的文字，當然一般外面的信箱是不可能申請到”contact”這類的帳號，因此這類的信箱就是<span style="color: #800000;">利用了郵件伺服器的”別名”功能</span>，如下圖。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270688/original/9804db4aab04a51025243d1ee568b4ae.png" />
+
+<p>首先打開『<span style="color: #800080;">MailPlus Server</span>』，會自動跳出設定精靈，請選擇”<span style="color: #0000ff;">建立新的郵件系統</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270689/original/520b4578c419b9340533e5a2925539bb.png" />
+
+<p>基本STMP設定，輸入主機名稱。(例如：sy916.ddns.net，詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-3" target="_blank">B-3 DDNS設定</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270690/original/578aacc1cfdd974c38decc976f2188c0.png" />
+
+<p>架設郵件伺服器只能手動設定網路組態，因此要到『<span style="color: #800080;">控制台</span>』來設定。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270691/original/6a715be0a5e6c066e15cf9cf69860c06.png" />
+
+<p>進入『<span style="color: #800080;">控制台</span>』→「<span style="color: #0000ff;">網路</span>」→「<span style="color: #0000ff;">網路介面</span>」頁面，點選”<span style="color: #0000ff;">區域網路1</span>“(如果只有一個區域網路，就點選那個)，並按一下”<span style="color: #0000ff;">編輯</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270692/original/f374296f3c7a21114b997e4ed3070919.png" />
+
+<p><span style="color: #ff6600;"><strong>【注意：這邊的設定有可能導致外部網路連線失敗，請小心設定】</strong></span><br>接下來要將”只動取得網路設定”改選為”<span style="color: #0000ff;">手動設定網路組態</span>“，並設定IP位址(NAS的區網IP)、閘道器(路由器設定頁面的登入IP，一般為192.168.xxx.1)，不過預設的設定應該是不用更動，除非之後更換網路環境(例如更換路由器)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270693/original/64ea443444c072dc569be6a8c1a04702.png" />
+
+<p>確認完摘要，按一下”<span style="color: #0000ff;">套用</span>“；接著會套用設定，看到三個綠色勾勾後(下右圖藍框)，請按”<span style="color: #0000ff;">完成</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270694/original/5c0c4d97af3ee1047280a2b2a4983479.png" />
+
+<p>設定完成後，進入「<span style="color: #0000ff;">伺服器狀態</span>」，就會發現郵件伺服器已經開始運作了唷！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270695/original/99c19bdcabe9a755148c35ab477f2dde.png" />
+
+<p>接著到「<span style="color: #0000ff;">STMP</span>」→「<span style="color: #0000ff;">一般</span>」頁面，有一些服務的port設定和單一信件大小限制和網域名稱等設定，預設不用特別設定。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270696/original/53043b3bd5ab685ad4e8bfb8184dac7d.png" />
+
+<p>再來是「<span style="color: #0000ff;">STMP</span>」→「<span style="color: #0000ff;">別名</span>」頁面；如下圖所示，例如：設定別名名稱為contact(代表此E-mail名稱為<a href="mailto:contact@sy916.ddns.net">contact@sy916.ddns.net</a>)，然後<span style="color: #800000;">這封信會寄給以下打勾的多名使用者，並且還會寄到外部信箱</span>，如圖設定的Yahoo信箱。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270697/original/cfa6fc95636702f404dc5342d0824481.png" />
+
+<p>最後是帳號設定，由於『<span style="color: #800080;">MailPlus Server</span>』是一個半付費軟體，<span style="color: #800000;">免費版僅提供5個使用者授權，多餘的就須付費</span>。不過如果是筆者開頭提到的功能(別名功能)，其實5位使用者，再加上外部信箱其實就很夠用了。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270698/original/19031a9ce69270caa7c66475d222ec7b.png" />
+
+<p>在開始使用之前，務必到《<span style="color: #800080;">控制台</span>》→「<span style="color: #0000ff;">外部存取</span>」→「<span style="color: #0000ff;">路由器配置</span>」頁面，新增『<span style="color: #800080;">MailPlus Server</span>』需要用到的所有port。(詳見<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-2" target="_blank">B-2 通訊埠轉送設定</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270699/original/accc11d7f33f9a4e330651354dd9e085.png" />
+
+<p><a id="H-4" name="H-4"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270715/original/380b536bea84bb5cb6331b8f70b3b2dd.png" /></p>
+<p>筆者先利用Gmail寄一封信到<a href="mailto:contact@sy916.ddns.net">contact@sy916.ddns.net</a>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270700/original/4618e1db83fbd9a48698c8ed2700fa8d.png" />
+
+<p>緊接者打開『<span style="color: #800080;">MailPlus</span>』，會看到剛剛寄出的信。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270701/original/068e574beeac3e0325b8ff4ec0a72e23.png" />
+
+<p>前面設定的外部信箱也能成功收到信。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270702/original/7ba162383ea6684a8e2bef508d18c497.png" />
+
+<p>測試回覆信件功能是否正常。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270703/original/638a7cf921e8074ffafb5f13a6bccbe5.png" />
+
+<p>結果Gmail也能成功收信，不過利用MailPlus寄信的功能僅限”固定IP”，如果是浮動IP很有可能會被擋信。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270704/original/bf239c2424830b7fdc7c06b289e33479.png" />
+
+<p>不過寄信者的E-mail為<a href="mailto:admin@sy916.ddns.net">admin@sy916.ddns.net</a>，名稱可能不是很好辨識；這時候打開右上角”<span style="color: #0000ff;">設定</span>“圖示 →「<span style="color: #0000ff;">STMP</span>」，點選”<span style="color: #0000ff;">新增</span>“，並在寄件人信箱/名稱設定自己想要的名稱即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270705/original/8cfc402626a3e0545a7d242b231e395c.png" />
+
+<p>然後在”寄件者”的下拉式選單中就會看到剛設定好的名稱了。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270706/original/0e613ded4d777178a5881e7068cc3d53.png" />
+
+<p>『<span style="color: #800080;">MailPlus</span>』還能自行設定多個標籤，並自訂不同顏色，再把信件拉這此分類。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270707/original/68e9e582e275e4e10c1cab59d21e66c4.png" />
+
+<p>行動裝置：《<span style="color: #800080;">Synology MailPlus</span>》為藍底，白色信封的圖示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270708/original/3e88889d772f95bb4f92c4f18d55d1fc.png" />
+
+<p>成功登入後，每封信會以列表顯示(下左圖)；另外，筆者到不同網站註冊會員，結果都能正確地收到驗證信(下右圖)。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270709/original/658b201018959e503a1d9565d9d85aa5.png" />
+
+<p>行動裝置和『MailPlus』該有的功能一樣都沒有少(下左圖)；下右圖為”寫信”的介面。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270710/original/1262b70ffa390f36920b0a39d2471d84.png" />
+
+<p>《<span style="color: #800080;">Synology MailPlus</span>》在平板介面會是兩欄畫面，右側畫面是信件內容(下左圖)；點選左上角”<span style="color: #0000ff;">≡</span>“會顯示更多功能，且以三欄呈現(下右圖)。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270711/original/18e807109d46ed41db51839239f674e4.png" />
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-I/" rel="prev" title="[教學] Synology NAS Tip I. 監控篇">
+      <i class="fa fa-chevron-left"></i> [教學] Synology NAS Tip I. 監控篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-G/" rel="next" title="[教學] Synology NAS Tip G. 架站篇">
+      [教學] Synology NAS Tip G. 架站篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '8463a7ff92d2fc2ebd610509dc46309c',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

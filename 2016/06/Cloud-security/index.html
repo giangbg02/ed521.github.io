@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="雲端安全 ( Cloud security ) ，指基於雲端計算商業模式應用的安全軟體，硬體，使用者，機構，安全雲端平臺的總稱。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="雲端安全 ( Cloud security )">
+<meta property="og:url" content="https://ed521.github.io/2016/06/Cloud-security/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="雲端安全 ( Cloud security ) ，指基於雲端計算商業模式應用的安全軟體，硬體，使用者，機構，安全雲端平臺的總稱。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://s3.amazonaws.com/ydtimages/~yourdai7/wp-content/uploads/2016/02/09081714/cloud-security.jpg">
+<meta property="og:image" content="http://www.cellopoint.com/tw/files/image/products/Cellopoint_SEG_2015.jpg">
+<meta property="og:image" content="http://cdn2.esetstatic.com/eset/US/pages/product/content-images/video-static/video-static-eav-540x300.jpg">
+<meta property="og:image" content="http://ext.pimg.tw/xinping129/46576119f154d6ac8bf3f20f343c6c9e.jpg">
+<meta property="og:image" content="http://farm9.static.flickr.com/8329/8095881502_a5eeb3e108_o.png">
+<meta property="og:image" content="http://www.safenet-inc.com/uploadedImages/Partners/logos/McAfee(1).jpg?n=3019">
+<meta property="article:published_time" content="2016-06-11T06:09:00.000Z">
+<meta property="article:modified_time" content="2018-05-18T09:55:04.142Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="eden">
+<meta property="article:tag" content=" hexo">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" Asustor">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" 心得">
+<meta property="article:tag" content=" 評測">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.amazonaws.com/ydtimages/~yourdai7/wp-content/uploads/2016/02/09081714/cloud-security.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2016/06/Cloud-security/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>雲端安全 ( Cloud security ) | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/06/Cloud-security/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          雲端安全 ( Cloud security )
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-06-11 14:09:00" itemprop="dateCreated datePublished" datetime="2016-06-11T14:09:00+08:00">2016-06-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">未分類</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/06/Cloud-security/" class="post-meta-item leancloud_visitors" data-flag-title="雲端安全 ( Cloud security )" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>8.3k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img class="alignnone size-full" src="https://s3.amazonaws.com/ydtimages/~yourdai7/wp-content/uploads/2016/02/09081714/cloud-security.jpg" alt="" width="767" height="538" />
+
+<p>雲端安全 ( Cloud security ) ，指基於雲端計算商業模式應用的安全軟體，硬體，使用者，機構，安全雲端平臺的總稱。</p>
+<a id="more"></a>
+
+<p>“雲端安全”是“雲端計算”技術的重要分支，已經在反病毒領域當中獲得了廣泛應用。雲端安全通過網狀的大量用戶端對網路中軟體行為的異常監測，獲取網路中木馬、惡意程式的最新資訊，推送到服務端進行自動分析和處理，再把病毒和木馬的解決方案分發到每一個用戶端。整個網路，變成了一個超級大的防毒軟體，這就是雲端安全計畫的宏偉目標。</p>
+<p>在雲端計算的架構下，雲端計算開放網路和業務共用場景更加複雜多變，安全性方面的挑戰更加嚴峻，一些新型的安全問題變得比較突出，如多個虛擬機器租戶間並行業務的安全運行，公有雲中海量資料的安全儲存等。由於雲端計算的安全問題涉及廣泛，以下僅就幾個主要方面進行介紹：</p>
+<p><strong><span style="color: #0000ff;">【用戶身份安全問題】</span></strong></p>
+<p>雲端計算通過網路提供彈性可變的IT服務，使用者需要登錄到雲端來使用應用與服務，系統需要確保使用者身份的合法性，才能為其提供服務。如果非法用戶取得了用戶身份，則會危及合法使用者的資料和業務。</p>
+<p><span style="color: #0000ff;"><strong>【共用業務安全問題】</strong></span></p>
+<p>雲端計算的底層架構是通過虛擬化技術實現資源分享調用，優點是資源利用率高的優點，但是共用會引入新的安全問題，一方面需要保證使用者資源間的隔離，另一方面需要面向虛擬機器、虛擬交換機、虛擬儲存等虛擬物件的安全保護策略，這與傳統的硬體上的安全性原則完全不同。</p>
+<p><span style="color: #0000ff;"><strong>【使用者資料安全問題】</strong></span></p>
+<p>資料的安全性是使用者最為關注的問題，廣義的資料不僅包括客戶的業務資料，還包括使用者的應用程式和使用者的整個業務系統。資料安全問題包括資料丟失、洩漏、篡改等。傳統的IT架構中，資料是離使用者很“近”的，資料離使用者越“近”則越安全。而雲端計算架構下資料常常儲存在離使用者很“遠”的資料中心中，需要對資料採用有效的保護措施，如多份拷貝，資料儲存加密，以確保資料的安全。</p>
+<ul>
+     <li>
+<h2><span style="color: #800000;"><strong>大綱</strong></span></h2>
+</li>
+</ul>
+<strong><span style="color: #000000;">什麼是雲端安全</span></strong>
+
+<p><strong><span style="color: #000000;">發展趨勢</span></strong></p>
+<p><strong><span style="color: #000000;">思想來源</span></strong></p>
+<p><strong><span style="color: #000000;">難點問題</span></strong></p>
+<p><strong><span style="color: #000000;">安全示例</span></strong></p>
+<p><strong><span style="color: #000000;">雲端安全的七大問題</span></strong></p>
+<p><strong><span style="color: #000000;">企業雲端安全解決方案</span></strong></p>
+<p><strong><span style="color: #000000;">資料來源</span></strong></p>
+<ul>
+     <li>
+<h2><span style="color: #800000;"><strong>什麼是雲端安全</strong></span></h2>
+</li>
+</ul>
+“雲端安全 ”是繼“雲端計算”、“雲端儲存”之後出現的“雲端”技術的重要應用，是傳統IT領域安全概念在雲端計算時代的延伸，已經在防毒軟體中取得了廣泛的應用，發揮了良好的效果。在病毒與防毒軟體的技術競爭當中為反病毒軟體奪得了先機。
+<h3><strong>歷史</strong></h3>
+最早提出“雲端安全”這一概念的是趨勢科技，2008年5月，趨勢科技在美國正式推出了“雲端安全”技術。“雲端安全”的概念在早期曾經引起過不小爭議，但目前已經被普遍接受。
+<h3><strong>技術原理</strong></h3>
+“雲端安全（Cloud Security）”計畫是網路時代資訊安全的最新體現，它融合了並行處理、網格計算、未知病毒行為判斷等新興技術和概念，通過網狀的大量用戶端對網路中軟體行為的異常監測，獲取網路中木馬、惡意程式的最新資訊，推送到Server端進行自動分析和處理，再把病毒和木馬的解決方案分發到每一個用戶端。
+<ul>
+     <li>
+<h2><span style="color: #800000;"><strong>發展趨勢</strong></span></h2>
+</li>
+</ul>
+未來防毒軟體將無法有效地處理日益增多的惡意程式。來自網路的主要威脅正在由電腦病毒轉向惡意程式及木馬，在這樣的情況下，採用的特徵庫判別法顯然已經過時。雲端安全技術應用後，識別和刪除病毒不再僅僅依靠本地硬碟中的病毒庫，而是依靠龐大的網路服務，即時進行採集、分析以及處理。整個網路就是一個巨大的“防毒軟體”，參與者越多，每個參與者就越安全，整個網路就會更安全。
+
+<p>雲端安全的概念提出後，曾引起了廣泛的爭議，許多人認為它是不切實際。但事實勝於雄辯，雲端安全的發展像一陣風，趨勢、卡巴斯基、MCAFEE、ESET等都推出了雲端安全解決方案。舉例來說，趨勢科技雲端安全已經在全球建立了5大資料中心，幾萬部線上伺服器。據悉，雲端安全可以支援平均每天55億條點擊查詢，每天收集分析2.5億個樣本，資料庫第一次命中率就可以達到99%。借助雲端安全，趨勢科技現在每天阻斷的病毒感染最高達1000萬次。</p>
+<ul>
+     <li>
+<h2><span style="color: #800000;"><strong>思想來源</strong></span></h2>
+</li>
+</ul>
+雲端安全技術是P2P技術、網格技術、雲端計算技術等分散式運算技術混合發展、自然演化的結果。
+
+<p>垃圾郵件、病毒郵件比電腦病毒變化更快速，攻擊規模及影響範圍不斷的擴大，傳統的郵件安全防禦機制早已無法因應現今多變的網路環境。雲端運算的高速運算特性，可從大量資料當中，擷取、分析全球郵件威脅趨勢，動態攔截已知與未知的垃圾郵件、病毒與釣魚信。</p>
+<p>Cellopoint 早在2006年即著手研究雲端運算於郵件安全上之應用，並於2007年初首創『電子郵件雲端安全』的技術，以虛擬網雲架構提供『全球聯合防禦』與『即時更新防護』之郵件安全服務 - CelloCloud™，在郵件安全領域，帶給使用者更便利、更高品質的雲端服務。</p>
+<img class="alignnone" src="http://www.cellopoint.com/tw/files/image/products/Cellopoint_SEG_2015.jpg" width="560" height="350" />
+
+<p><strong>垃圾郵件：</strong></p>
+<p>首先，用戶安裝用戶端，為收到的每一封郵件計算出一個唯一的“指紋”，通過比對“指紋”可以統計相似郵件的副本數，當副本數達到一定數量，就可以判定<strong>郵件式垃圾郵件</strong>。</p>
+<p>其次，由於網路上多台電腦比一台電腦掌握的資訊更多，因而可以採用分散式貝葉斯學習演算法，在成百上千的用戶端機器上實現協同學習過程，收集、分析並共用最新的資訊。</p>
+<ul>
+     <li>
+<h2><span style="color: #800000;"><strong>難點問題</strong></span></h2>
+</li>
+</ul>
+要想建立“雲端安全”系統，並使之正常運行，需要解決四大問題：
+<ol>
+     <li>需要大量的用戶端（雲端安全探針）</li>
+     <li>需要專業的防毒技術和經驗</li>
+     <li>需要大量的資金和技術投入</li>
+     <li>必須是開放的系統，而且需要大量合作夥伴的加入。</li>
+</ol>
+<ul>
+     <li>
+<h2><span style="color: #800000;"><strong>安全示例</strong></span></h2>
+</li>
+</ul>
+♦ 通過桌面虛擬鏡像資料加密功能，解決雲端資料集中儲存帶來的管理員優先訪問權與虛擬機器逃逸帶來的隱患，防止桌面雲使用者的私有資料洩密。
+
+<p>♦ 結合PKI技術的雙因數雲端終端身份認證，避免雲端終端身份冒認使用風險，提升遠端使用雲端終端的安全性。</p>
+<p>♦ 以雲端終端為識別依據的安全域劃分，取締傳統PC終端依賴物理埠劃分虛擬安全域的機制，符合雲端終端跨區域使用的特性，加強雲端終端之間資料傳輸安全管控。</p>
+<p>♦ 資料動態邊界自動加密功能實現雲中部門間資料可控，防止雲端終端資料通過郵件、網頁或即時通訊工具等造成的洩密。</p>
+<h3><strong>方案特點</strong></h3>
+♦ 通過加密手段將統一儲存的風險進行分攤。對使用者虛擬磁碟空間或者後臺真實資料儲存空間進行加密，實現對非授權使用者在訪問磁碟空間和管理員非法訪問虛擬機器儲存空間的管控。
+♦ 針對桌面雲端終端的資料安全，完全杜絕外發途徑，能夠有效的管控終端使用者使用郵件、即時聊天工具等網路傳播途徑，避免資料洩露。同時還能保留終端使用者的外發資料，能做到事後溯源查詢。
+♦ Chinasec從網路層進行的傳輸控制，針對網卡封裝的資料包進行加密，使得同組內具有相同秘鑰的雲端桌面可以進行透明解密。通過該方式可以實現桌面雲端環境下的虛擬終端隔離，通過軟體方式實現虛擬安全域的劃分。
+♦ 在統一的平臺上可支援對普通PC終端、雲端\桌面及虛擬化終端、移動智慧終端機和物聯網終端等多種終端網路的協同管理，可以有效應對企業IT架構的快速變革與延伸，構建全IT架構協同聯動的資料安全體系。
+<h3><span style="color: #0000ff;"><strong>『ESET NOD32』</strong></span></h3>
+<img class="alignnone" src="http://cdn2.esetstatic.com/eset/US/pages/product/content-images/video-static/video-static-eav-540x300.jpg" width="540" height="300" />
+
+<p>來自於斯洛伐克的ESET NOD32早在2006年，就在其高級啟發式引擎中採用了該項技術，稱之為ThreatSense預警系統，並申請了專利。使用者電腦作為ESET 雲中的一個節點，ESET可以通過ThreatSense預警系統瞭解使用者安裝使用軟體的情況。當殺毒引擎發現某個軟體非常可疑，但又不足以認定它是病毒時，ThreatSense就會收集軟體的相關資訊，並與中心伺服器交換資料，中心伺服器通過所有收集到的資料便能夠迅速準確的作出回饋。</p>
+<h3><span style="color: #0000ff;"><strong>『趨勢科技』</strong></span></h3>
+<img class="alignnone" src="http://ext.pimg.tw/xinping129/46576119f154d6ac8bf3f20f343c6c9e.jpg" width="600" height="245" />
+
+<p>趨勢科技SecureCloud雲端安全6大殺手鐧：</p>
+<ol>
+<li><span style="color: #008000;"><strong>Web信譽服務</strong></span></li>
+</ol>
+<p>借助全球最大的域信譽資料庫之一，趨勢科技的Web信譽服務按照惡意軟體行為分析所發現的網站頁面、歷史位置變化和可疑活動跡象等因素來指定信譽分數，從而追蹤網頁的可信度。然後將通過該技術繼續掃描網站並防止使用者訪問被感染的網站。為了提高準確性、降低誤報率，趨勢科技Web信譽服務為網站的特定網頁或連結指定了信譽分值，而不是對整個網站進行分類或攔截，因為通常合法網站只有一部分受到攻擊，而信譽可以隨時間而不斷變化。</p>
+<p>通過信譽分值的比對，就可以知道某個網站潛在的風險級別。當用戶訪問具有潛在風險的網站時，就可以及時獲得系統提醒或阻止，從而説明使用者快速地確認目標網站的安全性。通過Web信譽服務，可以防範惡意程式源頭。由於對零日攻擊(尚未修補的安全漏洞)的防範是基於網站的可信程度而不是真正的內容，因此能有效預防惡意軟體的初始下載，用戶進入網路前就能夠獲得防護能力。</p>
+<ol start="2">
+<li><span style="color: #008000;"><strong>電子郵件信譽服務</strong></span></li>
+</ol>
+<p>趨勢科技的電子郵件信譽服務按照已知垃圾郵件來源的信譽資料庫檢查IP位址，同時利用可以即時評估電子郵件發送者信譽的動態服務對IP位址進行驗證。信譽評分通過對IP位址的“行為”、“活動範圍”以及以前的歷史進行不斷的分析而加以細化。按照發送者的IP地址，惡意電子郵件在雲中即被攔截，從而防止僵屍或僵屍網路等web威脅到達網路或使用者的電腦。</p>
+<ol start="3">
+<li><span style="color: #008000;"><strong>檔信譽服務</strong></span></li>
+</ol>
+<p>趨勢科技雲端安全將包括檔信譽服務技術，它可以檢查位於端點、伺服器或閘道處的每個檔的信譽。檢查的依據包括已知的良性檔清單和已知的惡性檔清單，即所謂的防病毒特徵碼。高性能的內容分發網路和本地緩衝伺服器將確保在檢查過程中使延遲時間降到最低。由於惡意資訊被保存在雲中，因此可以立即到達網路中的所有用戶。而且，和佔用端點空間的傳統防病毒特徵碼檔下載相比，這種方法降低了端點記憶體和系統消耗。</p>
+<ol start="4">
+<li><span style="color: #008000;"><strong>行為關聯分析技術</strong></span></li>
+</ol>
+<p>趨勢科技雲端安全利用行為分析的“相關性技術”把威脅活動綜合聯繫起來，確定其是否屬於惡意行為。Web威脅的單一活動似乎沒有什麼害處，但是如果同時進行多項活動，那麼就可能會導致惡意結果。因此需要按照啟發式觀點來判斷是否實際存在威脅，可以檢查潛在威脅不同元件之間的相互關係。通過把威脅的不同部分關聯起來並不斷更新其威脅資料庫，使得趨勢科技獲得了突出的優勢，即能夠即時做出回應，針對電子郵件和Web威脅提供及時、自動的保護。</p>
+<ol start="5">
+<li><span style="color: #008000;"><strong>自動回饋機制</strong></span></li>
+</ol>
+<p>趨勢科技雲端安全的另一個重要元件就是自動回饋機制，以雙向更新流方式在趨勢科技的產品及公司的全天候威脅研究中心和技術之間實現不間斷通信。通過檢查單個客戶的路由信譽來確定各種新型威脅，趨勢科技廣泛的全球自動回饋機制的功能很像很多社區採用的“鄰里監督”方式，實現即時探測和及時的“共同智慧”保護，將有助於確立全面的最新威脅指數。單個客戶常規信譽檢查發現的每種新威脅都會自動更新趨勢科技位於全球各地的所有威脅資料庫，防止以後的客戶遇到已經發現的威脅。</p>
+<ol start="6">
+<li><span style="color: #008000;"><strong>威脅資訊匯總</strong></span></li>
+</ol>
+<p>來自美國、菲律賓、日本、法國、德國和中國等地研究人員的研究將補充趨勢科技的回饋和提交內容。在趨勢科技防病毒研發暨技術支援中心TrendLabs，各種語言的員工將提供即時回應，24/7的全天候威脅監控和攻擊防禦，以探測、預防並清除攻擊。</p>
+<p>趨勢科技綜合應用各種技術和資料收集方式——包括“蜜罐”、網路爬行器、客戶和合作夥伴內容提交、反饋回路以及TrendLabs威脅研究——趨勢科技能夠獲得關於最新威脅的各種情報。通過趨勢科技雲端安全中的惡意軟體資料庫以及TrendLabs研究、服務和支援中心對威脅資料進行分析。</p>
+<h3><span style="color: #0000ff;"><strong>『卡巴斯基』</strong></span></h3>
+<img class="alignnone" src="http://farm9.static.flickr.com/8329/8095881502_a5eeb3e108_o.png" width="1504" height="483" />
+
+<p>卡巴斯基的全功能安全防護旨在為網路資訊搭建一個無縫透明的安全體系：</p>
+<p>1.針對網路環境中類型多樣的資訊安全威脅，卡巴斯基實驗室以反惡意程式引擎為核心，以技術集成為基礎，實現了資訊安全軟體的功能平臺化。系統安全、線上安全、內容過濾和反惡意程式等核心功能可以在全功能安全軟體的平臺上實現統一、有序和立體的安全防禦，而不是不同類型和功能的產品的雜湊。</p>
+<p>2.在強大的後臺技術分析能力和線上透明交互模式的支援下，卡巴斯基全功能安全軟體2009可以在用戶“知情並同意(Awareness&amp;Approval)”的情況下線上收集、分析(OnlineRealtimeCollecting&amp;Analysing)使用者電腦中可疑的病毒和木馬等惡意程式樣本，並且通過平均每小時更新1次的全球反病毒資料庫進行使用者分發(InstantSolutionDistribution)。從而實現病毒及木馬等惡意程式的線上收集、即時分析及解決方案線上分發的“卡巴斯基安全網路”，即“雲端安全”技術。卡巴斯基全功能安全軟體2009通過“卡巴斯基安全網路”，將“雲端安全”技術透明地應用於廣大電腦使用者，使得全球的卡巴斯基用戶組成了一個具有超高智慧的安全防禦網，能夠在第一時間對新的威脅產生免疫力，杜絕安全威脅的侵害。”卡巴斯基安全網路”經過了卡巴斯基實驗室長期的研發和測試，具有極高的穩定性和成熟度。因此，才能夠率先在全功能安全軟體2009正式版的產品中直接為使用者提供服務。</p>
+<p>3.通過扁平化的服務體系實現使用者與技術後臺的零距離對接。卡巴斯基擁有全球領先的惡意程式樣本中心及惡意程式分析平臺，每小時更新的反病毒資料庫能夠保障使用者電腦的安全防禦能力與技術後臺的零距離對接。在卡巴斯基的全功能安全的防禦體系中，所有用戶都是網路安全的主動參與者和安全技術革新的即時受惠者。</p>
+<h3><span style="color: #0000ff;"><strong>『McAfee』</strong></span></h3>
+<img class="alignnone" src="http://www.safenet-inc.com/uploadedImages/Partners/logos/McAfee(1).jpg?n=3019" width="580" height="388" />
+
+<p>著名安全廠商McAfee宣佈，將推出基於雲端計算的安全系統Artemis。該系統能夠保護電腦免受病毒、木馬或其他安全威脅的侵害。McAfee旗下AvertLabs的研究人員表示，該系統能夠縮短收集、檢測惡意軟體的時間，及配置整個解決方案的時間；且隨著安全系統的發展，這一時間已經從以往的幾天減少到數小時，又下降到”數毫秒”。</p>
+<p>AvertLabs安全研究及通信主管DaveMarcus表示：”Artemis系統管理一個視窗，企業使用者的所有活動都在該視窗中進行，而該視窗將會持續分析有無惡意軟體。Artemis的目的是為了使所用時間最小化。”</p>
+<p>傳統安全系統使用威脅簽名檔資料庫來管理惡意軟體資訊，而作為一款雲端計算服務，Artemis可以在簽名檔尚未發佈之前就對威脅作出反應。</p>
+<p>Marcus表示，AvertLabs研究人員每週會發現上萬個新的簽名檔。如果用戶電腦裝有Artemis系統，那麼一旦電腦被檢測到存在可疑文件，那麼會立刻與McAfee伺服器聯繫，以確定可疑檔是否是惡意的。通過這一方式，McAfee還能利用所收集的資料為企業提供定制的安全解決方案。</p>
+<p>專家表示，Artemis能夠提供即時的安全保護。而在傳統的基於簽名檔的安全系統中，發現安全威脅和採取保護措施之間往往存在時間延遲。</p>
+<ul>
+     <li>
+<h2><span style="color: #993300;"><strong>雲端安全的七大問題</strong></span></h2>
+</li>
+</ul>
+<h3><strong>雲</strong><strong>端問題</strong></h3>
+雲端計算安全七宗罪雲端安全聯盟與惠普公司共同列出了雲端計算的七宗罪，主要是基於對29家企業、技術供應商和諮詢公司的調查結果而得出的結論。
+<ol>
+     <li><span style="color: #008000;"><strong>資料丟失/洩漏</strong></span>：雲端計算中對數據的安全控制力度並不是十分理想，API存取權限控制以及金鑰生成、儲存和管理方面的不足都可能造成資料洩漏，並且還可能缺乏必要的資料銷毀政策。</li>
+     <li><strong><span style="color: #008000;">共用技術漏洞</span></strong>：在雲端計算中，簡單的錯誤配置都可能造成嚴重影響，因為雲端計算環境中的很多虛擬伺服器共用著相同的配置，因此必須為網路和伺服器配置執行服務水準協定(SLA)以確保及時安裝修復程式以及實施最佳做法。</li>
+     <li><strong><span style="color: #008000;">內奸</span></strong>：雲端計算服務供應商對工作人員的背景調查力度可能與企業資料存取權限的控制力度有所不同，很多供應商在這方面做得還不錯，但並不夠，企業需要對供應商進行評估並提出如何篩選員工的方案。</li>
+     <li><strong><span style="color: #008000;">帳戶、服務和通信劫持</span></strong>：很多資料、應用程式和資源都集中在雲端計算中，而雲端計算的身份驗證機制如果很薄弱的話，入侵者就可以輕鬆獲取使用者帳號並登陸客戶的虛擬機器，因此建議主動監控這種威脅，並採用雙因素身份驗證機制。</li>
+     <li><strong><span style="color: #008000;">不安全的應用程式介面</span></strong>：在開發應用程式方面，企業必須將雲端計算看作是新的平臺，而不是外包。在應用程式的生命週期中，必須部署嚴格的審核過程，開發者可以運用某些準則來處理身份驗證、存取權限控制和加密。</li>
+     <li><strong><span style="color: #008000;">沒有正確運用雲端計算</span></strong>：在運用技術方面，駭客可能比技術人員進步更快，駭客通常能夠迅速部署新的攻擊技術在雲端計算中自由穿行。</li>
+     <li><span style="color: #008000;"><strong>未知的風險</strong></span>：透明度問題一直困擾著雲服務供應商，帳戶使用者僅使用前端介面，他們不知道他們的供應商使用的是哪種平臺或者修復水準。</li>
+</ol>
+<h3><strong>用戶端問題</strong></h3>
+對於客戶來說，雲端安全有網路方面的擔憂。有一些防毒軟體在斷網之後，性能大大下降。而實際應用當中也不乏這樣的情況。由於病毒破壞，網路環境等因素，在網路上一旦出現問題，雲端技術就反而成了累贅，幫了倒忙。
+<h3><strong>解決方式</strong></h3>
+一種“混合雲”技術，將公有雲與私有雲相結合，既發揮了公有雲用戶量大的優勢，又保留了本地的資料能力，結合了傳統與新技術的優勢，解決了不少應用問題。
+<ul>
+     <li>
+<h2><span style="color: #993300;"><strong>企業雲端安全解決方案</strong></span></h2>
+</li>
+</ul>
+<h3><strong>1. </strong><span style="color: #008000;"><strong>內部私有雲，奠定你的雲端計算基礎</strong></span></h3>
+提升雲端安全的第一個方法：瞭解自己。企業需要對現有的內部私有雲環境，以及企業為此雲環境所構建的安全系統和程式有深刻的理解，並從中汲取經驗。不要辯解說你的企業並沒有建立私有雲，事實上，不知不覺中，企業已經建立了內部雲環境。在過去十年中，大中型企業都在設置雲環境，雖然他們將其稱之為"共用服務"而不是"雲".這些"共用服務"包括驗證服務、配置服務、資料庫服務、企業資料中心等，這些服務一般都以相對標準化的硬體和作業系統平臺為基礎。
+<h3><strong>2. </strong><span style="color: #008000;"><strong>風險評估，商業安全的重要保障</strong></span></h3>
+提升雲端安全的第二種方法：對各種需要IT支援的業務流程進行風險性和重要性的評估。你可能很容易計算出採用雲端環境所節約的成本，但是"風險/收益比"也同樣不可忽視，你必須首先瞭解這個比例關係中的風險因素。雲端服務供應商無法為企業完成風險分析，因為這完全取決於業務流程所在的商業環境。對於成本較高的服務水準協定(SLA)應用，雲端計算無疑是首選方案。作為風險評估的一部分，我們還應考慮到潛在的監管影響，因為監管機構禁止某些資料和服務出現在企業、州或國家之外的地區。
+<h3><strong>3. </strong><span style="color: #008000;"><strong>不同雲模型，精准支援不同業務</strong></span></h3>
+提升雲端安全的第三種方法：企業應瞭解不同的雲端模式(公共雲、私有雲與混合雲)以及不同的雲端類型(SaaS，PaaS，IaaS)，因為它們之間的區別將對安全控制和安全責任產生直接影響。根據自身組織環境以及業務風險狀況(見上第2條的分析)，所有企業都應具備針對雲端的相應觀點或策略。
+<h3><strong>4. <span style="color: #008000;">SOA</span></strong><span style="color: #008000;"><strong>體系結構，雲端環境的早期體驗</strong></span></h3>
+提升雲端安全的第四個方法：將SOA(面向服務的架構)設計和安全原則應用於雲端環境。多數企業在幾年前就已將SOA原則運用于應用開發流程。其實，雲端環境不就是SOA的大規模擴展嗎?面向服務的架構的下一個邏輯發展階段就是雲端環境。企業可將SOA高度分散的安全執行原則與集中式安全政策管理和決策制定相結合，並直接運用於雲端環境。在將重心由SOA轉向雲端環境時，企業無需重新制定這些安全性原則，只需將原有策略轉移到雲端環境即可。
+<h3><strong>5. </strong><span style="color: #008000;"><strong>雙重角色轉換，填補雲端計算生態鏈</strong></span></h3>
+提升雲端安全的第五個方法：從雲端服務供應商的角度考慮問題。多數企業剛開始都會把自己看作雲端服務使用者，但是不要忘記，你的企業組織也是價值鏈的組成部分，你也需要向客戶和合作夥伴提供服務。如果你能夠實現風險與收益的平衡，從而實現雲端服務的利益最大化，那麼你也可以遵循這種思路，適應自己在這個生態系統中的雲端服務供應商的角色。這樣做也能夠説明企業更好地瞭解雲端服務供應商的工作流程。
+<h3><strong>6. </strong><span style="color: #008000;"><strong>網路安全標準，設置自身</strong><strong>"</strong><strong>防火牆</strong><strong>"</strong></span></h3>
+提升雲端安全的第六個方法：熟悉企業自身，並啟用網路安全標準-長期以來，網路安全產業一直致力於實現跨域系統的安全和高效管理，已經制定了多項行之有效的安全標準，並已將其用於、或即將用於保障雲端服務的安全。為了在雲端環境世界裡高效工作，企業必須採用這些標準，它們包括：SAML(安全斷言標記語言)，SPML(服務配置標記語言)，XACML(可擴展存取控制標記語言)和WS-Security(網路服務安全)。
+<ul>
+     <li>
+<h2><span style="color: #800000;">資料來源</span></h2>
+</li>
+</ul>
+<ol>
+     <li>《Cloud security: 10 things you need to know》 <a href="http://www.techrepublic.com/article/cloud-security-10-things-you-need-to-know/" target="_blank" rel="noopener">http://www.techrepublic.com/article/cloud-security-10-things-you-need-to-know/</a></li>
+     <li>《Cloud computing security - Wikipedia, the free encyclopedia》<a href="https://en.wikipedia.org/wiki/Cloud_computing_security" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cloud_computing_security</a></li>
+     <li>《趨勢科技Secure Cloud雲安全6大殺手? -ＩＴ浪潮》<a href="http://it.big5.enorth.com.cn/system/2008/07/24/003587760.shtml" target="_blank" rel="noopener">http://it.big5.enorth.com.cn/system/2008/07/24/003587760.shtml</a></li>
+</ol>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/06/Apollo/" rel="prev" title="[開箱] 小空間大實現，Apollo 個人雲端儲存裝置，矚目上市">
+      <i class="fa fa-chevron-left"></i> [開箱] 小空間大實現，Apollo 個人雲端儲存裝置，矚目上市
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/03/D-Link-DCS-2630L-Wireless-IPCam/" rel="next" title="[開箱] 沒有最廣，只有更廣！D-Link DCS-2630L 180° 超廣角AC無線攝影機，擁抱視界的極限">
+      [開箱] 沒有最廣，只有更廣！D-Link DCS-2630L 180° 超廣角AC無線攝影機，擁抱視界的極限 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">大綱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">什麼是雲端安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.1.</span> <span class="nav-text">歷史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.2.</span> <span class="nav-text">技術原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.</span> <span class="nav-text">發展趨勢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text">思想來源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">5.</span> <span class="nav-text">難點問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">6.</span> <span class="nav-text">安全示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">6.1.</span> <span class="nav-text">方案特點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">6.2.</span> <span class="nav-text">『ESET NOD32』</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">6.3.</span> <span class="nav-text">『趨勢科技』</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">6.4.</span> <span class="nav-text">『卡巴斯基』</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">6.5.</span> <span class="nav-text">『McAfee』</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">7.</span> <span class="nav-text">雲端安全的七大問題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">7.1.</span> <span class="nav-text">雲端問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">7.2.</span> <span class="nav-text">用戶端問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">7.3.</span> <span class="nav-text">解決方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">8.</span> <span class="nav-text">企業雲端安全解決方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">8.1.</span> <span class="nav-text">1. 內部私有雲，奠定你的雲端計算基礎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">8.2.</span> <span class="nav-text">2. 風險評估，商業安全的重要保障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">8.3.</span> <span class="nav-text">3. 不同雲模型，精准支援不同業務</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">8.4.</span> <span class="nav-text">4. SOA體系結構，雲端環境的早期體驗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">8.5.</span> <span class="nav-text">5. 雙重角色轉換，填補雲端計算生態鏈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">8.6.</span> <span class="nav-text">6. 網路安全標準，設置自身&quot;防火牆&quot;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">9.</span> <span class="nav-text">資料來源</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'a0597170d2cdfb2b2e159761455f9d5f',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

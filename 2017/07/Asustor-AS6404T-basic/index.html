@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="華芸科技在今年五月推出採用 Intel Apollo Lake 平台 Celeron 處理器，型號為 AS6302T 及 AS6404T 桌上型 NAS。此兩機種為可熱抽拔硬碟式設計，AS6302T 搭載雙核心處理器，內建 2GB 記憶體，可安裝 2 顆硬碟，AS6404T 則搭載四核心處理器，內建 8GB 記憶體，可安裝 4 顆硬碟。本次筆者要測試的型號為 ASUSTOR AS6404T ，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] 家庭影音的絕佳選擇！ASUSTOR AS6404T NAS 搭配 ADM 3.0，全新介面強勢登場！（基本應用篇）">
+<meta property="og:url" content="https://ed521.github.io/2017/07/Asustor-AS6404T-basic/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="華芸科技在今年五月推出採用 Intel Apollo Lake 平台 Celeron 處理器，型號為 AS6302T 及 AS6404T 桌上型 NAS。此兩機種為可熱抽拔硬碟式設計，AS6302T 搭載雙核心處理器，內建 2GB 記憶體，可安裝 2 顆硬碟，AS6404T 則搭載四核心處理器，內建 8GB 記憶體，可安裝 4 顆硬碟。本次筆者要測試的型號為 ASUSTOR AS6404T ，">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220859/original/1b4e5689b756ef24748b6801cd1c33e5.jpg?1499603621">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220849/original/645ce12ba7ccc9bbdb9dde64784aa32c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220850/original/1f7c00527cb45a23e61aa9ad4c232ba3.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220450/original/5a81d8683581aad8cdefa4dec69c15f7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220451/original/5a125c81eb315362dd13b16dcd145e4f.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220452/original/8d0d95e8494b686162a712fc20c9cabf.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220848/original/e24e125f852c6a5ff48c16d728797e4a.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220454/original/fc004c56841b14e0c045fea8324bbf35.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220455/original/5c6a4697501d449ce6feaafe98018891.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220456/original/9af9ace7dca13702ff56ee98c16f486c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220457/original/d8e04babe6e4d6c990c56785e61399b2.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220458/original/ba7869a1c5472e78a945d6cf571a2ae2.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220459/original/e9a19ad24fb1660ca81ddd1e7233bf87.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220460/original/ebdf1a9f175a9d2793aa241c6e7b942c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220461/original/79e97d2ed9cabc8387febb6dd0e39697.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220462/original/47c0f4e5e7ee61186eb7e3388772fd44.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220463/original/644755427b575d74941e74220bdf43c6.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220464/original/07ab9ff079103a694b188262ceef60e8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220465/original/71e140b0f2fa2519b599f04e1d63ca4e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220466/original/db821a1456d8ddb613bce2765096d74b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220467/original/6d980e5b7d588e6a78953d2a8261f06a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220851/original/fcd567e1a5473244553fd4e7f7b16f6a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220468/original/c835fad8319db14bce4943c3baf3da7f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220469/original/5ffe632aa053e6e1bdb7daf8cbc6fd3e.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220470/original/f6745f45025e11b07c30ee91aede83a4.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220471/original/82a762f8f27a879be4f091f41f00b4a7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220476/original/87e9c898653f1bfa57b516f0fd15ceeb.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220472/original/6fff80464178bf65b1b3b4417114269a.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220473/original/f333e77860d9a862b1316b355d16237b.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220474/original/e3a6e9b5c4b4843862dbc789f9eb5f89.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220475/original/ba88cf1c120c49b98751da6336be488d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220477/original/742cf2c110b7013123a8ba4d9bcaf434.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220478/original/9908db53b4636ae4acf7554acfea9b88.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220479/original/1cc8463b8dc96a6afa843f0df69cf6d8.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220480/original/6a500af54eb8f8db4a2c25a47a56bd39.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220481/original/f06e4cdc8fcead8109b5abdc3b973740.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220482/original/9492588959c6aff30013764c3b84ac4c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220483/original/7a1cd5f68807cbe7810e5d9c59c2b49d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220484/original/523761d8f232856b744c7309664dda1d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220485/original/1554e191c8d7e1f02c45a39c201f3484.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220486/original/86117369c31ab6d4a58ce3972ed30caf.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220487/original/85433b7e225d048c7004932d3401829c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220488/original/e3d17908ecf7293e7a0c966b69c8b2dd.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220489/original/25cb5583cf896203049c7aa19338a641.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220490/original/31c25500302bf7e6bbe8b66ab7d3d985.jpg">
+<meta property="og:image" content="https://media.giphy.com/media/3o7bu91QOQZbvPuh0s/giphy.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220491/original/d0ba9ef4cad27464733ef11207149a27.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220492/original/ea7987418f77972f421e5d65b4edae8f.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220493/original/191da18cbabe6ce335bbc198573ea000.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220494/original/2ae14e364b41d4a173b0519454bfbe2b.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220495/original/aee7819d6d251c0d1af4c56dd973a63d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220496/original/55a5583a5bf9f76243cc10d349f8e45f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220853/original/535e725c43499a67beb02f33b1f727ac.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220497/original/b195745d75764d823f0195399b51c84e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220498/original/c20295debaec372f27b77589c9f117d8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220499/original/966e122d24cb505ce12ea73bb2912e43.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220500/original/9c957255f7ee67cbd929d97f6d4be102.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220501/original/057b8639d00470875c379d3bd2ce6174.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220502/original/861043cfab642118d265c6639ac80574.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220503/original/fc843019b0a8c22bd420ae57a12d3d64.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220504/original/c22c0fb4f01f7d9b5a596cf25d7838a0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220505/original/8e0a6688c7bd6e060d86b09b1bbb34d6.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220506/original/c70a54a47b855b5c0f964db1dd1a9832.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220507/original/d769c98049ee828ac01bd0a2b426d267.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220508/original/5b8e5e8bb3d39d88a00a388f8ca685ef.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220509/original/a13f9ea2b5fd8a07a6d6575ad6da32cc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220510/original/973bbe3f3a3cc8e74b181e432a1838fa.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220511/original/c9f92bdc31c9498e63799cb0b9090415.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220512/original/ffd13a89178e6e80c2d405d859021516.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220513/original/1515024ea00329990978ac6829db780a.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220514/original/bfb9dd394da4fea7978c5e40eea73311.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220515/original/a3ee4f79e081ced04cb03f9246c11a25.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220516/original/d26b077525cb8a4c7ba7a44efdc22215.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220517/original/d66d3fd0baa275b588d0853600808046.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220518/original/840524f57876e73e2a0c61e7413e6fa9.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220519/original/a6cd3f76542de18e9b5c27d85a27eca9.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220520/original/732ff9e3a3ee5e1e3cd670573e8174fe.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220521/original/64ca2c24c6b26bc0b9f15a062e136d4c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220522/original/b956189481c32ea7c0a648b2d1c6aac6.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220523/original/5f000db0f788ef70f1c20208a25d520c.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220524/original/778195db8af10cc3d2fc2f1bf6a7dc32.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220525/original/02391b444ff58dbf15eea5a47f878a20.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220526/original/8cbfd95ad507ebf524d3b66f1999b71e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220527/original/9850e62e380128d3b76f21db4f94f0d9.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220528/original/111a1dbfd9b41d6d975abdb29250a0c4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220529/original/5306be381bbe67fc61b629dc263f9c69.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220530/original/b31e5fa14c0b265a5a5d1b1bbcd3f4af.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220531/original/0b3263513030372c765321a9439992b1.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220532/original/52ed8a8c4728b7417ce1f7144487f4f0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220853/original/535e725c43499a67beb02f33b1f727ac.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220533/original/0052b41a9449a7a6f58eb764aa9065f8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220534/original/f4811dcf55707e1f456545ced69720e8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220535/original/886698f9aeb9b254cec4d2ec4b8b5d68.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220536/original/b03483aec069881941dad8389b97866d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220537/original/3872e8be14672509b767656ae97589a0.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220538/original/f484577b6a30b69dcdebcb82d866f68d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220539/original/c9896f07edf12c93a9cd65179a91b8d3.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220540/original/e8786fd06e929f12efdde00c9ab939e8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220541/original/a70b8b13df036bdf8bd2cfed0c727b95.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220542/original/bd6e79602daa247790eda0975889d2f7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220854/original/191d3f9dda0258b11db302333da96510.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220543/original/34fb750961f464bea181a92643d21500.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220544/original/ec569a72dc475c93ae4c873d7394aa00.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220545/original/305db77f80109eab0592ceae99d5ada1.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220546/original/53545a926a87d34fa1980b5acc62f2f2.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220547/original/b9cc1b804278b67bca2fda10ef980e28.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220548/original/594f3c34b9415972e9035a0752e53d48.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220549/original/49633cb2bd9d93600663a26cbe0f235a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220550/original/974cdf4cb772f87344134e2ac573abf6.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220551/original/d650713ccfbbd64676a65e5c003cd8ef.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220552/original/63d9a731696211413caf5d6b34665d91.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220553/original/e53f853a28b022941bed501ec07a751f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220554/original/a8acec07ccc695806959add8bc61bfab.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220555/original/3a7bf97ddb22df5cc8e33af9aff2227f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220556/original/63ca4b326afb71cc1d38b890fb612fda.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220557/original/c1ae933d16d45994b0b18e9867fc8613.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220558/original/715a1f70bf5af7a944155ea7b774a074.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220559/original/c1e04dc069c96e9fb7a90bcf6436209e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220560/original/836a3f53df067a99d9bfb32dd66854b5.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220561/original/a7fa92e93e7086857fb39ef90c44cb4b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220562/original/92b2506224836c61752ec050016d1607.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220563/original/7dc427ebfd7085657112c28956581afd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220564/original/47fbebf4fe4e2462c6e61e1fb7315ffe.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220565/original/0435001886b20f90f01b8d8a061fe41d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220855/original/17cec81ff74210a8eedf508071d54f9f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220566/original/572b9dc989d0079ba702cfbde979b4d0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220567/original/1e6a7d8cf9b68c042e2e89957582fc1a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220568/original/534c6859d5214c89172e52644a45a571.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220569/original/15ea6c4ace3388a3fadf07e24a6211f4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220570/original/d6b596a1fa998140316f6eaf86d1876e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220571/original/dae163b0bd39175ae17c74f7f90fa44e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220572/original/11c3894bee59376f2610a51a81346a21.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220573/original/9f2e1fc39ada9f74beff508a53441b42.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220574/original/ce05172424e50c0e8141acd0e3422442.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220575/original/447059a106c7e778f94a20f3670afdc7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220576/original/0c8e5435cb907b3801a50d8014f4ec14.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220577/original/95169a6cdaa7682db5a38f5288eb32c7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220856/original/67c29881626c0fb29aa18ee1b7758fc0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220578/original/7880e56fbe1ed8f7283c2c6f9feb9f89.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220579/original/28d2011ded7f90d4f541d9abbac58b6b.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220580/original/c1a942d052baedca586aab2ccf559b9c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220581/original/1ded249cefd795deb9b54df874c7fcaf.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220582/original/379d515076a55087dd80685c5c91b9aa.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220583/original/5f138c1f41872c60b43a832254cdd2bb.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220584/original/a2b0e701852124a64f9e189ac5817d5e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220585/original/4a6deca4af2ca5554ac7818ad26fed4e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220586/original/15ad6104df3ebab9e70c3564b4f14ea8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220587/original/c2d96f562d1a0b8d86afc06ea4b30d3a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220588/original/14e6fc54f1c55273c4dffe16302c56af.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220589/original/2317fb6432bbc09e18c2d48dce2a5e69.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220590/original/0c99553524798dd99c8aecddf260ef6f.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220591/original/34a52dd4b2a33d9fb190a5ebc0982396.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220592/original/2e5a09493a7da184aa7302817bd2750f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220593/original/ae93c896b1253b7951b205e2ad17a0da.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220594/original/9896fa26e2c5f14031eb869717253578.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220595/original/e13f3e31b7861687b5d5927b8d18e76a.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220596/original/c6cd2048e6fcccd92182ff9c7fb22a42.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220597/original/87b31db93152c12051ed112d487bd597.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220598/original/d36d78568b89a82e7e3248a998eb9c3c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220599/original/b04da9484fe4e474084ceacb22dcb791.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220600/original/ed1622f3c6b010cb43b9fe41a3f0149d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220601/original/9d3f13d511b51de212342a67114634dc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220602/original/18224b2b8687dd71e6d69a5fd2f5d8da.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220603/original/e3e6e26335bfd144c2c0df32447b3b4d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220604/original/e8ea72bf9e945f3e269f408e389fcd04.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220605/original/1db76de5585d369538120a6b214a0f15.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220606/original/5bd6248d56497d64fc47b23e3c21d7d8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220607/original/e71224e9afa72ea0cd8fb17e0c6a1398.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220608/original/d85524ed82430a9b5a6b93e98493097b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220609/original/57fdecf8b7917e157f1f58bc5b1daf60.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220610/original/46c1dfe9073312426512ca5c2907b2ea.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220611/original/cbeb05dfbca1ef7a85c456862e9e9262.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220612/original/a3b21024f78f17750d7e1dd865d5274b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220613/original/8b3c137a6499e0534ba14e50696d0f62.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220614/original/7e7e10d6299d152303110ec29a359f4e.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220615/original/eda9c534c7673562b909c195078db17c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220616/original/7d21d3fab403b8c7c1f9f4ed54d670be.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220617/original/763d41f7b2ab8dde5fe1e4f4bc55d3d9.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220618/original/7543c5e9f9618f14dba00c508d40b1c8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220619/original/0a64e1c930388fee2c8c169c0e5c815f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220857/original/3a659a210538e98502d72d9de536e739.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220624/original/8ccfc91bdc10018ef3266e14c927d8f4.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220625/original/99b902bd01d1b8ba6dfae741af2eee45.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220626/original/9dbecf3e6d95fbcd7bb0bf557b1cf926.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220627/original/f7458498ecdba4a8631ddaf3858330bc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220628/original/fafaa3b2e1cab9621466da5d17fb2da8.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220629/original/d9290959325efa2e5593bb6a60317996.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220630/original/6194b6a7096fed45e9a903cf6625b8c0.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220631/original/2866c5ae70bb550bbfdeb2f2df97786b.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220632/original/4d8befd613802601eb0778dfc08697e3.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220633/original/2e988a731a444c4105d40b0458d92209.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220634/original/425859b6897f269f80fdfcd6de6afa7a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220635/original/3d6247a03b0e398805a1210197c2261c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220636/original/37b955a3f508590022976f4c43a46cd0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220637/original/33674e6709b6e4ee39677833b9f8515b.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220638/original/171c989fab15ab9cad6f6e3f4b38828d.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220639/original/1a346fe37f3072ceb54831df884a55e7.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220640/original/3e23b0d9f959badb187e955e652b7e90.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220641/original/02681f5af870d54e11d27da961d2a5c7.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220642/original/1b89256341f91eca7bd04cbf9e11d65e.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220643/original/99204b5bc1af9d9034166ef874dec84a.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220644/original/9e39633b320c71fb979c90cb1928c2c3.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220645/original/1eaddfa533d99453420386885c61052a.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220646/original/9ea58a5a45775f515a885e7d4b0e2d93.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220647/original/fcd47b499d26b5ae9b154f6a2d9d5f7f.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220648/original/4b09f683d7d3f1c5004e3ce632707b0a.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220649/original/318779f0ec7eaedf4a5e748f81d47372.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220650/original/95bf6244bc590ed6bb5aef966db66356.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220651/original/7e39890a32e3c2dc427637c19bad3a5c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220652/original/6133f5adc2cb6facdef2be17b9ab40a4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220653/original/521cc8d938f727758aaa3ccaafe7f411.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220654/original/afe9e392720b8c9cbc1e1c7a42e2d22e.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220655/original/aa3b26b33ed42c706d5fce9770082894.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220656/original/01b0474c820d00fa320f158e37f1a7c9.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220657/original/22e576d720b5801b1c01720b4d646f1f.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220658/original/5377a517e63666f7ff2b9a66beaf25e0.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220659/original/96171186a4f6e2615f263551b3162cb8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220660/original/20927c6696f3342a36341b50316e9c75.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220661/original/b213389db9bfb0ab19e43058fb60516f.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220662/original/03f96e5b9035666b53dbaf2cde67b0c3.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220663/original/d78e16b03535aa8f11f0839c87dc18a2.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220664/original/fe2b5a0d0ef5ea0174c2905003bf389c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220665/original/86ab7fa2dc1a08a0a5467798268d6f04.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220666/original/cbd3580797618cdbada1fef3e6b242a1.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220667/original/bab792eb35af7c61b73db8f196c291f2.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220668/original/459265f20b0f4a83c731ec2d18ccb378.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220669/original/394baa286131ab75c08363f87a13ab52.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220858/original/288e1c1ff585c2d544dc12c059ce8662.png">
+<meta property="article:published_time" content="2017-07-10T03:39:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:29:34.679Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="開箱">
+<meta property="article:tag" content=" 心得">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 華芸">
+<meta property="article:tag" content=" Asustor">
+<meta property="article:tag" content=" AS3202T">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" Seagate">
+<meta property="article:tag" content=" 那嘶狼">
+<meta property="article:tag" content=" 檔案">
+<meta property="article:tag" content=" 資料">
+<meta property="article:tag" content=" 分享">
+<meta property="article:tag" content=" 存取">
+<meta property="article:tag" content=" 共享">
+<meta property="article:tag" content=" 備份">
+<meta property="article:tag" content=" 同步">
+<meta property="article:tag" content=" 監控">
+<meta property="article:tag" content=" 安全">
+<meta property="article:tag" content=" 架站">
+<meta property="article:tag" content=" VPN">
+<meta property="article:tag" content=" Minecraft">
+<meta property="article:tag" content=" 伺服器">
+<meta property="article:tag" content=" 多媒體">
+<meta property="article:tag" content=" 本地播放">
+<meta property="article:tag" content=" Asustor Portal">
+<meta property="article:tag" content=" 套件">
+<meta property="article:tag" content=" 音樂">
+<meta property="article:tag" content=" 影片">
+<meta property="article:tag" content=" 相簿">
+<meta property="article:tag" content=" 照片">
+<meta property="article:tag" content=" Takeasy">
+<meta property="article:tag" content=" SoundsGood">
+<meta property="article:tag" content=" LooksGood">
+<meta property="article:tag" content=" Photo Gallery">
+<meta property="article:tag" content=" ADM">
+<meta property="article:tag" content=" ppsspp">
+<meta property="article:tag" content=" KODI">
+<meta property="article:tag" content=" FCEUX">
+<meta property="article:tag" content=" Media Cast">
+<meta property="article:tag" content=" 權限">
+<meta property="article:tag" content=" 設定">
+<meta property="article:tag" content=" 應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220859/original/1b4e5689b756ef24748b6801cd1c33e5.jpg?1499603621">
+
+<link rel="canonical" href="https://ed521.github.io/2017/07/Asustor-AS6404T-basic/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] 家庭影音的絕佳選擇！ASUSTOR AS6404T NAS 搭配 ADM 3.0，全新介面強勢登場！（基本應用篇） | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2017/07/Asustor-AS6404T-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] 家庭影音的絕佳選擇！ASUSTOR AS6404T NAS 搭配 ADM 3.0，全新介面強勢登場！（基本應用篇）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2017-07-10 11:39:00" itemprop="dateCreated datePublished" datetime="2017-07-10T11:39:00+08:00">2017-07-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/asustor/" itemprop="url" rel="index"><span itemprop="name">Asustor NAS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/asustor/" itemprop="url" rel="index"><span itemprop="name">Asustor NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/07/Asustor-AS6404T-basic/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] 家庭影音的絕佳選擇！ASUSTOR AS6404T NAS 搭配 ADM 3.0，全新介面強勢登場！（基本應用篇）" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>18k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220859/original/1b4e5689b756ef24748b6801cd1c33e5.jpg?1499603621" />
+
+<p>華芸科技在今年五月推出採用 Intel Apollo Lake 平台 Celeron 處理器，型號為 AS6302T 及 AS6404T 桌上型 NAS。此兩機種為可熱抽拔硬碟式設計，AS6302T 搭載雙核心處理器，內建 2GB 記憶體，可安裝 2 顆硬碟，AS6404T 則搭載四核心處理器，內建 8GB 記憶體，可安裝 4 顆硬碟。<span style="color: #800000;">本次筆者要測試的型號為 ASUSTOR AS6404T ，此機種有更優於前一代 ASUSTOR NAS 的性能，尤其以 4K 多媒體的處理程序及串流播放更為顯著，可為進階玩家及中小企業帶來多媒體應用及高效能雲端儲存優勢</span>；由於內建 8GB 記憶體，對於運作多個套件也能同時使用，而不受效能限制。</p>
+<a id="more"></a>
+
+<p>亦在五月全新推出的 ADM 3.0 (Asustor Data Manager 3.0) 不僅<span style="color: #800000;">擁有嶄新的視覺介面，桌面應用程式的自由排版和群組收納管理，讓使用者能更靈活運用桌面空間</span>；<span style="color: #800000;">在登入畫面也做了不少改變，除了左上角多了時間顯示，對於特定應用程式（『Photo Gallery』、『SoundsGood』、『LooksGood』及『監控中心』）做了專屬的快速連結，讓使用者得以跳過 ADM 登入程序，快速導向個別專屬頁面</span>。此外，許多套件也做了界面和功能上的升級，尤其是『LooksGood』，最大的改變就是從以往”資料夾式的瀏覽”改為電影/影集海報的”索引式瀏覽”。</p>
+<hr />
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220849/original/645ce12ba7ccc9bbdb9dde64784aa32c.png" />
+
+<p><a href="#a">-ADM 3.0 新功能/介面搶先看-</a></p>
+<p><a href="#b">-AS6404T 新功能/特色介紹 &amp; 開箱-</a></p>
+<p><a href="#c">-NAS 初始設定-</a></p>
+<p><a href="#d">-使用者/資料夾權限設定-</a></p>
+<p><a href="#e">-檔案存取 &amp; 分享-</a><br><a href="#e-1">└ 檔案存取</a><br><a href="#e-2">└ 檔案分享</a></p>
+<p><a href="#f">-下載工具-</a><br><a href="#f-1">└ 『下載中心』</a><br><a href="#f-2">└ 『Takeasy』</a>(下載 YouTube 影片)</p>
+<p><a href="#g">-多媒體影音娛樂中心-</a><br><a href="#g-1">└ 音樂套件『SoundsGood』</a> <span style="color: #ff0000;"><strong>NEW!</strong></span><br><a href="#g-2">└ 影片套件『LooksGood』</a> <strong><span style="color: #ff0000;">NEW!</span></strong><br><a href="#g-3">└ 相簿套件『Photo Gallery』</a></p>
+<p><a href="#h">-多媒體本地播放 ASUSTOR Portal-</a><br><a href="#h-1">└ 『ADM』、『Chrome』</a><br><a href="#h-2">└ 『Youtube』、『Media Cast』</a><br><a href="#h-3">└ 『ppsspp』、『FCEUX』</a>(遊戲機模擬器)<br><a href="#h-4">└ 『KODI』(影音播放應用)</a> <strong><span style="color: #ff0000;">NEW!</span></strong></p>
+<p><a href="http://notp.ddns.net/?p=1949#i" target="_blank" rel="noopener">-總結與心得-</a></p>
+<hr />
+
+<p><a id="a" name="a"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220850/original/1f7c00527cb45a23e61aa9ad4c232ba3.png" /></p>
+<p>以下要介紹的是 ADM 3.0 和 舊版 ADM 2.7 的功能和介面差異。</p>
+<p><span style="color: #ff6600;"><strong>【安裝 ADM 時能選擇要預載的應用程式】</strong></span></p>
+<p>在初始化 ADM 的過程中，能<span style="color: #800000;">同時自動完成特定的應用程式安裝</span>（家用為影音、企業為備份相關應用），一旦系統完成後立即使用。<br>PS. 必須先完成 ASUSTOR ID 的登入/註冊。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220450/original/5a81d8683581aad8cdefa4dec69c15f7.png" />
+
+<p><span style="color: #ff6600;"><strong>【全新 ADM 3.0 登入畫面】</strong></span></p>
+<p>與 ADM 2.7 相比，新版登入介面增加了<span style="color: #800000;"><strong>“日期時間”</strong>的顯示</span>（左上角），以及<span style="color: #800000;"><strong>“線上說明小助手”</strong>和管理員可自訂文字的<strong>“系統公告”</strong></span>（右上角）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220451/original/5a125c81eb315362dd13b16dcd145e4f.gif" />
+
+<p><strong><span style="color: #ff6600;">【應用程式入口（無須進入 ADM）】</span></strong></p>
+<p>現在<span style="color: #800000;">不用登入 ADM 就可以快速開啟特定程式</span>：『Photo Gallery』、『LooksGood』、『Surveillance Center』和『SoundsGood』，不過當然還是需要登入才可使用。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220452/original/8d0d95e8494b686162a712fc20c9cabf.png" />
+
+<p><strong><span style="color: #ff6600;">【嶄新的應用程式介面、App 圖示】</span></strong></p>
+<p>應用程式同步釋出<span style="color: #800000;">專為 ADM 3.0 設計的新版本，介面與功能全面進化</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220848/original/e24e125f852c6a5ff48c16d728797e4a.gif" />
+
+<p><span style="color: #ff6600;"><strong>【三種桌面排版】</strong></span></p>
+<p><span style="color: #800000;">桌面圖示有 5x3、6x3、7x4 三種排版設定</span>；例如桌電就使用 7x4 排版；而若是筆電螢幕較小，則可以選擇 5x3 排版。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220454/original/fc004c56841b14e0c045fea8324bbf35.gif" />
+
+<p><span style="color: #ff6600;"><strong>【應用程式資料夾】</strong></span></p>
+<p>對於同類型的 APP，使用者也能<span style="color: #800000;">加入群組資料夾來分類</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220455/original/5c6a4697501d449ce6feaafe98018891.gif" />
+
+<p><strong><span style="color: #ff6600;">【桌面 APP 排序】</span></strong></p>
+<p>桌面應用程式能<span style="color: #800000;">透過名稱、時間或類型等方式自動排序</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220456/original/9af9ace7dca13702ff56ee98c16f486c.png" />
+
+<p><strong><span style="color: #ff6600;">【桌面快照：保留熟悉的程式排序】</span></strong></p>
+<p>“桌面快照” 算是一個比較貼心的功能，它能<span style="color: #800000;">對當下的 App 進行排序排版備份，以防止個人 App 順序設定錯誤而”回不去了”</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220457/original/d8e04babe6e4d6c990c56785e61399b2.png" />
+
+<p>此外，使用者也可以<span style="color: #800000;">對不同的排版（5x3、6x3、7x4）來儲存</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220458/original/ba7869a1c5472e78a945d6cf571a2ae2.png" />
+
+<p><strong><span style="color: #ff6600;">【應用程式可釘選至工作列】</span></strong></p>
+<p>就像電腦桌面下方的工作列一樣，我們也能<span style="color: #800000;">將常用的應用程式釘選至 ADM 上方</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220459/original/e9a19ad24fb1660ca81ddd1e7233bf87.png" />
+
+<p><span style="color: #ff6600;"><strong>【檔案/資料夾桌面捷徑】</strong></span></p>
+<p>對於<span style="color: #800000;">常用的資料夾或檔案建立桌面捷徑</span>，可用來快速開啟檔案/資料夾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220460/original/ebdf1a9f175a9d2793aa241c6e7b942c.png" />
+
+<p>最好的例子就是我能利用建立的資料夾捷徑，快速開啟想看的影集、電影等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220461/original/79e97d2ed9cabc8387febb6dd0e39697.gif" />
+
+<p><strong><span style="color: #ff6600;">【使用者主題色彩客製化】</span></strong></p>
+<p>可<span style="color: #800000;">切換背景主題模組（淺色or深色工作列），並各提供三種視窗顏色</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220462/original/47c0f4e5e7ee61186eb7e3388772fd44.gif" />
+
+<p><strong><span style="color: #ff6600;">【應用程式視窗大小調整】</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220463/original/644755427b575d74941e74220bdf43c6.gif" />
+
+<p><strong><span style="color: #ff6600;">【桌面監控小工具】</span></strong>（for 管理員）</p>
+<p>對管理員來說，ADM 3.0 另一個新功能就是 <span style="color: #800000;"><strong>“桌面監控小工具”</strong>，能夠即時查看 NAS 資源使用狀況、線上使用者和重要日誌</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220464/original/07ab9ff079103a694b188262ceef60e8.png" />
+
+<p><strong><span style="color: #ff6600;">【WOW 網路喚醒 NAS】</span></strong></p>
+<p>只要搭配 AS6302T、AS6404T 兩新機種就能<span style="color: #800000;">使用 Wake-On-Wan (WOW) 網路喚醒機器的功能</span>，適合在外面、或是只有需要時才會打開 NAS 使用的人。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220465/original/71e140b0f2fa2519b599f04e1d63ca4e.png" />
+
+<p><strong><span style="color: #ff6600;">【輕鬆連線：網路穿透功能】</span></strong></p>
+<p>多數人認為<span style="color: #800000;"> NAS 難以上手的其中原因是因為設定困難</span>，而筆者也不得不同意 NAS 在網路設定這方面是相對複雜的。但是在 ADM 3.0 中 ASUSTOR 把它簡化了！<span style="color: #800000;">透過”網際網路穿透”功能，網內網外皆能順利連線 NAS</span>（適合網路環境複雜和希望設定輕鬆上手的用戶）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220466/original/db821a1456d8ddb613bce2765096d74b.png" />
+
+<p><strong><span style="color: #ff6600;">【ASUSTOR EZ Connect】</span></strong></p>
+<p>ASUSTOR EZ Connect (AEC) 可以<span style="color: #800000;">遠端遙控 NAS 和掛載 NAS 磁碟機到電腦中的檔案總管</span>，這部分會在後面做更詳細的介紹。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220467/original/6d980e5b7d588e6a78953d2a8261f06a.png" />
+
+<hr />
+
+<p><a id="b" name="b"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220851/original/fcd567e1a5473244553fd4e7f7b16f6a.png" /></p>
+<p><strong><span style="color: #ff6600;">【AS6404T 新功能/特色介紹】</span></strong></p>
+<p><span style="color: #008000;"><strong>● Intel Celeron (Apollo Lake) 四核心處理器</strong></span></p>
+<p>全新的 AS6404T 搭載 Intel Celeron (Apollo Lake) 第六代 14 奈米製程四核心處理器，可自動超頻至 2.3GHz，整體性能較前一代提升 30%。</p>
+<p><strong><span style="color: #008000;">● GPU升級，提升多媒體處理效能</span></strong></p>
+<p>AS6404T 內建新世代 Intel HD 繪圖引擎，<span style="color: #800000;">支援 HEVC 和 VP9 的硬體解碼，大幅提升多媒體及圖檔處理效能 30%</span>，為專業人士及影音玩家提供如魚得水般的順暢使用體驗。</p>
+<p><strong><span style="color: #008000;">● 綠能低耗電</span></strong></p>
+<p>AS6404T 的新一代 Apollo Lake 處理器，優於前一款 ASUSTOR NAS 的耗電表現，能滿足個人、家庭及輕量級辦公室的全天候待機及存取。</p>
+<p><strong><span style="color: #008000;">● 雙網路孔</span></strong></p>
+<p>網路通道聚合技術可使傳輸具有容錯、負載平衡，並且能將網路頻寬合併。（下圖是通道聚合的各種模式設定）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220468/original/c835fad8319db14bce4943c3baf3da7f.png" />
+
+<p><strong><span style="color: #008000;">● 8GB 雙通道記憶體</span></strong></p>
+<p>AS6404T 擁有 4GB*2 雙通道記憶體，如此一來若同時架站、架設遊戲伺服器，以及使用 KODI 等 ASUSTOR 套件時，能提供足夠的記憶體來運作。</p>
+<p><strong><span style="color: #008000;">● USB Type-C 連接埠</span></strong></p>
+<p>AS6404T 具有一個 USB 3.0 Type-C 連接埠。由於現在的主機板和新出的筆記型電腦，甚至是許多高階手機都配有 Type-C 連接埠，因此 Type-C 介面必定成為資料傳輸的趨勢。</p>
+<p><strong><span style="color: #008000;">● HDMI 2.0 規格</span></strong></p>
+<p>AS6404T支援次世代 HDMI 2.0 規格（可將 NAS 外接螢幕顯示器），最高可<span style="color: #800000;">支援60/50P 4K 解析度影像</span>，流暢度是 4K 30P 的兩倍，大幅提升視覺上的享受！（下圖是 HDMI 2.0 和 HDMI 1.4 以及前幾代規格差異）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220469/original/5ffe632aa053e6e1bdb7daf8cbc6fd3e.jpg" />
+
+<p><strong><span style="color: #008000;">● LCD 顯示面板</span></strong></p>
+<p>LCD 面板可以即時查看 NAS 的區網 IP 位址，不用特地到路由器介面查詢；而 LCD 面板也提供一鍵備份和各種 NAS 資訊的顯示，例如CPU/硬碟的溫度、總/已使用/剩餘的容量等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220470/original/f6745f45025e11b07c30ee91aede83a4.jpg" />
+
+<p><strong><span style="color: #008000;">● ASUSTOR NAS 提供免費 4 路攝影頻道授權</span></strong></p>
+<p>就筆者所知，<span style="color: #800000;">多數 NAS 廠商僅提供 1~2 路的攝影機授權</span>（若要更多授權則須付費啟用）；不過其實算一算，如果為了查看家門前有無陌生人經過，或是家中毛小孩情況，客廳和臥室各裝一支攝影機，因此 <span style="color: #800000;">4 路授權才能滿足一般家庭的需求</span>。（下圖是『Surveillance Center』介面）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220471/original/82a762f8f27a879be4f091f41f00b4a7.png" />
+
+<p><span style="color: #008000;"><strong>● MyArchive 冷備份技術</strong></span></p>
+<p>透過 MyArchive 冷備份技術，<span style="color: #800000;">將 NAS 硬碟變成”可卸載的收藏硬碟”，直接置入 MyArchive 硬碟即可存取內容</span>，備份、分享數 TB 資料輕而易舉。（下面是 MyArchive 功能介紹影片）</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HbSk-T7E-AM?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><strong><span style="color: #008000;">● Wake-On-Wan 網路喚醒功能</span></strong></p>
+<p>雖然說 ASUSTOR NAS 的耗電量非常低，不過可能有些人認為，<span style="color: #800000;">自己沒在使用的時候就不用 24 小時開著 NAS，進而降低硬碟的損耗，或是成為駭客的攻擊目標。</span>因此這個功能對某些人來說還蠻實用的，因為如果在區網內，我們可能手動去按下 AS6404T 的開機鍵就好了；但若在戶外呢？這時候就要<span style="color: #800000;">透過這個新功能：<strong>WOW (Wake on WAN)</strong> ，透過網際網路來遠端啓動 NAS。</span></p>
+<p>從下面的實測影片中，筆者手機利用 4G 行動網路，並透過《AiMaster》這款 ASUSTOR App 來遠端啟動 NAS，大約花了 13 秒來找尋啟動。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3l3Cih1Yjrk?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><strong><span style="color: #ff6600;">【產品開箱】</span></strong></p>
+<p>本次要開箱的 NAS 型號為 <strong>ASUSTOR AS6404T</strong>。從底部紫色的眾多圖示可以得知，NAS 擁有非常多不同的功能，從最左邊依序為：雲端、備份、相片、影片、音樂、監控、下載…，等著使用者去應用與探索。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220476/original/87e9c898653f1bfa57b516f0fd15ceeb.jpg" />
+
+<p>箱子側邊印出 AS6404T 基本規格、產品內容物，以及支援 ASUSTOR NAS 的行動裝置 App。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220472/original/6fff80464178bf65b1b3b4417114269a.jpg" />
+
+<p>在另一側更簡明扼要地說明了各種應用的軟體名稱，這些筆者在後面都會詳加介紹。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220473/original/f333e77860d9a862b1316b355d16237b.jpg" />
+
+<p>接著打開盒蓋，頂端貼心的提示了在開始安裝之前，請先閱讀光碟中附錄的快速安裝指南；下方則附上華芸各大服務連結的 QR Code。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220474/original/e3a6e9b5c4b4843862dbc789f9eb5f89.jpg" />
+
+<p>機器的上下方都有厚厚的硬泡棉包覆，旁邊為配件盒。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220475/original/ba88cf1c120c49b98751da6336be488d.jpg" />
+
+<p>配件盒中內容物如下：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220477/original/742cf2c110b7013123a8ba4d9bcaf434.jpg" />
+
+<p>變壓器的製造商為台達電子，型號為 DPS-90AB-3，電壓輸入 100V~240V，輸出 12V—7.5A。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220478/original/9908db53b4636ae4acf7554acfea9b88.jpg" />
+
+<p>網路線是 Cat.5e 的線材規格，長度約 1.5 公尺。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220479/original/1cc8463b8dc96a6afa843f0df69cf6d8.jpg" />
+
+<p>電源線扣環能防止電源接頭從 NAS 上鬆脫，安裝方式如下圖的右下角。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220480/original/6a500af54eb8f8db4a2c25a47a56bd39.jpg" />
+
+<p>快速安裝指南則簡單說明”可以遵照光碟內的說明來安裝 NAS”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220481/original/f06e4cdc8fcead8109b5abdc3b973740.jpg" />
+
+<p>最後看到 AS6404T 主體，機器採用一貫的外觀設計。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220482/original/9492588959c6aff30013764c3b84ac4c.jpg" />
+
+<p>正面各按鈕和指示燈的說明如下圖。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220483/original/7a1cd5f68807cbe7810e5d9c59c2b49d.jpg" />
+
+<p>在 NAS 背面的背面有一個超大的系統風扇，以及各種接孔。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220484/original/523761d8f232856b744c7309664dda1d.jpg" />
+
+<p>機器底部有四個止滑腳座與產品型號貼紙，上面印有機器序號和 MAC 碼。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220485/original/1554e191c8d7e1f02c45a39c201f3484.jpg" />
+
+<p>由於 AS6404T 已搭載 8GB 記憶體，這裡筆者只是為了一窺機器內部構造，因此不建議任意拆開機器外蓋。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220486/original/86117369c31ab6d4a58ce3972ed30caf.jpg" />
+
+<p>在機器的左方為兩個記憶體插槽，上面各插著一條 4GB RAM。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220487/original/85433b7e225d048c7004932d3401829c.jpg" />
+
+<p>把硬碟拖盤架都抽出後，可以看到銀色散熱片就是 CPU 的所在位置。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220488/original/e3d17908ecf7293e7a0c966b69c8b2dd.jpg" />
+
+<p>最後是機器的俯視圖。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220489/original/25cb5583cf896203049c7aa19338a641.jpg" />
+
+<p><strong><span style="color: #ff6600;">【硬碟安裝】</span></strong></p>
+<p>AS6404T 在安裝硬碟時非常方便，只需要將托盤架拉出，固定好硬碟後，再將托盤放回去即可。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220490/original/31c25500302bf7e6bbe8b66ab7d3d985.jpg" />
+
+<p>按下硬碟托盤的下方按鈕，托盤把手會彈起，再將把手往外拉就可取出硬碟托盤。</p>
+<img src="https://media.giphy.com/media/3o7bu91QOQZbvPuh0s/giphy.gif" />
+
+<p>2.5吋和3.5吋的硬碟，其要拴螺絲的位置也不同。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220491/original/d0ba9ef4cad27464733ef11207149a27.jpg" />
+
+<p>以3.5吋硬碟為例，首先先將硬碟有貼紙面朝上，硬碟金屬接頭的部分朝右(後)；並拴上四個3.5”專用螺絲。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220492/original/ea7987418f77972f421e5d65b4edae8f.jpg" />
+
+<p>螺絲孔必須和硬碟托盤的洞對齊，才能把螺絲拴進去。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220493/original/191da18cbabe6ce335bbc198573ea000.jpg" />
+
+<p>最後把硬碟托盤推回 NAS ，就完成硬碟的安裝了！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220494/original/2ae14e364b41d4a173b0519454bfbe2b.jpg" />
+
+<p>不過不用擔心按鈕誤觸會讓托盤取出，因為按鈕旁邊設置了硬碟鎖，可以使用一字螺絲起子來上鎖或解鎖。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220495/original/aee7819d6d251c0d1af4c56dd973a63d.jpg" />
+
+<p>附上 AS6404T 的燈號狀態說明。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220496/original/55a5583a5bf9f76243cc10d349f8e45f.png" />
+
+<hr />
+
+<p><a id="c" name="c"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220853/original/535e725c43499a67beb02f33b1f727ac.png" /></p>
+<p><strong><span style="color: #ff6600;">【NAS 初始化設定】</span></strong></p>
+<p>由於普遍認知是 NAS 的安裝一定要用電腦來設定，<span style="color: #800000;">不過 ASUSTOR NAS 是可以透過一款叫《AiMaster》的 App 來管理和設定的</span>，因此下面是以 Android 平板來示範安裝步驟（本次安裝是以 ADM 2.7 來示範）：</p>
+<p><strong><span style="color: #008000;">Step. 1</span></strong> 下載《AiMaster》App。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220497/original/b195745d75764d823f0195399b51c84e.png" />
+
+<p><strong><span style="color: #008000;">Step. 2</span></strong> <span style="color: #800000;">確定行動裝置和 AS6404T 在同一個網域下</span>，按下右上角”+” → “自動搜尋”，接著會找到一台尚未初始化的伺服器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220498/original/c20295debaec372f27b77589c9f117d8.png" />
+
+<p><strong><span style="color: #008000;">Step. 3</span></strong> 點進去後，按下”開始初始化”，若有新的 ADM 韌體會要求更新。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220499/original/966e122d24cb505ce12ea73bb2912e43.png" />
+
+<p><strong><span style="color: #008000;">Step. 3-1</span></strong> 更新韌體。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220500/original/9c957255f7ee67cbd929d97f6d4be102.png" />
+
+<p><strong><span style="color: #008000;">Step. 4</span></strong> 進入初始化步驟，一般用戶可以點選”一鍵設定”，不過筆者選擇”進階設定”，來看看到底有哪些設定。第一步是輸入要登入 NAS 的管理員密碼。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220501/original/057b8639d00470875c379d3bd2ce6174.png" />
+
+<p><strong><span style="color: #008000;">Step. 5</span></strong> 接著是時間和網卡的設定，這裡筆者選擇了與亞洲的 NTP 伺服器來同步時間；而網卡則是不用更動設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220502/original/861043cfab642118d265c6639ac80574.png" />
+
+<p><strong><span style="color: #008000;">Step. 6</span></strong> 由於是進階設定，會需要自行選擇磁碟陣列的等級。<span style="color: #800000;">究竟什麼是磁碟陣列(RAID)呢？簡單來說，它就是可以將多個硬碟組合起來，成為一個”大容量”硬碟陣列組。<strong>根據不同 RAID 等級的選擇，具有以下好處：增強資料整合度，增強容錯功能，增加處理量或容量。</strong></span></p>
+<p>筆者<span style="color: #800000;">目前安裝”兩顆硬碟”，因此只適合選擇 Raid 0 和 Raid 1</span>（其他 Raid 等級需要安裝 3 顆以上硬碟）：</p>
+<p><strong>RAID 0</strong>：<span style="color: #800000;">將所有硬碟的空間合併，成為一個儲存空間</span>；例如一顆 1TB 硬碟和一顆 2TB 硬碟組 Raid 0，那麼總容量就是 3TB。Raid 0 的優點是<span style="color: #800000;">總容量是不同容量的相加總合，且具有較佳的資料讀取速度</span>。缺點則是<span style="color: #800000;">“不具任何資料保護性”，<strong>若一顆硬碟故障，所有資料都會遺失。</strong></span></p>
+<p><strong>RAID 1</strong>：將兩顆的硬碟空間合併，<span style="color: #800000;">成為一個”鏡像”的儲存空間</span>；因此<span style="color: #800000;">兩顆硬碟上會有一模一樣的資料，故其中一顆硬碟壞掉也沒關係</span>。優點是<span style="color: #800000;">提供資料的保護</span>，缺點是<span style="color: #800000;">以較小的硬碟來計算總容量</span>，例如一顆 1TB 硬碟和一顆 2TB 硬碟組 Raid 1，那麼總容量就只會有 1TB（因為是鏡像備份，故只能拿小的容量來算）。</p>
+<p><span style="color: #ff0000;"><strong>如果使用者是為了要保存珍貴的資料，絕對不能為了”空間大”而選擇 Raid 0</strong></span>（因為不具資料保護性）。因此筆者選擇 Raid 1，因此兩顆 2TB 硬碟的實際能用的容量只有 1.82 TB。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220503/original/fc843019b0a8c22bd420ae57a12d3d64.png" />
+
+<p>如果是用”一鍵設定”，系統會用”最大儲存空間”(Raid 0)和”兼顧儲存空與資料防護”(Raid 1)來供選擇，不過實際意思如上述內容。因此<span style="color: #800000;"><strong>強烈建議不要為了追求最大儲存空間，而拋棄了非常重要的資料防護。</strong></span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220504/original/c22c0fb4f01f7d9b5a596cf25d7838a0.png" />
+
+<p><span style="color: #008000;"><strong>Step. 7</strong></span> 接著系統會自行設定安裝。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220505/original/8e0a6688c7bd6e060d86b09b1bbb34d6.png" />
+
+<p><strong><span style="color: #008000;">Step. 8</span></strong> 最後是要註冊一個 ASUSTOR 帳號，這在之後的套件安裝和 Cloud ID 都需要註冊才能使用。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220506/original/c70a54a47b855b5c0f964db1dd1a9832.png" />
+
+<p>最後打開瀏覽器輸入”NAS 的 LCD 面板上”顯示的 IP 位址來登入 ADM，帳號為 admin，密碼則是自己當初設定的。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220507/original/d769c98049ee828ac01bd0a2b426d267.png" />
+
+<p><strong><span style="color: #ff6600;">【升級 ADM 3.0 Beta】</span></strong></p>
+<p>如前面所述，ADM 3.0 擁有許多新功能和新介面，因此需要到<a href="https://www.asustor.com/betaProgram" target="_blank" rel="noopener">這個網站</a>下載 ADM 3.0 韌體，並在網站底部按下”立即下載”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220508/original/5b8e5e8bb3d39d88a00a388f8ca685ef.png" />
+
+<p>輸入基本資料來下載韌體檔案。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220509/original/a13f9ea2b5fd8a07a6d6575ad6da32cc.png" />
+
+<p>接著打開『偏好設定』 → “ADM更新”，按下手動更新來安裝 ADM 3.0。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220510/original/973bbe3f3a3cc8e74b181e432a1838fa.png" />
+
+<p><strong><span style="color: #ff6600;">【ADM 3.0 介面】</span></strong></p>
+<p>新的登入介面可以看到多了系統時間(左上角)，通知和說明(右上角)。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220511/original/c9f92bdc31c9498e63799cb0b9090415.png" />
+
+<p>登入後的 ADM 3.0 介面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220512/original/ffd13a89178e6e80c2d405d859021516.png" />
+
+<p>下圖是系統設定和使用簡介的簡易說明。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220513/original/1515024ea00329990978ac6829db780a.gif" />
+
+<p>新 ADM 系統有許多新功能，除了全新設計的套件圖式，也多了釘選工作列、應用程式資料夾、桌面排版等功能。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220514/original/bfb9dd394da4fea7978c5e40eea73311.png" />
+
+<p><strong><span style="color: #ff6600;">【系統設定】</span></strong></p>
+<p>接下來是 NAS 系統設定，有些<strong><span style="color: #ff0000;">必須設定</span></strong>，有些則是<strong><span style="color: #0000ff;">依照個人需要設定</span></strong>。</p>
+<p><strong><span style="color: #0000ff;"><em>登入樣式設定</em></span></strong></p>
+<p>在登入畫面裡，能自行設定伺服器名稱、NAS外觀縮圖、背景、系統公告、App快速連結等。<br>PS. 系統公告可以設定要在登入畫面就顯示，還是登入 ADM 後才會顯示。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220515/original/a3ee4f79e081ced04cb03f9246c11a25.png" />
+
+<p>與預設的登入畫面相比，客製化的介面不僅美觀許多，還能依照需求來打要給使用者看的公告，十分方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220516/original/d26b077525cb8a4c7ba7a44efdc22215.png" />
+
+<p><strong><span style="color: #0000ff;"><em>硬體</em></span></strong></p>
+<p>“硬體”頁面可依照使用者需求來設定，例如有些人可能會覺得開關機，蜂鳴器都會響很吵，此時就可以關閉它；或是把 AS6404T 正面的 LED 亮度調低。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220517/original/d66d3fd0baa275b588d0853600808046.gif" />
+
+<p><strong><span style="color: #0000ff;"><em>事件通知</em></span></strong></p>
+<p>“事件通知”可以在 NAS 發生訊息/錯誤/警告/緊急（自行勾選設定）時，透過發信或推播來通知管理者。如果是電子郵件發送通知，首先要設定發信者的帳戶。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220518/original/840524f57876e73e2a0c61e7413e6fa9.png" />
+
+<p>接著設定接收者的電子郵件，並選擇要收到哪一類型的通知。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220519/original/a6cd3f76542de18e9b5c27d85a27eca9.png" />
+
+<p>按一下”傳送測試電子郵件”，可以正確收到信就代表成功了。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220520/original/732ff9e3a3ee5e1e3cd670573e8174fe.png" />
+
+<p><strong><span style="color: #ff0000;"><em>ADM Defender</em></span></strong></p>
+<p>“ADM Defender”能將特定 IP 加入白/黑名單；此外，<span style="color: #800000;">建議設定”自動黑名單”</span>，例如 <span style="color: #800000;">5 分鐘內登入失敗 5 次，及自動封鎖 IP，以防時有心人士會去 try 帳號密碼。</span><br>PS. 勾選”啟用自動黑名單後”，要先按下”套用”，才能進行”偏好設定”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220521/original/64ca2c24c6b26bc0b9f15a062e136d4c.png" />
+
+<p><strong><span style="color: #ff0000;"><em>ADM 更新</em></span></strong></p>
+<p>有 ADM 更新時，系統會自動偵測並通知管理者。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220522/original/b956189481c32ea7c0a648b2d1c6aac6.png" />
+
+<p><strong><span style="color: #ff0000;"><em>網路資源回收桶</em></span></strong></p>
+<p>就和電腦裡的一樣，在 NAS 上刪除的檔案不會立即永久刪除，而是會先到資源回收桶，在此可以設定要多久排程刪除，或是多大/多小/什麼副檔名的檔案要直接刪除。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220523/original/5f000db0f788ef70f1c20208a25d520c.gif" />
+
+<p><strong><span style="color: #ff0000;"><em>輕鬆連線 &amp; 手動連線</em></span></strong></p>
+<p>為了要從外面連回家中的 NAS，這個步驟是必須也是 NAS 設定中最重要的一環。ADM 3.0 新增了一個叫”網際網路穿透”的功能，以往<span style="color: #800000;">我們必須要設定路由器才能透過外網存取伺服器，不過對於網路環境複雜的地方，例如社區網路、學校網路等，在網路設定上就顯得難上加難。</span></p>
+<p>因此在”輕鬆連線”頁面中，勾選”啟用輕鬆連線服務”，並設定一個好記的 Cloud ID，然後按下套用。接著有”自動設定”和”手動設定”兩種 port 設定方式，對於進階用戶可以手動來設定要開啟哪些 port，而自動設定則會將所有的 port 預設開啟。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220524/original/778195db8af10cc3d2fc2f1bf6a7dc32.png" />
+
+<p>接下來進入設定精靈，由於我們還沒設定 EZ-Router，設定精靈會直接跳到”網際網路穿透”來設定，設定完後按下”完成”結束設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220525/original/02391b444ff58dbf15eea5a47f878a20.png" />
+
+<p>不過”網際網路穿透”雖然設定方便，但除非是不太懂設定的新手使用者，或是網路環境複雜的使用者，<span style="color: #800000;">筆者建議還是要透過 EZ-Router 來設定 NAS 的網路環境</span>。而為何建議不要用”網路穿透”呢？第一是因為<strong>傳遞資料上，可能不會比用 EZ-Router 設定來得快</strong>；第二則是<strong>“網路穿透”不支援影音套件『LooksGood』</strong>，這樣子在戶外就無法線上觀看 NAS 內的影片了！<br><strong><span style="color: #800000;">PS. “EZ-Router”和”網路穿透”的設定是可以同時存在的，存取資料時會先測試 EZ-Router 通不通，如果不行才會走網路穿透。</span></strong></p>
+<p>因此到”手動連線” → “EZ-Router”頁面，按下”啟用”，開始路由器的設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220526/original/8cbfd95ad507ebf524d3b66f1999b71e.png" />
+
+<p>若看到接下來都是”V”狀態，就代表路由器設定完成了。<br>PS. 如果有”X”符號，建議多重試幾次。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220527/original/9850e62e380128d3b76f21db4f94f0d9.png" />
+
+<p>根據需要的服務開啟特定 port。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220528/original/111a1dbfd9b41d6d975abdb29250a0c4.png" />
+
+<p><span style="color: #800000;">如果遇到不支援的路由器，則無法使用 EZ-Router。</span>這時只能自行到路由器介面新增通訊埠轉發；以 D-Link路由器為例，請至”進階” → “虛擬伺服器” 來設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220529/original/5306be381bbe67fc61b629dc263f9c69.png" />
+
+<p><strong><span style="color: #ff0000;"><em>DDNS</em></span></strong></p>
+<p><span style="color: #800000;">“DDNS”能讓 數字IP位址 轉換為一個好記的英文網址</span>。如果利用華芸內建的 DDNS 服務，輸入 ASUSTOR 帳號密碼和自己自訂的 Cloud ID（例如：edd），<span style="color: #800000;">未來如果在戶外要存取伺服器，於瀏覽器輸入 <a href="http://edd.myasustor.com:8000" target="_blank" rel="noopener">http://edd.myasustor.com:8000</a> 就能連上 NAS 了</span>（8000 是登入 ADM 的預設 port）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220530/original/b31e5fa14c0b265a5a5d1b1bbcd3f4af.png" />
+
+<p><strong><span style="color: #ff6600;">【服務】</span></strong></p>
+<p>『服務』整合了各種常見的伺服器服務，可以依照個人需要來開啟。</p>
+<p>筆者建議開啟最常用的兩個系統服務，第一個是<span style="color: #800000;"> <strong>SAMBA 服務</strong>，打開後能於同一區網內透過 Windows 系統直接存取 NAS 資料</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220531/original/0b3263513030372c765321a9439992b1.png" />
+
+<p>第二個是 <strong><span style="color: #800000;">FTP 服務</span></strong>，此服務能<span style="color: #800000;">利用 FTP 用戶端程式連線至 NAS 來存取資料</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220532/original/52ed8a8c4728b7417ce1f7144487f4f0.png" />
+
+<hr />
+
+<p><a id="d" name="d"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220853/original/535e725c43499a67beb02f33b1f727ac.png" /></p>
+<p>系統設定完成後，緊接著還有共用資料夾和使用者權限的設定。這邊<span style="color: #800000;">建議設定的順序為：共用資料夾 → 群組 → 使用者帳號</span>。</p>
+<p><strong><span style="color: #ff6600;">【共用資料夾建立】</span></strong></p>
+<p>顧名思義，”共用資料夾”就是多個使用者可以一起存取的資料夾；由於筆者已經從『App Central』載了不少應用程式，因此也出現了相對應 App 會用到的資料夾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220533/original/0052b41a9449a7a6f58eb764aa9065f8.png" />
+
+<p>這裡示範如何新增一個共享資料夾；首先進入『存取控制』，點選”新增”，輸入資料夾名稱後，並記得將”啟用網路資源回收桶”打勾，以免資料誤刪後救不回來。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220534/original/f4811dcf55707e1f456545ced69720e8.png" />
+
+<p>接著是設定共用資料夾要給誰存取，管理員可以依需求設定，這裡選擇”依群組設定”，然後下一頁不用打勾，最後完成資料夾設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220535/original/886698f9aeb9b254cec4d2ec4b8b5d68.gif" />
+
+<p>【本機群組建立】</p>
+<p>為何要先設定群組呢？這是因為假設我們要新增 5 位使用者，然後大家的權限都一樣，那麼就要設定 5 次一樣的權限，非常麻煩；因此<span style="color: #800000;">事先建立好群組，新增帳號時再代入該群組比較方便</span>。</p>
+<p>舉例來說，筆者要建立一個家人間共用資料的平台，此時利用”本機群組”來設定不同使用者的權限。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220536/original/b03483aec069881941dad8389b97866d.png" />
+
+<p>點選”下一步”後，接著要代入群組的使用者，這邊等到設定使用者時再代入；然後是設定此群組的資料夾權限，分為 <strong>DA（禁止存取）、RW（讀寫）和 RO（唯讀，僅供讀取）</strong>三種。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220537/original/3872e8be14672509b767656ae97589a0.gif" />
+
+<p><strong><span style="color: #ff6600;">【本機使用者建立】</span></strong></p>
+<p>進入”本機使用者”頁面 → “新增” → “新增使用者”，輸入使用者帳號密碼；如果是臨時帳號，還能設定帳號到期日。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220538/original/f484577b6a30b69dcdebcb82d866f68d.png" />
+
+<p>接著進行以下設定：</p>
+<p>設定此使用者是要自訂權限還是管理員權限；若為自訂權限，選擇使用者所屬群組。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220539/original/c9896f07edf12c93a9cd65179a91b8d3.png" />
+
+<p>設定個資料夾權限，不過因為在群組設定過了，此步驟可以跳過；然後設定使用者的容量限制（總共可以上傳多少容量至 NAS）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220540/original/e8786fd06e929f12efdde00c9ab939e8.png" />
+
+<p>最後設定應用程式的權限。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220541/original/a70b8b13df036bdf8bd2cfed0c727b95.png" />
+
+<p>登入剛才新增的帳號，不管是應用程式還是可存取的共享資料夾，相對都比管理員少很多。因此，<span style="color: #800000;">透過不同的權限設定，每個使用者帳號能看到的資料夾和應用程式皆不同</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220542/original/bd6e79602daa247790eda0975889d2f7.png" />
+
+<p>小結：<span style="color: #800000;">其實『存取控制』並沒有什麼設定上的順序之分</span>，舉例來說，也可以新增完使用者再來新增共用資料夾，它們是<span style="color: #800000;">可以交叉設定的</span>。<strong><span style="color: #800000;">只不過利用”群組”設定，對於有多個同類型的使用者時，設定上會相對方便許多</span></strong>。</p>
+<hr />
+
+<p><a id="e" name="e"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220854/original/191d3f9dda0258b11db302333da96510.png" /></p>
+<p>ASUSTOR 『檔案總管』介面和 Windows 的檔案總管十分相似，對於第一次接觸的人也能輕鬆上手；與舊版相比，新版介面看起來更加柔和舒適。此外，不同檔案類型也會有不一樣的圖示，在辨識上較方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220543/original/34fb750961f464bea181a92643d21500.png" />
+
+<p>右上角為檔案搜尋功能，分為簡易搜尋（在目前路徑下搜尋該檔名）和進階搜尋（目前路徑or所有路徑下搜尋，日期比對等）兩種。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220544/original/ec569a72dc475c93ae4c873d7394aa00.png" />
+
+<p>對檔案 or 資料夾點右鍵，能進行下載/移動/複製/刪除/更名/壓縮/建立Share Link等功能。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220545/original/305db77f80109eab0592ceae99d5ada1.png" />
+
+<p>在 ADM 3.0 的新功能中，現在<span style="color: #800000;">可以將資料夾或檔案直接拉到桌面當捷徑，方便常用的資料可以更快速地存取</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220546/original/53545a926a87d34fa1980b5acc62f2f2.png" />
+
+<p><span style="color: #ff6600;"><strong>【檔案總管的資料上傳】</strong></span></p>
+<p>簡單來說，有三種方式可以把資料透過『檔案總管』丟到 NAS 上。</p>
+<p><span style="color: #008000;"><strong>方法 1.</strong></span> 把<span style="color: #800000;">“外接硬碟/隨身碟”插上 AS6404T 來傳遞資料</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220547/original/b9cc1b804278b67bca2fda10ef980e28.jpg" />
+
+<p>接著把檔案拖曳到目的地，會詢問是要移動 or 複製、略過 or 覆蓋；或是對要傳遞的檔案點右鍵來複製或移動。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220548/original/594f3c34b9415972e9035a0752e53d48.png" />
+
+<p><strong><span style="color: #008000;">方法 2.</span></strong> 使用<span style="color: #800000;">拖曳上傳</span>（<span style="color: #800000;"><strong>支援</strong>資料夾上傳</span>）。</p>
+<p>從電腦中直接拖曳檔案到『檔案總管』裡，接下來會詢問若存在相同檔案，要略過還是覆蓋。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220549/original/49633cb2bd9d93600663a26cbe0f235a.png" />
+
+<p><strong><span style="color: #008000;">方法 3.</span></strong> <span style="color: #800000;">利用『檔案總管』內建上傳按鈕</span>（<span style="color: #800000;"><strong>“不”</strong>支援資料夾上傳</span>）。</p>
+<p>最後是用內建的”上傳”按鈕來上傳檔案，不過筆者還是認為拖曳上傳比較直覺方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220550/original/974cdf4cb772f87344134e2ac573abf6.png" />
+
+<p><a id="e-1" name="e-1"></a><br><strong><span style="color: #ff6600;">【存取 NAS 資料的五種方式】</span></strong></p>
+<p>對於自己保存在 NAS 的眾多資料，比起利用 ADM 登入，然後打開『檔案總管』來存取，其實還有許多不同的方式可以上傳/下載檔案，這裡筆者列出各個方法的優點和缺點：</p>
+<p><strong><span style="color: #008000;">方法 1.</span></strong> ADM 登入，使用『檔案總管』存取</p>
+<p><strong><span style="color: #0000ff;">優點</span></strong>：<span style="color: #800000;">存取功能最完整，還可以建立分享連結、多個檔案打包下載程壓縮檔</span>等。<br><strong><span style="color: #ff0000;">缺點</span></strong>：還要登入 ADM，方法相對比較繁複。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220551/original/d650713ccfbbd64676a65e5c003cd8ef.png" />
+
+<p>行動裝置則有《AiData》app，供使用者來存取 NAS 資料。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220552/original/63d9a731696211413caf5d6b34665d91.png" />
+
+<p><strong><span style="color: #008000;">方法 2.</span></strong> SAMBA 網路共享</p>
+<p><strong><span style="color: #0000ff;">優點</span></strong>：<span style="color: #800000;">NAS 的檔案就像在電腦中，可以直接存取、打開來編輯</span>；且檔案傳遞十分迅速。<br><strong><span style="color: #ff0000;">缺點</span></strong>：僅限<span style="color: #800000;">區域網路</span>，外網無法存取（除非使用 VPN）。</p>
+<p>之前有在『服務』中啟用”Windows 檔案服務”就是這個 SAMBA 服務。由於它僅供 NAS 和電腦在同一個區域網路內使用，只要在電腦檔案總管的路徑列輸入\(NAS名稱)，例如\AS6404T-ED，或是\(NAS區網IP)，例如\192.168.X.XXX，就能透過 SAMBA 服務存取 NAS 。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220553/original/e53f853a28b022941bed501ec07a751f.png" />
+
+<p>成功登入後，<span style="color: #800000;">NAS 裡面的檔案/資料夾彷彿於電腦之中，使用者能對檔案直接打開使用</span>（例如 Word 文件能直接打開編輯），或是檔案的複製貼上等等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220554/original/a8acec07ccc695806959add8bc61bfab.png" />
+
+<p><strong><span style="color: #008000;">方法 3.</span></strong> <span style="color: #800000;">使用 ASUSTOR EZ Connect (AEC) 的掛載磁碟機</span></p>
+<p><strong><span style="color: #0000ff;">優點</span></strong>：<span style="color: #800000;">適合區網或外網連線</span>，並且和 方法2 的優點一樣，<span style="color: #800000;">檔案能直接存取、打開來編輯</span>（因為 NAS 的資料夾是以”磁碟機”的形式掛載於電腦中）。<br><strong><span style="color: #ff0000;">缺點</span></strong>：需要 ASUSTOR EZ Connect 軟體才能使用，且<span style="color: #800000;">透過外網連線時，存取效能可能會受到影響</span>。</p>
+<p>AEC 掛載磁碟機也是相當好用的新功能之一，<span style="color: #800000;">以往若要檔案像在電腦裡一樣直接打開使用，我們只能用 SAMBA 網路共享來實現；但是現在透過 AEC 也能在外網做到了！</span></p>
+<p>不過需要先安裝 ASUSTOR EZ Connect 軟體（<a href="https://www.asustor.com/zh-tw/admv2?type=5&amp;subject=21&amp;sub=124" target="_blank" rel="noopener">下載頁面</a>），然後透過 Cloud ID 新增 NAS，新增完成後再按下”掛載磁碟機”，選擇要掛載的資料夾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220555/original/3a7bf97ddb22df5cc8e33af9aff2227f.png" />
+
+<p>這時候 NAS 的特定資料夾就會掛載在電腦的某個磁碟機中，可以對檔案直接做存取，例如對文件檔直接開啟編輯。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220556/original/63ca4b326afb71cc1d38b890fb612fda.png" />
+
+<p><strong><span style="color: #008000;">方法 4.</span></strong> <span style="color: #800000;">FTP 存取：透過 <strong>Windows 檔案總管</strong></span></p>
+<p><strong><span style="color: #0000ff;">優點</span></strong>：<span style="color: #800000;">最快速的存取檔案方式</span>，適合在外面臨時要上傳/下載個檔案。<br><strong><span style="color: #ff0000;">缺點</span></strong>：<span style="color: #800000;">容易連線逾時，因此只適合小檔、單檔傳輸</span>。</p>
+<p>首先在電腦檔案總管的路徑列輸入ftp://(外網IP)，例如前面設定過的 DDNS： <a href="ftp://edd.myasustor.com，然後輸入">ftp://edd.myasustor.com，然後輸入</a> NAS 帳號密碼。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220557/original/c1ae933d16d45994b0b18e9867fc8613.png" />
+
+<p>要注意這種方式<span style="color: #800000;">只能用拖曳上傳/下載</span>，或是<span style="color: #800000;">對檔案點右鍵 → “複製”來下載檔案</span>；如果點兩下開啟，會直接於瀏覽器開啟。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220558/original/715a1f70bf5af7a944155ea7b774a074.png" />
+
+<p><strong><span style="color: #008000;">方法 5.</span></strong> <span style="color: #800000;">FTP 存取：<strong>FTP 傳檔軟體</strong></span></p>
+<p><span style="color: #0000ff;"><strong>優點</strong></span>：適合<span style="color: #800000;">檔案批量上傳/下載</span>。<br><span style="color: #ff0000;"><strong>缺點</strong></span>：需要 FTP 傳檔軟體才能使用。</p>
+<p>FileZilla 是最多人用的 FTP 傳檔軟體，最常見的應用就是<span style="color: #800000;">假設自己建立了一個網站，有許多零碎的檔案要上傳到 NAS，這時利用 FileZilla 就能一次拖曳多個檔案上傳/下載</span>，非常方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220559/original/c1e04dc069c96e9fb7a90bcf6436209e.png" />
+
+<p><a id="e-2" name="e-2"></a><br><strong><span style="color: #ff6600;">【檔案分享】</span></strong></p>
+<p>有時候我們<span style="color: #800000;">只是想要把一個或多個檔案傳給別人，這樣的話並不用特地建立一個 ADM 帳號</span>，此時可以利用『檔案總管』內建的”Share Link”功能來分享檔案。</p>
+<p>首先，對欲分享的檔案點右鍵 → “建立 Share Link”來建立分享連結。（<span style="color: #800000;">支援單檔或資料夾</span>）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220560/original/836a3f53df067a99d9bfb32dd66854b5.png" />
+
+<p>連結的設定有兩種，分別是”連結有效期限”和”密碼”；密碼可自行設定是否開啟。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220561/original/a7fa92e93e7086857fb39ef90c44cb4b.png" />
+
+<p>連結有效期限有兩種設定，除了上圖的”日期”（設定到期日），還有下圖的”時間”（設定幾天後到期，最短 1 小時，最長 31 天）。舉例來說，設定一個 20 天效期的檔案，選擇”時間”設定，就不用特地推算 20 天後的日期是何時。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220562/original/92b2506224836c61752ec050016d1607.png" />
+
+<p>接下來會出現共享連結，使用者只要將藍色反白處複製，貼給對方即可。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220563/original/7dc427ebfd7085657112c28956581afd.png" />
+
+<p>收到連結的人，貼上網址，若有該連結有密碼，輸入後會自動下載；否則貼上連結會直接下載檔案。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220564/original/47fbebf4fe4e2462c6e61e1fb7315ffe.png" />
+
+<p>以資料夾來分享的，接收端可以事先瀏覽檔案，然後挑選需要的檔案下載。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220565/original/0435001886b20f90f01b8d8a061fe41d.png" />
+
+<hr />
+
+<p><a id="f" name="f"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220855/original/17cec81ff74210a8eedf508071d54f9f.png" /></p>
+<p>除了後面要介紹的各種強大多媒體套件，<span style="color: #800000;">我們還可以將 NAS 拿來下載檔案、掛 BT</span>。由於找到一部很想看的 BT 電影，可是沒辦法立即回家下載，但又想一回家就馬上觀看，這時就可利用『下載中心』來幫我們下載；除此之外，<span style="color: #800000;">『Takeasy』可以下載 Youtube 影片，並支援”播放清單”，甚至能以不同影片畫質、純音訊的格式來下載</span>，十分是非常方便！</p>
+<p><a id="f-1" name="f-1"></a><br><strong><span style="color: #ff6600;">【下載中心】</span></strong></p>
+<p>『下載中心』支援 BT 種子和網址下載。第一次開啟「下載中心」時，要選擇預設下載位置。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220566/original/572b9dc989d0079ba702cfbde979b4d0.png" />
+
+<p>按一下”+“，可新增BT種子或網址下載任務。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220567/original/1e6a7d8cf9b68c042e2e89957582fc1a.png" />
+
+<p>使用 BT 種子來下載檔案的好處就是，可以選擇哪些檔案要下載。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220568/original/534c6859d5214c89172e52644a45a571.png" />
+
+<p>由於 BT檔案是以 P2P 來傳輸（點對點傳輸），因此<span style="color: #800000;">種子健康度越高（越多用戶擁有此檔案），下載速度也就越快</span>；而時間過越久的種子，因為擁有該檔案的使用者會越來越少，下載速度可能會越來越慢，甚至無法下載。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220569/original/15ea6c4ace3388a3fadf07e24a6211f4.png" />
+
+<p>下圖是利用左方內建的”Torrent搜尋”來搜尋 BT 種子；搜尋到的結果，對它點右鍵可直接下載。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220570/original/d6b596a1fa998140316f6eaf86d1876e.png" />
+
+<p>『下載中心』也能使用網址下載，注意網址尾巴要有檔案的”附檔名”，才是一個能下載的檔案。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220571/original/dae163b0bd39175ae17c74f7f90fa44e.png" />
+
+<p><a id="f-2" name="f-2"></a><br><strong><span style="color: #ff6600;">【Takeasy】</span></strong></p>
+<p>『Takeasy』<span style="color: #800000;">目前能完美支援 YouTube 和 Vimeo 兩大影音網站的影片下載，並支援各種畫質/音訊的輸出</span>。</p>
+<p>首先我們輸入一個 YouTube 網址。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220572/original/11c3894bee59376f2610a51a81346a21.png" />
+
+<p>在 Youtube 能切換的畫質，在這裡都能選擇下載，也支援 m4a 音訊格式。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220573/original/9f2e1fc39ada9f74beff508a53441b42.png" />
+
+<p>接著在下載頁面就會看到欲下載的影片。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220574/original/ce05172424e50c0e8141acd0e3422442.png" />
+
+<p>影片預設會儲存到 /Download 資料夾，按一下播放，影片會開新分頁播放。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220575/original/447059a106c7e778f94a20f3670afdc7.png" />
+
+<p>不過 YouTube 影片下載其實並不稀奇，因為有很多網站也支援線上 YouTube 下載的功能。因此筆者要介紹『Takeasy』兩個比較厲害的功能，第一個就是<strong><span style="color: #800000;">最高支援 YouTube 8K 影片下載！</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220576/original/0c8e5435cb907b3801a50d8014f4ec14.png" />
+
+<p>第二個則是<strong><span style="color: #800000;">支援”YouTube 播放清單”下載</span></strong>，且還能選擇要下載音訊還是影片格式。就筆者認知，線上的 Youtube 播放清單下載網站，不是要一個一個點擊下載，就是有功能限制，十分麻煩。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220577/original/95169a6cdaa7682db5a38f5288eb32c7.png" />
+
+<hr />
+
+<p><a id="g" name="g"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220856/original/67c29881626c0fb29aa18ee1b7758fc0.png" /></p>
+<p>多媒體影音套件是 ASUSTOR NAS 最厲害的功能之一，因為它除了可以在電腦上使用，行動裝置也有推出相對應的應用程式，而像是看影片的『LooksGood』支援 Chromecast 輸出；<span style="color: #800000;">如此一來，不管何時何地都能存取 NAS 的多媒體檔案</span>！</p>
+<p><a id="g-1" name="g-1"></a><br><span style="color: #ff6600;"><strong>【音樂套件 SoundsGood】</strong></span></p>
+<p>『SoundsGood』是一個音樂播放器，它可以<span style="color: #800000;">透過瀏覽器直接播放儲存在 NAS 中的音樂</span>（電腦播放），或是使用<span style="color: #800000;"> NAS 本地播放音樂</span>（利用藍芽喇叭、HDMI 或 S/PDIF 播放），而且還能利用<span style="color: #800000;">行動裝置的《AiMusic》app 來聽音樂</span>！</p>
+<p>使用『SoundsGood』聽音樂有以下好處：</p>
+<p><span style="color: #008000;"><strong>好處 1.</strong></span> 不管在家、在辦公場所，或是在圖書館的公用電腦，到處都能聽音樂。</p>
+<p><strong><span style="color: #008000;">好處 2.</span></strong> 音樂都是”線上收聽”，<span style="color: #800000;">完全不會占用手機電腦的使用空間</span>。尤其筆者擁有幾千首歌，部分音樂都是 FLAC 高音質，總容量高達幾十 GB。</p>
+<p><strong><span style="color: #008000;">好處 3.</span></strong> 因為所有音樂存放在 NAS 中，只要親朋好友擁有 ADM 帳號都能一起聽音樂，且還能互相分享音樂、歌單，非常方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220578/original/7880e56fbe1ed8f7283c2c6f9feb9f89.png" />
+
+<p>所有音樂能透過最上方的分類方式來切換瀏覽。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220579/original/28d2011ded7f90d4f541d9abbac58b6b.gif" />
+
+<p>預設媒體來源是 /Music 資料夾，使用者也可以自行新增音樂資料夾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220580/original/c1a942d052baedca586aab2ccf559b9c.png" />
+
+<p>右下角支援<span style="color: #800000;">電腦播放</span>（綠色播放列，如上圖）和<span style="color: #800000;">本地/網路串流播放</span>（藍色播放列，如下圖），且兩邊裝置能同時播不同的音樂，互不干擾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220581/original/1ded249cefd795deb9b54df874c7fcaf.png" />
+
+<p>接著我們建立一個播放清單，能選擇要只給自己看（私人），還是分享給大家使用（公開）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220582/original/379d515076a55087dd80685c5c91b9aa.png" />
+
+<p>使用播放清單的好處就是可以事先將喜歡聽的音樂做分類，未來想聽什麼歌，選擇該歌單即可。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220583/original/5f138c1f41872c60b43a832254cdd2bb.png" />
+
+<p>除了播放清單，”我的最愛”也能把點過愛心的音樂整理再一起。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220584/original/a2b0e701852124a64f9e189ac5817d5e.png" />
+
+<p>此外，『SoundsGood』還有一個”Random 100”的功能，它可以<span style="color: #800000;">把音樂庫中隨機挑出 100 首歌曲做成清單來播放</span>，因此每次點選”Random 100”，出現的歌曲都會不同。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220585/original/4a6deca4af2ca5554ac7818ad26fed4e.png" />
+
+<p>最後，<span style="color: #800000;">新版本的『SoundsGood』支援動態歌詞的功能</span>，不過目前內建的搜尋歌詞外掛，歌詞搜尋還不太完善。因此我們用手動新增歌詞的方式，先對目標歌曲點右鍵 → “標籤資訊”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220586/original/15ad6104df3ebab9e70c3564b4f14ea8.png" />
+
+<p>到”歌詞”頁面新增動態歌詞（可至<a href="https://mojim.com/" target="_blank" rel="noopener">魔鏡歌詞網</a>去尋找動態歌詞），如果不是以時間開頭（例如 [00:01.20]）的動態歌詞，則歌詞不會有自動翻頁功能。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220587/original/c2d96f562d1a0b8d86afc06ea4b30d3a.png" />
+
+<p>按下下方的”Lyric”後，出現歌詞畫面，而目前唱到的歌詞會以灰底顯示。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220588/original/14e6fc54f1c55273c4dffe16302c56af.png" />
+
+<p>左下角的專輯按鈕點開後，會放大顯示該專輯，而歌詞也能一併顯示在此。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220589/original/2317fb6432bbc09e18c2d48dce2a5e69.gif" />
+
+<p><a id="g-2" name="g-2"></a><br><strong><span style="color: #ff6600;">【影片套件 LooksGood】</span></strong></p>
+<p>以前的『LooksGood』只能透過”多媒體總管”來打開要看的影片，也就是以往必須先找到該影片的路徑後，才能點開觀看，十分不便。不過現在是用：</p>
+<p><span style="color: #008000;"><strong>電影</strong></span>：系統會線上搜尋”電影”資訊。<br><strong><span style="color: #008000;">電視影集</span></strong>：包含歐美影集、日劇、韓劇、動畫、台灣電視劇等，系統會線上搜尋”影集”資訊，。<br><strong><span style="color: #008000;">家庭影片</span></strong>：<span style="color: #800000;">無法搜尋影片資訊</span>，大多為自己錄的影片、家庭出遊影片。</p>
+<p>三大類別來為影片分類，要尋找想看的影片時也方便許多。</p>
+<p>第一次開啟『LooksGood』會出現下面的設定教學簡介。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220590/original/0c99553524798dd99c8aecddf260ef6f.gif" />
+
+<p>接著我們要新增前述的三大類別影片庫，以”電影”為例，先按下右邊的”+”符號。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220591/original/34a52dd4b2a33d9fb190a5ebc0982396.png" />
+
+<p>選擇自己存放的電影路徑。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220592/original/2e5a09493a7da184aa7302817bd2750f.png" />
+
+<p>最後確定路徑都選擇了之後，按下”套用”後會自動開始建立索引，這時候須稍待一會兒。<br>PS. <span style="color: #800000;">三個類別沒有一定都要選擇路徑，根據自己影片的種類而定。</span>例如目前 NAS 中只有存放一些上次出國拍的影片，那當然是建立在”家庭影片”中，”電影”和”電視影集”則不用新增。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220593/original/ae93c896b1253b7951b205e2ad17a0da.png" />
+
+<p>看一下”電影”類別，基本上多數的電影都能正確被識別，不過還是有兩種錯誤需要手動修改，<span style="color: #800000;">第一種是電影資訊雖然有找到，但是是錯的；而第二種則是在影片右下角有”！”圖示，那就是連影片資訊都沒搜尋到。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220594/original/9896fa26e2c5f14031eb869717253578.png" />
+
+<p>以”紅衣小女孩”這部電影為例，『LooksGood』並沒有線上搜尋到這部電影資訊，我們就要自己手動來新增資訊，以下是教學：</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220595/original/e13f3e31b7861687b5d5927b8d18e76a.gif" />
+
+<p>如果利用上述方法找不到電影資訊，那麼<span style="color: #800000;">就要自行搜尋電影的 IMDb ID</span>；不過因為是英文網站，首先要知道這部電影的英文名稱。此時可以利用”維基百科”，如下圖，電影”六弄咖啡館”的英文就叫”At Cafe 6”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220596/original/c6cd2048e6fcccd92182ff9c7fb22a42.png" />
+
+<p>接下來到 <a href="http://www.imdb.com/" target="_blank" rel="noopener">網路電影資料庫網站 IMDb</a> 來搜尋”At Cafe 6”這部電影，然後複製上方網址列的 IMDb ID。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220597/original/87b31db93152c12051ed112d487bd597.png" />
+
+<p>回到編輯資料庫的地方，把 IMDb ID 貼上，就會看到該部電影出現於下方列表。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220598/original/d36d78568b89a82e7e3248a998eb9c3c.png" />
+
+<p>最後電影名稱和描述可能會是英文或其他語言，我們可以自行將它改為中文。如果<span style="color: #800000;">前面兩種方法都找不到某電影的話，那麼就只能在這邊慢慢新增影片資訊了。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220599/original/b04da9484fe4e474084ceacb22dcb791.png" />
+
+<p>整理過後的影片庫，看起來整齊許多。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220600/original/ed1622f3c6b010cb43b9fe41a3f0149d.png" />
+
+<p>任意點開一部電影，可以看到電影海報、劇照、類型、上映日期、評分、摘要、演員等相關資訊。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220601/original/9d3f13d511b51de212342a67114634dc.png" />
+
+<p>有了電影資訊的最大好處就是，使用者<span style="color: #800000;">能依需求來搜尋想看的電影</span>；例如某個演員演出的電影、驚悚類電影，或是 2016 年上映的電影等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220602/original/18224b2b8687dd71e6d69a5fd2f5d8da.gif" />
+
+<p>不過舊版『LooksGood』資料夾的檢視方式一樣沒消失，在這裡也可以直接播放影片。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220603/original/e3e6e26335bfd144c2c0df32447b3b4d.png" />
+
+<p>接著測試線上播放的功能，可以<span style="color: #800000;">調整影片畫質</span>（適合網速慢或是限制流量的地方），對於 .mkv 影片檔也能<span style="color: #800000;">即時調整字幕和音軌</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220604/original/e8ea72bf9e945f3e269f408e389fcd04.gif" />
+
+<p>由於 .rmvb 和 .avi 等非 .mp4 檔的影片在線上播放時，NAS 都要即時做轉檔，因此筆者建議在所有的影片都事先轉檔為 .mp4 格式。而在影片轉檔之前，可以選擇要以什麼畫質來轉檔，不過這邊點選”原始解析度”就好。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220605/original/1db76de5585d369538120a6b214a0f15.png" />
+
+<p>在”多媒體轉檔”頁面能看到即時的轉檔狀態，近兩小時的電影大約需要 20 幾分鐘來轉檔。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220606/original/5bd6248d56497d64fc47b23e3c21d7d8.png" />
+
+<p>為避免影響到其他程序的使用效能，轉檔時所耗費的系統資源大約在 50% 上下。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220607/original/e71224e9afa72ea0cd8fb17e0c6a1398.png" />
+
+<p><a id="g-3" name="g-3"></a><br><strong><span style="color: #ff6600;">【相簿套件 Photo Gallery】</span></strong></p>
+<p>『Photo Gallery』能將家庭出遊照片、生活照等集結成一本一本的相簿，放在網路上欣賞之用；並且不用擔心這些相片會被外人看到，<span style="color: #800000;">透過權限的設定，不同的 ADM 使用者能看到的相簿也不同</span>。</p>
+<p>在使用『Photo Gallery』之前，將所有相片全部上傳到”PhotoGallery”資料夾。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220608/original/d85524ed82430a9b5a6b93e98493097b.png" />
+
+<p>待相片建立好索引後，打開『Photo Gallery』，能發現到介面相當簡單美觀；按一下左上角”≡”符號，會出現相簿總覽。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220609/original/57fdecf8b7917e157f1f58bc5b1daf60.gif" />
+
+<p>除了相簿模式，按下上方的”瀏覽”會切換為資料夾檢視模式。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220610/original/46c1dfe9073312426512ca5c2907b2ea.gif" />
+
+<p>排列方式也能做更改，預設是”相片牆”檢視，不過還有”1:1″、”4:3″、”16:9″三種，如下圖所示。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220611/original/cbeb05dfbca1ef7a85c456862e9e9262.gif" />
+
+<p><span style="color: #800000;">所有預設上傳的相簿只有管理員自己才看得到，如果要分享給別人看，就得設定權限。</span>選擇好相簿後，按一下列表上的”編輯”按鈕，權限有公開、密碼、私人三種；當然，還有”編輯權限”按鈕，能詳細設定每個使用者權限，有瀏覽、上傳、管理三種。（權限大小：管理(可上傳/刪除) &gt; 上傳 &gt; 瀏覽(唯讀)）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220612/original/a3b21024f78f17750d7e1dd865d5274b.png" />
+
+<p>在瀏覽相簿頁面中，左上角”+”可以新增相簿。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220613/original/8b3c137a6499e0534ba14e50696d0f62.png" />
+
+<p>相簿具有分享功能（透過”連結”開啟相簿），並支援各大社群、電子郵件分享。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220614/original/7e7e10d6299d152303110ec29a359f4e.png" />
+
+<p>收到連結的人，若該相簿的權限為”公開”，就能直接開啟瀏覽；權限為”密碼”的，輸入密碼才能瀏覽。（如果權限是”私密”，即使分享了，對方還是看不到）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220615/original/eda9c534c7673562b909c195078db17c.png" />
+
+<p>任點開一張相片，下方有放大/播放/下載/刪除/旋轉等功能；有邊則有相片的詳細資訊，以及使用者可自由建立的標籤和留言。（使用連結瀏覽的非 ADM 使用者也能留言）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220616/original/7d21d3fab403b8c7c1f9f4ed54d670be.png" />
+
+<p>下圖為幻燈片播放，能調整播放時速度。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220617/original/763d41f7b2ab8dde5fe1e4f4bc55d3d9.png" />
+
+<p>最後是搜尋功能。舉例來說，剛才新增的標籤就能透過搜尋功能找出來；或是相片拍攝日期，如下圖就是要找出 2012-11-01 ~ 2012-12-31 所拍攝的相片。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220618/original/7543c5e9f9618f14dba00c508d40b1c8.png" />
+
+<p>按下”搜尋”後，符合條件的照片會顯示出來。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220619/original/0a64e1c930388fee2c8c169c0e5c815f.png" />
+
+<hr />
+
+<p><a id="h" name="h"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220857/original/3a659a210538e98502d72d9de536e739.png" /></p>
+<p>透過『ASUSTOR Portal』這個套件，只要將 AS6404T 與螢幕用 HDMI 線來連接，就可以把 NAS 當作電腦來播放影片、瀏覽網頁，甚至是玩遊戲！由於『ASUSTOR Portal』擁有許多非常有趣的應用程式，從最基本的 Chrome、Youtube，到遊戲類的 ppsspp、FCEUX，還有集結所有影音多媒體的專屬套件：KODI，<span style="color: #800000;">讓 NAS 再也不只是我們平常所認識的 NAS！</span></p>
+<p>使用之前，ADM 的『ASUSTOR Portal』能設定預設顯示 App、桌布和 App 排序等。<br>PS. 注意下面介紹的套件『ppsspp』、『Media Cast』、『KODI』等，需事先至『App Central』下載。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220624/original/8ccfc91bdc10018ef3266e14c927d8f4.gif" />
+
+<p>確認 AS6404T 已經使用 HDMI 線接上顯示器，打開螢幕後會出現『ASUSTOR Portal』畫面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220625/original/99b902bd01d1b8ba6dfae741af2eee45.jpg" />
+
+<p>在使用『ASUSTOR Portal』之前，筆者建議使用鍵盤滑鼠來控制，較為方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220626/original/9dbecf3e6d95fbcd7bb0bf557b1cf926.jpg" />
+
+<p>不用鍵盤滑鼠也沒關係，<span style="color: #800000;">ASUSTOR 也提供了內建的《AiRemote》app，可以直接利用手機操控『ASUSTOR Portal』，支援觸控板/按鍵模式，且亦支援中、英文輸入。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220627/original/f7458498ecdba4a8631ddaf3858330bc.png" />
+
+<p>以下是幾個『ASUSTOR Portal』內 app 的功能和用途介紹：</p>
+<p><a id="h-1" name="h-1"></a><br><strong><span style="color: #ff6600;">【ADM】</span></strong></p>
+<p>『ADM』就是以Chrome瀏覽器開啟的ADM視窗。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220628/original/fafaa3b2e1cab9621466da5d17fb2da8.jpg" />
+
+<p><strong><span style="color: #ff6600;">【Chrome】</span></strong></p>
+<p>如果NAS有外接鍵盤滑鼠，使用Chrome就像是用電腦上網一樣。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220629/original/d9290959325efa2e5593bb6a60317996.jpg" />
+
+<p>使用Chrome時，一樣可以看影片，玩FB小遊戲，完全不會有限制。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220630/original/6194b6a7096fed45e9a903cf6625b8c0.jpg" />
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220631/original/2866c5ae70bb550bbfdeb2f2df97786b.jpg" />
+
+<p><a id="h-2" name="h-2"></a><br><strong><span style="color: #ff6600;">【Youtube】</span></strong></p>
+<p>『Youtube』使用的電視版的 Youtube 介面，瀏覽起來方便迅速。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220632/original/4d8befd613802601eb0778dfc08697e3.jpg" />
+
+<p>使用『Youtube』來收看新聞直播。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220633/original/2e988a731a444c4105d40b0458d92209.jpg" />
+
+<p><strong><span style="color: #ff6600;">【Media Cast】</span>（需至 ADM 的『App Central』下載）</strong></p>
+<p>不過內建的『Youtube』也有一些限制，<span style="color: #800000;">例如尋找想看的影片較為麻煩</span>；此時利用『Media Cast』，我們就<span style="color: #800000;">可以先在手機上找好要播放的影片，再串流至大螢幕輸出！</span></p>
+<p>首先，先確保手機和 NAS 連接同一個網路，然後打開手機上的《Youtube》app，選好影片後，按一下畫面上方的串流圖示，就會輸出到目前的 NAS：AS6404T-ED 播放了，就是如此簡單！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220634/original/425859b6897f269f80fdfcd6de6afa7a.png" />
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220635/original/3d6247a03b0e398805a1210197c2261c.jpg" />
+
+<p>使用者也能自行建立播放清單，讓『Youtube』播完一部影片後還能繼續播放。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220636/original/37b955a3f508590022976f4c43a46cd0.png" />
+
+<p>更方便的是，手機上調整音量，就能直接控制影片的音量大小，此時手機就像是一台萬能的遙控器！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220637/original/33674e6709b6e4ee39677833b9f8515b.jpg" />
+
+<p><a id="h-3" name="h-3"></a><br><strong><span style="color: #ff6600;">【ppsspp】</span>（需至 ADM 的『App Central』下載）</strong></p>
+<p>『ppsspp』是一套遊玩 PSP 遊戲的模擬器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220638/original/171c989fab15ab9cad6f6e3f4b38828d.jpg" />
+
+<p>開始玩之前，先到上圖右方的”Settings” → “System”頁面 → ‘Language’，調整為繁體中文。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220639/original/1a346fe37f3072ceb54831df884a55e7.jpg" />
+
+<p>接著是控制，在”控制器設定“頁面 → “控制映射“裡，將各個按鈕自行更改為鍵盤上的位置。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220640/original/3e23b0d9f959badb187e955e652b7e90.jpg" />
+
+<p>最後找到遊戲(.iso檔)就能點進去開始玩了唷！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220641/original/02681f5af870d54e11d27da961d2a5c7.jpg" />
+
+<p>測試的遊戲為”太鼓之達人：攜帶版DX”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220642/original/1b89256341f91eca7bd04cbf9e11d65e.jpg" />
+
+<p>使用『ppsspp』玩遊戲的好處是，它支援即時存檔；最好的例子就是，養成遊戲如果選擇錯誤，此時這個功能就很方便 XD</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220643/original/99204b5bc1af9d9034166ef874dec84a.jpg" />
+
+<p>附上遊玩的測試影片，運行非常順暢。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/copLsrEuVwM?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><strong><span style="color: #ff6600;">【FCEUX】</span>（需至 ADM 的『App Central』下載）</strong></p>
+<p>『FCEUX』也是一款遊戲模擬器，它主要遊玩的是以前任天堂推出的紅白機遊戲；因為控制的按鈕很少，我們直接就來開啟遊戲。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220644/original/9e39633b320c71fb979c90cb1928c2c3.jpg" />
+
+<p>選擇遊戲來遊玩。這款遊戲的大小才 41kb，和剛才太鼓達人的 1.X GB 真的差很多！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220645/original/1eaddfa533d99453420386885c61052a.jpg" />
+
+<p>最後在”Options”，點選 Fullscreen 來執行全螢幕。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220646/original/9ea58a5a45775f515a885e7d4b0e2d93.jpg" />
+
+<p>附上遊戲實測影片和鍵盤控制：</p>
+<p><strong><span style="color: #008000;">A </span>: 鍵盤f</strong><br><strong><span style="color: #008000;"> B</span> : 鍵盤d</strong><br><strong><span style="color: #008000;"> Select</span> : 鍵盤s</strong><br><strong><span style="color: #008000;"> Start</span> : Enter鍵</strong><br><strong><span style="color: #008000;"> Up, Down, Left, Right</span> : 對應鍵盤上下左右</strong><br><strong><span style="color: #008000;"> TurboA</span> : 未定義</strong><br><strong><span style="color: #008000;"> TurboB</span> : 未定義</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sp3DG_IAPYw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><a id="h-4" name="h-4"></a><br><strong><span style="color: #ff6600;">【KODI】</span>（需至 ADM 的『App Central』下載）</strong></p>
+<p><span style="color: #800000;">『KODI』是非常強大的多媒體播放程式，它擁有十分完整的界面和許多擴充套件，並支援幾乎所有的音樂和影片格式的播放。</span>此外，ASUSTOR 也推出專用於 KODI 的控制App：《AiCast》，讓使用者只要透過該 App 就能在手機上控制播放什麼影片，聽什麼音樂等。</p>
+<p>下圖是最新版的 KODI 17.3 使用者介面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220647/original/fcd47b499d26b5ae9b154f6a2d9d5f7f.jpg" />
+
+<p>首先進入設定 → “Interface settings” → “Regional” → “Language”，調整為中文介面 Chinese (Traditional)。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220648/original/4b09f683d7d3f1c5004e3ce632707b0a.gif" />
+
+<p><strong><span style="color: #ff6600;">【KODI：電影/影片】</span></strong></p>
+<p><strong>–使用《AiCast》新增影片來源–</strong>（<span style="color: #800000;">亦可透過此 App 新增音樂、相簿、電視影集等來源</span>）</p>
+<p>首先開啟《AiCast》，並登入帳號。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220649/original/318779f0ec7eaedf4a5e748f81d47372.png" />
+
+<p>接著會要求掃描電影內容，此時按一下目的資料夾旁的”+”來新增；搜尋完後就能看到下右圖，已建立好的電影索引。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220650/original/95bf6244bc590ed6bb5aef966db66356.png" />
+
+<p>建立索引過程中，螢幕右上角會顯示建立索引中的訊息。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220651/original/7e39890a32e3c2dc427637c19bad3a5c.jpg" />
+
+<p><strong>–使用《AiCast》控制影片播放–</strong>（<span style="color: #800000;">亦可透過此 App 控制音樂、相簿、電視影集播放</span>）</p>
+<p>點擊要看的影片，按下播放後，手機會變成一個遙控器，可以控制音量、影片進度、播放/暫停/停止等。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220652/original/6133f5adc2cb6facdef2be17b9ab40a4.png" />
+
+<p>此時畫面上就會出現正在播放的影片了。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220653/original/521cc8d938f727758aaa3ccaafe7f411.jpg" />
+
+<p>從『KODI』對電影點右鍵按”資訊”，可查看該電影的介紹、演員、預告片，甚至是預告片等，資訊十分詳細。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220654/original/afe9e392720b8c9cbc1e1c7a42e2d22e.jpg" />
+
+<p>如果放在 NAS 內的影片不是電影而是普通影片，或是抓不到影片資訊，就不會顯示在”電影”頁面中，這時候要到”影片”頁面去尋找影片路徑。（可使用《AiRemote》app來控制『KODI』）</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220655/original/aa3b26b33ed42c706d5fce9770082894.jpg" />
+
+<p>影片支援音軌和字幕的即時切換。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220656/original/01b0474c820d00fa320f158e37f1a7c9.jpg" />
+
+<p><span style="color: #800000;">AS6404T 支援 HEVC 和 VP9 的硬體解碼，最高亦支援 HDMI 2.0 規格、60/50FPS 4K 解析度影像，筆者實測播放60FPS的4K影片時，畫面完全十分順暢。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220657/original/22e576d720b5801b1c01720b4d646f1f.jpg" />
+
+<p><strong><span style="color: #ff6600;">【KODI：音樂】</span></strong></p>
+<p>『KODI』將音樂依照不同類型做分類，<span style="color: #800000;">如果不知道要聽什麼歌，還有”隨機選擇專輯”、”還沒聽過的專輯”、”最常播放的專輯”等供使用者選擇</span>；此外，進入其他頁面時，音樂會在背景播放，而<span style="color: #800000;">正在播放的歌曲將顯示於右上角</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220658/original/5377a517e63666f7ff2b9a66beaf25e0.jpg" />
+
+<p>使用《AiRemote》來控制音樂最大好處就是：<span style="color: #800000;">不用向一般遙控器一樣對準機器才能使用，因為它是透過 Wi-Fi 來連線的。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220659/original/96171186a4f6e2615f263551b3162cb8.png" />
+
+<p>下圖為預設音樂播放器的介面，使用者也可以自行去”附加元件”下載不同的介面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220660/original/20927c6696f3342a36341b50316e9c75.jpg" />
+
+<p>安裝歌詞外掛”CU LRC Lyrics”後（右下角右邊數來第二個點擊安裝），播放音樂時會自動尋找”動態歌詞”顯示。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220661/original/b213389db9bfb0ab19e43058fb60516f.jpg" />
+
+<p><strong><span style="color: #ff6600;">【KODI：圖片】</span></strong></p>
+<p>相簿資料夾和相簿內的照片能以”轉換”、”資訊牆”、”牆”三種模式來檢視。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220662/original/03f96e5b9035666b53dbaf2cde67b0c3.gif" />
+
+<p>將照片點開後，若再點畫面一下，相簿會以幻燈片瀏覽；而<span style="color: #800000;">相片不是死板的一張接一張切換，是移動式的切換</span>，如影片所示：</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/D2_XCP_dzWg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><strong><span style="color: #ff6600;">【KODI 天氣】</span></strong></p>
+<p>除了音樂、影片、相片的播放，『KODI』亦支援天氣預報的顯示。不過需要先選擇一個”天氣資訊提供者”，這邊我們選擇”Yahoo! Weather”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220663/original/d78e16b03535aa8f11f0839c87dc18a2.gif" />
+
+<p>接著進入”系統設定”，並選擇所在地區。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220664/original/fe2b5a0d0ef5ea0174c2905003bf389c.jpg" />
+
+<p>天氣預報會顯示未來一周天氣概況，以及目前的溫度濕度、風向等，資訊非常齊全。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220665/original/86ab7fa2dc1a08a0a5467798268d6f04.jpg" />
+
+<p><strong><span style="color: #ff6600;">【KODI 電視】</span></strong></p>
+<p><span style="color: #800000;">其實『KODI』還可以拿來看”數位電視”，實在是非常強大的功能呀！</span>由於 Youtube 高畫質網路直播可能要耗費不少頻寬，<span style="color: #800000;">如果利用數位電視來收看新聞，不僅不需要使用網路（接收數位天線訊號），而且還有許多節目，例如：民視八點檔、台視連續劇是網路無法立即收看的，必須透過電視來觀看。</span></p>
+<p>不過收看數位電視，需要先準備一支 USB 數位電視棒，這邊筆者使用的是 UPMOST DVB193，價格不用 400 元；此外還需要準備大天線（隨附的天線收訊不夠強），由於天線要靠窗，因此還要另外準備一條 USB 接頭延長線，不過大約在 1000 內可以搞定。至於設定教學（包含『Tvheadend』設定和『KODI』設定），請參閱官方教學：<a href="https://www.asustor.com/zh-tw/online/College_topic?topic=233" target="_blank" rel="noopener">學習如何使用 Tvheadend</a>。</p>
+<p>如果設定完成後，進入”電視”頁面會出現最近收看的頻道，以及”頻道”、”節目表”，以及排程播放的”定時”等功能。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220666/original/cbd3580797618cdbada1fef3e6b242a1.jpg" />
+
+<p>點選”頻道”後，各頻道下方會顯示目前的節目與節目進度條。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220667/original/bab792eb35af7c61b73db8f196c291f2.jpg" />
+
+<p>若打開”節目表”，可以看到許多資訊，包含詳細節目的播出時間、節目資訊，和一個淺藍色的時間軸，可以得知哪些節目快播完了。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220668/original/459265f20b0f4a83c731ec2d18ccb378.jpg" />
+
+<p><span style="color: #800000;">電視節目的播放非常順暢，完全不會卡頓、破格。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220669/original/394baa286131ab75c08363f87a13ab52.jpg" />
+
+<hr />
+
+<p><a id="i" name="i"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2017/07/220858/original/288e1c1ff585c2d544dc12c059ce8662.png" /></p>
+<p><strong>說真的 ASUSTOR AS6404T 真的解決了筆者不少問題；<span style="color: #800000;">若要說的更貼切，就是它改善了我許多生活習慣</span>。舉例來說，<span style="color: #0000ff;">以往再傳輸資料或是分享檔案給別人時，使用的方法百百種，但都不是最方便的。</span>例如有朋友跟本人要 Office 2016 的安裝檔時，如果將檔案丟在 Google Drive 再用連結分享時，大概雲端空間就用掉 20% 了；如果是 MEGA，現在又有 2GB 流量限制…<span style="color: #0000ff;">因此使用 NAS 來傳檔非常方便，不僅容量大，分享連結還能設定密碼、有效期限，不用怕外人存取。</span></strong></p>
+<p><strong>ASUSTOR NAS 最大的特色就是<span style="color: #800000;">其家庭影音套件與功能非常完善</span>。從 ADM 套件『SoundsGood』、『LooksGood』和『Photo Gallery』，以及對應推出的手機版 App，只要有電腦、手機或平板電腦，不管何時何地都能享受 NAS 內的影音多媒體檔案。除此之外，<span style="color: #0000ff;">透過本地輸出的應用『ASUSTOR Portal』，NAS 瞬間變身成為一台簡易電腦，不管是要上網還是玩遊戲，功能應有盡有</span>。最後是<span style="color: #0000ff;">強大的本地播放 App『KODI』，NAS 外接的螢幕又立刻成為一台智慧電視</span>，由於 AS6404T 的硬體解碼能力提升，<span style="color: #800000;">觀看 4K 60FPS 影片毫無問題</span>；還能<span style="color: #800000;">觀看 NAS 中的電影/聽歌/瀏覽相簿/查看天氣，甚至是收看數位電視等</span>，利用『KODI』就能做到！</strong></p>
+<p><strong>華芸新推出的兩機種：<span style="color: #800000;">AS6302T 和 AS6404T 都支援 Wake-On-Wan 的功能</span>，就像電腦不用時會關機，雖然 ASUSTOR NAS 具有排程開關機與耗電低的特性，<span style="color: #0000ff;">但是有些人可能認為需要用的時候再開機就好，不過在戶外臨時要存取伺服器的情況又怎知？因此 WOW 功能無疑對彈性使用 NAS 的人又是一大福音！</span>而 AS6302T 和 AS6404T 到底要選擇哪一款呢？<span style="color: #0000ff;"><span style="color: #ff0000;">筆者強烈建議選擇 ASUSTOR AS6404T</span></span>，</strong><strong><span style="color: #0000ff;">除了硬體提升，主要是因為 4 Bay（4 個硬碟插槽）的擴充性比 2 Bay（AS6302T 具有 2 個硬碟插槽）好太多了。</span>一般人會添購 NAS 就是為了要保存珍貴的相片、影片、文件等資料，這時候就需要建立 Raid 1 來提升資料安全性。可是<span style="color: #800000;">當 2 Bay 都插滿後，除非要添購擴充盒，否則像 MyArchive （NAS 硬碟熱插拔）功能，因為沒有多餘的空槽就無法使用了。</span></strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/asustor/" rel="tag"># Asustor NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/PC-cillin-2018/" rel="prev" title="[教學] 防毒寶典八式！PC-cillin 2018 雲端版 修煉防毒、即刻開始！">
+      <i class="fa fa-chevron-left"></i> [教學] 防毒寶典八式！PC-cillin 2018 雲端版 修煉防毒、即刻開始！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/06/Bowers-Wilkins-P7-Wireless/" rel="next" title="[開箱] 樂動人生、音你而在！Bowers & Wilkins P7 Wireless 高音質藍牙耳機，隨時隨地展開你的音樂饗宴！">
+      [開箱] 樂動人生、音你而在！Bowers & Wilkins P7 Wireless 高音質藍牙耳機，隨時隨地展開你的音樂饗宴！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '2fee031426b60dac036a2496fae1de93',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

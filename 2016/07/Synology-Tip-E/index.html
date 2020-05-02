@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ 『Download Station』E-1 『Download Station』介紹E-2 行動裝置《DS Download》 『Audio Station』E-3 音樂匯入&amp;動態歌詞E-4 『Audio Station』介紹E-5 行動裝置《DS Audio》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Tip E. 多媒體娛樂篇">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-Tip-E/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ 『Download Station』E-1 『Download Station』介紹E-2 行動裝置《DS Download》 『Audio Station』E-3 音樂匯入&amp;動態歌詞E-4 『Audio Station』介紹E-5 行動裝置《DS Audio》">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270430/original/395f6300d1955c99def99f9ca7ada1a2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270553/original/86fd656942a37db213cec30879025ed2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270431/original/03803f66960d2a4e523eefac0e6d18a9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270432/original/c406299ae6b7c90ea686db83e92c5492.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270433/original/513be1e1abdfcac78c6193f797f4f4d4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270434/original/476978bbee6e915353cf92c7fc13fb30.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270435/original/c7df9b516391aae5e5180ed6e197ab4e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270436/original/3bbf146124e02918e840fd8c0165033b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270437/original/7b586b5cd1ad344847b4e85f4328c279.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270438/original/2e551fd99fcc180fdd991f6030ca06af.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270439/original/6590691971248d461accd217f887028b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270440/original/2f36d9e7b4949f9c3f94c8823d67e183.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270554/original/e7a61f6f508d0bfc2a462972aca23a14.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270441/original/cc297d9906428edb59d6f9731e344e0b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270442/original/ead66c365c6debf10cad941b4dbb0c70.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270443/original/7ca99abd86f066a374798c7486fc90cf.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270444/original/d3b328b112ecbb2b552a307c16f6365f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270445/original/72bf41e14e97f0d6263c20092b33319b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270555/original/26975adbede0aab26c1a9641ea606d09.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270446/original/ea357fc26108ab180647ee581e255c95.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270447/original/231863ec6e8a8d7180435949bcd811a9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270448/original/e05f5dd811973191618faab89c7806a6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270449/original/08e1d38b58c3085402e763e694bc6bae.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270450/original/2e28350ad0718e39b8012e392d27d2e1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270451/original/524cf8d6967ba212f8bc5a5efef8df90.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270452/original/1b78cf564a5d452f94de6eb029e67e61.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270556/original/87e85e7c875c0545486d835517cc55ed.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270453/original/1f09c50e13ae061fc57c87e189dc5ec2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270454/original/c7e4e38272080569513956288b51484d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270455/original/5b89ce1a456ace930122b2b7ed4b4d8d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270456/original/1aa82eca11c47fc3daefd80f1f1b49c7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270457/original/ae5adb8661dcb985cdf3ccce51c614d3.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270458/original/e010e781a4d870a5bcd68c40c5a9b121.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270459/original/ea673b3950411e0493e5a0cf8826b0e2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270460/original/ab4f28d5b8d673bc0c3933e664fe086b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270557/original/7ed2ce4ae6a9dcbe86663c7d6d2190fd.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270461/original/a1a0c0150436594c36ceb863a1ddf24a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270462/original/bc029254d25210c1edf718a611f2061d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270463/original/cabe5817c3479ecdd403cc05554257a7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270464/original/f9be98c4e0876b21a50fc4bf46268995.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270465/original/bc1f89671911e1403e1593875e4c17c6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270466/original/b917688d4e2fd7ba58df27eed39eaf8b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270467/original/74adcb7506dc4792b761a89813f75d7f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270558/original/beecefef351e7ffc03566a1298930b36.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270468/original/6c8c614853c4d515295c525f93a581ba.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270469/original/7ba63b9f29febba42da27c8e4116044b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270470/original/77c6068c6d650d5959f6cae69543b45c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270471/original/ce864f55b1775f2c6f67557b442d218e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270472/original/bfb10e25dc76dd4c34a146c7bc86eb59.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270473/original/495f55fcce24661fb6dc45e41d30ed80.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270559/original/4e9cd944a147746d871b31c1e69a771b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270474/original/8f11842ac145196265abeef6b3e92653.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270475/original/bbedf03964b1d5359ca8cebe94404162.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270476/original/0f3faef738ed67807b97e985353c8726.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270477/original/6863d9c68af780fb8f04d4454108d6e4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270478/original/655125b9ba6276c6d45c0f5cc8e5d348.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270560/original/0303ca13a4f7c68f47222baf77cc5a18.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270479/original/ba275e38c6d2b0e60ff90d7057ad0759.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270480/original/9612a1b4929946180208d29460f27601.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270481/original/61588592c00aa619c739691f584847cc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270482/original/094188c0eb40116eabc844a42f7fff29.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270483/original/01020d15c0c560390a2caa2c62afb711.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270561/original/f6cae15874823d5af84312b8d1e2f166.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270484/original/60a66a9357f9fc75ae64194614e64ef2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270490/original/531bfcb14ff78a124e49fc29216db78e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270485/original/cf03c5e41e5ddeda64b92d60be2f7c58.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270491/original/77ced44b06d21229c5cf1bb5c31c0658.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270492/original/e2cc7640a1e8c61090f0e7931459c073.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270486/original/d2689016cfc8b124648d4bef71c94bbe.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270562/original/42788d84f22d98464c0d81fee49c2f15.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270487/original/48f23529d8e5bd08b6d8c0b49c9f83c0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270488/original/e69e152ca465554645b8c96225b36ba1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270489/original/4749df167b3bc59b909c7c65d9dc843e.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270493/original/fbb95c3cbbeb38e724f06c68e54964a3.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270494/original/88f98ea8e973ed0209974a83852b2b91.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270495/original/4ed33078f775897e445ff55451123d4e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270563/original/2a4530eaf66cb852a70ef5c65e7b52d6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270496/original/40411a315e4a2cad5828dd0c463fd3b9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270497/original/2dc3b3f860428f9a4720ab56a0291bc9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270498/original/bdd2f323bf478e924ae6c4115a7c9a86.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270499/original/10ae9b90f978c7f6f900ea8d78c4cd14.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270500/original/0eddaf23924d355a84675e0820c70375.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270501/original/e215db6ffad561573d9c62d63cc0308b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270502/original/5f3446b8555963f0cec749cc202a42e0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270503/original/6dbcf1e4d6b6c56aec1f2986bde14fd2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270564/original/99d0d237e14afc31dcaec495a04145f6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270504/original/7fdc1d05aeef3d960860a4e65e819c72.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270505/original/2639a7bc08f83bfcee26598fae599e81.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270506/original/155e77bf14d310a98dbf47ca22096aec.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270507/original/297396227e6a027bcdf8f15f8a58c2d1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270508/original/13c4a33327b41de77f78e901941b737f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270565/original/39aecf7e7f532c05e20ba9e720c9ff40.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270509/original/ad6364bce102cff4d64e4dae10d5205e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270510/original/5bc38a5db2aa00b6b7304f37dc18a2fe.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270511/original/3f1bb72f4e15e788fedb39a690d76860.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270512/original/86c0006c77d581a00a35b01bb770bbab.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270513/original/147a733769780bef52fa51181d27134f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270514/original/4f0bf1bec7cb1d13ca2c35e47efb5be1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270515/original/723f4d310de031263d171a16d1485eaf.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270516/original/f2b9e6a5c399df0d7ca737dd285a0be3.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270517/original/2a98705a17b8428681c134797fa53075.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270518/original/6a068a62b126a465b58dcf51fb2c985b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270519/original/88e54367f76236fdfe3f9e55be479e16.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270566/original/5c8acb56190fdc9369f9e180b7575291.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270520/original/2e3742c7c13f5e1464764fbb961852f2.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270521/original/34dc93d8047d0c071963f6b3f5a32a64.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270767/original/ffc2aebff32cb0ed772ee7b86f8c1d29.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270523/original/2245050ce0e3eec153c9d51d38ba9475.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270524/original/b796298a73b406b3e9d196864d107fc5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270525/original/296db01a507eeb654ea3c94a277ff608.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270526/original/e26c65967da896bbc7578ff6e7a79240.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270527/original/e9a1ff959299beb9d1bfada4078e55cb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270528/original/86edb9da723f4989751389af81cb1b26.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270529/original/f3bd6147fc5b9a8b3cca35515443c229.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270530/original/24cc159b0cc3a7266a06ce81ea6cb9dc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270531/original/9976890715808ad22b9e636bcbe973a3.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270532/original/75ed1729c2e11afb7c3f184607b8794c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270533/original/1efebca828e96ede76e544c33440506e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270534/original/055fb3a09cbe4731a9e0d7cbde12d88b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270567/original/f440161888152f3c51c93d9414299dca.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270535/original/564f06fdfed4a331f235e32e0f61716d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270545/original/db9d3063aab4bde7015382d3d20caa9d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270536/original/5581e3459e25254d58a6054233c873ea.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270537/original/070a457dfef41b8eb2737a83fdba3f3e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270538/original/b5f814ddf93391df17c3e4e2e8b24dc6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270546/original/5ee2861acb48537b85f039d88471f773.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270539/original/5927f10f5694bf941e3e0a03142fb15a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270540/original/47c2c2697db76159ddeb2dc2489b42eb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270541/original/bb21eced35f3cf01b568bc8ede03bdaf.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270568/original/bddcdbe78e2466b9c8884e3923b46015.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270542/original/c492cf6d72e582483450f422751c13b4.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270543/original/fbe0d679d52b9c947ae5f920606e5cb9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270544/original/61398ba7316079d393914046e127e345.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270547/original/657cb107ccee82d20d3eb80eedb4d604.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270548/original/93b0c8b30170296ffba0148bfe3eb58f.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270549/original/8b6f4046677d763d3677f12dfefea7bf.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270550/original/26c69da39b214172ac01fc0532714e9f.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270551/original/d7407b94a64c5155a676e75889f419c8.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270552/original/9cdbf7bab9947e9c346019edd3fe8144.jpg">
+<meta property="article:published_time" content="2016-07-27T05:29:00.000Z">
+<meta property="article:modified_time" content="2019-12-23T11:36:42.517Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" 多媒體">
+<meta property="article:tag" content=" 相簿">
+<meta property="article:tag" content=" 音樂">
+<meta property="article:tag" content=" 影片">
+<meta property="article:tag" content=" Video Station">
+<meta property="article:tag" content=" Photo Station">
+<meta property="article:tag" content=" Audio Station">
+<meta property="article:tag" content=" Download Station">
+<meta property="article:tag" content=" BT">
+<meta property="article:tag" content=" 下載">
+<meta property="article:tag" content=" 數位電視">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270430/original/395f6300d1955c99def99f9ca7ada1a2.png">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-Tip-E/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Tip E. 多媒體娛樂篇 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-Tip-E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Tip E. 多媒體娛樂篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-27 13:29:00" itemprop="dateCreated datePublished" datetime="2016-07-27T13:29:00+08:00">2016-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-Tip-E/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Tip E. 多媒體娛樂篇" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>8.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>※本文章為<a href="https://ed521.github.io/2016/07/Synology-DS916plus/" target="_blank">NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！</a>之分支※</p>
+<p>『Download Station』<br><a href="#E-1">E-1 『Download Station』介紹</a><br><a href="#E-2">E-2 行動裝置《DS Download》</a></p>
+<p>『Audio Station』<br><a href="#E-3">E-3 音樂匯入&amp;動態歌詞</a><br><a href="#E-4">E-4 『Audio Station』介紹</a><br><a href="#E-5">E-5 行動裝置《DS Audio》</a></p>
+<a id="more"></a>
+
+<p>『Photo Station』<br><a href="#E-6">E-6 使用者權限&amp;其他設定</a><br><a href="#E-7">E-7 『Photo Station』介紹</a><br><a href="#E-8">E-8 智慧相簿</a><br><a href="#E-9">E-9 行動裝置《DS Photo》</a></p>
+<p>『Video Station』<br><a href="#E-10">E-10 影片庫建立</a><br><a href="#E-11">E-11 影片資訊建立</a><br><a href="#E-12">E-12 轉檔設定</a><br><a href="#E-13">E-13 『Video Station』介紹</a><br><a href="#E-14">E-14 收看數位電視</a><br><a href="#E-15">E-15 行動裝置《DS Video》</a></p>
+<p>其他<br><a href="#E-16">E-16 使用Chromecast觀看多媒體資料</a></p>
+<p>還記得DS916+在紙箱上提到的Multimedia嗎？其實筆者認為<span style="color: #800000;">Synology NAS最大的特色就是影音娛樂的介面和功能了</span>！尤其是這四個套件，和之前的畫面相比有極大的不同！</p>
+<p>在『<span style="color: #800080;">套件中心</span>』→「<span style="color: #0000ff;">推薦頁面</span>」裡，四個多媒體程式：『<span style="color: #800080;">Download Station</span>』、『<span style="color: #800080;">Audio Station</span>』、『<span style="color: #800080;">Photo Station</span>』和『<span style="color: #800080;">Video Station</span>』，請把它全部載下來。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270430/original/395f6300d1955c99def99f9ca7ada1a2.png" />
+
+<p><a id="E-1" name="E-1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270553/original/86fd656942a37db213cec30879025ed2.png" /></p>
+<p>打開『<span style="color: #800080;">Download Station</span>』，第一次開啟時需要設定下載路徑，這時就選擇新增好的Downloads共享資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270431/original/03803f66960d2a4e523eefac0e6d18a9.png" />
+
+<p>『<span style="color: #800080;">Download Station</span>』主要提供兩種下載方式，<span style="color: #800000;">檔案</span>(如BT種子檔、內含下載網址的.txt檔)和<span style="color: #800000;">網址連結</span>(http、ftp等)。</p>
+<p><span style="color: #ff6600;"><strong>【檔案下載】</strong></span></p>
+<p>如果下載了一個種子檔(.torrent檔)，電腦就不用特地開BT軟體放著載，丟到NAS來下載就好了。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270432/original/c406299ae6b7c90ea686db83e92c5492.png" />
+
+<p>打開後可以選擇要下載的內容。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270433/original/513be1e1abdfcac78c6193f797f4f4d4.png" />
+
+<p>在畫面中可以看到該檔案已經開始下載。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270434/original/476978bbee6e915353cf92c7fc13fb30.png" />
+
+<p>由於BT檔案是以P2P來傳輸的，因此種子健康度越高(越多用戶擁有此檔案)，下載速度也就越快；下圖就是提供檔案下載的各個用戶和IP。(當然，自己也會成為分享檔案的一員)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270435/original/c7df9b516391aae5e5180ed6e197ab4e.png" />
+
+<p>『<span style="color: #800080;">Download Station</span>』也有提供BT種子搜尋(健康度由上排到下)，不過可能搜尋結果不是很完整，要尋找BT種子的話還是建議自行Google搜尋。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270436/original/3bbf146124e02918e840fd8c0165033b.png" />
+
+<p><strong><span style="color: #ff6600;">【連結下載】</span></strong></p>
+<p>如果按一下下載連結，該檔案就出現在瀏覽器的下載列，則這個連結就適合『<span style="color: #800080;">Download Station</span>』的連結下載功能(舉例來說，使用MEGA下載時是使用網頁下載器，就不適合)；這時候對該按鈕點右鍵 → 複製連結網址。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270437/original/7b586b5cd1ad344847b4e85f4328c279.png" />
+
+<p>若是利用http://和ftp://等連結開頭的網址，注意連結尾巴一定要有檔案的副檔名(這樣才是正確的下載連結)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270438/original/2e551fd99fcc180fdd991f6030ca06af.png" />
+
+<p>正確的下載連結就會進行下載任務。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270439/original/6590691971248d461accd217f887028b.png" />
+
+<p>打開Downloads資料夾，因為torrent檔內有一個以上的檔案，所以會裝在資料夾內；網址下載的檔案則會直接放在Downloads路徑下。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270440/original/2f36d9e7b4949f9c3f94c8823d67e183.png" />
+
+<p><a id="E-2" name="E-2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270554/original/e7a61f6f508d0bfc2a462972aca23a14.png" /></p>
+<p>在行動裝置裡，『<span style="color: #800080;">Download Station</span>』命名為《<span style="color: #800080;">DS Download</span>》。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270441/original/cc297d9906428edb59d6f9731e344e0b.png" />
+
+<p>登入後，畫面會顯示下載任務清單；點一下左圖右上角的”+”，可以新增下載任務。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270442/original/ead66c365c6debf10cad941b4dbb0c70.png" />
+
+<p>按下畫面左上角的”≡”還有BT搜尋、瀏覽器等功能(如下左圖)，而右圖就是利用《<span style="color: #800080;">DS Download</span>》的瀏覽器功能進入奇摩首頁。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270443/original/7ca99abd86f066a374798c7486fc90cf.png" />
+
+<p>接著看到ios裝置，因平版因畫面較寬，因此分為兩欄，左圖右上角能新增/編輯/刪除任務等。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270444/original/d3b328b112ecbb2b552a307c16f6365f.png" />
+
+<p>下左圖是BT搜尋功能，右圖為《<span style="color: #800080;">DS Download</span>》的內建瀏覽器。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270445/original/72bf41e14e97f0d6263c20092b33319b.png" />
+
+<p><a id="E-3" name="E-3"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270555/original/26975adbede0aab26c1a9641ea606d09.png" /></p>
+<p>『<span style="color: #800080;">Audio Station</span>』<span style="color: #800000;">預設要將所有音樂檔放入路徑/music下</span>；若放在其他路徑下，或是有多個音樂路徑，請到『<span style="color: #800080;">控制台</span>』→「<span style="color: #0000ff;">索引服務</span>」→「<span style="color: #0000ff;">媒體索引</span>」頁面，按一下”<span style="color: #0000ff;">索引資料夾</span>“，並且”<span style="color: #0000ff;">編輯</span>“或”<span style="color: #0000ff;">新增</span>“音樂檔的檔案來源。(檔案類型記得勾選”<span style="color: #0000ff;">音樂</span>“)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270446/original/ea357fc26108ab180647ee581e255c95.png" />
+
+<p>由於新增後的音樂為每個使用者共享，當然，每個人也會有自己的音樂想上傳自己聽，因此打開『<span style="color: #800080;">Audio Station</span>』→「<span style="color: #0000ff;">設定</span>」→「<span style="color: #0000ff;">個人音樂庫</span>」頁面，將”<span style="color: #0000ff;">啟動個人音樂庫</span>“打勾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270447/original/231863ec6e8a8d7180435949bcd811a9.png" />
+
+<p>接著打開『<span style="color: #800080;">File Station</span>』，會發現home個人資料夾內會多了一個music資料夾，這時候使用者可以把音樂上傳至此，而這些音樂只有自己聽得到。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270448/original/e05f5dd811973191618faab89c7806a6.png" />
+
+<p>能用『<span style="color: #800080;">Audio Station</span>』聽音樂不稀奇，重點是它支援動態歌詞!!!要讓它支援動態歌詞，『<span style="color: #800080;">Audio Station</span>』→「<span style="color: #0000ff;">設定</span>」→「<span style="color: #0000ff;">歌詞外掛</span>」頁面，將<a href="https://www.dropbox.com/s/8hnit5wpzkqjkd5/mojim1.03.zip?dl=0" target="_blank">mojim1.03.rar</a>下載並解壓縮，然後上傳。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270449/original/08e1d38b58c3085402e763e694bc6bae.png" />
+
+<p>新增的歌詞外掛就是音樂歌詞資料庫非常豐富的”魔鏡歌詞網”，請勾選起來。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270450/original/2e28350ad0718e39b8012e392d27d2e1.png" />
+
+<p>如果擁有多個歌詞外掛，音樂搜尋歌詞時，是以第一個歌詞外掛依序搜尋下來的。由於”魔鏡歌詞網”支援動態歌詞，我們把它放在第一順位。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270451/original/524cf8d6967ba212f8bc5a5efef8df90.png" />
+
+<p>如果要正確顯示歌詞，要<span style="color: #800000;">注意音樂的檔名最好只有”歌手+音樂”名</span>，而不要有額外的標籤或文字，如下圖。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270452/original/1b78cf564a5d452f94de6eb029e67e61.png" />
+
+<p><a id="E-4" name="E-4"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270556/original/87e85e7c875c0545486d835517cc55ed.png" /></p>
+<p>DSM6.0版的『<span style="color: #800080;">Audio Station</span>』從原本藍色的介面換成白底綠控制條的配色，感覺清爽許多。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270453/original/1f09c50e13ae061fc57c87e189dc5ec2.png" />
+
+<p>按一下音樂庫的所有音樂，NAS會自動抓取索引類型為”音樂”和/home/music路徑內的音樂。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270454/original/c7e4e38272080569513956288b51484d.png" />
+
+<p>隨便打開一首歌，音樂歌詞真的能動態顯示了!!!而正在唱的部分會以綠色粗體顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270455/original/5b89ce1a456ace930122b2b7ed4b4d8d.png" />
+
+<p>以下為動態歌詞實測影片：</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ae3X6lYp8fo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>沒有顯示歌詞的也可以自己新增(歌詞顯示錯誤也一樣)，只要對歌曲點右鍵 → “<span style="color: #0000ff;">歌曲資訊</span>“，到「<span style="color: #0000ff;">歌詞</span>」頁面，把網路上搜尋到的歌詞/動態歌詞貼上即可。(音樂標籤則是在「<span style="color: #0000ff;">一般</span>」頁面編輯)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270456/original/1aa82eca11c47fc3daefd80f1f1b49c7.png" />
+
+<p>若自己音樂庫的音樂聽膩了，『<span style="color: #800080;">Audio Station</span>』裡面的「<span style="color: #0000ff;">網路電台</span>」提供約百個以上的網路電台供使用者收聽，真的是太讚了！從不同類別的音樂中能找到各式各樣的電台，滿足不同人的喜好。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270457/original/ae5adb8661dcb985cdf3ccce51c614d3.png" />
+
+<p>像筆者最喜歡的電台是<span style="color: #800000;">JPOP的Big B Radio #AsianPop</span>(主要播放亞洲地區的音樂，日中韓都有)，且它會顯示正在播放的歌曲名稱，推薦給大家XD</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270458/original/e010e781a4d870a5bcd68c40c5a9b121.png" />
+
+<p>除了電腦播放音樂，『<span style="color: #800080;">Audio Station</span>』還支援本地Airplay及藍芽喇叭的音訊輸出，並且每個裝置分開播放聲音，讓家中每個有喇叭的角落都能播不同的音樂!!!</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270459/original/ea673b3950411e0493e5a0cf8826b0e2.png" />
+
+<p>因為建立索引的關係，搜尋特定音樂時”非常地快”，且能依照專輯、歌手、歌曲等做分類。(前提是有為該音樂加入標籤)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270460/original/ab4f28d5b8d673bc0c3933e664fe086b.png" />
+
+<p><a id="E-5" name="E-5"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270557/original/7ed2ce4ae6a9dcbe86663c7d6d2190fd.png" /></p>
+<p>《<span style="color: #800080;">DS Audio</span>》的app圖示是一個綠底，白色耳機符號。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270461/original/a1a0c0150436594c36ceb863a1ddf24a.png" />
+
+<p>進入後和網頁版一樣，擁有專輯、類型、資料夾等瀏覽方式，而音樂提供列表和小縮圖兩種檢視方式。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270462/original/bc029254d25210c1edf718a611f2061d.png" />
+
+<p>按下任意首歌的右邊”<span style="color: #0000ff;">更多</span>“功能可將音樂下載下來，下右圖為”<span style="color: #0000ff;">已下載歌曲</span>“，在沒網路的時候就能聽這些歌(歌詞會一併載下來)。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270463/original/cabe5817c3479ecdd403cc05554257a7.png" />
+
+<p>行動裝置一樣支援動態歌詞(播放介面點空白處一下)，且和內建音樂播放器一樣，播歌時，待機狀態背景會顯示專輯封面。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270464/original/f9be98c4e0876b21a50fc4bf46268995.png" />
+
+<p>iPad的《<span style="color: #800080;">DS Audio</span>》，和KKBOX的介面有幾分神似。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270465/original/bc1f89671911e1403e1593875e4c17c6.png" />
+
+<p>音樂播放器介面有專輯有歌詞，但灰色底略顯單調。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270466/original/b917688d4e2fd7ba58df27eed39eaf8b.png" />
+
+<p>行動裝置平台也有Airplay播放，並支援”<span style="color: #0000ff;">網路電台</span>“功能。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270467/original/74adcb7506dc4792b761a89813f75d7f.png" />
+
+<p><a id="E-6" name="E-6"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270558/original/beecefef351e7ffc03566a1298930b36.png" /></p>
+<p>『<span style="color: #800080;">Photo Station</span>』預設要將所有圖片檔放入路徑/photo下；若放在其他路徑下，或是有多個照片路徑，請到『<span style="color: #800080;">控制台</span>』→「<span style="color: #0000ff;">索引服務</span>」→「<span style="color: #0000ff;">媒體索引</span>」頁面，按一下”<span style="color: #0000ff;">索引資料夾</span>“，並且”<span style="color: #0000ff;">編輯</span>“或”<span style="color: #0000ff;">新增</span>“圖片檔的檔案來源。(檔案類型記得勾選”<span style="color: #0000ff;">照片</span>“)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270468/original/6c8c614853c4d515295c525f93a581ba.png" />
+
+<p>打開『<span style="color: #800080;">Photo Station</span>』會新開一個分頁。在「<span style="color: #0000ff;">一般</span>」頁面裡，可以設定”<span style="color: #0000ff;">帳號系統</span>“(要使用DSM帳號還是另外新建帳號)、”<span style="color: #0000ff;">啟動個人相簿服務</span>“等功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270469/original/7ba63b9f29febba42da27c8e4116044b.png" />
+
+<p>因為在「<span style="color: #0000ff;">一般</span>」頁面裡有個”<span style="color: #0000ff;">設定新資料夾為公開相簿</span>“(預設未勾選)，在「<span style="color: #0000ff;">相片</span>」頁面，”存取權限”裡面的每個相簿是”<span style="color: #0000ff;">非公開</span>“狀態，也就是除了管理員以外，使用者進入『<span style="color: #800080;">Photo Station</span>』會看不到任何相簿。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270470/original/77c6068c6d650d5959f6cae69543b45c.png" />
+
+<p>『<span style="color: #800080;">Photo Station</span>』擁有將相片分享到社群平台的功能，這裡可以選擇要發佈到哪些社群。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270471/original/ce864f55b1775f2c6f67557b442d218e.png" />
+
+<p>『<span style="color: #800080;">Photo Station</span>』還具有網誌的功能，不過這裡先不開啟。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270472/original/bfb10e25dc76dd4c34a146c7bc86eb59.png" />
+
+<p>最後是使用者權限的設定，由於筆者在”<a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-4" target="_blank">C-4 使用者帳號/群組建立</a>“中有提到過：假設新增10位使用者，大家的權限都一樣，如此一來就要設定10次詳細的權限；因此<span style="color: #800000;">建議先從群組做設定，然後再套用到每位使用者</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270473/original/495f55fcce24661fb6dc45e41d30ed80.png" />
+
+<p><a id="E-7" name="E-7"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270559/original/4e9cd944a147746d871b31c1e69a771b.png" /></p>
+<p>『<span style="color: #800080;">Photo Station</span>』每個相簿預設會以”相片牆”的方式顯示(也有其他顯示方式)，且有黑白兩種主題。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270474/original/8f11842ac145196265abeef6b3e92653.gif" />
+
+<p>打開一個相簿後，下圖為”<span style="color: #0000ff;">時間軸</span>“的檢視方式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270475/original/bbedf03964b1d5359ca8cebe94404162.png" />
+
+<p>相片可以分享，並且發佈到各社群平台；收到連結的人可以查看相片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270476/original/0f3faef738ed67807b97e985353c8726.png" />
+
+<p>點開相片，右側有一些相片屬性詳細關資訊。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270477/original/6863d9c68af780fb8f04d4454108d6e4.png" />
+
+<p>相片還能以全螢幕幻燈片的方式播放。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270478/original/655125b9ba6276c6d45c0f5cc8e5d348.png" />
+
+<p><a id="E-8" name="E-8"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270560/original/0303ca13a4f7c68f47222baf77cc5a18.png" /></p>
+<p>智慧相簿能自動將符合特定條件的相片及影片整理為群組；依照動作篩選，有人物/位置/一般標籤(使用者須先設定該標籤)，以及相機/相機型號/曝光時間/焦距…等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270479/original/ba275e38c6d2b0e60ff90d7057ad0759.png" />
+
+<p><strong><span style="color: #ff6600;">【相片分類一：相機】</span></strong></p>
+<p>舉例來說，依照”<span style="color: #0000ff;">相機</span>“分類就可以知道各家相機廠牌的相片畫質呈現。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270480/original/9612a1b4929946180208d29460f27601.png" />
+
+<p><span style="color: #ff6600;"><strong>【相片分類二：ISO值(或其他)】</strong></span></p>
+<p>舉例來說，透過”<span style="color: #0000ff;">ISO感光度</span>“，就可以判斷低ISO和高ISO的相片情況(例如低ISO可能相片呈現較細膩)；不過一個項目只能選擇五個數值，有點少。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270481/original/61588592c00aa619c739691f584847cc.png" />
+
+<p><span style="color: #ff6600;"><strong>【相片分類三：拍攝日期】</strong></span></p>
+<p>相片最常以”<span style="color: #0000ff;">拍攝日期</span>“做分類，但是當相簿數量一多，要一個一個相片另外分類出來蠻麻煩的；這時候使用智慧相簿就能輕輕鬆鬆地分類。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270482/original/094188c0eb40116eabc844a42f7fff29.png" />
+
+<p>下圖是智慧相簿的分類結果。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270483/original/01020d15c0c560390a2caa2c62afb711.png" />
+
+<p><a id="E-9" name="E-9"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270561/original/f6cae15874823d5af84312b8d1e2f166.png" /></p>
+<p>《<span style="color: #800080;">DS Photo</span>》app圖示為藍底，白色照片的符號。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270484/original/60a66a9357f9fc75ae64194614e64ef2.png" />
+
+<p>登入後下圖左是預設的”<span style="color: #0000ff;">大縮圖</span>“檢視方式，下圖右為”<span style="color: #0000ff;">時間軸</span>“檢視方式(每個日期裡的相片能左右滑動瀏覽)。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270490/original/531bfcb14ff78a124e49fc29216db78e.png" />
+
+<p>任點一個相簿裡的一張圖會進入幻燈片模式，下面的圖片可以滑動檢視(下左圖)；點一下右上角的”<span style="color: #0000ff;">i</span>“，可以顯示詳細資訊(下右圖)。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270485/original/cf03c5e41e5ddeda64b92d60be2f7c58.png" />
+
+<p>接著看到iPad，介面大同小異，下右圖為”<span style="color: #0000ff;">清單</span>“瀏覽。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270491/original/77ced44b06d21229c5cf1bb5c31c0658.png" />
+
+<p>幻燈片介面，打開照片詳細資訊後會占半個版面。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270492/original/e2cc7640a1e8c61090f0e7931459c073.png" />
+
+<p>《<span style="color: #800080;">DS Video</span>》還有Windows版app，因為是app版，直接打開程式就會自動登入，觀看相簿時也比較方便。(Windows裝置)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270486/original/d2689016cfc8b124648d4bef71c94bbe.png" />
+
+<p><a id="E-10" name="E-10"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270562/original/42788d84f22d98464c0d81fee49c2f15.png" /></p>
+<p>影片主要分為三大類：</p>
+<ol>
+<li><strong><span style="color: #008000;">電影</span></strong>：可線上搜尋影片資訊。</li>
+<li><strong><span style="color: #008000;">電視影集</span></strong>：可線上搜尋影片資訊，包含歐美影集、日劇、韓劇、動畫、台灣電視劇…等。</li>
+<li><strong><span style="color: #008000;">其他</span></strong>：無法搜尋影片資訊，大多為自己錄的影片、出遊影片…等。</li>
+</ol>
+<p>因此在『<span style="color: #800080;">Video Station</span>』影片庫建立之前，請先確認三大類影片為”分別放在不同的資料夾內”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270487/original/48f23529d8e5bd08b6d8c0b49c9f83c0.png" />
+
+<p>由於影片資訊的搜尋是利用”檔名”來搜尋，因此影片檔的命名就特別重要；<span style="color: #800000;">建議電影的檔名就是”電影名稱”</span>，而同一部<span style="color: #800000;">電視影集放在同一個資料夾內，每一集的檔名最好為”影集名稱+集數名稱”</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270488/original/e69e152ca465554645b8c96225b36ba1.png" />
+
+<p>第一次開啟『<span style="color: #0000ff;">Video Station</span>』，會出現簡易教學。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270489/original/4749df167b3bc59b909c7c65d9dc843e.gif" />
+
+<p>接著要先建立”電影”的影片庫，右上角點選”<span style="color: #0000ff;">設定</span>“ → “<span style="color: #0000ff;">影片庫</span>“頁面，並點選電影右邊的”<span style="color: #0000ff;">新增</span>“圖示，選擇含有電影資料夾的路徑、語言調整為”<span style="color: #0000ff;">繁體中文</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270493/original/fbb95c3cbbeb38e724f06c68e54964a3.png" />
+
+<p>然後是建立別的影片庫(這裡示範電視影集)，右上角點選”<span style="color: #0000ff;">設定</span>“ → “<span style="color: #0000ff;">影片庫</span>“頁面，點選左上角”<span style="color: #0000ff;">+</span>“，並且新增名稱、影片類型和權限。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270494/original/88f98ea8e973ed0209974a83852b2b91.png" />
+
+<p>新增完成後，對該影片庫右邊點選”<span style="color: #0000ff;">新增</span>“圖示，選擇含有該類型資料夾的路徑、語言調整為”<span style="color: #0000ff;">繁體中文</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270495/original/4ed33078f775897e445ff55451123d4e.png" />
+
+<p><a id="E-11" name="E-11"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270563/original/2a4530eaf66cb852a70ef5c65e7b52d6.png" /></p>
+<p>建立完索引的”電影”庫如下圖，但是正常來說會有許多的”灰框”(這是找不到影片資訊的緣故，下圖的電影都能正確顯示是因為整理過後的結果)，一般來說，『<span style="color: #800080;">Video Station</span>』可以成功找到約70%↑的影片資訊。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270496/original/40411a315e4a2cad5828dd0c463fd3b9.png" />
+
+<p>這時我們就要自己手動搜尋影片資訊，依照下圖指示打開”<span style="color: #800080;">從網路上搜尋</span>“功能；若檔名為”國定殺戮日2：無法無天”，這時建議在搜尋列搜尋”國定殺戮日”或”無法無天”的關鍵字就好，如此一來，幾乎所有的電影都能找得到。(若還是找不到，請試著搜尋該電影的英文名稱，語言調整為”English”)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270497/original/2dc3b3f860428f9a4720ab56a0291bc9.png" />
+
+<p>影片資訊就會出來了，如果沒有背景劇照就要自行新增。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270498/original/bdd2f323bf478e924ae6c4115a7c9a86.png" />
+
+<p>接著進入動畫(電視影集)可能會看到一堆”灰框”(『Video Station』大約只能成功找到約30%↓的影片資訊，下圖的動畫都能正確顯示是因為整理過後的結果)，<span style="color: #800000;">這主要是因為該影集沒有支援繁體中文的影片資訊，這時候就要一個一個慢慢新增</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270499/original/10ae9b90f978c7f6f900ea8d78c4cd14.png" />
+
+<p>在搜尋影片資訊前，建議先到”維基百科”去搜尋此電視影集在其他國家的名稱。以”動畫名稱：亞人”為例，先到維基百科搜尋”亞人”，在左下角就有其他語言的切換，例如美國命名為”Ajin – Demi-Human”、日本命名為”亜人”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270500/original/0eddaf23924d355a84675e0820c70375.png" />
+
+<p>打開”亞人”影集，並依照下圖指示打開”<span style="color: #0000ff;">從網路上搜尋</span>“功能；然後搜尋”Ajin”(語言選”<span style="color: #0000ff;">English</span>“)或”亜人”(語言選”<span style="color: #0000ff;">日本語</span>“)的關鍵字。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270501/original/e215db6ffad561573d9c62d63cc0308b.png" />
+
+<p>如果有找到影片資訊，該動畫的海報、簡介、各集資訊等都會顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270502/original/5f3446b8555963f0cec749cc202a42e0.png" />
+
+<p>影片資訊和簡介都是英文，這時候點選右上角的”<span style="color: #0000ff;">編輯</span>“圖示就能夠自己更改成中文(簡介內容須上網搜尋)。(每集點進去後，名稱也可以更改)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270503/original/6dbcf1e4d6b6c56aec1f2986bde14fd2.png" />
+
+<p><a id="E-12" name="E-12"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270564/original/99d0d237e14afc31dcaec495a04145f6.png" /></p>
+<p>要注意的是，若線上播放的影片並非mp4檔，在播放的同時會立刻進行轉檔(也就是影片看到哪就轉檔到哪)，而<span style="color: #800000;">NAS在同時間只能執行一件轉檔任務</span>；換句話說，<span style="color: #800000;">同時間只能有一個人在收看非mp4檔的影片</span>。(因此筆者建議事先先把非.mp4檔的影片一次轉檔好)</p>
+<p>要看哪些影片不是.mp4檔，可以利用搜尋列旁的”<span style="color: #0000ff;">篩選器</span>“，到”<span style="color: #0000ff;">影像格式</span>“勾選非mp4的項目，就會出現篩選過後的影片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270504/original/7fdc1d05aeef3d960860a4e65e819c72.png" />
+
+<p>還有一種例外，點選影片右上角”<span style="color: #0000ff;">更多</span>“ → “<span style="color: #0000ff;">觀看媒體資訊</span>“，明明看到影片檔為.mp4檔，但是”<span style="color: #0000ff;">影像格式</span>“卻是rm，這雖然在電腦內能播放，其實此影片是.rm檔，也需要轉檔。(不過使用篩選器會篩出rm格式)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270505/original/2639a7bc08f83bfcee26598fae599e81.png" />
+
+<p>因此建議在上傳非mp4檔的影片後，順便利用內建的”<span style="color: #0000ff;">離線轉檔</span>“功能將它轉檔，選擇右上角”<span style="color: #0000ff;">更多</span>“圖示 → “<span style="color: #0000ff;">離線轉檔</span>“，確認轉檔內容後按下”<span style="color: #0000ff;">確定</span>“。<br>PS.<span style="color: #800000;"> mkv檔是一種影片封裝檔，其影片格式可能還包含了聲音檔和字幕檔，若直接轉檔可能會造成字幕的遺失，因此轉檔前請先確認。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270506/original/155e77bf14d310a98dbf47ca22096aec.png" />
+
+<p>『<span style="color: #800080;">Video Station</span>』右上角的離線轉檔按鈕可以觀察目前的轉檔情況。(轉檔時，CPU使用率會提高)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270507/original/297396227e6a027bcdf8f15f8a58c2d1.png" />
+
+<p>最後記得把原本影片刪除，並把轉檔後的檔名後面括弧刪除，並且把影片資訊檔(如果有的話)的檔名改為.mp4.vsmeta，如下圖。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270508/original/13c4a33327b41de77f78e901941b737f.png" />
+
+<p><a id="E-13" name="E-13"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270565/original/39aecf7e7f532c05e20ba9e720c9ff40.png" /></p>
+<p><span style="color: #ff6600;"><strong>【特色一：電影海報瀏覽，並具有”最近加入”、”最近上映”、”資料夾”等排序方式】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270509/original/ad6364bce102cff4d64e4dae10d5205e.png" />
+
+<p>動畫(電視影集)也是用海報瀏覽(還有一個”<span style="color: #0000ff;">清單瀏覽</span>“模式)，清楚且一目瞭然。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270510/original/5bc38a5db2aa00b6b7304f37dc18a2fe.png" />
+
+<p><strong><span style="color: #ff6600;">【特色二：背景有電影劇照，且有電影類型、電影上映時間、電影簡介等資訊】</span></strong></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270511/original/3f1bb72f4e15e788fedb39a690d76860.png" />
+
+<p><span style="color: #ff6600;"><strong>【特色三：影片搜尋功能，能夠快速地找到想看的影片】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270512/original/86c0006c77d581a00a35b01bb770bbab.png" />
+
+<p><span style="color: #ff6600;"><strong>【特色四：影片篩選器，透過線上搜尋的影片資訊，就能交叉比對出想要看的影片】</strong></span></p>
+<p>例如：今天在家中要挑一部影片全家人觀賞，就到”<span style="color: #0000ff;">分級</span>“裡勾選G，也就是普遍級(適合全年齡)的影片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270513/original/147a733769780bef52fa51181d27134f.png" />
+
+<p><strong><span style="color: #ff6600;">【特色五：電視影集會顯示每集標題，且如果該影集有很多季，有”季數”可以切換】</span></strong></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270514/original/4f0bf1bec7cb1d13ca2c35e47efb5be1.png" />
+
+<p>每集點進去之後的畫面。(各集介紹大多為英文內容，此為少數的中文簡介)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270515/original/723f4d310de031263d171a16d1485eaf.png" />
+
+<p><span style="color: #ff6600;"><strong>【特色六：影片支援線上播放，並支援字幕(如下圖)、全螢幕、音量大小設定等功能】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270516/original/f2b9e6a5c399df0d7ca737dd285a0be3.png" />
+
+<p><span style="color: #ff6600;"><strong>【特色七：公開分享功能，透過特定網址，任何人無須登入就可直接播放影片】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270517/original/2a98705a17b8428681c134797fa53075.png" />
+
+<p><span style="color: #ff6600;"><strong>【特色八：影片進度條，可知道該影片看到哪，並支援中斷點繼續播放】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270518/original/6a068a62b126a465b58dcf51fb2c985b.png" />
+
+<p><span style="color: #ff6600;"><strong>【特色九：電視影集的藍色定位點(橘色箭頭處)，就能知道最後一次看了哪一集，並從該集或下集繼續播放】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270519/original/88e54367f76236fdfe3f9e55be479e16.png" />
+
+<p><a id="E-14" name="E-14"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270566/original/5c8acb56190fdc9369f9e180b7575291.png" /></p>
+<p>『<span style="color: #800080;">Video Station</span>』的數位電視功能可以即時收看電視頻道，也能排程錄影，更支援行動裝置等播放。不過唯一的缺點就是<span style="color: #800000;">，同一時間僅供一個頻道的收看(也就是無法同時收看兩個頻道)</span>。雖然同一台可以多人觀看，但經過實測後，一個人收看時，NAS大約需要10Mbps(1秒1MB)的上傳速度(2人同時收看需要20Mbps上傳速度，依此類推)。</p>
+<p>在使用『<span style="color: #800080;">Video Station</span>』收看數位電視之前，請先準備一支數位電視棒，並確認此電視棒在<a href="https://www.synology.com/zh-tw/compatibility?search_by=category&amp;category=usb_tv_dongles&amp;p=1&amp;not_recommend_mode=false" target="_blank">Synology產品相容性列表</a>中。</p>
+<p>筆者使用的是這款UPMOST DVB193數位電視棒，並準備了IEC(PAL)公-F母轉接頭。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270520/original/2e3742c7c13f5e1464764fbb961852f2.jpg" />
+
+<p>因為內附的小天線收訊不是很好，因此有轉接頭就可以接這種大天線，把它放在陽台邊，收訊更好。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270521/original/34dc93d8047d0c071963f6b3f5a32a64.jpg" />
+
+<p>打開『<span style="color: #800080;">控制台</span>』→「<span style="color: #0000ff;">資訊中心</span>」→「<span style="color: #0000ff;">一般</span>」頁面的”USB裝置”可以看到名為DVB-T Stick的裝置。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270767/original/ffc2aebff32cb0ed772ee7b86f8c1d29.png" />
+
+<p>接著順便到「<span style="color: #0000ff;">外部存取</span>」→「<span style="color: #0000ff;">路由器配置</span>」頁面，點選”<span style="color: #0000ff;">新增</span>“，選擇”<span style="color: #0000ff;">自訂連接埠</span>“，加入收看數位電視會用到的<strong>9025</strong>通訊埠。(詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-2" target="_blank">B-2 通訊埠轉送設定</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270523/original/2245050ce0e3eec153c9d51d38ba9475.png" />
+
+<p>開啟『<span style="color: #800080;">Video Station</span>』，右上角”<span style="color: #0000ff;">控制台</span>“圖示 → “<span style="color: #0000ff;">數位電視</span>“頁面，將”<span style="color: #0000ff;">停用數位電視功能</span>“取消勾選。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270524/original/b796298a73b406b3e9d196864d107fc5.png" />
+
+<p>網頁重新整理後，點選左列的”<span style="color: #0000ff;">USBDevice</span>“，然後按下中間”<span style="color: #0000ff;">頻道掃描</span>“按鈕，國家選擇”<span style="color: #0000ff;">Taiwan</span>“並開始掃描。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270525/original/296db01a507eeb654ea3c94a277ff608.png" />
+
+<p>最佳情況可以搜尋到21頻道，如果少於21個，在調整天線位置或更換收訊更強的天線後，按一下頻道列表上”<span style="color: #0000ff;">搜尋頻道</span>“按鈕再度測試。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270526/original/e26c65967da896bbc7578ff6e7a79240.png" />
+
+<p>第一次使用可能會看不到節目表，這時候點選上方的”<span style="color: #0000ff;">重新整理</span>“按鈕，會重新整理節目表。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270527/original/e9a1ff959299beb9d1bfada4078e55cb.png" />
+
+<p>按一下左列要看的頻道，然後點選上方的”<span style="color: #0000ff;">即時串流</span>“圖示，接著會出現”<span style="color: #000000;">即時串流</span>“視窗，筆者先測試按下”<span style="color: #0000ff;">播放</span>“按鈕。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270528/original/86edb9da723f4989751389af81cb1b26.png" />
+
+<p>接下來會像影片線上播放一樣，不過畫面卻顯示：受限於硬體效能，無法轉檔此頻道(此意思就是，即使能播放，畫面也會很卡)。因此筆者建議官方可以”<span style="color: #0000ff;">播放</span>“按鈕移除(也就是取消瀏覽器線上播放功能，因為也不能播)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270529/original/f3bd6147fc5b9a8b3cca35515443c229.png" />
+
+<p>因此正規的觀看數位節目方式是先下載VLC Player(<a href="https://www.synology.com/zh-tw/compatibility/camera" target="_blank">官方網址</a>)來播放，先將串流網址複製下來(所有頻道的串流網址都相同)，開啟VLC Player，左上角「<span style="color: #0000ff;">開啟網路串流</span>」，並貼上網址即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270530/original/24cc159b0cc3a7266a06ce81ea6cb9dc.png" />
+
+<p>節目就可以正常播放了唷！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270531/original/9976890715808ad22b9e636bcbe973a3.png" />
+
+<p>但是觀看節目的設計還蠻奇怪的，步驟為：</p>
+<ol>
+<li><span style="color: #008000;">點選左列要看的頻道</span></li>
+<li><span style="color: #008000;">點選上方的”<span style="color: #0000ff;">即時串流</span>“圖示，接著會出現”即時串流”視窗</span></li>
+<li>關閉該視窗，因為串流網址都一樣，VLC Player就會自動切換頻道。(如果切換後程式當掉，請將VLC Player重啟)</li>
+</ol>
+<p>打開串流視窗再關閉才能切換頻道，筆者認為是多此一舉的動作。且在VLC Player關閉後(也就是停止收看後)，還要自行點選<br>左列”<span style="color: #0000ff;">電視</span>“符號 → “<span style="color: #0000ff;">停止串流</span>“(雖然無串流時應該是不會占用NAS硬體效能，不過還要手動停止略顯麻煩)，如下圖所示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270532/original/75ed1729c2e11afb7c3f184607b8794c.png" />
+
+<p>因此筆者建議在未串流(電視符號旁的Wifi圖示就是代表正在串流)時，過一段時間後串流圖示(小電視圖示)就會自行關閉。</p>
+<p><strong><span style="color: #ff6600;">【排程錄影】</span></strong></p>
+<p>不過比起即時串流更實用的功能是”<strong><span style="color: #000000;">排程錄影</span></strong>“，例如：臨時有事外出，無法看到假日播出連續劇；或是下班後回到家已經半夜，想看一下晚間新聞…等，就可以利用排程錄影。只要點一下想看的節目，在按下錄影就完成了！(也支援<span style="color: #800000;">重複錄影排程</span>，例如每天或每周同一時段的節目都要錄影)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270533/original/1efebca828e96ede76e544c33440506e.png" />
+
+<p>錄影好的節目會放在指定的資料夾；影片檔為.ts檔，且<span style="color: #800000;">35分鐘的影片大約需要1.5GB的空間</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270534/original/055fb3a09cbe4731a9e0d7cbde12d88b.png" />
+
+<p><a id="E-15" name="E-15"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270567/original/f440161888152f3c51c93d9414299dca.png" /></p>
+<p>《<span style="color: #800080;">DS Video</span>》app圖示為紅底，白色底片的符號。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270535/original/564f06fdfed4a331f235e32e0f61716d.png" />
+
+<p>進入後一樣是海報的檢視方式(電影右上角有圓圈觀看進度)，而點進一部電影後，整體介面非常有質感。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270545/original/db9d3063aab4bde7015382d3d20caa9d.png" />
+
+<p>接著是進入電視影集的畫面，”<span style="color: #0000ff;">總覽</span>“和”<span style="color: #0000ff;">集數</span>“分為兩個頁面顯示。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270536/original/5581e3459e25254d58a6054233c873ea.png" />
+
+<p>行動裝置一樣支援數位電視節目，下左圖為節目表(按右邊的綠色”<span style="color: #0000ff;">+</span>“可預約錄影)，下右圖則是即時串流，每個頻道會顯示正在播的節目。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270537/original/070a457dfef41b8eb2737a83fdba3f3e.png" />
+
+<p>數位電視即時串流是利用手機內部的app影音軟體(建議安裝MX Player)播放，不過這非常吃網路<span style="color: #800000;"><span style="color: #000000;">，</span>有流量限制或是網路環境不佳者不建議使用</span>。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270538/original/b5f814ddf93391df17c3e4e2e8b24dc6.png" />
+
+<p>iPad平板畫面和手機的小畫面介面差不多，只是大畫面可以顯示較多的影片。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270546/original/5ee2861acb48537b85f039d88471f773.png" />
+
+<p>ios利用內建的播放器就可以順暢的播了(播放器介面可隱藏)，無須另外在安裝。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270539/original/5927f10f5694bf941e3e0a03142fb15a.png" />
+
+<p>《<span style="color: #800080;">DS Video</span>》也有Windows版app，筆者認為如果電腦系統為Windows 8以上的使用者，就可以安裝《<span style="color: #800080;">DS Video</span>》桌面版程式來看影片了，不用還要打開瀏覽器才能播影片。(Windows裝置)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270540/original/47c2c2697db76159ddeb2dc2489b42eb.png" />
+
+<p>尤其是電影劇照設計在上方的呈現方式，真的是非常好看呀！(Windows裝置)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270541/original/bb21eced35f3cf01b568bc8ede03bdaf.png" />
+
+<p><a id="E-16" name="E-16"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270568/original/bddcdbe78e2466b9c8884e3923b46015.png" /></p>
+<p>想要把相簿、音樂影片輸出到大螢幕觀看，筆者認為最方便又低成本的方式就是買一支Chromecast，就能在<span style="color: #800000;">大螢幕上享受所有影音內容</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270542/original/c492cf6d72e582483450f422751c13b4.jpg" />
+
+<p>Chromecast除了支援Synology的影音app之外，還支援KKBOX、Youtube、Twitch等常見的影音軟體。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270543/original/fbe0d679d52b9c947ae5f920606e5cb9.png" />
+
+<p><span style="color: #ff6600;"><strong>【音樂串流】</strong></span></p>
+<p>請先確認Chromecast和手機連接至同一無線網路，然後將《<span style="color: #800080;">DS Audio</span>》的音訊輸出選擇Chromecast。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270544/original/61398ba7316079d393914046e127e345.jpg" />
+
+<p>電視上就會看到音樂播放介面了，且一樣支援動態歌詞。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270547/original/657cb107ccee82d20d3eb80eedb4d604.jpg" />
+
+<p><span style="color: #ff6600;"><strong>【相簿串流】</strong></span></p>
+<p>請先確認Chromecast和手機連接至同一無線網路，然後點選《<span style="color: #800080;">DS Photo</span>》右上角的”電視”符號，播放器選擇Chromecast。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270548/original/93b0c8b30170296ffba0148bfe3eb58f.jpg" />
+
+<p>相片就投影至電視上，手機切換到哪個相片，電視也會跟著切換，或者也可以用幻燈片播放相片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270549/original/8b6f4046677d763d3677f12dfefea7bf.jpg" />
+
+<p><span style="color: #ff6600;"><strong>【影片串流】</strong></span></p>
+<p>請先確認Chromecast和手機連接至同一無線網路，然後打開《<span style="color: #800080;">DS Video</span>》到想看的影片介紹畫面，並點選右上角的”<span style="color: #0000ff;">電視</span>“符號，播放器選擇Chromecast。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270550/original/26c69da39b214172ac01fc0532714e9f.jpg" />
+
+<p>這時候手機就會變成遙控器，可以任意調整影片的時間軸。</p>
+<p>PS.順帶一提，<span style="color: #800000;">當手機有來電時，播放中的影片還會暫停</span>唷XD</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270551/original/d7407b94a64c5155a676e75889f419c8.jpg" />
+
+<p>Chromecast影片播放也支援字幕顯示，並且有”<span style="color: #0000ff;">特小</span>“到”<span style="color: #0000ff;">特大</span>“五種字型大小，如下圖就是”中”的字體大小。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270552/original/9cdbf7bab9947e9c346019edd3fe8144.jpg" />
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-F/" rel="prev" title="[教學] Synology NAS Tip F. 備份與同步篇">
+      <i class="fa fa-chevron-left"></i> [教學] Synology NAS Tip F. 備份與同步篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-D/" rel="next" title="[教學] Synology NAS Tip D. 存取/協同/生產力篇">
+      [教學] Synology NAS Tip D. 存取/協同/生產力篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '86b23147300cbc7d8724ed5c831c36fb',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

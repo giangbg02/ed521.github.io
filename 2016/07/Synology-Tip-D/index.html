@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ D-1 『File Station』&amp;《DS File》D-2 檔案存取方法D-3 檔案(索引)搜尋D-4 檔案請求&#x2F;分享D-5 文字編輯&amp;文件檢視D-6 筆記『Note Station』&amp;《DS Note》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Tip D. 存取&#x2F;協同&#x2F;生產力篇">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-Tip-D/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ D-1 『File Station』&amp;《DS File》D-2 檔案存取方法D-3 檔案(索引)搜尋D-4 檔案請求&#x2F;分享D-5 文字編輯&amp;文件檢視D-6 筆記『Note Station』&amp;《DS Note》">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270306/original/0b590732451ee9e0f5660cd15fe1cba5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270307/original/a1b8bbf2b2dcfcd4393c7df8a590a971.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270308/original/258a5d66c25dc4bf153332b2e9b5c694.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270309/original/08ce194ba1be1c984a5c4850b3a366e7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270310/original/bf4a5684da4a97ee293db303cd8b1ffc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270311/original/b7e955af687fdb028e010782d87dd8f8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270312/original/9158ddc70db77efcbbafb928bc1c117f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270313/original/cd0a370fb1509ffc3a0d44c05a589df9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270314/original/c737e59dc1c505d755fce675a75830b4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270315/original/66911fbda0dd9f0d53ade983b15ce60e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270316/original/d8d9e7fcbc66b8746ecfb19ec0fcac82.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270317/original/ed1290e8974340850a7af970c9d0afd6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270318/original/1d01401affc2497981018900eecc3e3e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270319/original/44a3fc96b3e949a40c9245cc8564388d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270320/original/dae82915d7a5bb1e29cb11fdde0ad2c6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270321/original/25b9123bc833088f566af33a94e82248.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270322/original/2dd344e77476db41643201d7eb83c263.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270323/original/8ae4d3e457c3f48b8628bbd81593abff.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270324/original/8814e3956aa484e63537469aef2db6e7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270325/original/997d964db5948d0f48db65de4ce16d17.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270326/original/1540d840abad9c542094355f62eae1e8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270327/original/8d49a0333a1e7417997dc799a45c6aa1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270328/original/84c8c145c23df51d9f23260685529612.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270329/original/2d0c4b31b8de6dfefbd34520e392fcc9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270330/original/54d791da6a83d687f8e5c715f0052007.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270331/original/39eea1fbc23fab363ab21dcf33b45eb6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270332/original/458bdadf3609fb0d4142c1921dce77af.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270333/original/170ff91c4672fc061e5feaaadfa86338.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270392/original/7a6b602fce0736d10b0daf1fb11f2d48.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270334/original/d5721a40d65a67b6e354284d0ac75188.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270335/original/c1499054af6a1dca1ee7a321f4247491.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270336/original/679c550561f30914255ed8d188aa17bb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270337/original/82f1a6a6719618df7ccee0d854ae351f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270338/original/65405eade22f4aee0ea6d283bc989443.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270339/original/73943f9c5ab4f7f831cc074324908468.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270340/original/32b714aa09620abd643128a3cc707a2a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270341/original/53e9a1d274ea64ef39140f400f0c9970.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270393/original/177b1628a8068379a727adb5986e3356.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270342/original/32522c4fbae4c25d9bebea146bd8db1e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270343/original/3693487fd8340d4751a4a7005ab0fda8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270344/original/5a3ffda8c79a6cffbf06f90c7567aedb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270345/original/4a9ca65755bdc1501f47afaf64bd3ff8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270346/original/13766d1ae706befa7eb2156515a8a229.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270347/original/87e8fc40be6d2c31da6c4201201dac18.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270348/original/2d82bad4944b99161045153f29d0abca.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270349/original/6b0eaca04f6dd9e0f0c6ff74fb0f3c6c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270350/original/356fc9c0d1ae74d62906d29f434cdeed.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270394/original/61d2540d5d989e2b22acdcb6f6f7307c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270351/original/567d22527302db730f882f117cd3a1a8.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270358/original/931588b4cc017a561cfbe6ea3afed086.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270352/original/e0fb3736d45342b91ebed5b67ef4b008.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270353/original/df26825d6dfd301c6de0f28442cb20b5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270354/original/d49aded556c75383ae80305df9fb054e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270355/original/21fdb711010eacd923f11983e89b95ad.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270356/original/a40ad692eac0b560c1f7cd2c6dc35515.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270357/original/0a03280420ad57536f2bc1c4e2d8595d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270359/original/02bd9625710990fd29afc3fd826ce19d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270395/original/1607b787aa990dfbf250149009b18334.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270360/original/9ef7db5bfec1d93aa581ce573ffe0297.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270361/original/c7ef60f01a5a7b83ace46ef25ab95d1f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270362/original/1a527e0fe4855f55bdcf23d03a90936e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270363/original/8a5db7bef9aec1b7a5cdc3dad0d91bf2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270364/original/346acc2e1e51269ff2b16b6b66a6e3cb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270365/original/84a8db9c974701e53b946b111ae76861.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270366/original/c928a73177fd6676bda5a49a5bb47c71.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270367/original/85096ef579bb2926ffadbac461530a20.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270368/original/a80076bce24bfa3c744ef06a67e9f7e5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270369/original/6ce685d126f5b91dedfd6db8fc140d04.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270370/original/5237f4d8411c727963561a3ce0925bb1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270371/original/2ecaf86e7be603d79974d02b27149f5d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270372/original/078074222e3c072dc426dd4bcdce8213.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270373/original/b71927cf06170f9ed42ee932c432e940.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270374/original/bb03a5e941d4bedebe0515b988610e6b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270375/original/5bbb6b4bdd58604e6f60b6ff6c5a3b26.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270376/original/cbb635661fcae33eea2c01c79a3af8ef.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270377/original/6b0d14d7c92e7fc0e64c5a23fd120bed.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270378/original/2e2d38f7576d59fdb7d626110b0e7dfe.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270379/original/8086a590ad157b1003f2bb682006cc05.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270380/original/b1ee4af81bf8bd2953e0da7a8ffec6bf.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270381/original/fa57e7c46a51e343dc9be765aeb48882.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270382/original/19f3f75e8941c3fbe13a96ead7b72844.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270383/original/04407d44683d899d73a4be900dfcf46a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270384/original/19aad367cfcc6deb1f6e2702468d999b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270385/original/17a86a2ba325222676ddc55101f1a27c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270386/original/0219e8f6c82d269fd92e81bea30bc7c7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270387/original/8a04ab2d8eb7211b1e2c630e1c4f2aa2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270388/original/da77469d10cac9494e8d566c5dab0e0a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270389/original/108cccf6e9054df50d798c47af50859a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270390/original/46b89af7ebb5bac7e94ff99be4964ac5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270391/original/c0cdfbfeebe171d8a21fea75c41e0bae.png">
+<meta property="article:published_time" content="2016-07-27T05:28:00.000Z">
+<meta property="article:modified_time" content="2019-12-22T14:16:49.787Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" File Station">
+<meta property="article:tag" content=" 檔案">
+<meta property="article:tag" content=" 資料">
+<meta property="article:tag" content=" 存取">
+<meta property="article:tag" content=" 分享">
+<meta property="article:tag" content=" 請求">
+<meta property="article:tag" content=" Note Station">
+<meta property="article:tag" content=" 筆記">
+<meta property="article:tag" content=" 索引">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270306/original/0b590732451ee9e0f5660cd15fe1cba5.png">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-Tip-D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Tip D. 存取/協同/生產力篇 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-Tip-D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Tip D. 存取/協同/生產力篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-27 13:28:00" itemprop="dateCreated datePublished" datetime="2016-07-27T13:28:00+08:00">2016-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-Tip-D/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Tip D. 存取/協同/生產力篇" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>5.7k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>※本文章為<a href="https://ed521.github.io/2016/07/Synology-DS916plus/" target="_blank">NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！</a>之分支※</p>
+<p><a href="#D-1">D-1 『File Station』&amp;《DS File》</a><br><a href="#D-2">D-2 檔案存取方法</a><br><a href="#D-3">D-3 檔案(索引)搜尋</a><br><a href="#D-4">D-4 檔案請求/分享</a><br><a href="#D-5">D-5 文字編輯&amp;文件檢視</a><br><a href="#D-6">D-6 筆記『Note Station』&amp;《DS Note》</a></p>
+<a id="more"></a>
+
+<p><a id="D-1" name="D-1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270306/original/0b590732451ee9e0f5660cd15fe1cba5.png" /></p>
+<p>『<span style="color: #800080;">File Station</span>』就像是電腦裡的檔案總管一樣，使用起來十分簡易。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270307/original/a1b8bbf2b2dcfcd4393c7df8a590a971.png" />
+
+<p>不同的副檔名有不同的檔案圖示，這樣在辨識檔案的也較為直覺方便。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270308/original/258a5d66c25dc4bf153332b2e9b5c694.png" />
+
+<p>如果要上傳檔案，可以將電腦裡欲上傳的檔案直接”拖曳”至『<span style="color: #800080;">File Station</span>』。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270309/original/08ce194ba1be1c984a5c4850b3a366e7.png" />
+
+<p>接著會出現要”<span style="color: #0000ff;">覆寫</span>“還是”<span style="color: #0000ff;">略過</span>“(略過代表如果有相同檔名，則不會上傳該檔案)，這裡選擇”<span style="color: #0000ff;">覆寫</span>“，並且勾選”<span style="color: #0000ff;">總是覆寫檔案</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270310/original/bf4a5684da4a97ee293db303cd8b1ffc.png" />
+
+<p>『<span style="color: #800080;">File Station</span>』內部的檔案也能直接拖曳至左側的目錄資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270311/original/b7e955af687fdb028e010782d87dd8f8.png" />
+
+<p>『<span style="color: #800080;">File Station</span>』支援壓縮/解壓縮功能，如果有一個資料夾要下載，先壓縮過後再下載會很方便。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270312/original/9158ddc70db77efcbbafb928bc1c117f.png" />
+
+<p>『<span style="color: #800080;">File Station</span>』的app版《<span style="color: #800080;">DS file</span>》，為黃澄澄底色加上白色資料夾的圖示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270313/original/cd0a370fb1509ffc3a0d44c05a589df9.png" />
+
+<p>登入後，檔案有分為列表(下左圖)和大圖示(下右圖)的顯示方式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270314/original/c737e59dc1c505d755fce675a75830b4.png" />
+
+<p>對於文件有許多功能可供存取(下左圖)，以及看不到的”<span style="color: #0000ff;">開啟</span>“與”<span style="color: #0000ff;">下載後開啟</span>“功能；點選右上角的”<span style="color: #0000ff;">更多</span>“圖示，則有”<span style="color: #0000ff;">重新整理</span>“、”<span style="color: #0000ff;">搜尋</span>“等功能(下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270315/original/66911fbda0dd9f0d53ade983b15ce60e.png" />
+
+<p>下載中檔案會顯示於”<span style="color: #0000ff;">任務</span>“頁面中；下載完成後，可以到”<span style="color: #0000ff;">離線檔案</span>“頁面來檢視。(也可以到手機內的DSfile資料夾來查看)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270316/original/d8d9e7fcbc66b8746ecfb19ec0fcac82.png" />
+
+<p><a id="D-2" name="D-2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270317/original/ed1290e8974340850a7af970c9d0afd6.png" /></p>
+<p>想要存取NAS中的檔案，一共有數個方法，且分為區網和外網(這裡介紹的是電腦版的方法)：</p>
+<p><span style="color: #ff6600;"><strong>【區域網路適用】</strong></span></p>
+<p>由於NAS和電腦為同一區網內，因此這個方法也是筆者最常用的檔案存取方式。<span style="color: #800000;">檔案傳遞上非常快速，且NAS資料就像放在電腦裡一樣(因為在同一網域內)，能夠將檔案直接開啟編輯</span>。(多數辦公大樓、政府機關也是用此方法，讓各部門資料能方便傳遞)</p>
+<p>要使用這個方法，須先進入『<span style="color: #800080;">控制台</span>』→「<span style="color: #0000ff;">檔案服務</span>」，「<span style="color: #0000ff;">Win/Mac/NFS</span>」頁面，將”<span style="color: #0000ff;">啟動Windows檔案服務</span>“選項打勾，並請記住下面藍框的Windows存取位址。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270318/original/1d01401affc2497981018900eecc3e3e.png" />
+
+<p>接著到電腦內的檔案總管(NAS和電腦需在同一個區網內)，於網址列(顯示路徑的地方)輸入\sy916，過幾秒後會要求輸入登入帳密(NAS登入帳密)，並勾選”記住我的認證”(公用電腦請勿勾選)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270319/original/44a3fc96b3e949a40c9245cc8564388d.png" />
+
+<p>成功登入後，檔案就能直接存取了！(例如：文件可以直接開啟編輯)建議按一下左上角的”<span style="color: #0000ff;">快速存取</span>“按鈕，以便未來能夠點選捷徑進入。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270320/original/dae82915d7a5bb1e29cb11fdde0ad2c6.png" />
+
+<p><span style="color: #ff6600;"><strong>【外部/區域網路適用】</strong></span></p>
+<p>外部/區域網路主要有兩種存取資料的方式，分為DSM登入和FTP，只不過FTP又分許多種方式，以下舉例並列出其優缺點。</p>
+<ol>
+<li><span style="color: #008000;">DSM</span>：『<span style="color: #800080;">File Station</span>』</li>
+</ol>
+<p>第一種方法也是最多人用的方法，就是登入DSM然後打開『<span style="color: #800080;">File Station</span>』存取資料。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270321/original/25b9123bc833088f566af33a94e82248.png" />
+
+<ol start="2">
+<li><span style="color: #008000;">FTP：檔案總管直接登入</span>(優點：能用最快的速度來存取檔案，適合<span style="color: #800000;">公用電腦</span>與<span style="color: #800000;">臨時要載個檔案的使用者</span>；缺點：只適合<span style="color: #800000;">少量檔案或是小檔案，過多容易”連線逾時”</span>，且<span style="color: #800000;">零碎檔案傳輸較慢</span>)</li>
+</ol>
+<p>這個是FTP (使用FTP前請確認有將本服務開啟) 最簡單的登入方式，在檔案總管網址列輸入DDNS(詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-3" target="_blank">B-3 DDNS設定</a>)，並在開頭改為ftp://(如<a href="ftp://sy916.ddns.net)。接著過幾秒後會要求輸入登入帳密。">ftp://sy916.ddns.net)。接著過幾秒後會要求輸入登入帳密。</a>(公用電腦請勿勾選”<span style="color: #0000ff;">儲存密碼</span>“)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270322/original/2dd344e77476db41643201d7eb83c263.png" />
+
+<p>登入之後，要記得資料夾內的檔案都還在網路上，所以檔案要用拖曳至桌面或右鍵點複製的方式來存取，勿直接點兩下開啟。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270323/original/8ae4d3e457c3f48b8628bbd81593abff.png" />
+
+<ol start="3">
+<li><span style="color: #008000;">FTP：檔案總管新增”網路位置”</span>(優點：適合<span style="color: #800000;">個人電腦/非區網使用者</span>；缺點：<span style="color: #800000;">零碎檔案傳輸較慢</span>)</li>
+</ol>
+<p>第二種FTP方法較適合個人電腦，因為它和區網用資料夾直接存取很像，只不過檔案還是要用拖曳至桌面或右鍵點複製來下載。</p>
+<p>請先打開檔案總管 → 本機，空白處點右鍵 → “<span style="color: #0000ff;">新增一個網路位置</span>“，然後點”<span style="color: #0000ff;">下一步</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270324/original/8814e3956aa484e63537469aef2db6e7.png" />
+
+<p>選擇”<span style="color: #0000ff;">選擇自訂網路位置</span>“(下左圖)，下一步後輸入DDNS(詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-3" target="_blank">B-3 DDNS設定</a>)，並在開頭改為ftp://(如<a href="ftp://sy916.ddns.net)，點下一步(下右圖)。">ftp://sy916.ddns.net)，點下一步(下右圖)。</a></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270325/original/997d964db5948d0f48db65de4ce16d17.png" />
+
+<p>把”<span style="color: #0000ff;">匿名登入</span>“取消打勾，並輸入使用者名稱(下左圖)，下一步則是為此位置命名(下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270326/original/1540d840abad9c542094355f62eae1e8.png" />
+
+<p>看到這個畫面就代表完成了唷！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270327/original/8d49a0333a1e7417997dc799a45c6aa1.png" />
+
+<p>接下來會開啟此網路位置，輸入使用者名稱和密碼，並且勾選”<span style="color: #0000ff;">儲存密碼</span>“(公用電腦請勿勾選)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270328/original/84c8c145c23df51d9f23260685529612.png" />
+
+<p>成功登入之後，也建議按一下左上角的”<span style="color: #0000ff;">快速存取</span>“按鈕，以便未來能夠點選捷徑進入。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270329/original/2d0c4b31b8de6dfefbd34520e392fcc9.png" />
+
+<ol start="4">
+<li><span style="color: #008000;">FTP：使用FTP軟體</span>(優點：適合<span style="color: #800000;">大量檔案批量上傳</span>；缺點：須具備該軟體)</li>
+</ol>
+<p>最後一種使用FTP軟體來存取檔案的最適合<span style="color: #800000;">大量且零碎的檔案存取</span>(例如寫好的網站，多個資料夾要一次上傳)。當然，不管多大多小的檔案都適合用這種方法。</p>
+<p>FTP軟體有很多種，筆者使用免費軟體FileZilla來測試；打開軟體後，主機輸入DDNS(如：sy916.ddns.net，詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-3" target="_blank">B-3 DDNS設定</a>)，以及帳號密碼，連接埠空白(預設為21，除非有自行更改)，接著按下”<span style="color: #0000ff;">快速連線</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270330/original/54d791da6a83d687f8e5c715f0052007.png" />
+
+<p>每次都要輸入非常麻煩，這時候左上角打開”<span style="color: #0000ff;">檔案</span>“ → “<span style="color: #0000ff;">站台管理員</span>“，新增站台，如此一來以後就能快速登入(如下圖右下角)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270331/original/39eea1fbc23fab363ab21dcf33b45eb6.png" />
+
+<p>FTP軟體的好處就是本地/遠端檔案使用”拖曳”的方式就能互相傳遞(上傳/下載)，當然也可以對檔案點右鍵 → “<span style="color: #0000ff;">下載</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270332/original/458bdadf3609fb0d4142c1921dce77af.png" />
+
+<p>FileZilla底部的狀態視窗可以看到傳遞中和傳遞成功/失敗的檔案列表。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270333/original/170ff91c4672fc061e5feaaadfa86338.png" />
+
+<p><a id="D-3" name="D-3"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270392/original/7a6b602fce0736d10b0daf1fb11f2d48.png" /></p>
+<p>通常在電腦裡搜尋一個檔案，不是要搜尋很久，就是找不到需要的檔案。因此Synology提供了索引搜尋，藉由事先為檔案建立需要的索引，在搜尋檔案時就不必花時間，馬上就能找到需要的檔案。</p>
+<p>因此先開啟『<span style="color: #800080;">控制台</span>』→「<span style="color: #0000ff;">索引服務</span>」→「<span style="color: #0000ff;">檔案索引</span>」頁面，按下”<span style="color: #0000ff;">索引資料夾清單</span>“，並新增索引資料夾以及勾選檔案類型(可複選)。(建議<span style="color: #800000;">索引資料夾內的檔案類型<strong>越單調越好</strong></span>，在索引建立和檔案搜尋上會更迅速)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270334/original/d5721a40d65a67b6e354284d0ac75188.png" />
+
+<p>索引資料夾的範圍越小越好，因此可以多建立幾個檔案資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270335/original/c1499054af6a1dca1ee7a321f4247491.png" />
+
+<p>在建立索引時，會耗用較多的CPU資源；如下圖，CPU使用率大約在60%以上。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270336/original/679c550561f30914255ed8d188aa17bb.png" />
+
+<p>建立完索引之後，筆者先將”<span style="color: #0000ff;">啟動檔案內容搜尋</span>“功能關閉，來測試一下音樂的搜尋功能：如果在音樂資料夾搜尋”因你而在”，最多只能找到它的歌名(檔名)，搜尋效果不彰。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270337/original/82f1a6a6719618df7ccee0d854ae351f.png" />
+
+<p>接著勾選”<span style="color: #0000ff;">啟動檔案內容搜尋</span>“(預設為開啟)，這時再重新搜尋”因你而在”，這時就可以看到7首歌跑出來了！當然，這些就是在”專輯”屬性標籤中，名叫”因你而在”的音樂。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270338/original/65405eade22f4aee0ea6d283bc989443.png" />
+
+<p>除此之外，檔案屬性資料的應用還有很多，像筆者在圖片資料夾搜尋Canon，會出現”相機”屬性標籤為”Canon”的照片；由於還可以針對焦距、曝光時間、光圈孔徑等數值來搜尋，在不同相片中，也比較容易來比對它們的畫面差異。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270339/original/73943f9c5ab4f7f831cc074324908468.png" />
+
+<p>最後是文件的搜尋，例如筆者搜尋”下雨感測器”，不過文件會有這種標籤嗎？其實它是以文件的”內容”搜尋的結果，這個方法非常適合文件很多的上班族，例如搜尋客戶名字(例如保單、契約書)，或是學生用來搜尋報告、電子書等等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270340/original/32b714aa09620abd643128a3cc707a2a.png" />
+
+<p>如下圖，”下雨感測器”就出現在PPT的某一頁之中(藍色箭頭處)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270341/original/53e9a1d274ea64ef39140f400f0c9970.png" />
+
+<p><a id="D-4" name="D-4"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270393/original/177b1628a8068379a727adb5986e3356.png" /></p>
+<p><strong><span style="color: #ff6600;">【檔案分享】</span></strong></p>
+<p>對於沒有DSM帳號的人，或是需要分享一個檔案給很多人，<span style="color: #800000;">Synology很貼心地可以透過”檔案分享”的方式建立專屬網址以供下載</span>。</p>
+<p>使用者只要對檔案點右鍵 → “<span style="color: #0000ff;">分享檔案連結</span>“，複製連結就能分享給別人下載。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270342/original/32522c4fbae4c25d9bebea146bd8db1e.png" />
+
+<p>檔案分享還能啟用安全分享，設定僅供DSM使用者(可設定分享給誰)or密碼分享，以及檔案開放/結束時間以及存取次數。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270343/original/3693487fd8340d4751a4a7005ab0fda8.png" />
+
+<p>無須密碼的連結，輸入網址後會點”下載”即可下載檔案；否則會要求輸入密碼，或者是輸入DSM帳密。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270344/original/5a3ffda8c79a6cffbf06f90c7567aedb.png" />
+
+<p>在『<span style="color: #800080;">File Station</span>』的”<span style="color: #0000ff;">工具</span>“→”<span style="color: #0000ff;">分享連結管理員</span>“可管理分享過的連結；對於已過期的連結，不用一個一個刪除，只需按一下”<span style="color: #0000ff;">清除無效連結</span>“即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270345/original/4a9ca65755bdc1501f47afaf64bd3ff8.png" />
+
+<p><span style="color: #ff6600;"><strong>【檔案請求】</strong></span></p>
+<p>檔案請求則提供了從對方接收檔案的一個好地方！因為如果利用社群網站來傳檔，首先是<span style="color: #800000;">頻寬很低，上傳檔案非常慢</span>；再來如果是傳影片、照片等，<span style="color: #800000;">畫質會被壓縮</span>；而如果用E-mail傳遞，夾帶檔案最多只提供25MB(Yahoo)。</p>
+<p>要建立檔案請求，使用者必須對”資料夾”點右鍵 → “<span style="color: #800000;">建立檔案請求</span>“。(一定要對”資料夾”點右鍵，非資料夾不會顯示!!!)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270346/original/13766d1ae706befa7eb2156515a8a229.png" />
+
+<p>接著設定和前面差不多，可以選擇開放/關閉時間、密碼保護等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270347/original/87e8fc40be6d2c31da6c4201201dac18.png" />
+
+<p>其他人拿到網址後，輸入名字(會成為上傳後檔案資料夾的名稱)，就可以上傳檔案。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270348/original/2d82bad4944b99161045153f29d0abca.png" />
+
+<p>不過上傳完檔案後，只會有綠色打勾的圖示，建議可以出現個”上傳完成”的小視窗，方便上傳者知道已上傳完成。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270349/original/6b0eaca04f6dd9e0f0c6ff74fb0f3c6c.png" />
+
+<p>回到建立檔案請求的資料夾，每個資料夾代表者上傳檔案時輸入的名字，且後方括弧會寫出是哪個DSM使用者建立的檔案請求(<span style="color: #800000;">以便檔案請求是建立在共享資料夾，會不知道誰是誰請求的檔案</span>)；右上角的通知還會提醒有人透過”檔案請求”來上傳檔案。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270350/original/356fc9c0d1ae74d62906d29f434cdeed.png" />
+
+<p><a id="D-5" name="D-5"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270394/original/61d2540d5d989e2b22acdcb6f6f7307c.png" /></p>
+<p><strong><span style="color: #ff6600;">【文字編輯器】</span></strong></p>
+<p>DSM內建『<span style="color: #800080;">文字編輯器</span>』，不過這可不是Windows系統內建的”記事本”喔，而是類似notepad++軟體，提供了一些額外的功能。例如：常常我們會下載到簡體字的文章，看了真的很不舒服，這時候『<span style="color: #800080;">文字編輯器</span>』提供了<span style="color: #800000;">簡轉繁or繁轉簡</span>的功能。(“<span style="color: #0000ff;">編輯</span>“ → “<span style="color: #0000ff;">語言工具</span>“ → “<span style="color: #0000ff;">簡體轉繁體</span>“)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270351/original/567d22527302db730f882f117cd3a1a8.gif" />
+
+<p>在”<span style="color: #0000ff;">偏好設定</span>“裡，有一些功能如自動換行、顯示行數、字體大小等等設定。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270358/original/931588b4cc017a561cfbe6ea3afed086.png" />
+
+<p>至於左側的行數顯示，就是因為『<span style="color: #800080;">文字編輯器</span>』支援數十種程式語言，例如C/C++，特殊函式會以暗紅色表示，而數字會以綠色顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270352/original/e0fb3736d45342b91ebed5b67ef4b008.png" />
+
+<p>舉例來說，當文字編輯器切換到Assembly_x86後，分號後面的文字是以灰色表示，這是因為組合語言在”;”後面是註解的意思。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270353/original/df26825d6dfd301c6de0f28442cb20b5.png" />
+
+<p><strong><span style="color: #ff6600;">【文件檢視器】</span></strong></p>
+<p>DSM也有線上文件檢視器的功能，如此一來，使用者不用<span style="color: #800000;">為了每次要檢視文件還要特地下載下來</span>。像筆者本人電腦內的Download資料夾就有一堆檔案，文件大約就占了六成吧，而且本人也懶得整理…此外，電腦內沒有裝Offfce或是PDF Reader的，利用『<span style="color: #800080;">文件檢視器</span>』看文件就非常方便。如下圖，它支援Word, Powerpoint, Excel, pdf 等文件。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270354/original/d49aded556c75383ae80305df9fb054e.png" />
+
+<p>除了用『<span style="color: #800080;">文件檢視器</span>』開啟檔案，也能對該文件點右鍵 → “<span style="color: #0000ff;">檢視</span>“ → “<span style="color: #0000ff;">使用文件檢視器開啟</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270355/original/21fdb711010eacd923f11983e89b95ad.png" />
+
+<p>打開PDF文件，除了擁有左列的文件預覽功能，還有放大/縮小、旋轉、列印、內文搜尋等，功能十分強大。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270356/original/a40ad692eac0b560c1f7cd2c6dc35515.png" />
+
+<p>下圖為內文搜尋”malloc”，搜尋到的關鍵字會以淺綠底色顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270357/original/0a03280420ad57536f2bc1c4e2d8595d.png" />
+
+<p>功能列表最後面的更多還能將非PDF檔轉檔為PDF檔下載，以及分享功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270359/original/02bd9625710990fd29afc3fd826ce19d.png" />
+
+<p><a id="D-6" name="D-6"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270395/original/1607b787aa990dfbf250149009b18334.png" /></p>
+<p><strong><span style="color: #ff6600;">【Synology Web Clipper】</span></strong></p>
+<p>在Synology裡，最實用的生產力工具就是『<span style="color: #800080;">Note Station</span>』了！除了新增代辦事項、記事等功能，還有非常實用的擷取網頁功能(它可以<span style="color: #800000;">輕鬆地為使用者擷取正在觀看的網頁</span>，並儲存至『<span style="color: #800080;">Note Station</span>』中)。右上角會提醒使用者尚未安裝，點一下”Synology Web Clipper”藍色字體會進入該擴充功能頁面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270360/original/9ef7db5bfec1d93aa581ce573ffe0297.png" />
+
+<p>這就是”Synology Web Clipper”擴充工具，點一下”<span style="color: #0000ff;">加到Chrome</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270361/original/c7ef60f01a5a7b83ace46ef25ab95d1f.png" />
+
+<p>在使用之前需先登入，請輸入QuickConnect ID和DSM帳密。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270362/original/1a527e0fe4855f55bdcf23d03a90936e.png" />
+
+<p>擷取時，只需要打開該網頁，接著按下右上角的”<span style="color: #0000ff;">擷取</span>“(筆記本圖示)功能即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270363/original/8a5db7bef9aec1b7a5cdc3dad0d91bf2.png" />
+
+<p>看到”擷取成功”就代表完成了！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270364/original/346acc2e1e51269ff2b16b6b66a6e3cb.png" />
+
+<p>不過擷取時，有四種擷取方式：</p>
+<ol>
+<li><strong><span style="color: #008000;">簡化內容</span></strong>：只有網頁內文的文字和圖片會被擷取。</li>
+</ol>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270365/original/84a8db9c974701e53b946b111ae76861.png" />
+
+<ol start="2">
+<li><span style="color: #008000;"><strong>完整內容</strong></span>：內文會完整被擷取，包含文字色彩、粗體、超連結等。(藍色箭頭處)</li>
+</ol>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270366/original/c928a73177fd6676bda5a49a5bb47c71.png" />
+
+<ol start="3">
+<li><span style="color: #008000;"><strong>完整頁面快照</strong></span>：整個網頁會拍一張快照，成為一張非常長、不中斷的照片。(為了方便呈現，下圖為快照圖片縮小過後的結果)</li>
+</ol>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270367/original/85096ef579bb2926ffadbac461530a20.png" />
+
+<ol start="4">
+<li><span style="color: #008000;"><strong>螢幕快照</strong></span>：自訂擷取範圍，和電腦上的”擷取工具”類似。(為了方便呈現，下圖為快照圖片縮小過後的結果)</li>
+</ol>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270368/original/a80076bce24bfa3c744ef06a67e9f7e5.png" />
+
+<p>另外，如果是電子郵件還會增加一個叫”<span style="color: #0000ff;">電子郵件內容</span>“的擷取方式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270369/original/6ce685d126f5b91dedfd6db8fc140d04.png" />
+
+<p>擷取結果如下圖。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270370/original/5237f4d8411c727963561a3ce0925bb1.png" />
+
+<p><strong><span style="color: #ff6600;">【Note Station】</span></strong></p>
+<p>回到『<span style="color: #800080;">Note Station</span>』，點選”同步”來立即同步所有筆記。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270371/original/2ecaf86e7be603d79974d02b27149f5d.png" />
+
+<p><span style="color: #ff6600;"><strong>【Note Station：代辦事項】</strong></span><br>進入代辦清單，直接在上面的藍框輸入事項，並選擇到期時間(也可以不選)，按下右邊的”+”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270372/original/078074222e3c072dc426dd4bcdce8213.png" />
+
+<p>接著下面清單會顯示代辦任務，左側也會依時間分類”過期”、”今天”、”往後七天”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270373/original/b71927cf06170f9ed42ee932c432e940.png" />
+
+<p><span style="color: #ff6600;"><strong>【Note Station：筆記建立】</strong></span><br>點選上面的”<span style="color: #0000ff;">建立</span>“按鈕來新增筆記。舉例來說，在筆記中貼上程式碼，在考前就能瀏覽複習。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270374/original/bb03a5e941d4bedebe0515b988610e6b.png" />
+
+<p>筆記可以貼上圖片檔，甚至是圖表、表格、檔案等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270375/original/5bbb6b4bdd58604e6f60b6ff6c5a3b26.png" />
+
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270376/original/cbb635661fcae33eea2c01c79a3af8ef.png" />
+
+<p><span style="color: #ff6600;"><strong>【Note Station：筆記分享】</strong></span></p>
+<p>點選筆記上方功能列中的”<span style="color: #0000ff;">分享</span>“圖示，就能進行該筆記的分享。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270377/original/6b0d14d7c92e7fc0e64c5a23fd120bed.png" />
+
+<p>收到連結的人打開後，筆記會以全版畫面顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270378/original/2e2d38f7576d59fdb7d626110b0e7dfe.png" />
+
+<p><span style="color: #ff6600;"><strong>【Note Station：筆記分類&amp;標籤】</strong></span></p>
+<p>按一下”<span style="color: #0000ff;">建立</span>“旁的下拉式選單 → “<span style="color: #0000ff;">建立筆記本</span>“，會另外新增一個筆記本；由於預設值會把所有筆記放在”我的筆記本”裡，<span style="color: #800000;">長時間下來會很亂，因此分類就顯得特別重要</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270379/original/8086a590ad157b1003f2bb682006cc05.png" />
+
+<p>接著把筆記拖曳到剛新增的筆記本，即分類完成。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270380/original/b1ee4af81bf8bd2953e0da7a8ffec6bf.png" />
+
+<p>“<span style="color: #000000;">標籤</span>“也是一種分類方式，不過它的特色是，一個筆記可以設定多個標籤(藍框處)，在點特定標籤時，加入該標籤的文章都會顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270381/original/fa57e7c46a51e343dc9be765aeb48882.png" />
+
+<p>最後式”<span style="color: #000000;">智慧型筆記本</span>“功能，透過分類過標籤和筆記本的文章，智慧型筆記本能夠在更深一層的交叉分類，以及關鍵字、時間分類。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270382/original/19f3f75e8941c3fbe13a96ead7b72844.png" />
+
+<p><strong><span style="color: #ff6600;">【Note Station：簡報功能】</span></strong></p>
+<p>最後筆者要介紹Note Station的簡報功能，這功能適合<span style="color: #800000;">幾個人一起討論專案時，這時候開啟簡報功能(類似全螢幕功能，咖啡色箭頭處)，筆記會以全螢幕顯示</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270383/original/04407d44683d899d73a4be900dfcf46a.png" />
+
+<p>首先會全螢幕播放，第一頁會顯示筆記標題名稱。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270384/original/19aad367cfcc6deb1f6e2702468d999b.png" />
+
+<p>第二頁為所有筆記的內容，下為為網頁擷取的完整快照。(部分畫面)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270385/original/17a86a2ba325222676ddc55101f1a27c.png" />
+
+<p><span style="color: #ff6600;"><strong>【DS Note】</strong></span></p>
+<p>《<span style="color: #800080;">DS Note</span>》app圖示為藍底，白色筆記本的符號；而登入按鈕為”連結”的原因是，當登入後，為了要隨時同步筆記，《<span style="color: #800080;">DS Note</span>》不會將帳戶登出。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270386/original/0219e8f6c82d269fd92e81bea30bc7c7.png" />
+
+<p>登入之後，”全部筆記”會有大窗格(會顯示開頭內容，如下左圖)與清單(下右圖)兩種檢視方式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270387/original/8a04ab2d8eb7211b1e2c630e1c4f2aa2.png" />
+
+<p>打開左上角的”<span style="color: #0000ff;">≡</span>“，<span style="color: #800000;">因為是行動裝置，因此可以直接建立相機/影片/聲音等筆記</span>(下左圖)；下右圖則是各筆記本的列表。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270388/original/da77469d10cac9494e8d566c5dab0e0a.png" />
+
+<p>點選隨意一篇筆記呈現如下(下左圖)；若建立相機筆記，會直接開啟相機。拍攝一張圖後，就會直接匯入《<span style="color: #800080;">DS Note</span>》，非常方便(下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270389/original/108cccf6e9054df50d798c47af50859a.png" />
+
+<p>最後是代辦清單，若代辦事項完成，就可以將項目左邊的框框打勾(會出現刪除線，下左圖)；任意點入一個代辦事項，可以設定到期時間、提醒時間(到期時間前多久提醒)等(下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270390/original/46b89af7ebb5bac7e94ff99be4964ac5.png" />
+
+<p>如下圖，提醒時間到時，手機會發出通知。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270391/original/c0cdfbfeebe171d8a21fea75c41e0bae.png" />
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-E/" rel="prev" title="[教學] Synology NAS Tip E. 多媒體娛樂篇">
+      <i class="fa fa-chevron-left"></i> [教學] Synology NAS Tip E. 多媒體娛樂篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-C/" rel="next" title="[教學] Synology NAS Tip C. 儲存空間/使用者設定篇">
+      [教學] Synology NAS Tip C. 儲存空間/使用者設定篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'ba05e23f060e907a5382a75d986d8510',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

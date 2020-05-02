@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ I-1 攝影機安裝教學I-2 『即時影像』&amp;『快照』I-3 『時間線』I-4 『智慧搜尋』I-5 『錄影』I-6 使用者設定I-7 行動裝置《DS cam》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Tip I. 監控篇">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-Tip-I/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ I-1 攝影機安裝教學I-2 『即時影像』&amp;『快照』I-3 『時間線』I-4 『智慧搜尋』I-5 『錄影』I-6 使用者設定I-7 行動裝置《DS cam》">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270716/original/1da7958916f120abee468e689ddf0e2c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270717/original/ff6b742f3fb1b98340a4d28748cb20dc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270760/original/053b6092d13f5a1102dbf0abc0959635.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270718/original/a6e687b945c6301295ffa245c35700ef.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270719/original/45c99749b410b020e3c785a3eedfc1d1.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270720/original/42f3e107d205e3b250bd6f929cc769b9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270721/original/cb9918e7575f1a237767bda7544adf76.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270722/original/f07d85f19a5a2c3d539872c006e6aad6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270723/original/eec1269de994ad0e84af2529ef4a572f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270724/original/db0ff3fe2ba752d7eab65391019eda73.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270725/original/615f3f352bdcc665f66a88f40c30d31f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270761/original/f904fcfc3bc95e27e43a5484ac1896a4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270726/original/99020f9d9b0b5bf9a5cd62c59e43bc91.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270727/original/d35467690857d1e5e681cfe0fad3c5b7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270728/original/d8a003234daf05145df190d806b383c8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270729/original/8c2777c3633e131fca5314dd4879f735.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270730/original/352b733a0612d21e611594fdfedc4255.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270731/original/75616646157aa6d91679325f8d9d3d28.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270732/original/7520f3db631ed9057548f11321eac05c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270733/original/68c9578fd5064f47a93cd94c1b891fbc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270734/original/701413c54a236a02f4102c7d2039aa25.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270735/original/c58610323f49f203dddc43d29336300e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270762/original/bbc6ee32b1b345c360eeaa3aad4ddbaf.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270736/original/8b79907519b82dc89b9dcfa28b38fb83.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270737/original/0711c6f708c180c075f4f0958e410581.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270738/original/af77dc35bb126a9b5c69b4b3f243110d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270739/original/b84d5c3b66dac846a3b5d0c905f177d4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270740/original/1a6fd6043f8b94a951572418f60e82fa.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270763/original/5e7b56e90eb272895331228c7e58017d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270741/original/8dca0f4bc9597c5b4b0ec4a664e23811.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270742/original/c6f4231a1eaa3ca194fbb5d9f0ac1472.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270743/original/f84f088995a7c6d6cbc488f3993c915c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270744/original/a64b186d207994532b77023a541bf801.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270764/original/406d7a55a416c1fbbedd78aae4baa0be.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270745/original/35623ebd4b1c06ce0f356b3a656bf09d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270746/original/f67ebe03b183965ecde91125dbd779d0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270747/original/5e8d1d42bdc5a744dd5817a5f479da04.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270748/original/2669ccd11e1c3e800e34f0fc20786891.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270749/original/8087ee44978dc03c14418a13ff41f96e.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270765/original/4710af560ad1033b9e98bab0e178a84f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270750/original/0dcb0e694534aa53566f13f74dc3971a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270751/original/609f2b0f3d0204753debc9d59a427b63.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270752/original/8c2c2e4d24d322cd07b1752f367aa9a0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270753/original/843f816c10f461f7677b1e068fd69834.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270766/original/60303f0cfaf54d79f5a079c31041aa9f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270754/original/9653c9bdf691771ce3e9e0115b157509.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270755/original/de22bde30aa79cbae0bb396052b4d66c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270756/original/d447b35597c98328db66e7bd6b8b773c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270757/original/9f0c8238b86b1d1f08cae3645ce98342.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270758/original/bb6e9ce6f05d84bb028ac2cd0c47dd77.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270759/original/7445db76e5392e38bbf0da7345fd9b4d.png">
+<meta property="article:published_time" content="2016-07-27T05:38:00.000Z">
+<meta property="article:modified_time" content="2019-12-23T11:44:21.385Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" 攝影機">
+<meta property="article:tag" content=" Surveillance">
+<meta property="article:tag" content=" 監控">
+<meta property="article:tag" content=" Camera">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270716/original/1da7958916f120abee468e689ddf0e2c.png">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-Tip-I/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Tip I. 監控篇 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-Tip-I/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Tip I. 監控篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-27 13:38:00" itemprop="dateCreated datePublished" datetime="2016-07-27T13:38:00+08:00">2016-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-Tip-I/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Tip I. 監控篇" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>3.4k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>※本文章為<a href="https://ed521.github.io/2016/07/Synology-DS916plus/" target="_blank">NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！</a>之分支※</p>
+<p><a href="#I-1">I-1 攝影機安裝教學</a><br><a href="#I-2">I-2 『即時影像』&amp;『快照』</a><br><a href="#I-3">I-3 『時間線』</a><br><a href="#I-4">I-4 『智慧搜尋』</a><br><a href="#I-5">I-5 『錄影』</a><br><a href="#I-6">I-6 使用者設定</a><br><a href="#I-7">I-7 行動裝置《DS cam》</a></p>
+<a id="more"></a>
+
+<p>『<span style="color: #800080;">Surveillance Station</span>』是網頁介面的應用程式，可<span style="color: #800000;">管理網路攝影機來保衛家庭或辦公室環境的安全</span>。使用『<span style="color: #800080;">Surveillance Station</span>』可以觀看並錄製即時影像、設定排程錄影，還能透過網頁、行動裝置來播放錄製好的事件。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270716/original/1da7958916f120abee468e689ddf0e2c.png" />
+
+<p>『<span style="color: #800080;">Surveillance Station</span>』擁有各式各樣的功能，如<span style="color: #800000;">快照、日誌、即時影像、時間線、智慧搜尋</span>等等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270717/original/ff6b742f3fb1b98340a4d28748cb20dc.png" />
+
+<p><a id="I-1" name="I-1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270760/original/053b6092d13f5a1102dbf0abc0959635.png" /></p>
+<p>在安裝IP攝影機之前，請先確認以下事項：</p>
+<ol>
+<li><p>您的IP網路攝影機使否有在Synology官方裡的<a href="https://www.synology.com/zh-tw/compatibility/camera" target="_blank">網路攝影機（IP Cam）支援清單</a>中。</p>
+</li>
+<li><p>安裝完網路攝影機後，進入路由器管理畫面，確認是否與NAS在同一區域網路內；如果有，記錄下該IP Cam的區網位置。(例如這台的位址是192.168.0.164)</p>
+</li>
+</ol>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270718/original/a6e687b945c6301295ffa245c35700ef.png" />
+
+<p>筆者本次測試的攝影機為小蟻智慧攝影機夜視版，並把它裝在家中大門口的角落上方。(<span style="color: #800000;"><strong>注意：小蟻攝影機並未在官方支援清單中，除了需進入NAS系統內部增加設定檔，還要讓攝影機刷韌體開啟RTSP服務，因此請挑選官方支援的IP CAM!!!</strong></span>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270719/original/45c99749b410b020e3c785a3eedfc1d1.jpg" />
+
+<p>前置作業完成後，就可以開始安裝攝影機了唷！打開『<span style="color: #800080;">網路攝影機</span>』，按一下”<span style="color: #0000ff;">新增</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270720/original/42f3e107d205e3b250bd6f929cc769b9.png" />
+
+<p>“<span style="color: #0000ff;">完整設定</span>“還會設定攝影機的錄影模式/排程等，這邊先選擇”<span style="color: #0000ff;">快速設定</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270721/original/cb9918e7575f1a237767bda7544adf76.png" />
+
+<p>輸入相關設定，如剛記下來的IP、品牌型號、使用者帳密等等。(注意DSC-Ants此型號為筆者個別加入的，預設是沒有的)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270722/original/f07d85f19a5a2c3d539872c006e6aad6.png" />
+
+<p>如果NAS有讀到攝影機，會看到該網路攝影機顯示在正常欄位；如果位於”已斷線”代表連線未成功。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270723/original/eec1269de994ad0e84af2529ef4a572f.png" />
+
+<p>由於剛才選擇”快速設定”，在攝影機的「<span style="color: #0000ff;">錄影設定</span>」→「<span style="color: #0000ff;">錄影</span>」有基本相關設定；例如”<span style="color: #0000ff;">限制存檔資料夾大小</span>“若設定為10GB，那麼超過的容量就會<span style="color: #800000;">從最舊的影片開始刪除，也就是所謂的”循環錄影”</span>。(「<span style="color: #0000ff;">錄影設定</span>」→「<span style="color: #0000ff;">進階</span>」可設定空間到達上限時，要進行循環錄影還是停止錄影)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270724/original/db0ff3fe2ba752d7eab65391019eda73.png" />
+
+<p>「<span style="color: #0000ff;">錄影設定</span>」→「<span style="color: #0000ff;">排程</span>」則可以選擇錄影條件(預設為連續錄影)；例如下圖的設定方式為：每天晚上十一點~六點為”動作偵測錄影”，其餘為”連續錄影”。(後面的『<span style="color: #800080;">智慧搜尋</span>』會測試”動作偵測”功能)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270725/original/615f3f352bdcc665f66a88f40c30d31f.png" />
+
+<p><a id="I-2" name="I-2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270761/original/f904fcfc3bc95e27e43a5484ac1896a4.png" /></p>
+<p>『<span style="color: #800080;">Surveillance Station</span>』只要是顯示影像畫面的地方，就需要裝一個外掛套件(才能顯示影像)；不過目前『<span style="color: #800080;">Surveillance Station</span>』的外掛套件不支援Chrome、IE、Microsoft Edge等網頁瀏覽器，實測後只有Firefox可以使用，是筆者認為比較可惜的地方。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270726/original/99020f9d9b0b5bf9a5cd62c59e43bc91.png" />
+
+<p>用Firefox瀏覽器開啟『<span style="color: #800080;">Surveillance Station</span>』→『<span style="color: #800080;">即時影像</span>』會顯示該IP CAM目前的影像；左側面板中，上方的方向鍵是提供給具有旋轉功能的攝影機使用。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270727/original/d35467690857d1e5e681cfe0fad3c5b7.png" />
+
+<p>按下左側面板的”<span style="color: #0000ff;">管理</span>“，這裡可以新增每台攝影機的排列顯示方式。(最多還能一次顯示64台!!)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270728/original/d8a003234daf05145df190d806b383c8.png" />
+
+<p>不過筆者只有安裝一台網路攝影機，其他畫面都是黑的。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270729/original/8c2777c3633e131fca5314dd4879f735.png" />
+
+<p>回到Auto(預設)畫面，當滑鼠移到右下角有更多功能，從左到右分別是<span style="color: #000000;">：即時播放、編輯(設定，也就是『網路攝影機』程式)、快照、拖曳放大(影像放大)、暫停和手動錄影</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270730/original/352b733a0612d21e611594fdfedc4255.png" />
+
+<p>使用”<span style="color: #0000ff;">拖曳放大</span>“，能把畫面拉到某一個點放大。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270731/original/75616646157aa6d91679325f8d9d3d28.png" />
+
+<p>左側面板有個”全螢幕”圖示，按一下就能放大至全螢幕。(按右鍵退出)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270732/original/7520f3db631ed9057548f11321eac05c.png" />
+
+<p>如果點選”<span style="color: #0000ff;">快照</span>“，畫面會立即擷取並暫存至右上角；此時可以下載、編輯或刪除。(擷取的快照會立即存放至NAS)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270733/original/68c9578fd5064f47a93cd94c1b891fbc.png" />
+
+<p>快照的<span style="color: #0000ff;">編輯</span>(會新開”快照編輯器”視窗)還能對影像進行旋轉、模糊(下圖左)、遮罩(下圖右)，功能太強大了！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270734/original/701413c54a236a02f4102c7d2039aa25.png" />
+
+<p>打開『<span style="color: #800080;">快照</span>』，之前快照的所有相片都會顯示於此；如果是編輯過的影像，攝影機名稱後面會顯示”已修改”字樣。(『<span style="color: #800080;">快照</span>』內的影像包含『<span style="color: #800080;">Surveillance Station</span>』具有快照功能的其他程式，如『<span style="color: #800080;">時間線</span>』、『<span style="color: #800080;">錄影</span>』等)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270735/original/c58610323f49f203dddc43d29336300e.png" />
+
+<p><a id="I-3" name="I-3"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270762/original/bbc6ee32b1b345c360eeaa3aad4ddbaf.png" /></p>
+<p>多數網路攝影機提供的內建介面，如果想要看過去某段時間的影片，都會有延遲(也就是點到該時間，還要花時間讀取)；甚至某些攝影機只提供下載影片的功能(不支援線上播放)，非常麻煩。</p>
+<p>而Synology的『<span style="color: #800080;">時間線</span>』能夠”即時”看到過去的錄影，點一下時間軸的任何點就會立刻播放。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270736/original/8b79907519b82dc89b9dcfa28b38fb83.png" />
+
+<p>影像畫面左下角旁有放大鏡可以放大時間軸，能更準確地按下特定時間點。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270737/original/0711c6f708c180c075f4f0958e410581.png" />
+
+<p>畫面左下角有四個功能，從左到右分別是：快照、拖曳放大(影像放大)、下載和進階。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270738/original/af77dc35bb126a9b5c69b4b3f243110d.png" />
+
+<p>“<span style="color: #0000ff;">進階</span>“可調整畫面的亮度、對比、彩度和銳利度。如果在畫面影像非常模糊時，這個功能就會很有用。(舉例來說，<span style="color: #800000;">調高銳利度就有利於畫面模糊時，對於影像的辨識度</span>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270739/original/b84d5c3b66dac846a3b5d0c905f177d4.png" />
+
+<p>“<span style="color: #0000ff;">下載</span>“能把該段影片下載，例如預設為30分鐘影片會分段儲存，那麼該段影片就是30分鐘長。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270740/original/1a6fd6043f8b94a951572418f60e82fa.png" />
+
+<p><a id="I-4" name="I-4"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270763/original/5e7b56e90eb272895331228c7e58017d.png" /></p>
+<p>『<span style="color: #800080;">智慧搜尋</span>』能以<span style="color: #800000;">特定的行動或行為(如：一般的移動、遺失/外來物件、畫面遮蔽等)為條件來搜尋錄影檔案</span>。設定搜尋條件後，智慧搜尋將對指定的錄影檔案進行搜尋，並自動找出任何符合的錄影檔案提供檢視。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270741/original/8dca0f4bc9597c5b4b0ec4a664e23811.png" />
+
+<p>特定的行動搜尋方式一共有下列六項：</p>
+<p><span style="color: #008000;"><strong>動作偵測</strong></span>：搜尋選定範圍內是否有動作出現。<br><span style="color: #008000;"><strong>遺失物件</strong></span>：搜尋選定範圍內是否有物件遺失。<br><span style="color: #008000;"><strong>外來物件</strong></span>：搜尋選定範圍內是否有外來物件。<br><span style="color: #008000;"><strong>畫面遮蔽</strong></span>：搜尋攝影機鏡頭遭遮蔽而無法有效監控環境的時間。<br><span style="color: #008000;"><strong>畫面失焦</strong></span>：搜尋攝影機失焦而無法有效監控環境的時間。<br><span style="color: #008000;"><strong>禁止逗留區</strong></span>：搜尋人影或物體進入限制區域，及逗留時間超過限定秒數的時間。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270742/original/c6f4231a1eaa3ca194fbb5d9f0ac1472.png" />
+
+<p>選定好搜尋方式和偵測區域，以及開始搜尋的時間，按下畫面下方的播放鍵就會開始搜尋了；搜尋完畢後(或是搜尋一段時間後)，右側會出現符合搜尋條件的錄影檔。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270743/original/f84f088995a7c6d6cbc488f3993c915c.png" />
+
+<p>按一下影片會新開”錄影播放器視窗”，動作發生的前後會多錄個十幾秒。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270744/original/a64b186d207994532b77023a541bf801.png" />
+
+<p>附上『<span style="color: #800080;">智慧搜尋</span>』的實測影片。經測試過後，筆者發現搜尋時是利用電腦的硬體來搜尋(因為搜尋時CPU資源為99%)；而測試電腦為i5處理器，10秒時間大約能搜尋一分鐘的影片，這意味著<span style="color: #800000;">更高階的處理器能搜尋地更快速</span>。(畫面為黑白是因為攝影機開啟紅外線補光燈)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5QkkV-XvYts?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><a id="I-5" name="I-5"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270764/original/406d7a55a416c1fbbedd78aae4baa0be.png" /></p>
+<p>『<span style="color: #800080;">錄影</span>』把所有網路攝影機的影片都放在此；從下圖可知，錄製30分鐘的影片(720p)大約需要125~150MB左右。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270745/original/35623ebd4b1c06ce0f356b3a656bf09d.png" />
+
+<p>任點一個影片會開啟”錄影播放器”線上播放。左下角的功能從左到右分別為：快照、拖曳放大(影像放大)、播放時間/時間戳記(於右上角切換顯示)、固定顯示比例(切換畫面比例)、時段分割播放、下載和進階(切換亮度、飽和度等)。(不過筆者認為可加入影片倍率播放的功能)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270746/original/f67ebe03b183965ecde91125dbd779d0.png" />
+
+<p>比較特別的功能是”時段分割播放”，該影片會分割為四個畫面，分別距離4分鐘左右播放，如此一來能更方便找尋需要的畫面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270747/original/5e8d1d42bdc5a744dd5817a5f479da04.png" />
+
+<p>不過影片的安全性有多強呢？會不會被人駭進去遠端刪除？因此筆者建議<span style="color: #800000;">將Surveillance資料夾的所有群組權限都調整為”唯讀”或”禁止存取”</span>；如此一來，在DSM的『<span style="color: #800080;">File Station</span>』中，影片就無法被刪除(只有”唯讀”功能)，即使是admin管理員帳號!!!</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270748/original/2669ccd11e1c3e800e34f0fc20786891.png" />
+
+<p>順帶一提，影片資料夾為”年月日AM/PM”命名方式，影片檔名則為”機器年月日-錄影起始時間-xxxxxxx”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270749/original/8087ee44978dc03c14418a13ff41f96e.gif" />
+
+<p><a id="I-6" name="I-6"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270765/original/4710af560ad1033b9e98bab0e178a84f.png" /></p>
+<p>除了admin管理員可以使用『<span style="color: #800080;">Surveillance Station</span>』，使用者可以到『<span style="color: #800080;">使用者</span>』自行新增觀看攝影機畫面的權限。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270750/original/0dcb0e694534aa53566f13f74dc3971a.png" />
+
+<p>下一步能設定這位使用者為”觀看者”(僅能觀看監視畫面)還是”管理者”(具有完整權限)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270751/original/609f2b0f3d0204753debc9d59a427b63.png" />
+
+<p>最後是詳細的權限設定：例如該名使用者使用那些功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270752/original/8c2c2e4d24d322cd07b1752f367aa9a0.png" />
+
+<p>設定完成後，NAS會幫這個使用者新增一個只能存取『<span style="color: #800080;">Surveillance Station</span>』的帳號(也就是其他功能都會關閉)，『<span style="color: #800080;">File Station</span>』也只能存取家目錄與預設為”可讀寫”權限的共享資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270753/original/843f816c10f461f7677b1e068fd69834.png" />
+
+<p><a id="I-7" name="I-7"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270766/original/60303f0cfaf54d79f5a079c31041aa9f.png" /></p>
+<p>『<span style="color: #800080;">Surveillance Station</span>』的行動裝置名稱為《<span style="color: #800080;">DS cam</span>》。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270754/original/9653c9bdf691771ce3e9e0115b157509.png" />
+
+<p>登入後，手機畫面會列出所有的攝影機；點一下左圖右上角的”<span style="color: #0000ff;">六方格</span>“，會進入”<span style="color: #0000ff;">多路觀看</span>“。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270755/original/de22bde30aa79cbae0bb396052b4d66c.png" />
+
+<p>不過從上圖的”<span style="color: #0000ff;">多路觀看</span>“可知，錄影畫面的FPS為2.5FPS左右，畫面非常的卡。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270756/original/d447b35597c98328db66e7bd6b8b773c.png" />
+
+<p>行動平台支援手指拖曳放大畫面的功能，比電腦方便多了。(Android手機)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270757/original/9f0c8238b86b1d1f08cae3645ce98342.png" />
+
+<p>接下來看到ios裝置，<span style="color: #800000;">監視畫面就非常的流暢，和電腦版相同</span>。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270758/original/bb6e9ce6f05d84bb028ac2cd0c47dd77.png" />
+
+<p>最後是手指拖曳放大畫面的功能，720p的畫面放這麼大居然能這麼清楚(電腦版的錄影畫面甚至還會有鋸齒狀)。(iPad平板)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270759/original/7445db76e5392e38bbf0da7345fd9b4d.png" />
+
+<p>小結：</p>
+<ol>
+<li><p>『Surveillance Station』目前不支援主要幾個瀏覽器，建議可開發Windows 專用app。</p>
+</li>
+<li><p>在行動裝置裡，ios比Android畫面順暢太多。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-DS916plus/" rel="prev" title="[教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！">
+      <i class="fa fa-chevron-left"></i> [教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-H/" rel="next" title="[教學] Synology NAS Tip H. 架VPN/郵件伺服器篇">
+      [教學] Synology NAS Tip H. 架VPN/郵件伺服器篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'b8132bd8013e6ae025aacbd004940d4c',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

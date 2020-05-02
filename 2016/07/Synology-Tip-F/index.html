@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ F-1 快照功能介紹&#x2F;設定F-2 NAS與電腦雙向同步F-3 電腦資料同步(備份)至NASF-4 NAS資料同步至行動裝置F-5 同步公有雲資料F-6 兩台Synology NAS間備份">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Tip F. 備份與同步篇">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-Tip-F/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ F-1 快照功能介紹&#x2F;設定F-2 NAS與電腦雙向同步F-3 電腦資料同步(備份)至NASF-4 NAS資料同步至行動裝置F-5 同步公有雲資料F-6 兩台Synology NAS間備份">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270620/original/c6263ddbbba48427d772c1c3d3df3701.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270569/original/857ba3361678ee422ca6e68300cba9c8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270570/original/e1bf388199bf8d839ea3298245c90df1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270571/original/f537a5f4ef2983e46e7694f54648bffc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270572/original/6196cf263007f03e1a1076cf50ff6e11.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270573/original/21b10d190f5587f3627cc74c9fd7a247.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270574/original/9bbb0d20d3ae30f33bbc2e9f341182f0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270575/original/970da7ac3fe32b5e683b80143fd9ac96.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270576/original/cee4e71297f2c0525b5bc28e12f4ee39.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270577/original/83e141e2a18f5f5f6dadc7bdb28da89b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270577/original/83e141e2a18f5f5f6dadc7bdb28da89b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270578/original/6abd97a21238be016cdd5315b6afecb8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270579/original/9e6ba2dbbfc200d99babf4bc9a3de7e2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270580/original/a0c20071787f0391ce878d0be2ad4a84.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270581/original/2c69b18c197391b218dc0d9c15b02c7e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270582/original/3cc9b3b7e28beed6c8c82d7df4c660a2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270621/original/3239a1fe223861c65fe1d95828f7e79c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270583/original/c7dd7deda3d9a4983258a39471780c78.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270584/original/92d6c1410d7aa90c96ea8b6fa0384a34.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270585/original/3a0853958a7543c2b3a5523526c87be7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270586/original/1487ef5cf8481fafd0bb4d72ccab1c5b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270587/original/f66f5ebf096fdd2b1b3473455097dfd7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270622/original/81fb3a1b3eded58c5d2735a62532210b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270588/original/5a5cf1914b024fff9d8ee6042265d119.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270589/original/b245170c2d38efbd62694138be1a3be1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270590/original/7fa9a5fe90f7cbd82440fa4dce35d735.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270591/original/c818e3c917ffc6b32a8bb012ef5cc0f2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270592/original/4896ec9fccd79dd251926caf2bac0b1d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270593/original/3e721c1f4c8cf8a404b6baf08cab0570.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270594/original/4aad06883505e7b53686ca28384fb67a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270623/original/66531bdcbb322281302e0f36cc55d608.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270595/original/0e1826ccfbbc5d560dd3930ff45c791e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270596/original/141d4026e983653ae44c9e86992fb95b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270597/original/0c341221cb3ce46744df2adaac50d576.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270598/original/987c23675f8f17d9f5195928ec9b8bd4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270624/original/622247d5bcd465a49abfe843893a2575.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270599/original/6342672fdfc923b369a70b669acd0954.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270600/original/c7846a9e693e24ebf6414ac981c9508d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270601/original/d9e3a285a8647aca185ad29c8da1313b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270602/original/a735b2ae4c60eafff17c5a7c7559ebcd.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270603/original/edf6ac8ef8355d6ada9ecdb4f5e891ce.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270604/original/fc68af5eff6254574992e834c0f5b84a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270605/original/b96c4a59e746fdf0724836f03e63f377.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270606/original/6fde4915faaa37a45a11be3c09bfb44d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270607/original/c4ec9d1e775e97f910fb1388bf671f37.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270608/original/f2d932703fbcb0a3676aebe4d43bae1c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270625/original/85a44210164a09be3771417f11f27f41.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270609/original/e53ff9db8f2bac168bdf908ca2b67894.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270610/original/10b9cd055a32fe48c5c02be61cadc99a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270611/original/756d2c680e50ddf54b1b7eaa5a3fd5c8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270612/original/374be6fb829de7ccaa1b5da1f7a9973b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270613/original/de5d131f452c89bf9cfe8625f8359965.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270614/original/ccf4ef1eba46b7c3ea36f1c2ac19b021.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270615/original/4b123b2cf4a44f9849acc58afac4ca9c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270616/original/f7036ca37879b6776c497337ba17d6e5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270617/original/32f267cd7a01bf967fcbb9275cb5db74.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270618/original/5c5578a5e8c858595a6c1d9a3cc2630c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270619/original/9fe19fdea0a630c61da4dc4c99351c32.png">
+<meta property="article:published_time" content="2016-07-27T05:34:00.000Z">
+<meta property="article:modified_time" content="2019-12-23T11:30:58.241Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" 備份">
+<meta property="article:tag" content=" 同步">
+<meta property="article:tag" content=" 快照">
+<meta property="article:tag" content=" Cloud Station">
+<meta property="article:tag" content=" Drive">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270620/original/c6263ddbbba48427d772c1c3d3df3701.png">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-Tip-F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Tip F. 備份與同步篇 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-Tip-F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Tip F. 備份與同步篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-27 13:34:00" itemprop="dateCreated datePublished" datetime="2016-07-27T13:34:00+08:00">2016-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-Tip-F/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Tip F. 備份與同步篇" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>3.6k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>※本文章為<a href="https://ed521.github.io/2016/07/Synology-DS916plus/" target="_blank">NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！</a>之分支※</p>
+<p><a href="#F-1">F-1 快照功能介紹/設定</a><br><a href="#F-2">F-2 NAS與電腦雙向同步</a><br><a href="#F-3">F-3 電腦資料同步(備份)至NAS</a><br><a href="#F-4">F-4 NAS資料同步至行動裝置</a><br><a href="#F-5">F-5 同步公有雲資料</a><br><a href="#F-6">F-6 兩台Synology NAS間備份</a></p>
+<a id="more"></a>
+
+<p><a id="F-1" name="F-1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270620/original/c6263ddbbba48427d772c1c3d3df3701.png" /></p>
+<p>快照瀏覽可以在特定時間將檔案進行「<span style="color: #800000;">拍照</span>」一樣，進而將資料備份，不過它不會真正的備份，只會在檔案有更動的時候才額外備份出來。不過這個功能需要到『<span style="color: #800080;">套件中心</span>』安裝，搜尋”快照”即可找到(套件名稱為Snapshot Replication)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270569/original/857ba3361678ee422ca6e68300cba9c8.png" />
+
+<p>『<span style="color: #800080;">Snapshot Replication</span>』→ 「<span style="color: #0000ff;">系統總覽</span>」頁面裡，可以看到已設定/未設定快照的比例。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270570/original/e1bf388199bf8d839ea3298245c90df1.png" />
+
+<p>快照的功能就像是電腦建立”還原點”一樣(不過並非全部還原，也可以選擇取特定的資料出來)，若要立即建立快照，到「<span style="color: #0000ff;">快照</span>」頁面，點選要執行快照的資料夾，再按”<span style="color: #0000ff;">快照</span>“ → “<span style="color: #0000ff;">建立快照</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270571/original/f537a5f4ef2983e46e7694f54648bffc.png" />
+
+<p>建立快照後於就可以看到”最後一次快照”為2分鐘前，還原點數量為1。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270572/original/6196cf263007f03e1a1076cf50ff6e11.png" />
+
+<p>對資料夾按一下”<span style="color: #0000ff;">設定</span>“來建立排程快照，在快照的地方，可以設定快照的拍攝週期，當然時間是越短越好；不過筆者為了測試，設定為6小時一張快照，一般來說大約12小時或每日一張快照就算多了。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270573/original/21b10d190f5587f3627cc74c9fd7a247.png" />
+
+<p>勾選”<span style="color: #0000ff;">開啟快照瀏覽</span>“，就能在『<span style="color: #800080;">File Station</span>』直接瀏覽快照。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270574/original/9bbb0d20d3ae30f33bbc2e9f341182f0.png" />
+
+<p>快照其實是不會占用伺服器空間的(後面會解釋原因)；但還是可以設定要保留最近多久的快照。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270575/original/970da7ac3fe32b5e683b80143fd9ac96.png" />
+
+<p>設定排程完畢後，此資料夾會顯示”已排程”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270576/original/cee4e71297f2c0525b5bc28e12f4ee39.png" />
+
+<p>快照就像一個還原系統，可以將資料回復到某個時間點，只要到「<span style="color: #0000ff;">還原</span>」頁面並點選指定資料夾 → “<span style="color: #0000ff;">還原</span>“ → 點選指定時間(可以點”<span style="color: #0000ff;">瀏覽</span>“來查看)，再執行還原/複製為新名稱。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270577/original/83e141e2a18f5f5f6dadc7bdb28da89b.png" />
+
+<p>快照還可以利用『<span style="color: #800080;">File Station</span>』直接瀏覽快照(前面的”<span style="color: #0000ff;">開啟快照瀏覽</span>“設定要打勾)，並且當作一般的檔案做存取(無法刪除快照內的檔案)。</p>
+<p><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270577/original/83e141e2a18f5f5f6dadc7bdb28da89b.png" /><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270578/original/6abd97a21238be016cdd5315b6afecb8.png" /></p>
+<p><strong><span style="color: #ff6600;">【”快照”並不會占用NAS儲存空間】</span></strong></p>
+<p>其實一定有人會問，幾個小時就建立一次快照，那麼NAS不是很快容量就裝滿了嗎？其實是不會的，這也是為何快照內的檔案無法刪除；因為<span style="color: #800000;">快照內多數的檔案只是一個”空殼”，重複存在的檔案並不會在快照內，也因此建立快照時只需花費幾秒鐘。</span></p>
+<p>舉例來說，A資料夾內放一個5GB的”XDD.mp4”影片檔，於A資料夾執行100次的快照後，總使用空間還是5GB；直到使用者將快照內的”XDD.mp4”複製出來或是還原，NAS才會到A資料夾取出”XDD.mp4”。又或是A資料夾內的”XDD.mp4”被刪除了，在刪除前NAS才會將該檔案真正的備份。以下為實測：</p>
+<p>〔<strong><span style="color: #008000;">步驟一</span></strong>〕：檔案未上傳，未建立快照：”files”大小1.68GB、NAS總使用空間比例27.22%</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270579/original/9e6ba2dbbfc200d99babf4bc9a3de7e2.png" />
+
+<p>〔<span style="color: #008000;"><strong>步驟二</strong></span>〕：檔案已上傳，未建立快照：在加入3.83GB的ISO檔後，”files”大小5.51GB、NAS總使用空間比例27.29%。(資料夾、NAS總使用空間皆增加)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270580/original/a0c20071787f0391ce878d0be2ad4a84.png" />
+
+<p>〔<span style="color: #008000;"><strong>步驟三</strong></span>〕：檔案已上傳，已建立快照：建立快照後，”files”大小5.51GB、NAS總使用空間比例27.29%。(資料夾、NAS總使用空間皆”未”增加，代表”該快照並未占用空間”)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270581/original/2c69b18c197391b218dc0d9c15b02c7e.png" />
+
+<p>〔<span style="color: #008000;"><strong>步驟四</strong></span>〕：檔案已上傳(已刪除)，已建立快照：最後把檔案刪除(包含資源回收桶)，”files”大小1.68GB、NAS總使用空間比例27.29%。(資料夾使用空間減少、但NAS總使用空間卻未”增加，因為該檔案在刪除後已另外擺放，為了給快照使用)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270582/original/3cc9b3b7e28beed6c8c82d7df4c660a2.png" />
+
+<p><a id="F-2" name="F-2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270621/original/3239a1fe223861c65fe1d95828f7e79c.png" /></p>
+<p>只要在電腦上安裝<span style="color: #800080;">Cloud Station Drive</span>，就能<span style="color: #800000;">讓NAS與電腦雙向即時同步</span>。雙向同步的好處有很多，例如，文件直接在Drive資料夾打開做編輯，儲存後就會立刻同步至NAS；或是筆電和桌電都安裝此軟體，就能共同傳遞資料，在戶外還能經由NAS存取。</p>
+<p>在安裝<span style="color: #800080;">Cloud Station Drive</span>之前，請先確認『<span style="color: #800080;">Cloud Staytion Server</span>』套件已安裝並啟動，接著下載<span style="color: #800080;">Cloud Station Drive</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270583/original/c7dd7deda3d9a4983258a39471780c78.png" />
+
+<p>安裝完成後，會進入<span style="color: #800080;">Cloud Station Drive</span>的設定頁面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270584/original/92d6c1410d7aa90c96ea8b6fa0384a34.png" />
+
+<p>輸入QuickConnect ID和使用者帳密，然後同步路徑都依照預設值，按一下”<span style="color: #0000ff;">完成</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270585/original/3a0853958a7543c2b3a5523526c87be7.png" />
+
+<p>打開電腦裡的檔案總管，路徑為C:\Users(使用者名稱)\CloudStation，這個就是會與NAS做即時同步的資料夾，為了不要每次還要尋找路徑，可以將它釘選到”<span style="color: #0000ff;">快速存取</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270586/original/1487ef5cf8481fafd0bb4d72ccab1c5b.png" />
+
+<p>檔案左下方為”綠色勾勾”的，就是該檔案已同步至NAS；若是”藍色迴轉符號”，就是檔案正在同步中。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270587/original/f66f5ebf096fdd2b1b3473455097dfd7.png" />
+
+<p>經過測試之後，檔案的同步真的非常快(這裡指的是檔案只要一丟入資料夾，就會立刻同步至對方)；下面的影片是將檔案上傳到NAS的同步資料夾，然後再讓NAS同步至電腦的<span style="color: #800080;">Cloud Station Drive</span>資料夾。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n7Tvv8Tpu_4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p><a id="F-3" name="F-3"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270622/original/81fb3a1b3eded58c5d2735a62532210b.png" /></p>
+<p><span style="color: #800080;">Cloud Station Backup</span>這個軟體能將<span style="color: #800000;">電腦內特定的資料夾，”單向同步”至NAS</span>(也就是裡面的檔案一有更動，就會立即上傳到NAS)。和前一個軟體一樣，請先確認『<span style="color: #800080;">Cloud Staytion Server</span>』套件已安裝並啟動，並下載<span style="color: #800080;">Cloud Station Backup</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270588/original/5a5cf1914b024fff9d8ee6042265d119.png" />
+
+<p><span style="color: #800080;">Cloud Station Backup</span>安裝完成後，會進入設定頁面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270589/original/b245170c2d38efbd62694138be1a3be1.png" />
+
+<p>輸入QuickConnect ID和使用者帳密，接著勾選電腦內要備份至NAS的資料夾(可複選)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270590/original/7fa9a5fe90f7cbd82440fa4dce35d735.png" />
+
+<p>在按下完成之前，會詢問是否將備份目的設為”唯讀”，建議選擇”<span style="color: #0000ff;">好</span>“。如此一來，在NAS的”這個”同步資料夾就無法從其他地方寫入資料(畢竟是拿來備份用的)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270591/original/c818e3c917ffc6b32a8bb012ef5cc0f2.png" />
+
+<p>設定完成，緊接著<span style="color: #800080;">Cloud Station Backup</span>會開始上傳選定的資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270592/original/4896ec9fccd79dd251926caf2bac0b1d.png" />
+
+<p>打開<span style="color: #800080;">Cloud Station Backup</span>，還可以選擇哪些副檔名的檔案不要備份，或是多大的檔案不要備份。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270593/original/3e721c1f4c8cf8a404b6baf08cab0570.png" />
+
+<p>最後看到NAS內的home\CloudStation\Backup路徑，會顯示電腦名稱+完整的備份路徑，以便未來在還原檔案或是查找路徑之用。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270594/original/4aad06883505e7b53686ca28384fb67a.png" />
+
+<p><a id="F-4" name="F-4"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270623/original/66531bdcbb322281302e0f36cc55d608.png" /></p>
+<p>《<span style="color: #800080;">DS cloud</span>》能將個人CloudStation內的資料同步至行動裝置。(在使用之前，請先確認『<span style="color: #800080;">Cloud Staytion Server</span>』套件已安裝並啟動)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270595/original/0e1826ccfbbc5d560dd3930ff45c791e.png" />
+
+<p>要同步的DiskStation在家目錄中僅能選擇CloudStation上的資料夾(包含前兩節NAS在上述兩個軟體的備份資料夾)；並選擇手機目的端資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270596/original/141d4026e983653ae44c9e86992fb95b.png" />
+
+<p>在選項中，亦可設定檔案大小上限、格式、是否僅於Wi-Fi模式同步，而背景同步預設為開啟。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270597/original/0c341221cb3ce46744df2adaac50d576.png" />
+
+<p>在同步完NAS的資料後，手機會發出同步完成通知；未來在手機內就可以看到NAS同步的檔案。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270598/original/987c23675f8f17d9f5195928ec9b8bd4.png" />
+
+<p><a id="F-5" name="F-5"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270624/original/622247d5bcd465a49abfe843893a2575.png" /></p>
+<p>透過『<span style="color: #800080;">Cloud Sync</span>』，就能在NAS上與各種公有雲服務間作雙向同步或單向同步。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270599/original/6342672fdfc923b369a70b669acd0954.png" />
+
+<p>『<span style="color: #800080;">Cloud Sync</span>』支援Dropbox、Google Drive、OneDrive、百度雲…等數十種公有雲。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270600/original/c7846a9e693e24ebf6414ac981c9508d.png" />
+
+<p>以Google Drive為例，按下後會要求授權。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270601/original/d9e3a285a8647aca185ad29c8da1313b.png" />
+
+<p>然後會確認sy916.ddns.net:5000是否為要導向回去的網址，按下”Agree”。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270602/original/a735b2ae4c60eafff17c5a7c7559ebcd.png" />
+
+<p>下一步設定本地NAS路徑、遠端路徑(可勾選要備份的檔案/資料夾，適用雙向/下載異動)、以及同步方向(雙向/下載遠端異動/上傳本端異動)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270603/original/edf6ac8ef8355d6ada9ecdb4f5e891ce.png" />
+
+<p>最後確認同步資訊。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270604/original/fc68af5eff6254574992e834c0f5b84a.png" />
+
+<p>接下來『<span style="color: #800080;">Cloud Sync</span>』會開始同步資料，右上角會有一個常駐的同步圖示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270605/original/b96c4a59e746fdf0724836f03e63f377.png" />
+
+<p>在「<span style="color: #0000ff;">設定</span>」頁面中可以設定”<span style="color: #0000ff;">處理週期</span>“，如預設的10秒就是每10秒會檢查一次備份端的資料有無異動。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270606/original/6fde4915faaa37a45a11be3c09bfb44d.png" />
+
+<p>「<span style="color: #0000ff;">日誌</span>」會列出備份的檔案紀錄。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270607/original/c4ec9d1e775e97f910fb1388bf671f37.png" />
+
+<p>看到雙向同步的資料夾，如果這裡的資料有更動，Google Drive也會一併更動。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270608/original/f2d932703fbcb0a3676aebe4d43bae1c.png" />
+
+<p><a id="F-6" name="F-6"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270625/original/85a44210164a09be3771417f11f27f41.png" /></p>
+<p>『<span style="color: #800080;">Hyper Backup</span>』夠協助使用者備份NAS資料，進而備份到另外一台NAS上(支援rsync伺服器或Synology伺服器)；筆者將測試一下兩台Synology NAS的備份方式，這時候備份目的端需安裝『<span style="color: #0000ff;">Hyper Backup Vault</span>』。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270609/original/e53ff9db8f2bac168bdf908ca2b67894.png" />
+
+<p>由於要從遠端NAS備份回這台NAS，建立備份的任務是在遠端NAS上；打開『<span style="color: #800080;">Hyper Backup</span>』並選擇被目的地類型為”<span style="color: #0000ff;">遠端Synology NAS</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270610/original/10b9cd055a32fe48c5c02be61cadc99a.png" />
+
+<p>輸入目的地NAS的連線資訊(需開啟預設port:6281，詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-2" target="_blank">B-2 通訊埠轉送設定</a>)，連線成功就能選擇目的地的資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270611/original/756d2c680e50ddf54b1b7eaa5a3fd5c8.png" />
+
+<p>勾選欲備份的資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270612/original/374be6fb829de7ccaa1b5da1f7a9973b.png" />
+
+<p>選擇欲備份的應用程式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270613/original/de5d131f452c89bf9cfe8625f8359965.png" />
+
+<p>接下來是設定備份任務，筆者將它排在每日的半夜三點進行備份。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270614/original/ccf4ef1eba46b7c3ea36f1c2ac19b021.png" />
+
+<p>下一步可以選擇是否要刪除舊的備份版本，例如輸入保留最新120個版本，則下面就會顯示此設定將會保留約至17週前的資料。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270615/original/4b123b2cf4a44f9849acc58afac4ca9c.png" />
+
+<p>在完成之前會詢問”是否立即備份”，若選擇”<span style="color: #0000ff;">是</span>“，即開始備份任務。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270616/original/f7036ca37879b6776c497337ba17d6e5.png" />
+
+<p>回到目的端NAS，備份資料會顯示於指定資料夾，不過這裡的檔案似乎不是直接能存取的資料。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270617/original/32f267cd7a01bf967fcbb9275cb5db74.png" />
+
+<p>開啟『<span style="color: #800080;">Hyper Backup Vault</span>』，目前所有備份的使用量為1.2GB；點選”<span style="color: #0000ff;">備份瀏覽器</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270618/original/5c5578a5e8c858595a6c1d9a3cc2630c.png" />
+
+<p>這時候我們才能看到所有備份的檔案，這些檔案支援”<span style="color: #0000ff;">複製</span>“(至本地資料夾)，或是單一資料夾支援”<span style="color: #0000ff;">複製</span>“，單一檔案支援”<span style="color: #0000ff;">複製/下載</span>“。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270619/original/9fe19fdea0a630c61da4dc4c99351c32.png" />
+
+<p>小結：</p>
+<p>CloudStation可以把電腦、筆電、行動裝置等與NAS建立一座橋梁，不同裝置上的檔案可以互相同步傳遞。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-G/" rel="prev" title="[教學] Synology NAS Tip G. 架站篇">
+      <i class="fa fa-chevron-left"></i> [教學] Synology NAS Tip G. 架站篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-E/" rel="next" title="[教學] Synology NAS Tip E. 多媒體娛樂篇">
+      [教學] Synology NAS Tip E. 多媒體娛樂篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'efb9a09008bafe10b0ee2a7b5f14a7bc',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

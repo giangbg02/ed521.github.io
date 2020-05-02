@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器">
+<meta property="og:url" content="https://ed521.github.io/2018/08/Synology-Docker-Minecraft/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/243064/original/b62d2b32817a9e6a43913849189f8965.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242267/original/0b18d5cb577830847a6e12a04c4f9a5c.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242528/original/1c84268549bdbefda632addbabf76a78.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242502/original/1d16f5498ec221413cb90654698f89b4.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242503/original/4e132b706115340a0e84f7119e9116ea.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242504/original/733e11522deef3889c7a75edbb010fdd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242505/original/a3953086e2bae7d119f26197a04d7c52.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242506/original/fe25d1e27485ee31fb5afa3449b99387.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242507/original/8af822faeb252c4b55288e9adb7c71bb.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242508/original/798b88b02b2937edb9823dc99bab3d2c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242509/original/35eaa4d160044c0da197972a87a12e5b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242510/original/a1a9ef94bffe81aa3c50791e60bcb7e3.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242531/original/314edd15a237c1b50b49c98334de6d99.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242512/original/1f9f8902ac0ee2d72fb7e7370a0f168c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242513/original/9bdb391664cb506359cad8af120467ec.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242514/original/7d5270528bdcc77975161b1edad86cf6.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242515/original/db37025d55485cf55497add01e8df728.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242516/original/9f07613e7c03be6eec5f9d0c341220bc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242517/original/26330ba6dc0208452982f0886d3f76c9.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242518/original/9d41906b4d6ccbec3a1ecc4f59ee9cf6.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242519/original/bd309dcc0f2129e4772c88e0efaa174d.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242520/original/3810f0505160ed88ad686db81148befe.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242532/original/d5b60f7f960bd90054afe9749fcfe4ea.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242522/original/10cd3dcb546ce9c5999908ec6619a467.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242523/original/b99ad52dd7529c9489fb480254c06f68.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242524/original/1f0e13fc4c32af5eae6bcf1e98da78d4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242533/original/cc5b9c34e70691988d3f2f0c05d63e01.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242529/original/ef7b19ef8258a4e339a50a2c293ece7f.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242530/original/41758ef78995665bb3a07ccf454e7759.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242643/original/6095f520c7a8af14a3ad74560fd95935.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242527/original/ff53a354a193e21495e4aa30c8efd887.png">
+<meta property="article:published_time" content="2018-08-23T09:43:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:31:28.854Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" Docker">
+<meta property="article:tag" content=" Minecraft">
+<meta property="article:tag" content=" 伺服器">
+<meta property="article:tag" content=" 麥快">
+<meta property="article:tag" content=" 影音">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/243064/original/b62d2b32817a9e6a43913849189f8965.gif">
+
+<link rel="canonical" href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2018-08-23 17:43:00" itemprop="dateCreated datePublished" datetime="2018-08-23T17:43:00+08:00">2018-08-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/08/Synology-Docker-Minecraft/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>4.7k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/243064/original/b62d2b32817a9e6a43913849189f8965.gif" />
+
+<a id="more"></a>
+
+<p>〈本文為下篇，上篇的連結為：<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl/" target="_blank" rel="noopener">Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片</a>〉</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242267/original/0b18d5cb577830847a6e12a04c4f9a5c.gif" alt="內容大綱" />
+
+<p>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl#a/" target="_blank" rel="noopener">上篇</a>〕★ Synology NAS 進階應用：Docker 套件 ★</p>
+<p>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl#b/" target="_blank" rel="noopener">上篇</a>〕★ Docker 套件應用一：使用 youtube-dl 下載各大影音網站的影片 ★<br>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl#b-1/" target="_blank" rel="noopener">上篇</a>〕└ 架設動機與使用情境<br>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl#b-2/" target="_blank" rel="noopener">上篇</a>〕└ youtube-dl 設置教學<br>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl#b-3/" target="_blank" rel="noopener">上篇</a>〕└ 應用展示</p>
+<p><a href="#c">★ Docker 套件應用二：架設 Minecraft 伺服器 ★</a><br>└ <a href="#c-1">架設動機與使用情境</a><br>└ <a href="#c-2">Minecraft 伺服器設置教學</a><br>└ <a href="#c-3">應用展示</a></p>
+<p><a href="#d">★ 總結與心得 ★</a></p>
+<hr />
+
+<p><a id="c" name="c"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242528/original/1c84268549bdbefda632addbabf76a78.gif" alt="Docker 套件應用二：架設 Minecraft 伺服器" /><br><a id="c-1" name="c-1"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td style="background-color: #daedfe;"><strong>　架設動機與使用情境　</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>前一篇文章：<a href="https://ed521.github.io/2018/08/Synology-Docker-ytdl/" target="_blank" rel="noopener">使用 youtube-dl 下載各大影音網站的影片</a> 是一個比較簡單的 Docker 應用；接著就要介紹一款非常受歡迎的<strong>沙盒遊戲 - Minecraft</strong>，也就是我們要利用 <span style="color: #800000;">Synology NAS 的 Docker 套件來架設 Minecraft 伺服器</span>。Minecraft 的遊戲特色包括了<span style="color: #800000;">探索世界、採集資源、合成物品及生存冒險等等，只要架設伺服器，就能和朋友一同遊玩。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242502/original/1d16f5498ec221413cb90654698f89b4.jpg" />
+
+<p>雖說桌上型電腦也能架設 Minecraft 伺服器，不過這裡列舉了幾點用 Docker 架設 Minecraft 的優點所在：</p>
+<p><span style="color: #0000ff;"><strong>〔使用 Docker 架設 Minecraft Server 原因之一：使用桌機架設十分耗電〕</strong></span></p>
+<p>由於家中的電腦也能開 Minecraft 伺服器，但不太可能 24 小時都開著，且電腦耗電量也比 NAS 高上許多。</p>
+<hr />
+
+<p><strong><span style="color: #0000ff;">〔使用 Docker 架設 Minecraft Server 原因之二：過去的教學已不適用，且管理不易〕</span></strong></p>
+<p>以前 Synology 若要架設 Minecraft 伺服器，以往的做法是去<span style="color: #800000;">套件中心新增一個叫”社群”的套件來源，接著就能安裝並下載 Minecraft 伺服器的套件了。</span>不過目前在 DSM 6.2 版已經找不到此套件，而且缺點是開啟後 <span style="color: #800000;">Minecraft 伺服器運行極度不穩定，且更改遊戲檔案等動作都要透過 SSH 進入 NAS 系統內部來設定，十分不便。</span></p>
+<p>簡單來說，目前網路上提供的”利用 Synology 架設 Minecraft 伺服器”等教學大多都是 3 年以上的文章，除了<span style="color: #800000;">過時不適用，這種方法在管理和維護上也非常麻煩。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242503/original/4e132b706115340a0e84f7119e9116ea.png" />
+
+<hr />
+
+<p><span style="color: #0000ff;"><strong>〔使用 Docker 架設 Minecraft Server 原因之三：專屬資料夾直接管理遊戲檔案〕</strong></span></p>
+<p>使用者能自訂目標資料夾來存放 Minecraft 伺服器的檔案，除了管理方便，甚至可以<span style="color: #800000;">直接透過《文字編輯器》，線上更改遊戲參數。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242504/original/733e11522deef3889c7a75edbb010fdd.png" />
+
+<hr />
+
+<p><strong><span style="color: #0000ff;">〔使用 Docker 架設 Minecraft Server 原因之四：日誌查看記錄、終端機直接下指令〕</span></strong></p>
+<p>過去筆者認為別家的 NAS 廠商在架設 Minecraft 是比較方便的（因為別家可能有提供專用 Minecraft 伺服器套件），但缺點仍然是不好管理。因此<span style="color: #800000;">使用 Docker 來架設的話，日誌能查看系統記錄，而終端機還能直接下遊戲指令。</span></p>
+<p>PS. 下圖為終端機頁面，並輸入 /help 指令之結果。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242505/original/a3953086e2bae7d119f26197a04d7c52.png" />
+
+<hr />
+
+<p><a id="c-2" name="c-2"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td bgcolor="#daedfe"><strong>　Minecraft 伺服器設置教學　</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="color: #0000ff;"><strong>〔Step 1：打開《Docker》套件 → “倉庫伺服器”頁面搜尋”minecraft”，找到 itzg/minecraft-server 並下載〕</strong></span></p>
+<p>搜尋 minecraft 後會出現許多不同人製作的映像檔，我們下載擁有最多星星數的 itzg/minecraft-server。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242506/original/fe25d1e27485ee31fb5afa3449b99387.png" />
+
+<p><span style="color: #0000ff;"><strong>〔Step 2：打開<a style="color: #0000ff;" href="https://registry.hub.docker.com/u/itzg/minecraft-server/" target="_blank" rel="noopener">映像檔的官方頁面</a>，來查看有什麼變數需要額外設定。〕</strong></span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242507/original/8af822faeb252c4b55288e9adb7c71bb.png" />
+
+<p>點開映像檔名稱旁的藍色箭頭圖示，並進入<a href="https://hub.docker.com/r/itzg/minecraft-server/~/dockerfile/" target="_blank" rel="noopener">“Dockerfile”分頁</a>後，會看到許多指令及參數，我們一樣<span style="color: #800000;">先觀察 EXPOSE 和 VOLUME 這兩個指令參數即可。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242508/original/798b88b02b2937edb9823dc99bab3d2c.png" />
+
+<p>不過 Dockerfile 無法看到明確的設定方式，要至<a href="https://hub.docker.com/r/itzg/minecraft-server/" target="_blank" rel="noopener">“Dockerfile”分頁</a>來查看更詳細的資訊。如下圖所示，我們要<span style="color: #800000;">設定一個 EULA = TURE 的參數，以及設定容器存放資料的路徑 /data。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242509/original/35eaa4d160044c0da197972a87a12e5b.png" />
+
+<p>另外，<span style="color: #800000;">光給容器設定參數不夠，還要給它足夠的權限來讀取寫入檔案</span>，<a href="https://hub.docker.com/r/itzg/minecraft-server/" target="_blank" rel="noopener">官方說明檔</a>能發現它預設的 user ID (UID) 和 group ID (GID) 都是預設 1000。而 Synology NAS 群組”users”的 GID 為 100、群組”administrators”的 GID 為 101；因此我們也要為容器更改 UID 或 GID 參數，像是把 GID 更改為 101(administrators群組)，或是更改 UID 為 1024(admin 帳號)。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242510/original/a1a9ef94bffe81aa3c50791e60bcb7e3.png" />
+
+<p>想知道 UID 或 GID 是多少的使用者，可以先到 DSM 的”控制台” → “終端機 &amp; SNMP”頁面，把”啟動 Telnet 功能”和”啟動 SSH 功能”打勾，然後按下套用。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242531/original/314edd15a237c1b50b49c98334de6d99.png" />
+
+<p>接著下載 <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe" target="_blank" rel="noopener">PUTTY 軟體</a>，打開後，在 Session 頁面輸入 NAS 的區網 IP(192.168.XXX.XXX)，然後輸入管理員帳號密碼。成功登入後，只要在指令的地方輸入”id”，就會看到自己的 UID 和 GID 了。</p>
+<p><strong><span style="color: #800000;">PS. 查看完之後，務必到控制台把”Telnet 功能”和”SSH 功能”關閉。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242512/original/1f9f8902ac0ee2d72fb7e7370a0f168c.png" />
+
+<p><span style="color: #0000ff;"><strong>〔Step 3：佈署 Minecraft Server 映像檔，並輸入相關設定〕</strong></span></p>
+<p>回到《Docker》中，已下載的映像檔會在”映像檔”頁面，我們按一下 itzg/minecraft-server，並按下”佈署”按鈕。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242513/original/9bdb391664cb506359cad8af120467ec.png" />
+
+<p>打開後，按下”進階設定”，在”進階設定”分頁中按下”新增捷徑至桌面”並選擇”狀態頁面”，如此一來以後在 DSM 主畫面就能直接開啟 Minecraft 伺服器的詳細資訊頁面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242514/original/7d5270528bdcc77975161b1edad86cf6.png" />
+
+<p>接著到”儲存空間”分頁，<span style="color: #800000;">這邊就是要設定 Minecraft 伺服器的資料存放路徑，我們選擇 /docker/minecraft 路徑（使用者自訂）；而掛載路徑請輸入 /data。</span></p>
+<p>PS. 掛載路徑所要輸入的 /data，也就是前面文件提到 “to map a directory on your host machine to the container’s <strong>/data</strong> directory”。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242515/original/db37025d55485cf55497add01e8df728.png" />
+
+<p>再來看到”連接埠設定”，這邊都幫我們事先設定好了，不過這裡將 本機連接埠 裡的”自動設定”，分別手動更改為”25565″和”25575” Port（或是自訂的 Port），如下左圖。</p>
+<p>PS. <span style="color: #800000;">Port 25565 是連線 Minecraft 伺服器預設的連接埠，Port 25575 是 Minecraft Server RCON，也就是可遠端控制 Minecraft 伺服器的程式 Port。</span></p>
+<p>而”環境設定”分頁中我們要新增兩個參數，分別是前面提到的<span style="color: #800000;"> EULA = TRUE</span> 和給予容器讀寫的權限：<span style="color: #800000;">GID = 101</span>（或設定 <span style="color: #800000;">UID = 1024</span>），如下右圖。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242516/original/9f07613e7c03be6eec5f9d0c341220bc.png" />
+
+<p>另外，”環境設定”分頁還有許多關於 Minecraft 伺服器的初始設定，比較重要的是 <span style="color: #800000;">MEMORY 的地方，預設是設定 1G，不過這邊筆者建議是至少設定<strong>“NAS 所擁有 RAM “的一半</strong></span>；例如我的 DS916+ 有 8GB RAM，因此 MEMORY 參數設定就可提高到 4G，這樣 Minecraft 伺服器也會跑得比較順。</p>
+<p>而其他參數如：PVP(true 或 false)、DIFFICULTY(easy 或 hard 或 normal 或 peaceful)、ONLINE_MODE(true 或 false)等，使用者可以在開服前先行設定；當然，之後在 server.properties 檔也能再度更改遊戲參數；設定完按下套用。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242517/original/26330ba6dc0208452982f0886d3f76c9.png" />
+
+<p>進階設定完成，按下”下一步”，再按下”套用”，就會在精靈完成後立刻啟動容器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242518/original/9d41906b4d6ccbec3a1ecc4f59ee9cf6.png" />
+
+<p>最後記得到路由器設定頁面新增 25565 Port（Minecraft 伺服器的連線），以及 25575 Port（Minecraft Server RCON 程式），否則從外網無法連線到自架的 Minecraft 伺服器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242519/original/bd309dcc0f2129e4772c88e0efaa174d.gif" />
+
+<hr />
+
+<p><a id="c-3" name="c-3"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td bgcolor="#daedfe"><strong>　應用展示　</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>佈署完的同時，打開DSM主畫面 itzg-minecraft-server 的 Docker 圖示，進入終端機頁面會看到”Done!”開服完成的訊息（終端機畫面倒數第三列），這時候只要打開 Minecraft 並輸入 IP，就能開始遊玩。</p>
+<p><span style="color: #800000;">PS. 過太久才進去終端機頁面的話會沒有東西，顯示的訊息會移動到日誌頁面。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242520/original/3810f0505160ed88ad686db81148befe.png" />
+
+<p>而在打開伺服器的瞬間，CPU 使用率大約會來到 70 %，之後才會慢慢掉到 5 % 以下。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242532/original/d5b60f7f960bd90054afe9749fcfe4ea.png" />
+
+<p>接著去官網下載安裝<a href="https://minecraft.net/zh-hant/download/" target="_blank" rel="noopener">最新版本的 Minecraft</a>（目前最新版本為 1.13）。成功開啟後，按下”多人遊戲”，新增伺服器並輸入 NAS 的 IP（<span style="color: #800000;">如果當初設定的是自訂 Port，則輸入”IP:Port”，例如 tw.yahoo.com:23456</span>），按下”完成”後就會看到剛架設好的 Minecraft 伺服器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242522/original/10cd3dcb546ce9c5999908ec6619a467.gif" />
+
+<p>加入伺服器後，就可以開始遊玩了；<span style="color: #800000;">整體來說遊玩還算非常順暢，只不過玩家移動太快的話，就有回溯的可能。</span>而筆者也邀請朋友進來伺服器，如果”連接埠轉傳”有正確地被設定（Port 25565），從外網就可以進去自架的 Minecraft 伺服器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242523/original/b99ad52dd7529c9489fb480254c06f68.png" />
+
+<p>不過上面都只是預設的設定，若使用者要更改伺服器設定（像是更改遊戲難度、模式、最大玩家人數等）和更改地圖（world 資料夾），<span style="color: #800000;">透過《File Station》並打開當初設定的資料夾路徑即可更改。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242524/original/1f0e13fc4c32af5eae6bcf1e98da78d4.png" />
+
+<p>而修改伺服器設定也非常方便，有開過服的人都知道更改伺服器設定是透過 server.properties 檔案，<span style="color: #800000;">我們不用將檔案下載、編輯，然後再重新上傳；只要打開《文字編輯器》套件，把 server.properties 拉進去就能編輯檔案了。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242533/original/cc5b9c34e70691988d3f2f0c05d63e01.png" />
+
+<p>最後，筆者統整<span style="color: #800000;">使用 Synology Docker 架設 Minecraft 伺服器的優點：</span></p>
+<p><strong>1. 雖然用電腦也能架設，但<span style="color: #ff6600;"> 24 小時開著電腦不僅耗電也耗費資源。</span></strong></p>
+<p><strong>2. 原先用套件直接架設的方法已<span style="color: #ff6600;">不適用</span>，且<span style="color: #ff6600;">管理上非常不易。</span></strong></p>
+<p><strong>3. 具有<span style="color: #ff6600;">終端機介面，使用者可以直接在終端機下伺服器指令</span>，例如給予某人 OP 權限、BAN 某個玩家等。</strong></p>
+<p><strong>4. 具有<span style="color: #ff6600;">日誌畫面，可查看伺服器過去的事件記錄</span>，例如誰登入過遊戲、哪個玩家達成什麼成就等。</strong></p>
+<p><strong>5. <span style="color: #ff6600;">《文字編輯器》能直接在 DSM 輕易地更改 Minecraft 伺服器參數</span>，以往我們可能需將”設定檔下載” → “電腦中編輯” → “重新上傳” 才能更改設定檔，十分的不便利。</strong></p>
+<hr />
+
+<p><a id="d" name="d"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242529/original/ef7b19ef8258a4e339a50a2c293ece7f.gif" alt="總結與心得" /></p>
+<p><strong>Docker 應用非常廣泛，同時運作多個容器也沒問題；</strong><strong>也因為每個容器都是獨立建立並執行，<span style="color: #0000ff;">如果發生了什麼很嚴重的問題，頂多就是把該容器停止然後刪除就行了</span>，使用者不太需要擔心。</strong></p>
+<p><strong>另外，<span style="color: #0000ff;">容器在佈署上如果沒有正確地設定參數，在啟動的當下就會停止運作了。</span>可能也會有人好奇想問：「<span style="color: #800000;">在建立 Minecraft 伺服器的時候，我怎麼知道只需要額外設定 EULA 和 UID 兩個參數呀？</span>」當時筆者在測試的時候<span style="color: #0000ff;">也失敗了很多次，這時候就要到”日誌”的地方來查看有沒有什麼錯誤訊息</span>：</strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242530/original/41758ef78995665bb3a07ccf454e7759.png" />
+
+<p><strong>從上圖可以發現，如果參數什麼都沒設定就佈署，第一次會出現 Permission denied 的錯誤訊息，代表<span style="color: #800000;">無法將資料寫入 /data 資料夾</span>（所以我們要設定 UID 或 GID 來更改權限）；設定完權限後，第二次佈署出現 Please accept the Minecraft EULA 的錯誤訊息，代表<span style="color: #800000;">我們要設定一個 EULA = TRUE 的參數</span>。一方面也是要到官方文件來尋找資訊，才能佈署成功。</strong></p>
+<p><strong>而 Synology 中的部分套件也是利用 Docker 來運作的，像是程式開發團隊最常使用的協作版本控制軟體：GitLab，<span style="color: #0000ff;">使用者在 Synology NAS 上安裝《GitLab》後，經過簡單的設定後，就會被自動佈署到 Docker 上運作。</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242643/original/6095f520c7a8af14a3ad74560fd95935.png" />
+
+<p><strong>最後筆者再提一個 Docker 比較有趣的應用，舉例來說，常玩遊戲的人可能都會使用 Discord 這個語音軟體來和隊友溝通，而 Discord 也有很多”Bot（機器人）”能豐富自己聊天群的功能，像是音樂機器人、群管理機器人，或是查遊戲戰績的機器人等等；不過<span style="color: #0000ff;">部分的 Bot 除非要你付費，不然功能限制就蠻多。</span>這時候<span style="color: #0000ff;">不妨到 Docker 上找相關應用，透過自己架設的 Discord Bot，功能就不必受限制！</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242527/original/ff53a354a193e21495e4aa30c8efd887.png" />
+
+<p><strong>這邊附上網路上的教學文件【<a href="https://philipzheng.gitbooks.io/docker_practice/content/" target="_blank" rel="noopener">Docker —— 從入門到實踐</a>】，讓想瞭解 Docker 的人能有更進一步的認識。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/D-Link-COVR-2202/" rel="prev" title="[開箱] D-Link COVR-2202 三頻 Mesh 全覆蓋家用路由器，讓您的手機上網再也不卡卡、不中斷！">
+      <i class="fa fa-chevron-left"></i> [開箱] D-Link COVR-2202 三頻 Mesh 全覆蓋家用路由器，讓您的手機上網再也不卡卡、不中斷！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/Synology-Docker-ytdl/" rel="next" title="[教學] Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片">
+      [教學] Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '9e81cd238d75d78c2616b86bb5c3a3f8',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

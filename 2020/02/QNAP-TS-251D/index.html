@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="QNAP 最新推出的 NAS 機種：TS-251D 集資料安全儲存、多媒體娛樂於一機，並配備一個 PCIe 擴充槽，提供高度應用擴充彈性。除了檔案分享、資料備份、架站架伺服器等一般人會想到的基本用途外，我也可以透過 QNAP NAS 架設 Plex 影片伺服器，並使用 HybridDesk Station 本地播放，同時搭配 Qremote APP 來操控 Plex 介面，如下圖所示：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[開箱] QNAP TS-251D NAS 搭配 WD RED SA500 SSD，家庭影音一把罩，享受娛樂 金 逍 遙！">
+<meta property="og:url" content="https://ed521.github.io/2020/02/QNAP-TS-251D/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="QNAP 最新推出的 NAS 機種：TS-251D 集資料安全儲存、多媒體娛樂於一機，並配備一個 PCIe 擴充槽，提供高度應用擴充彈性。除了檔案分享、資料備份、架站架伺服器等一般人會想到的基本用途外，我也可以透過 QNAP NAS 架設 Plex 影片伺服器，並使用 HybridDesk Station 本地播放，同時搭配 Qremote APP 來操控 Plex 介面，如下圖所示：">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271676/original/598c615c18c6be7989ac0336f04189d2.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271598/original/76ce5a4906302bb65b59cabd2863e1cd.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271599/original/2d255ee1918bd0131119966b13ea2e41.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271600/original/30e0928b5144292f5db751f38b0cfe26.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271767/original/bdbb235efff2e132595e94f234ef6c97.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271768/original/d88e199c0fe1546c16dca403cbc124be.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271601/original/863c6b5672071c14ed007279ce72efdd.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271602/original/2daf843c2eaf34e3c2567a7cfc3670fd.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271603/original/ca534b3457f985b99fcd77f182b84307.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271604/original/3b7e48a17f98cdd37c9d10654c806f2a.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271605/original/5d48d121f9fbb310d94230cad0e3f3b9.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271606/original/e686fd02fa5afd213745acf03c72a4aa.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271607/original/8117334a45f2c35077262d9855806a99.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271608/original/2084ea5612ea39daee39a2398d8986fe.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271609/original/bf517c6cd663e535d6e10b58cff88412.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271610/original/b7afe1b3d975dc30c599ef93b9a40b0a.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271611/original/12bd949d28a8fa65964a44a810d8f2c1.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271612/original/5b9b69b0ac704a02faad74b2effd601c.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271613/original/a092a164d35db4aad47a2421221413b1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271614/original/8a4c94c17eb9aad0e235c4124b8727c2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271615/original/aeedc001b7fdec4eabe91ca22eeece43.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271616/original/2d799fad1229d383685d0edb08910a62.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271769/original/7de463512f89f86e8f134a3cf872957a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271617/original/bc8630e56f90e987dfda97b9bbaa4adb.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271618/original/f70078642ee570100776f963d41e5a43.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271619/original/7af1168885e5aedbdcd9d63faa139c08.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271620/original/8c306f1ec7a5e20bf508c20f1a72ac16.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271621/original/85d1cde95cf6a6b2a58f8d17e466e567.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271622/original/3b18e5690a78f2e426d2fd33bd625d3b.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271623/original/c4fc7bb9a3b6833ff3f25a21423585d5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271624/original/1e049a3a8d0958e04e501c6d616138c1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271625/original/2d7f898b416122a0579d9e5be1d65a63.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271626/original/93de9ead56c44c22331ef8e567c7a958.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271627/original/00af802f058a8b67f1d985a0b51e2757.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271770/original/9359b51276245b5490ce5bde026b7f3b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271628/original/1b31651f2ffe222394ee13e195fd1a83.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271629/original/81f733ea8af4988eeec6b680c388f63a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271630/original/c18c7f524450123b6b8e88014805a6f7.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271631/original/f7597395c10b2df554ef46f5d4471fd8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271632/original/6c2649caba0b960145c0cb1b224c1932.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271633/original/7023ccbd20dd6d9fe1d35ce6688cae5a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271635/original/c18d35e05a087cbfae615afb959ed8f1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271634/original/25b8d2a7c26e43ff611e327196bb8519.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271771/original/d7ef0e053ed827e60d10f295115e0015.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271636/original/2ffa47ccd3598030b2510222da5060a0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271637/original/e8829616a6389f250f661144d7ff113c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271638/original/cefea5974dbd4dc8e064374997a22de2.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271639/original/5d56509394922b5dfade815f7b5e9e47.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271640/original/0c11b3e2504144c6fd965d8dfe6af043.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271772/original/d332ba3e1d091954a2cde3a3f1a06c9e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271641/original/687e912b1d951ddc37a3fad27b235940.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271648/original/b2139ccadcfbb63ed523bc9275d92b81.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271642/original/713722563d7912096a5700d3d43e6c9e.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271643/original/0bd4c5fd7b592e8f460045cd1b00c6af.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271644/original/c5aeb91ea65eb6e078581c98f50722e1.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271645/original/f1279c3f00edd454856e0cf5745fb785.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271646/original/0550dafe5aa22bbb2460b8a8dca3e55c.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271647/original/0ab5a3087cd891d07f8a26f01be1a6fb.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271649/original/84fcaf90ab5242f40c638cc3364224e3.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271650/original/1292a04da600738ce7d4d86b81da1530.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271651/original/b70662bef572333b1388ce6b8f3b9f6b.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271652/original/8aafd56b8a552a77dd8eb8817fb617fe.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271653/original/8ac6125e18d02b07a2bd4ba7602c4ec2.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271773/original/bd37d3fec5927b4b4cb3af109fc8c774.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271899/original/2fa34ce3b2e9c12e2ed370248426c2ad.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271901/original/71bd5a6bf153601340b91f664ae8f718.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272898/original/732e85e9991d783709a8a605590bc030.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272896/original/6007b040fbb6c759e50f09a82b7dc243.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272897/original/9cd277cba4c2765cda2f806ed52b24d7.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272824/original/b70dfde97c13d44dcf88947274923c04.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272826/original/663240b6a3b4db0f495cc2785f89d57a.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272827/original/cba917af3cd501ee5919f1ed392b191a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272828/original/39f1e15962de193b9950bb86ae7ffe42.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272831/original/db7242e5da857039415b154384e08c3c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272832/original/aa2bbe84ad3369e7d57e85ad5a2d11c4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271663/original/4c156ad56bd12d6e0461e30a1ec1539e.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271664/original/23b3f76d7da60af5896eb77aa329eff2.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271912/original/f042753a1fbac80b66627b5ce4e35193.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271774/original/3a7d33eba4594b7f9cd0d6eeeedba21c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271666/original/16c595921917aeda8cfe18ec58ba9280.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271667/original/012efa4a25f239a3d53302f75b54b46d.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271668/original/47284a73b541ff5f9ede649e67dbd57b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271669/original/9af996d3a22c6e13c22f7419576842db.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271671/original/8fcc0e311cfff1295c5cfef80a507f20.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271670/original/e1851e7e302592ce650661df9b00e5b4.png">
+<meta property="article:published_time" content="2020-02-28T14:24:00.000Z">
+<meta property="article:modified_time" content="2020-03-19T07:26:42.535Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" QNAP">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" TS-251D">
+<meta property="article:tag" content=" TS251D">
+<meta property="article:tag" content=" 影音">
+<meta property="article:tag" content=" 家庭娛樂">
+<meta property="article:tag" content=" 效能測試">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271676/original/598c615c18c6be7989ac0336f04189d2.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2020/02/QNAP-TS-251D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[開箱] QNAP TS-251D NAS 搭配 WD RED SA500 SSD，家庭影音一把罩，享受娛樂 金 逍 遙！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2020/02/QNAP-TS-251D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [開箱] QNAP TS-251D NAS 搭配 WD RED SA500 SSD，家庭影音一把罩，享受娛樂 金 逍 遙！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-02-28 22:24:00" itemprop="dateCreated datePublished" datetime="2020-02-28T22:24:00+08:00">2020-02-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/qnap/" itemprop="url" rel="index"><span itemprop="name">QNAP NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/QNAP-TS-251D/" class="post-meta-item leancloud_visitors" data-flag-title="[開箱] QNAP TS-251D NAS 搭配 WD RED SA500 SSD，家庭影音一把罩，享受娛樂 金 逍 遙！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>6.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271676/original/598c615c18c6be7989ac0336f04189d2.jpg" />
+
+<p><span style="color: #800000;">QNAP 最新推出的 NAS 機種：<strong>TS-251D</strong> 集資料安全儲存、多媒體娛樂於一機，並配備一個 PCIe 擴充槽，提供高度應用擴充彈性。</span>除了檔案分享、資料備份、架站架伺服器等一般人會想到的基本用途外，我也可以透過 QNAP NAS 架設 Plex 影片伺服器，並使用 HybridDesk Station 本地播放，同時搭配 Qremote APP 來操控 Plex 介面，如下圖所示：</p>
+<a id="more"></a>
+
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271598/original/76ce5a4906302bb65b59cabd2863e1cd.jpg" />
+
+<p>且不管是影片、相簿還是音樂播放器，QNAP 都有推出專屬 APP 供使用者在戶外存取家中的 NAS 資源。以 VideoStation 為例，行動版 APP 的名稱為 Qvideo，這樣子即使在外，也能使用平板電腦或手機來看電影或追劇；且如果在 4G 網路或 Wi-Fi 環境不佳的地方，影片播放起來可能會卡卡，那麼就可以將影片即時轉檔為較低解析度；如下圖，從原始 1080P 轉檔成 240P 可是整整節省了 <strong>67%</strong> 的網路流量呢！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271599/original/2d255ee1918bd0131119966b13ea2e41.png" />
+
+<p>我們還可以透過 QNAP NAS 來備份手機照片，利用 QuMagie 來為相片進行 AI 智慧分類，辨識出不同人臉和事物場景。或許有人會想問，為何不透過 Google 相簿備份就好呢？這是因為 <span style="color: #800000;">Google 帳戶只提供 15GB 的容量空間，如果使用無限量的儲存空間方案，所有大於 1600 萬像素的照片都會被壓縮為 1600 萬像素、1080P 解析度以上的影片也會被壓縮為 1080P。</span>現在的手機拍照像素越來越高，所以若使用免費方案，照片會被壓縮是必然的；若不希望被壓縮，只能採用如下圖的 Google 儲存空間方案，但長期下來，也是一筆可觀的金額。</p>
+<p>▼ 2 TB 空間一年新台幣 3300 元，費用並不便宜。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271600/original/30e0928b5144292f5db751f38b0cfe26.png" />
+
+<p>因此除了可以<span style="color: #800000;">透過 QNAP NAS 來備份照片和影片，也可以將所有電影、電視連續劇、音樂等多媒體檔案也能全部上傳；這樣一來就能不管何時何地、不管是家人還是朋友，都能夠存取家中的 NAS 資源。</span></p>
+<hr />
+
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271767/original/bdbb235efff2e132595e94f234ef6c97.png" />
+
+<p>★ <a href="#a">QNAP TS-251D &amp; WD RED SA500 SSD 產品開箱</a> ★</p>
+<p>★ <a href="#b">影視追劇篇：VideoStation &amp; PLEX</a> ★</p>
+<p>★ <a href="#c">智慧相簿篇：QuMagie &amp; Photo Station</a> ★</p>
+<p>★ <a href="#d">音樂播放器：Music Station</a> ★</p>
+<p>★ <a href="#e">本地播放：HybridDesk Station</a> ★</p>
+<p>★ <a href="#f">效能測試</a> ★</p>
+<p>★ <a href="#g">總結與心得</a> ★</p>
+<hr />
+
+<p><a id="a" name="a"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271768/original/d88e199c0fe1546c16dca403cbc124be.png" /></p>
+<p>本次要開箱的產品是 QNAP TS-251D NAS 和 WD RED SA500 SSD 2.5 吋 NAS 固態硬碟。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271601/original/863c6b5672071c14ed007279ce72efdd.jpg" />
+
+<p>首先看到 QNAP TS-251D，CPU 使用 J4005 (Dual-core, up to 2.70 GHz)、內建 2GB RAM (另有 4GB 版，可自行擴充至 8GB)、兩個 2.5/3.5吋 硬碟插槽，以及一個 PCIe 插槽。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271602/original/2daf843c2eaf34e3c2567a7cfc3670fd.jpg" />
+
+<p>產品內容物有 TS-251D NAS、變壓器和電源線、網路線、硬碟螺絲、快速安裝說明書。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271603/original/ca534b3457f985b99fcd77f182b84307.jpg" />
+
+<p>TS-251D 的體積不大，正面有電源鍵、一個 USB 3.0 埠和備份按鈕。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271604/original/3b7e48a17f98cdd37c9d10654c806f2a.jpg" />
+
+<p>機身背面有一個 HDMI 2.0 埠、一個 USB 3.0 埠、三個 USB 2.0 埠、一個網路孔、電源接口和肯辛頓鎖；最上方是可以自行擴充的 PCIe Gen 2 x4 擴充槽。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271605/original/5d48d121f9fbb310d94230cad0e3f3b9.jpg" />
+
+<p>再來把 NAS 前方保護蓋打開，前蓋使用磁吸式，要移除或放回都非常方便。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271606/original/e686fd02fa5afd213745acf03c72a4aa.gif" />
+
+<p>硬碟托盤只要先按住下圖紅點處，再拉出即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271607/original/8117334a45f2c35077262d9855806a99.jpg" />
+
+<p>接著介紹本次的 SSD 硬碟，使用兩顆 WD RED SA500 SSD 2.5 吋 NAS 固態硬碟。與標準的 SSD 不同，<span style="color: #800000;">WD Red SA500 SSD 專門針對 24x7 全年無休條件使用設計和測試，並提供高耐用性和大型檔案高效快取能力，非常適合資料庫存取、多使用者環境、相片渲染、4k 和 8k 影片編輯和其他要求嚴苛的應用。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271608/original/2084ea5612ea39daee39a2398d8986fe.jpg" />
+
+<p>WD RED SA500 SSD 具有<span style="color: #800000;">高達 2500 TBW (Terabytes Written, 耐寫度)，2M MTBF (Mean Time Between Failures, 平均故障間隔)，5 年有限保固</span>；且經過 AJA System Test 軟體實測，寫入速度 486 MB/s，讀取速度 507 MB/s。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271609/original/bf517c6cd663e535d6e10b58cff88412.png" />
+
+<p>我們把 2.5 吋 SSD 固定於硬碟托盤，由於體積較小，需要使用四個螺絲固定；若是 3.5 吋硬碟，只需要使用托盤兩側的邊條來固定即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271610/original/b7afe1b3d975dc30c599ef93b9a40b0a.jpg" />
+
+<p>安裝完成後，只要把 NAS 接電、插上網路線並開機即可。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271611/original/12bd949d28a8fa65964a44a810d8f2c1.jpg" />
+
+<p>在瀏覽器中輸入 QNAP TS-251D 的區網 IP，或是透過 <a href="https://www.qnap.com/zh-tw/utilities/essentials#utliity_5" target="_blank" rel="noopener noreferrer">Qfinder Pro</a> 來尋找 QNAP TS-251D，並依照指示完成初始安裝。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271612/original/5b9b69b0ac704a02faad74b2effd601c.gif" />
+
+<p>安裝完成後，我們就能透過剛才設定的使用者名稱和密碼來登入 QNAP NAS。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271613/original/a092a164d35db4aad47a2421221413b1.png" />
+
+<p>最後一步則是要設定儲存空間，本次使用兩顆 500GB 的 SSD 硬碟，組 RAID 1。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271614/original/8a4c94c17eb9aad0e235c4124b8727c2.png" />
+
+<p>下圖為 QNAP 的 QTS 桌面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271615/original/aeedc001b7fdec4eabe91ca22eeece43.png" />
+
+<p>App Center 具有各式各樣的 APP 供使用者安裝，下面會介紹各種影音娛樂方面的 APP，豐富你我家庭生活！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271616/original/2d799fad1229d383685d0edb08910a62.png" />
+
+<hr />
+
+<p><a id="b" name="b"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271769/original/7de463512f89f86e8f134a3cf872957a.png" /></p>
+<p>首先要介紹播放影片的套件「Video Station 影音劇院」，<span style="color: #800000;">舉凡任何影片如：電影、電視影集、家庭影片等都能整合在這裡瀏覽和播放。</span>首先我們要到 App Center -&gt; 多媒體附加套件，去安裝提供電影和影集資訊的 TMDb 資料庫。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271617/original/bc8630e56f90e987dfda97b9bbaa4adb.png" />
+
+<p>然後打開 Video Station，這裡要新增存放影片的資料夾路徑，例如：若是影集、連續劇或動漫，那就要把它新增在”電視節目”的類別下。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271618/original/f70078642ee570100776f963d41e5a43.png" />
+
+<p>新增完類別和資料夾路徑後，並經過電影名稱內容校對 (因為有些電影資訊，搜尋出來結果可能是錯的)，如下圖，就會成為個人專屬的電影收藏櫃。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271619/original/7af1168885e5aedbdcd9d63faa139c08.png" />
+
+<p>點開某部電影的資訊，部分電影會有中文介紹。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271620/original/8c306f1ec7a5e20bf508c20f1a72ac16.png" />
+
+<p>再來看到電視節目的類別，下圖是動畫的分類結果。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271621/original/85d1cde95cf6a6b2a58f8d17e466e567.png" />
+
+<p>影集和電影不同的地方是，除了很多集之外，也可能分了很多季播出。以「刀劍神域」動畫為例，從第一季 2012 年播出後，直到今年已播出至第四季，這時候透過”季”來分類，要找某一集影片就會很輕鬆。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271622/original/3b18e5690a78f2e426d2fd33bd625d3b.gif" />
+
+<p>下圖是 Video Station 的播放器介面，如果是電視影集，下方能直接選集來播放。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271623/original/c4fc7bb9a3b6833ff3f25a21423585d5.png" />
+
+<p>除了 VideoStation，使用者亦可透過 Plex 建立媒體伺服器和播放器，且筆者認為 <span style="color: #800000;">Plex 具有更美觀的介面，支援的影音格式更廣泛</span>；下圖是電影媒體庫界面 (一樣要進行電影名稱內容校對)，和 Video Station 差不多。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271624/original/1e049a3a8d0958e04e501c6d616138c1.png" />
+
+<p>點入某部電影後，會出現該電影的專屬介紹頁面，除了文字介紹，還有演員圖片供檢視。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271625/original/2d7f898b416122a0579d9e5be1d65a63.png" />
+
+<p>Plex 的播放介面，包含前進 30 秒、後退 10 秒等功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271626/original/93de9ead56c44c22331ef8e567c7a958.png" />
+
+<p>但是 Plex 也有個小限制，也就是它具有<a href="https://support.plex.tv/articles/naming-and-organizing-your-tv-show-files/" target="_blank" rel="noopener noreferrer">嚴格的檔案命名規則</a>，若沒照著命名規則走，甚至連自己新增到 NAS 的影集都不會出現在 Plex 列表中。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271627/original/00af802f058a8b67f1d985a0b51e2757.png" />
+
+<hr />
+
+<p><a id="c" name="c"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271770/original/9359b51276245b5490ce5bde026b7f3b.png" /></p>
+<p>許多人經年累月拍攝了數千張照片，數量十分龐大，因此整理起來也不容易。<span style="color: #800000;">QuMagie 整合 AI 影像辨識技術，提供智慧分類的相簿，運用人工智慧比對人臉特徵，將相似的人臉自動分群，並能分類不同的場景主題</span>；首先要新增 QuMagie 的內容來源資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271628/original/1b31651f2ffe222394ee13e195fd1a83.png" />
+
+<p>等待 NAS 辨識人臉和物件完成後，下圖是以”時間軸”分類的所有照片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271629/original/81f733ea8af4988eeec6b680c388f63a.png" />
+
+<p>而照片也會依照人物、事物、地點等方式分類。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271630/original/c18c7f524450123b6b8e88014805a6f7.png" />
+
+<p>“人物”分類，我們可以為同一張人臉輸入這個人的名稱；由於辨識的嚴謹度，可能會有同一張人臉分類很多次，這時也能合併這些人臉。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271631/original/f7597395c10b2df554ef46f5d4471fd8.png" />
+
+<p>“事物”分類，如圖是花朵的類別照片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271632/original/6c2649caba0b960145c0cb1b224c1932.png" />
+
+<p>“地點”分類，QuMagie 會直接抓照片中的位置資訊。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271633/original/7023ccbd20dd6d9fe1d35ce6688cae5a.png" />
+
+<p>Photo Station 也是一個線上相簿，可用來整理 QNAP NAS 上的相片和影片，下圖是藝廊 (照片牆)。<br>PS. 使用 Photo Station 前，要先到 Multimedia Console 新增內容來源資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271635/original/c18d35e05a087cbfae615afb959ed8f1.png" />
+
+<p>而 Photo Station 也有把 QuMagie 辨識出來的人臉整合過來，方便檢視。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271634/original/25b8d2a7c26e43ff611e327196bb8519.png" />
+
+<hr />
+
+<p><a id="d" name="d"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271771/original/d7ef0e053ed827e60d10f295115e0015.png" /></p>
+<p>Music Station 能打造專屬的雲端音樂播放平台。只要將音樂檔存入 NAS 後，<span style="color: #800000;">Music Station 會自動分類管理，讓使用者可以快速地找到想聽的音樂</span>；首先要先到 Multimedia Console 新增內容來源資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271636/original/2ffa47ccd3598030b2510222da5060a0.png" />
+
+<p>在 Music Station 的聚光燈模式下有數種播放清單建立模式：隨機100、最近加入、最常播放、最高評分、未曾播放。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271637/original/e8829616a6389f250f661144d7ff113c.png" />
+
+<p>所有音樂也可透過演唱者、專輯、類型等方式分類。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271638/original/cefea5974dbd4dc8e064374997a22de2.gif" />
+
+<p>如圖為音樂的播放器介面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271639/original/5d56509394922b5dfade815f7b5e9e47.png" />
+
+<p>Music Station 也支援<strong>動態歌詞</strong>的播放，但比較可惜的是<span style="color: #800000;">無法從網路上抓音樂的動態歌詞或純歌詞，也不會抓同目錄的 LRC 檔，只能手動對每一首歌來新增歌詞/動態歌詞。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271640/original/0c11b3e2504144c6fd965d8dfe6af043.png" />
+
+<hr />
+
+<p><a id="e" name="e"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271772/original/d332ba3e1d091954a2cde3a3f1a06c9e.png" /></p>
+<p><span style="color: #800000;">HybridDesk Station (以下簡稱 HD Station) 讓使用者透過 HDMI 介面，就能在電視螢幕上直接播放 NAS 上的多媒體內容，或瀏覽網站、聽音樂等應用。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271641/original/687e912b1d951ddc37a3fad27b235940.jpg" />
+
+<p>要控制 HD Station，除了在 NAS 上外接鍵盤滑鼠，亦可下載 Qremote APP。Qremote 支援多種控制方式，如觸控板、方向鍵控制、多媒體播放控制等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271648/original/b2139ccadcfbb63ed523bc9275d92b81.png" />
+
+<p><strong><span style="color: #0000ff;">【應用一：使用 Chrome 播放 YouTube 影片】</span></strong></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271642/original/713722563d7912096a5700d3d43e6c9e.jpg" />
+
+<p><span style="color: #0000ff;"><strong>【應用二：使用 Spotify 播放音樂】</strong></span></p>
+<p>手機版 APP 如果跟 NAS 同一個區網，甚至可以<span style="color: #800000;">直接用手機當作 Spotify 的專屬遙控器。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271643/original/0bd4c5fd7b592e8f460045cd1b00c6af.jpg" />
+
+<p><span style="color: #0000ff;"><strong>【應用三：使用 OceanKTV 唱卡拉OK】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271644/original/c5aeb91ea65eb6e078581c98f50722e1.jpg" />
+
+<p>使用 OceanKTV，客廳立刻變為 KTV 包廂！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271645/original/f1279c3f00edd454856e0cf5745fb785.jpg" />
+
+<p><span style="color: #0000ff;"><strong>【應用四：使用 HD Player 播放相簿、音樂和影片】</strong></span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271646/original/0550dafe5aa22bbb2460b8a8dca3e55c.jpg" />
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271647/original/0ab5a3087cd891d07f8a26f01be1a6fb.jpg" />
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271649/original/84fcaf90ab5242f40c638cc3364224e3.jpg" />
+
+<p><strong><span style="color: #0000ff;">【應用五：使用 Plex 播放電影和影集】</span></strong></p>
+<p>接下來把場景應用到 21:9 的 2K 曲面螢幕，HD Station 也有支援這個尺寸的解析度顯示 (3440*1440)；另外在 21:9 的畫面中，Plex 可以一次顯示更多的電影內容。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271650/original/1292a04da600738ce7d4d86b81da1530.jpg" />
+
+<p>如圖為電影資訊介紹。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271651/original/b70662bef572333b1388ce6b8f3b9f6b.jpg" />
+
+<p>透過 21:9 播放電影的好處是，使用者可以<span style="color: #800000;">享受到完全無黑邊的”寬螢幕”電影畫面，彷彿真正置身於電影院觀賞電影。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271652/original/8aafd56b8a552a77dd8eb8817fb617fe.jpg" />
+
+<p>如圖為影集資訊介面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271653/original/8ac6125e18d02b07a2bd4ba7602c4ec2.jpg" />
+
+<hr />
+
+<p><a id="f" name="f"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271773/original/bd37d3fec5927b4b4cb3af109fc8c774.png" /></p>
+<p><span style="color: #0000ff;"><strong>【傳檔速度測試】</strong></span></p>
+<p>《NAS 端規格：QNAP TS-251D (2GB RAM), WD RED SA500 SSD 500GB *2, RAID 0》<br>《PC 端規格：i7-6700K, 32GB DDR4-2666, SAMSUNG 860 EVO 500GB SSD, Windows 10 64-bit》</p>
+<p>我們將電腦和 NAS 分別接在支援 1G 網速的路由器上，進行區網的傳檔；並使用 AJA System Test 測試 NAS 讀寫效能，得出 寫入 109 MB/s，讀取 111 MB/s 的測試結果。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271899/original/2fa34ce3b2e9c12e2ed370248426c2ad.png" />
+
+<p>NAS performance tester 的測試結果，得出 寫入 117 MB/s，讀取 118 MB/s，大約就是路由器的網路頻寬。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271901/original/71bd5a6bf153601340b91f664ae8f718.png" />
+
+<p>由於 QNAP TS-251D 擁有一個 PCIe 擴充槽，本次將<span style="color: #800000;">使用兩張 <strong>QXG-10G1T 10GbE 單埠網路擴充卡</strong>，分別插到 QNAP NAS 和電腦中，來提升 NAS 與電腦間的傳檔速度。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272898/original/732e85e9991d783709a8a605590bc030.jpg" />
+
+<p>下圖是 QXG-10G1T 的產品內容物，有附上半高/全高檔版和 QNAP 專用平面擋板三種，以及一條 CAT. 6A 規格的網路線。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272896/original/6007b040fbb6c759e50f09a82b7dc243.jpg" />
+
+<p>QXG-10G1T 為 <span style="color: #800000;">PCIe Gen 3 x4 介面，且附有散熱鰭片，因此不會有因為過熱導致效能低弱的問題。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272897/original/9cd277cba4c2765cda2f806ed52b24d7.jpg" />
+
+<p>接著分別把網路擴充卡更換相對應的擋板，並接到 QNAP NAS 和 電腦主機上。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272824/original/b70dfde97c13d44dcf88947274923c04.jpg" />
+
+<p>最後將兩張網路擴充卡透過網路線直連即可。要注意的的是，<span style="color: #800000;">必須使用<strong>隨附的藍色網路線</strong>，或是 <strong>CAT. 6 規格以上的網路線</strong>，才能確保傳輸速度不會受線材的限制。</span>若網路線和網卡有接正確，則連線速度就能到達 10G，這時候 <span style="color: #800000;">QXG-10G1T 網路擴充卡上面的 SPEED 燈號會亮「<strong><span style="color: #008000;">綠燈</span></strong>」；否則只會亮「<strong><span style="color: #ff6600;">橘燈</span></strong>」，代表連線速度為 1G 或以下。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272826/original/663240b6a3b4db0f495cc2785f89d57a.jpg" />
+
+<p>《NAS 端規格：QNAP TS-251D (2GB RAM), WD RED SA500 SSD 500GB *2, RAID 0, MTU 9000》<br>《PC 端規格：i7-6700K, 32GB DDR4-2666, RAM disk 4GB, Windows 10 64-bit, Jumbo Packet 9014 Bytes》</p>
+<p>PS. 為了能完全反映 10G 網卡對於 NAS 的讀寫速度，且不受電腦 SSD 讀寫速度影響，這裡將使用 SoftPerfect RAM disk 軟體，將記憶體約 4GB 的大小掛載為 M 槽磁碟空間，讀寫速度均為 5 GB/s。</p>
+<p>首先在電腦端，使用 AJA System Test 測試 NAS 讀寫效能，得出 寫入 527 MB/s，讀取 811 MB/s 的測試結果。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272827/original/cba917af3cd501ee5919f1ed392b191a.png" />
+
+<p>NAS performance tester 測試傳檔速度，得出 寫入 577 MB/s，讀取 802 MB/s 的測試數據，寫入速度比前面的測試結果快，讀取速度則差不多。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272828/original/39f1e15962de193b9950bb86ae7ffe42.png" />
+
+<p>因此最後實際透過 Samba 來傳檔案，PC -&gt; NAS，測出 566 MB/s 的 NAS 寫入效能，代表 <span style="color: #800000;">3.4 GB 的影片檔只需要 6 秒就能傳完。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272831/original/db7242e5da857039415b154384e08c3c.png" />
+
+<p>接著再把檔案 NAS -&gt; PC，測出 926 MB/s 的 NAS 讀取效能；這代表若是<span style="color: #800000;">要讀取非常大的剪輯影片到威力導演中、或是將 NAS 作為電腦磁碟空間，要讀取 3A 級大作的遊戲檔案時(例如：更換場景、地圖等)，都能非常迅速地完成載入。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272832/original/aa2bbe84ad3369e7d57e85ad5a2d11c4.png" />
+
+<p><strong>結論：若以實際的傳檔速度結果來看，<span style="color: #800000;">安裝 QXG-10G1T 網路擴充卡後，可以讓 NAS 的寫入速度比原先快 550%，讀取速度比原先快 900%；對於常剪輯影片、常傳輸大檔的使用者會非常有幫助！</span></strong></p>
+<p><span style="color: #0000ff;"><strong>【即時轉檔測試】</strong></span></p>
+<p>《測試環境：除了內建預載的 APP，只開啟 VideoStation 和 Plex APP，HD Station 停用》</p>
+<p>另外，筆者也測試了 QNAP TS-251D 的即時轉檔效能，<span style="color: #800000;">三個裝置可以同時播放 1080P 影片沒有問題。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271663/original/4c156ad56bd12d6e0461e30a1ec1539e.jpg" />
+
+<p>但若是 <span style="color: #800000;">4K 影片，只能單獨播放；如果再加上一個裝置播放影片(240P ~ 1080P)，那麼 4K 影片就會間歇性的轉圈圈。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271664/original/23b3f76d7da60af5896eb77aa329eff2.jpg" />
+
+<p>QNAP TS-251D 某些影音格式也不能透過 VideoStation 來播放，與原廠確認後，包<span style="color: #800000;">含<strong> H.265 的影像與 AC3 和 DTS 的音訊編碼</strong>，若為這些編碼方式的影片檔案，就無法於 QNAP 的介面播放或轉檔。</span>而筆者也找了一些高位元率的 4K/Full HD 影片，測試播放結果如下：<br>PS. 測試 HD Station 的 Plex 播放時，HD Station 為啟用狀態，並只開啟 Chrome, HD Player, Plex 三個 APP；下圖表格<strong>灰底</strong>為官方公告不支援的影片或音訊格式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271912/original/f042753a1fbac80b66627b5ce4e35193.png" />
+
+<p><strong>結論如下：</strong></p>
+<p><strong>1. VideoStation 因為影片或音訊格式不支援而無法播放的話 (A, B, D, E)，可以<span style="color: #800000;">改用 Plex 播放。</span></strong><br><strong>2. 瀏覽器使用 Plex 播放 H.265 的影片不順暢 (A, B, D)，可能是<span style="color: #800000;">受限於 CPU 和 記憶體不足的原因。</span></strong><br><strong>3. 使用 HD Station (本地播放) 的 Plex 播放高位元率的 H.264 / 1080P 影片時，還是會有延遲的問題 (C, D, E, F)，可能是<span style="color: #800000;">受限於記憶體 (2GB) 不足的原因。</span></strong></p>
+<hr />
+
+<p><a id="g" name="g"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271774/original/3a7d33eba4594b7f9cd0d6eeeedba21c.png" /></p>
+<p>影音娛樂方面的應用之外，QNAP TS-251D 還有更多的用途：</p>
+<p>● 透過一個<strong>共享連結，讓沒有 NAS 存取權限的人，可以透過該連結共享檔案</strong>，甚至上傳檔案到 NAS 中。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271666/original/16c595921917aeda8cfe18ec58ba9280.png" />
+
+<p>● <strong>線上編輯 Office 檔案</strong>：在戶外只要登入 QNAP NAS，即使該電腦沒有安裝 Office，也能線上直接編輯 Word, PowerPoint, Excel 檔案。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271667/original/012efa4a25f239a3d53302f75b54b46d.gif" />
+
+<p>● <strong>Download Station</strong>：透過 NAS 直接下載 BT 檔案，或是其它下載連結。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271668/original/47284a73b541ff5f9ede649e67dbd57b.png" />
+
+<p>● <strong>備份</strong>也是 Qnap NAS 的重點功能，舉其中一個應用，將隨身碟插上 NAS 前方，並按下右下角 Copy 按鈕兩秒後，就會開始備份隨身碟資料。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271669/original/9af996d3a22c6e13c22f7419576842db.png" />
+
+<p>● <strong>監控</strong>功能：透過 Surveillance Station 來整合家中所有攝影機視角，集中管理；如果是 4GB RAM 以上的 QNAP NAS 機種，則可以使用 QVR Pro 來執行應用。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271671/original/8fcc0e311cfff1295c5cfef80a507f20.png" />
+
+<p>從文章一開始提到的，為何不推薦使用 Google 升級儲存空間來備份圖片，這是因為<span style="color: #800000;">月費長期收下來價格並不便宜，且應用還沒有 NAS 這麼廣泛。</span>我們只要把音樂、影片和照片通通丟到 QNAP NAS，設定好權限，這樣就可以與家人和朋友一起分享媒體庫的影音資料。搭配專屬 APP，在等公車、上班、吃飯的時候，使用者能透過手機平板<span style="color: #800000;">來聽歌追劇、查看家中監視器畫面、整理筆記、管理 NAS 等等，同時支援將多媒體檔案串流至 Apple TV、Fire TV、Android TV 等智慧電視盒。</span></p>
+<p>▼ 針對行動裝置推出的各種 QNAP APP，不用透過電腦也能存取 NAS 資源。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/271670/original/e1851e7e302592ce650661df9b00e5b4.png" />
+
+<p><strong>在這兩周的體驗中，最讓筆者印象深刻的有兩件事：第一件事是<span style="color: #800000;">在戶外追劇，手機是吃到飽的所以不用在意流量問題，但如果到網速慢的地方，即時轉檔成低畫質後就能順暢播放影片。</span>第二件事是<span style="color: #800000;">利用 QuMagie 辨識出來的人臉</span>，因為多數是筆者的高中、大學同學，這時候就能看出大家的<span style="color: #800000;">長相變化，有的人變得更成熟、有的人的臉還是一樣沒變，十分有趣。</span></strong></p>
+<p><strong>不過比較可惜的是，由於這次測試的是 QNAP TS-251D 2GB RAM 的機種，<span style="color: #800000;">HybridDesk Station 本地播放非常吃記憶體，也因為內建記憶體太小，不管是在操控介面還是切換 APP，都明顯地有卡頓情況，要等非常久才能打開應用程式</span>；因此建議使用者務必要自行擴充至 8GB RAM，如此一來應該就能順暢使用了。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/qnap/" rel="tag"># QNAP NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/PC-cillin-2020-mission-four/" rel="prev" title="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 四部曲：電腦安全與資料防護（下）">
+      <i class="fa fa-chevron-left"></i> [教學] PC-cillin 2020 雲端版 電腦安全教戰守則 四部曲：電腦安全與資料防護（下）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/Foscam-C2M/" rel="next" title="[開箱] FOSCAM C2M 無線網路攝影機，強大的 AI 人體偵測讓壞人再也無法趁虛而入！">
+      [開箱] FOSCAM C2M 無線網路攝影機，強大的 AI 人體偵測讓壞人再也無法趁虛而入！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '3eee7a9fd90baeb8566af94a4dcfd329',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

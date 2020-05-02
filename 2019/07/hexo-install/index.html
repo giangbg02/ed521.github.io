@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Hexo 部落格教學文系列：[教學] 使用 GitHub Pages + Hexo 來架設個人部落格[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具[教學] 撰寫 Hexo 文章 - Markdown 語法大全[教學] Hexo 資料夾&#x2F;檔案架構、佈景主題修改介紹 如果想要架設自己專屬的部落格該怎麼做呢？大部分的人會利用網路上現有的服務，例如：Blogger、痞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] 使用 GitHub Pages + Hexo 來架設個人部落格">
+<meta property="og:url" content="https://ed521.github.io/2019/07/hexo-install/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="Hexo 部落格教學文系列：[教學] 使用 GitHub Pages + Hexo 來架設個人部落格[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具[教學] 撰寫 Hexo 文章 - Markdown 語法大全[教學] Hexo 資料夾&#x2F;檔案架構、佈景主題修改介紹 如果想要架設自己專屬的部落格該怎麼做呢？大部分的人會利用網路上現有的服務，例如：Blogger、痞">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/261667/original/f83071ffb726a0af8c3470cea40cde57.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260720/original/61e62ab04f869e34bd1395b82731e19b.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260722/original/6893f5d772893585be564efd54f09583.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260723/original/e7da8f0c9e9629465e0f5f4fc3f069c0.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260724/original/c11565101bde07447e8ca2bee0be9582.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260725/original/56208f06d870026e9d3837d6b7f382a9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260726/original/d473d4a00522e4fcf34907b01894a448.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260731/original/9875f1ae9febd27ddee61157dbe719af.png?1562918224">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260732/original/9fc2d1e17fac835aa3151d70bbd2d997.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260733/original/a4bf28579048e804d781b1d25dda37c8.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260742/original/5f656992529e8245a79e6725385cc9f7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260734/original/ffc47200c885d05688795451e8e58e27.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260740/original/f5221b90b385f283395b092c5878b204.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260741/original/072bfe3ce60b25a6e7cb3f2e8959bdf8.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260743/original/566a2d9f07baed839dacc729414be21a.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260722/original/6893f5d772893585be564efd54f09583.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/07/261695/original/06f228fbb59459252395b1d842f05edf.png">
+<meta property="article:published_time" content="2019-07-12T06:26:00.000Z">
+<meta property="article:modified_time" content="2020-05-01T18:07:32.453Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="教學">
+<meta property="article:tag" content=" GitHub">
+<meta property="article:tag" content=" GitHub Pages">
+<meta property="article:tag" content=" Hexo">
+<meta property="article:tag" content=" Hexo教學">
+<meta property="article:tag" content="部落格">
+<meta property="article:tag" content=" 懶人包">
+<meta property="article:tag" content=" 架站">
+<meta property="article:tag" content=" 架設部落格">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 個人">
+<meta property="article:tag" content=" 搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn0-t17.techbang.com/system/attached_images/2019/07/261667/original/f83071ffb726a0af8c3470cea40cde57.png">
+
+<link rel="canonical" href="https://ed521.github.io/2019/07/hexo-install/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] 使用 GitHub Pages + Hexo 來架設個人部落格 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2019/07/hexo-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] 使用 GitHub Pages + Hexo 來架設個人部落格
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-07-12 14:26:00" itemprop="dateCreated datePublished" datetime="2019-07-12T14:26:00+08:00">2019-07-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/hexoblog/" itemprop="url" rel="index"><span itemprop="name">Hexo部落格</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/07/hexo-install/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] 使用 GitHub Pages + Hexo 來架設個人部落格" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>3.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://cdn0-t17.techbang.com/system/attached_images/2019/07/261667/original/f83071ffb726a0af8c3470cea40cde57.png" alt=""></p>
+<p>Hexo 部落格教學文系列：<br><a href="https://ed521.github.io/2019/07/hexo-install/">[教學] 使用 GitHub Pages + Hexo 來架設個人部落格</a><br><a href="https://ed521.github.io/2019/08/hexo-admin/">[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具</a><br><a href="https://ed521.github.io/2019/08/hexo-markdown/">[教學] 撰寫 Hexo 文章 - Markdown 語法大全</a><br><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">[教學] Hexo 資料夾/檔案架構、佈景主題修改介紹</a></p>
+<p>如果想要架設自己專屬的部落格該怎麼做呢？大部分的人會利用網路上現有的服務，例如：Blogger、痞客邦、udn部落格等平台上發文；而這類的部落格平台，最大優點就是擁有文章搜尋、文章分類、留言…等一般使用者可能會用到的功能，通通都幫你準備好了，非常方便。</p>
+<p>至於缺點呢，就是<font color=#800000>始終如一或看起來都大同小異的主題介面</font>。另外，有些部落格為了要營利，可能在部落格邊欄和文章內安插廣告；因此接下來就要來介紹如何不靠網路上現有的 Blog 平台，自己架設一個能客製化界面的專屬部落格。</p>
+<a id="more"></a>
+
+<h1 id="為何使用-GitHub-Pages-來架設-Hexo-部落格？"><a href="#為何使用-GitHub-Pages-來架設-Hexo-部落格？" class="headerlink" title="為何使用 GitHub Pages 來架設 Hexo 部落格？"></a><font color=#0000FF>為何使用 GitHub Pages 來架設 Hexo 部落格？</font></h1><p>在架設自己的部落格之前，首先必須要先有一個可以放網站的空間！總共有三種方法，第一種是去<font color=#800000>尋找網路上提供的主機空間，大多數要付費（月費/年費），只有極少數是免費的（但免費的限制都很多）</font>。第二種是<font color=#800000>自己用 NAS 來架設</font>，這裡也不多贅述；而第三種就是<font color=#800000>透過 GitHub Pages 來架站</font>，它是完全免費的且架設方法很簡單，不過還是有<a href="https://help.github.com/articles/what-is-github-pages/" target="_blank" rel="noopener">以下幾點限制</a>：</p>
+<blockquote>
+<p><font color=#008000>GitHub Pages source repositories have a recommended limit of 1GB . </font></p>
+</blockquote>
+</nbsp>
+
+<blockquote>
+<p><font color=#008000>Published GitHub Pages sites may be no larger than 1 GB.</font></p>
+</blockquote>
+</nbsp>
+
+<blockquote>
+<p><font color=#008000>GitHub Pages sites have a soft bandwidth limit of 100GB per month.</font></p>
+</blockquote>
+</nbsp>
+
+<blockquote>
+<p><font color=#008000>GitHub Pages sites have a soft limit of 10 builds per hour.</font></p>
+</blockquote>
+</nbsp>
+
+<p>總結上述限制，就是<strong><font color=#800000>網站大小不能超過 1 GB</font></strong>、<strong><font color=#800000>網站每月流量不能超過 100 GB</font></strong>、還有<strong><font color=#800000>一小時內的網站更新不得超過 10 次</font></strong>；這些限制除非是把 GitHub Pages 當圖床、丟影片，或是每天超過幾千幾萬人會瀏覽您的網站，否則對於大部分的人一定來說都夠用。況且 GitHub 是非常著名的軟體原始碼代管服務，網站基本是不會有掛掉、連不上等問題的。</p>
+<p>既然這麼方便又免費，那多數的個人網站應該都架在 GitHub Pages 了呀？因此筆者還是要說它唯一的缺點，也就是 <strong><font color=#800000>GitHub Pages 只能架設「靜態網站」</font></strong>。舉例來說，需要連接資料庫的網站（像是要輸入帳號密碼登入的那種頁面），還有也是很受歡迎的個人部落格服務 - Wordpress，也是需要資料庫才能運作，所以上述這些都不適合。</p>
+<p>說到使用靜態網站架設部落格的方式，就非 HEXO 莫屬了！HEXO 使用 Node.js 建置，擁有許多免費主題供大家使用；且如果有程式底子的人，透過修改主題框架、加入套件等，就能讓部落格看起來與眾不同。</p>
+<h1 id="架設-Hexo-部落格之超簡易教學"><a href="#架設-Hexo-部落格之超簡易教學" class="headerlink" title="架設 Hexo 部落格之超簡易教學"></a><font color=#0000FF>架設 Hexo 部落格之超簡易教學</font></h1><h2 id="建立-GitHub-Pages-環境"><a href="#建立-GitHub-Pages-環境" class="headerlink" title="建立 GitHub Pages 環境"></a><font color=#FF6600>建立 GitHub Pages 環境</font></h2><h3 id="gt-註冊-Github-帳號"><a href="#gt-註冊-Github-帳號" class="headerlink" title="-&gt; 註冊 Github 帳號"></a><font color=#008000>-&gt; 註冊 Github 帳號</font></h3><p>GitHub官網：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<h3 id="gt-建立-Github-Pages"><a href="#gt-建立-Github-Pages" class="headerlink" title="-&gt; 建立 Github Pages"></a><font color=#008000>-&gt; 建立 Github Pages</font></h3><p>靜態網頁的好夥伴：Github Pages，它可以給我們託管在 GitHub 上的靜態網頁。在申請完 Github 帳號之後，點一下畫面中間的 Start a Project。</p>
+<p><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260720/original/61e62ab04f869e34bd1395b82731e19b.png" alt=""></p>
+<p>接著將專案名稱取名為 username.github.io 並按下最下方的 Create repository</p>
+<p>註： <strong><font color=#800000>username 指的是你的 GitHub 帳號</font></strong>，在旁邊 Owner 的地方就會顯示你的帳號。例如我的帳號是 xdxd123，那麼專案名稱就取名為 xdxd123.github.io。</p>
+<p><img src="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260722/original/6893f5d772893585be564efd54f09583.png" alt=""></p>
+<p>接著進入專案，到 Settings 頁面。</p>
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260723/original/e7da8f0c9e9629465e0f5f4fc3f069c0.png" alt=""></p>
+<p>頁面往下滑，有個 GitHub Pages 設定，點一下 Choose a theme。</p>
+<p><img src="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260724/original/c11565101bde07447e8ca2bee0be9582.png" alt=""></p>
+<p>開新分頁後，有好幾個樣板供使用者選擇，這裡直接按下 Select theme。(這時候的樣板只是暫時，之後才會部署自己的 Hexo 部落格上來)</p>
+<p><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260725/original/56208f06d870026e9d3837d6b7f382a9.png" alt=""></p>
+<p>最後在網址列輸入 <a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a> (username 是自己的 GitHub 帳號)，就能看到自己剛架好的 Github Pages 了唷！</p>
+<p><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260726/original/d473d4a00522e4fcf34907b01894a448.png" alt=""></p>
+<h2 id="建立-Hexo-環境"><a href="#建立-Hexo-環境" class="headerlink" title="建立 Hexo 環境"></a><font color=#FF6600>建立 Hexo 環境</font></h2><h3 id="gt-安裝相關軟體"><a href="#gt-安裝相關軟體" class="headerlink" title="-&gt; 安裝相關軟體"></a><font color=#008000>-&gt; 安裝相關軟體</font></h3><p>目前的樣板只是暫時的，<font color=#800000>我們的目標是要使用 Hexo 框架來架設部落格，最後才會部署到 GitHub Pages。</font>接下來要建立 Hexo 環境，由於筆者是 Windows 系統，這邊以 Windows 系統來示範安裝和部署，因此需要先安裝以下軟體：</p>
+<ol>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+<li><a href="https://notepad-plus-plus.org/download/" target="_blank" rel="noopener">Notepad++</a> (文字編輯器，建議安裝；如果使用者有自己習慣使用的文字編輯器則不用裝)</li>
+<li><a href="https://apps.apple.com/tw/app/xcode/id497799835?mt=12" target="_blank" rel="noopener">Xcode</a> ( Mac 用戶才需要安裝)</li>
+</ol>
+<h3 id="gt-初始設定"><a href="#gt-初始設定" class="headerlink" title="-&gt; 初始設定"></a><font color=#008000>-&gt; 初始設定</font></h3><p>若都安裝好了，我們可以開啟我們的終端機(命令提示字元)，並輸入以下指令安裝 Hexo：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/07/260731/original/9875f1ae9febd27ddee61157dbe719af.png?1562918224" alt=""></p>
+<p>安裝完 Hexo 套件後，我們要在終端機輸入以下指令來初始化 Hexo 部落格 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init name  //初始化新的 Hexo，會在當前路徑建立一個叫 name 的資料夾，資料夾名稱可以隨意取，例如「myblog」，那麼指令就是 hexo init myblog</span><br><span class="line"><span class="built_in">cd</span> name  //進入您剛剛建立的 name 資料夾當中，<span class="built_in">cd</span> 是 change directory 的意思</span><br><span class="line">npm install  //安裝 Hexo</span><br><span class="line">npm install hexo-deployer-git --save  //安裝 git 部署套件</span><br></pre></td></tr></table></figure>
+
+<p>這樣就完成安裝了唷！</p>
+<h3 id="gt-設定部落格相關資訊"><a href="#gt-設定部落格相關資訊" class="headerlink" title="-&gt; 設定部落格相關資訊"></a><font color=#008000>-&gt; 設定部落格相關資訊</font></h3><p>進入剛設定好的 Hexo 資料夾之後(本範例資料夾名稱為 myblog )，先找到 _config.yml 這個檔案，然後對它點右鍵 -&gt; Edit with Notepad++ (或是用自己習慣的文字編輯器打開)。</p>
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260732/original/9fc2d1e17fac835aa3151d70bbd2d997.png" alt=""></p>
+<p>打開 _config.yml 後，修改第 6~12 行資訊，輸入完記得按下 Ctrl+S 存檔：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 我的部落格  &#x2F;&#x2F;輸入部落格標題</span><br><span class="line">subtitle: 一個抒發本人心情的地方  &#x2F;&#x2F;輸入副標題</span><br><span class="line">description:  &#x2F;&#x2F;輸入網站描述 </span><br><span class="line">keywords:  &#x2F;&#x2F;輸入網站關鍵字(以逗號隔開)，方便 SEO </span><br><span class="line">author: 王小明  &#x2F;&#x2F;輸入姓名或暱稱</span><br><span class="line">language: zh-TW  &#x2F;&#x2F;輸入您所使用的語言</span><br><span class="line">timezone:  &#x2F;&#x2F;留空以使用系統時間</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260733/original/a4bf28579048e804d781b1d25dda37c8.png" alt=""></p>
+<p>接著第 16 行的地方，url 請換成自己網站的連結 <a href="https://username.github.io/" target="_blank" rel="noopener">https://username.github.io/</a> ，username是自己的 GitHub 帳號。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;username.github.io&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260742/original/5f656992529e8245a79e6725385cc9f7.png" alt=""></p>
+<p>這樣就初步完成部落格的個人化設定了！</p>
+<h3 id="gt-設定部署至-GitHub-的資訊"><a href="#gt-設定部署至-GitHub-的資訊" class="headerlink" title="-&gt; 設定部署至 GitHub 的資訊"></a><font color=#008000>-&gt; 設定部署至 GitHub 的資訊</font></h3><p>接著一樣在 _config.yml，要找到部署至 github 的設定：deploy (在文件的底部)，請輸入以下設定，<strong><font color=#800000>repo 的 username 改成自己的 GitHub 帳號</font></strong>，所以 repo 的連結架構長這樣： <a href="https://github.com/自己帳號/專案名稱.git" target="_blank" rel="noopener">https://github.com/自己帳號/專案名稱.git</a> ，輸入完一樣記得按下 Ctrl+S 存檔。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260734/original/ffc47200c885d05688795451e8e58e27.png" alt=""></p>
+<p>註：至於 _config.yml 在 deploy 的地方，為何預設只有 type 一個項目呢？<strong>這是因為 Hexo 可以部署到很多地方，GitHub 只是其中一個選項，而每個網站的設定值皆不同。</strong>使用者也可以一次部署到多個網站，有興趣者可以參照這個文件教學：<a href="https://hexo.io/zh-tw/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment | Hexo</a>。</p>
+<h3 id="gt-部署至-GitHub"><a href="#gt-部署至-GitHub" class="headerlink" title="-&gt; 部署至 GitHub"></a><font color=#008000>-&gt; 部署至 GitHub</font></h3><p>回到終端機，<strong>首先確認終端機的路徑在 myblog 資料夾根目錄下</strong>，並依序輸入以下三個指令：(輸入 hexo d 後會要求登入 GitHub 帳號，如圖所示)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl  //清除之前建立的靜態檔案，也可以輸入 hexo clean</span><br><span class="line">hexo g  //建立靜態檔案，也可以輸入 hexo generate</span><br><span class="line">hexo d  //部署至 Github Pages，也可以輸入 hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260740/original/f5221b90b385f283395b092c5878b204.png" alt=""></p>
+<p>這三個缺一不可的指令，就是幫我們把網站自動生成並發佈到 <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 上的指令，完成後就可以打開瀏覽器看看自己網站發布成功的樣子摟！</p>
+<p><img src="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260741/original/072bfe3ce60b25a6e7cb3f2e8959bdf8.png" alt=""></p>
+<p>小結：本次介紹如何安裝 Hexo 環境，包含個人資訊和部署設定，而 Hexo 還能自訂主題、套件等等，玩法非常的多！</p>
+<h1 id="附錄：實用教學"><a href="#附錄：實用教學" class="headerlink" title="附錄：實用教學"></a><font color=#0000FF>附錄：實用教學</font></h1><h2 id="直接在指定資料夾路徑開啟終端機"><a href="#直接在指定資料夾路徑開啟終端機" class="headerlink" title="直接在指定資料夾路徑開啟終端機"></a><font color=#FF6600>直接在指定資料夾路徑開啟終端機</font></h2><p>在部署時，終端機的路徑在 myblog 資料夾根目錄下才可以輸入指令，除了用 cd 指令，有沒有更輕鬆的方式呢？答案是<strong>直接在該資料夾的路徑列輸入 cmd，按下 enter 後，就會在這個路徑打開命令提示字元。</strong></p>
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/260743/original/566a2d9f07baed839dacc729414be21a.png" alt=""></p>
+<h2 id="專案名稱和部落格網址的關係"><a href="#專案名稱和部落格網址的關係" class="headerlink" title="專案名稱和部落格網址的關係"></a><font color=#FF6600>專案名稱和部落格網址的關係</font></h2><p>前面有提到，如果你的帳號叫 <strong>xdxd123</strong>，那麼專案名稱就要叫做 <strong>xdxd123.github.io</strong>，這樣子連到該專案的網址才會是 <a href="https://xdxd123.github.io/" target="_blank" rel="noopener">https://xdxd123.github.io/</a> 。那如果<font color=#800000>專案名稱不是這樣取呢？還有辦法連到這個專案的網站嗎？還是一個 GitHub 帳號只能建立一個部落格？</font></p>
+<p><img src="https://cdn0-t17.techbang.com/system/attached_images/2019/07/260722/original/6893f5d772893585be564efd54f09583.png" alt=""></p>
+<p>關於以上問題，一個 GitHub 帳號可以架設很多個網站；名稱的部分，如果我的名稱不是以 <strong>username.github.io</strong> 為命名，例如我取該專案的名稱為 hello，那麼的網址連結就會是 <a href="https://xdxd123.github.io/hello/" target="_blank" rel="noopener">https://xdxd123.github.io/hello/</a> ，也就是<font color=#800000>在網址尾巴附上專案名稱。</font></p>
+<p>以下做簡單的整理(<font color=#FF0000>假設使用者名稱為 <strong>xdxd123</strong></font>)：</p>
+<table>
+<thead>
+<tr>
+<th><font color=#0000ff>專案(repository)名稱</font></th>
+<th align="left"><font color=#0000ff>該專案的網址連結</font></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xdxd123.github.io</td>
+<td align="left"><a href="https://xdxd123.github.io/" target="_blank" rel="noopener">https://<font color=#FF0000>xdxd123.github.io</font>/</a></td>
+</tr>
+<tr>
+<td>hello.github.io</td>
+<td align="left"><a href="https://xdxd123.github.io/hello.github.io/" target="_blank" rel="noopener">https://xdxd123.github.io/<font color=#FF0000>hello.github.io</font>/</a></td>
+</tr>
+<tr>
+<td>hello</td>
+<td align="left"><a href="https://xdxd123.github.io/hello/" target="_blank" rel="noopener">https://xdxd123.github.io/<font color=#FF0000>hello</font>/</a></td>
+</tr>
+<tr>
+<td>project</td>
+<td align="left"><a href="https://xdxd123.github.io/project/" target="_blank" rel="noopener">https://xdxd123.github.io/<font color=#FF0000>project</font>/</a>　　　　　(…依此類推)</td>
+</tr>
+</tbody></table>
+<p>要注意的是，假設用<font color=#FF0000>專案名稱：<strong>hello</strong> </font>來建立 Hexo 部落格，記得 Hexo 資料夾根目錄下的 _config.yml 要修改第 16 行和第 17 行，如下圖，否則部署至 GitHub Pages 後會無法正確顯示：</p>
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/07/261695/original/06f228fbb59459252395b1d842f05edf.png" alt=""></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexoblog/" rel="tag"># Hexo部落格</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/08/hexo-admin/" rel="prev" title="[教學] 我的第一篇 Hexo 文章：使用 hexo-admin 後台管理工具">
+      <i class="fa fa-chevron-left"></i> [教學] 我的第一篇 Hexo 文章：使用 hexo-admin 後台管理工具
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/D-Link-DIR-2660-DRA-2060/" rel="next" title="[開箱] D-Link DIR-2660 Mesh 路由器 搭配 DRA-2060 無線延伸器，從此家中 Wi-Fi 訊號零死角 !">
+      [開箱] D-Link DIR-2660 Mesh 路由器 搭配 DRA-2060 無線延伸器，從此家中 Wi-Fi 訊號零死角 ! <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#為何使用-GitHub-Pages-來架設-Hexo-部落格？"><span class="nav-number">1.</span> <span class="nav-text">為何使用 GitHub Pages 來架設 Hexo 部落格？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#架設-Hexo-部落格之超簡易教學"><span class="nav-number">2.</span> <span class="nav-text">架設 Hexo 部落格之超簡易教學</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立-GitHub-Pages-環境"><span class="nav-number">2.1.</span> <span class="nav-text">建立 GitHub Pages 環境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-註冊-Github-帳號"><span class="nav-number">2.1.1.</span> <span class="nav-text">-&gt; 註冊 Github 帳號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-建立-Github-Pages"><span class="nav-number">2.1.2.</span> <span class="nav-text">-&gt; 建立 Github Pages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立-Hexo-環境"><span class="nav-number">2.2.</span> <span class="nav-text">建立 Hexo 環境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-安裝相關軟體"><span class="nav-number">2.2.1.</span> <span class="nav-text">-&gt; 安裝相關軟體</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-初始設定"><span class="nav-number">2.2.2.</span> <span class="nav-text">-&gt; 初始設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-設定部落格相關資訊"><span class="nav-number">2.2.3.</span> <span class="nav-text">-&gt; 設定部落格相關資訊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-設定部署至-GitHub-的資訊"><span class="nav-number">2.2.4.</span> <span class="nav-text">-&gt; 設定部署至 GitHub 的資訊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-部署至-GitHub"><span class="nav-number">2.2.5.</span> <span class="nav-text">-&gt; 部署至 GitHub</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附錄：實用教學"><span class="nav-number">3.</span> <span class="nav-text">附錄：實用教學</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接在指定資料夾路徑開啟終端機"><span class="nav-number">3.1.</span> <span class="nav-text">直接在指定資料夾路徑開啟終端機</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#專案名稱和部落格網址的關係"><span class="nav-number">3.2.</span> <span class="nav-text">專案名稱和部落格網址的關係</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'ccd5e9cbb6404a659eaadc4ad86cf197',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

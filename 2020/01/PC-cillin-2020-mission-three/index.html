@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="☛ 立刻點我下載試用 PC-cillin 2020 雲端版 ☚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 三部曲：電腦安全與資料防護（上）">
+<meta property="og:url" content="https://ed521.github.io/2020/01/PC-cillin-2020-mission-three/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="☛ 立刻點我下載試用 PC-cillin 2020 雲端版 ☚">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/272522/original/66eaa5a9f142330ddae00b9d994d238c.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272576/original/4c79f4d502ff930d6716c610859d5c0c.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272577/original/4f77391847322f19ca0b2f754c736bbc.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272578/original/8f70c5487d227abb054418e4283cf9e0.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272579/original/4a1addc75446d5458fe64ab1014155c0.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272580/original/51b7c0d7191d55fe7dcbd74542654589.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272581/original/cdc93c854d9d49c6b073b929561db501.gif">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272582/original/d4e3d28c5635381602401c109b881ff9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272583/original/58cc92469bc16593d77a606acf615b97.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272584/original/1157788b22192ffee58a4d9268b88949.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272585/original/3c3eb90f7bb8accf61ef56c5e4abc042.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272586/original/a5e2a3de8e1be1481090d1fe8c5d7a7d.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272587/original/964cf83af437a0921f4ef7625d9c33d0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272588/original/d62b2e9b8d7fc298df16ec85e36f444d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272589/original/0dad47fb2b8f97c5ff902b3cbc70192c.png">
+<meta property="article:published_time" content="2020-01-31T14:25:00.000Z">
+<meta property="article:modified_time" content="2020-02-01T09:40:47.083Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 防毒軟體">
+<meta property="article:tag" content=" PC-cillin">
+<meta property="article:tag" content=" PCcillin">
+<meta property="article:tag" content=" 防毒">
+<meta property="article:tag" content=" 中毒">
+<meta property="article:tag" content=" 資安">
+<meta property="article:tag" content=" 掃毒">
+<meta property="article:tag" content=" 上網">
+<meta property="article:tag" content=" 安全">
+<meta property="article:tag" content=" 推薦">
+<meta property="article:tag" content=" 2020">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" AI">
+<meta property="article:tag" content=" 智能防毒">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/01/272522/original/66eaa5a9f142330ddae00b9d994d238c.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2020/01/PC-cillin-2020-mission-three/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 三部曲：電腦安全與資料防護（上） | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2020/01/PC-cillin-2020-mission-three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] PC-cillin 2020 雲端版 電腦安全教戰守則 三部曲：電腦安全與資料防護（上）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-01-31 22:25:00" itemprop="dateCreated datePublished" datetime="2020-01-31T22:25:00+08:00">2020-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/antivirus/" itemprop="url" rel="index"><span itemprop="name">防毒軟體</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/PC-cillin-2020-mission-three/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 三部曲：電腦安全與資料防護（上）" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>1.7k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn1-t17.techbang.com/system/attached_images/2020/01/272522/original/66eaa5a9f142330ddae00b9d994d238c.jpg" />
+
+<p>☛ <a href="http://www.trendmicro.com/zh_tw/forHome/event/pccillin/adot.html?utm_source=tech_smission5&amp;utm_medium=cpc" target="_blank" rel="noopener noreferrer">立刻點我下載試用 PC-cillin 2020 雲端版</a> ☚</p>
+<a id="more"></a>
+
+<p>本系列一共分為六個主題，將會詳細介紹 PC-cillin 所有的功能、為何要用這些功能，以及它們的應用。主題如下：</p>
+<p>首部曲：上網隱私及安全（上）<br>二部曲：上網隱私及安全（下）<br><span style="color: #ff0000;"><strong>三部曲：電腦安全與資料防護（上）</strong></span><br>四部曲：電腦安全與資料防護（下）<br>五部曲：行動裝置安全防護<br>六部曲：家長防護網</p>
+<hr />
+
+<p>在上次的教戰守則中，我們成功利用「安心Pay」打造更安全的金融交易網路環境，並透過「密碼管理通」來儲存所有瀏覽器密碼，避免有心人士若有機會存取自己的電腦，所造成的帳密外洩。而本次介紹的主題是 <strong><span style="color: #ff0000;">電腦安全與資料防護（上）</span></strong>，也就是防毒軟體都有的基本功能 - 電腦掃毒，還有 PC-cillin 獨家的功能 - 勒索剋星：（點選下方連結可直接跳至該內容）</p>
+<p>※ <a href="#c-1">電腦檔案掃毒</a> – 提供多種檔案掃瞄模式，防止誤開暗藏病毒的檔案。<br>※ <a href="#c-2">勒索剋星</a> – 防止勒索軟體將電腦裡的檔案加密，須支付贖金才有機會解鎖。</p>
+<hr />
+
+<p><a id="c-1" name="c-1"></a></p>
+<h2><span style="color: #0000ff;">→ 電腦檔案掃毒 ←</span></h2>
+<strong><span style="color: #008000;">《前言與動機》</span></strong>
+
+<p>為了防止電腦遭受病毒侵害，定期執行檔案掃毒是非常重要的工作。</p>
+<p><strong><span style="color: #008000;">《<span style="color: #800000;">電腦檔案掃毒</span> 功能介紹與應用》</span></strong></p>
+<p>隨身碟是最會藏匿病毒的地方，也因為這樣，電腦常常一插上別人的隨身碟，電腦也偷偷感染了病毒。因此，<span style="color: #800000;">除了下載網路上來路不明的檔案，時常存取隨身碟的使用者，在開啟檔案之前務必先執行掃毒動作，以策安全。</span></p>
+<p>▼ 不管是下載的檔案還是隨身碟路徑，對其點右鍵 -&gt; 掃瞄安全威脅，就能檢查是否暗藏病毒。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272576/original/4c79f4d502ff930d6716c610859d5c0c.png" />
+
+<p>看到下圖的掃毒報告，確認所有威脅都清除後，才能放心打開檔案。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272577/original/4f77391847322f19ca0b2f754c736bbc.png" />
+
+<p>不過因為電腦因為使用、安裝軟體等緣故，電腦中的檔案數量日漸增加，因此不知不覺也可能潛伏了殭屍病毒或木馬程式，此時定期完整掃毒就非常重要；而 PC-cillin 根據掃瞄檔案的詳細程度，提供了快速/完整/自訂三種掃毒模式。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272578/original/8f70c5487d227abb054418e4283cf9e0.gif" />
+
+<p>「電腦健檢」就是「快速掃毒」，只會掃描電腦裡的一些登錄檔、dll 檔等比較容易藏病毒的地方。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272579/original/4a1addc75446d5458fe64ab1014155c0.gif" />
+
+<p>防毒軟體本身也會定期自動執行「快速掃毒」，確保安全；可以看到檢查的檔案只有 1300 個， 通常幾分鐘之內就會完成。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272580/original/51b7c0d7191d55fe7dcbd74542654589.png" />
+
+<p>在優化的地方，透過”立即優化”按鈕，趨勢科技會幫我們自動調整適當的系統設定並且套用到電腦中。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272581/original/cdc93c854d9d49c6b073b929561db501.gif" />
+
+<p>如果執行「完整掃描」，一共檢查了 525,185 個檔案，約需耗時 1~2 小時；但也因此掃出了 6 個安全威脅，因此<span style="color: #800000;">「完整掃描」才能真正確保電腦的安全。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272582/original/d4e3d28c5635381602401c109b881ff9.png" />
+
+<p>但許多人一定會像筆者一樣，不會記得主動去執行「完整掃描」，因此可以<span style="color: #800000;">透過”特定排程”，設定固定時間來執行「完整掃瞄」工作。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272583/original/58cc92469bc16593d77a606acf615b97.png" />
+
+<hr />
+
+<p><a id="c-2" name="c-2"></a></p>
+<h2><span style="color: #0000ff;">→ 勒索剋星 ←</span></h2>
+<strong><span style="color: #008000;">《前言與動機》</span></strong>
+
+<p><span style="color: #800000;">勒索病毒會先偷偷把一些文件、圖片等常見副檔名的檔案加密，讓使用者打不開；直到都加密完成後，會有個 txt 檔案或小視窗，提示要支付贖金。</span>另外，<strong>支付後也不是一定就能拿回檔案</strong>。</p>
+<p>▼ 中了勒索病毒的電腦，檔名和副檔名全被加密無法開啟。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272584/original/1157788b22192ffee58a4d9268b88949.jpg" />
+
+<p><strong><span style="color: #008000;">《<span style="color: #800000;">勒索剋星</span> 功能介紹與應用》</span></strong></p>
+<p>因此 PC-cillin 這個獨家的功能：<span style="color: #800000;">「勒索剋星」能抵禦勒索軟體惡意加密使用者的檔案，防止攻擊者藉此勒索贖金。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272585/original/3c3eb90f7bb8accf61ef56c5e4abc042.png" />
+
+<p>首先要設定常放文件的資料夾，且 USB 隨身裝置也可以加以保護；一旦有未知程式嘗試對特定路徑的檔案進行變更，用戶就會收到通知。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272586/original/a5e2a3de8e1be1481090d1fe8c5d7a7d.jpg" />
+
+<p>至於詳細的運作原理，<span style="color: #800000;">只要是非正規安裝方式的軟體，例如免安裝軟體、.exe 檔案的小程式，然後又在上述新增的路徑變更檔案的話，就十分有可能會觸發勒索剋星。</span></p>
+<p>如下圖，若從網路上下載了免安裝版的軟體，很有可能會被勒索剋星攔截，此時必須確認是安全的軟體，同時按下”信任此程式”即可繼續使用。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272587/original/964cf83af437a0921f4ef7625d9c33d0.png" />
+
+<p>第二個例子是筆者下載了免安裝版的音樂軟體，因為免安裝軟體只會在自己的資料夾路徑下讀寫檔案，此時就會被「勒索剋星」認為是惡意變更檔案。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272588/original/d62b2e9b8d7fc298df16ec85e36f444d.png" />
+
+<p>最後一個例子是筆者寫了一個存取資料庫檔案(同路徑下的 test.db)的小程式(sa_hw1.exe)，但是實測打開後會被勒索剋星攔截打不開，<span style="color: #800000;">代表「勒索剋星」是有用的，可以<strong>有效的杜絕惡意軟體任意變更電腦裡的資料</strong>。</span></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/02/272589/original/0dad47fb2b8f97c5ff902b3cbc70192c.png" />
+
+<hr />
+
+<h2><span style="color: #0000ff;">→ 小結 ←</span></h2>
+本次的教學<span style="color: #800000;">讓我們有效避免電腦中毒，且有了「勒索剋星」的保護，再也不用擔心會有勒索軟體加密電腦中的檔案。</span>
+
+<p>在下一次的介紹中：</p>
+<ul>
+     <li>若電腦借人使用，裡面的私密資料要如何不被別人看到，或是翻出來？</li>
+     <li>如果電腦遺失或是借人使用，如何防止刪除後的檔案被別人還原回來？</li>
+</ul>
+☛ <a href="http://www.trendmicro.com/zh_tw/forHome/event/pccillin/adot.html?utm_source=tech_smission5&amp;utm_medium=cpc" target="_blank" rel="noopener noreferrer">立刻點我下載試用 PC-cillin 2020 雲端版</a> ☚
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/antivirus/" rel="tag"># 防毒軟體</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/Foscam-C2M/" rel="prev" title="[開箱] FOSCAM C2M 無線網路攝影機，強大的 AI 人體偵測讓壞人再也無法趁虛而入！">
+      <i class="fa fa-chevron-left"></i> [開箱] FOSCAM C2M 無線網路攝影機，強大的 AI 人體偵測讓壞人再也無法趁虛而入！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/PC-cillin-2020-mission-two/" rel="next" title="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 二部曲：上網隱私及安全（下）">
+      [教學] PC-cillin 2020 雲端版 電腦安全教戰守則 二部曲：上網隱私及安全（下） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">→ 電腦檔案掃毒 ←</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">→ 勒索剋星 ←</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.</span> <span class="nav-text">→ 小結 ←</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '41f7d0176d15a6489a71480ac6e6c1ac',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

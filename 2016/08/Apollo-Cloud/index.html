@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="由於過去的人喜歡利用隨身碟來儲存資料，例如：報告、或是照片影片等，但是隨身碟小小一個，相信大家都有弄丟它的經驗、或是不小心放進口袋拿去洗衣機洗了，甚至是公司要開會，隨身碟放在家中忘了帶；如果遇到以上狀況，除了資料無法及時取得，資料可能就再也找不回來了。而這也是為何越來越多人喜歡把檔案放在雲端來存放，因為不僅安全，也能隨時隨地的存取資料，非常方便。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[開箱] 雲端空間不夠用嗎？讓 Apollo Cloud 私有雲來解決你的煩惱吧！">
+<meta property="og:url" content="https://ed521.github.io/2016/08/Apollo-Cloud/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="由於過去的人喜歡利用隨身碟來儲存資料，例如：報告、或是照片影片等，但是隨身碟小小一個，相信大家都有弄丟它的經驗、或是不小心放進口袋拿去洗衣機洗了，甚至是公司要開會，隨身碟放在家中忘了帶；如果遇到以上狀況，除了資料無法及時取得，資料可能就再也找不回來了。而這也是為何越來越多人喜歡把檔案放在雲端來存放，因為不僅安全，也能隨時隨地的存取資料，非常方便。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd6d/19903385/1134751444_x.jpg">
+<meta property="og:image" content="https://c2.staticflickr.com/8/7414/27463979452_0a9907f888_o.png">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd42/19903385/1134748841_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde9/19903385/1134746192_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd02/19903385/1134745705_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd20/19903385/1134742919_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd6f/19903385/1134744022_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd68/19903385/1134742735_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd22/19903385/1134742921_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd4b/19903385/1134744242_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd94/19903385/1134743547_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd95/19903385/1134743548_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd96/19903385/1134743549_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd73/19903385/1134744026_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd98/19903385/1134743551_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd61/19903385/1134744520_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdd8/19903385/1134744639_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd24/19903385/1134742923_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd68/19903385/1134745807_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd7f/19903385/1134745318_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd9b/19903385/1134743554_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd9c/19903385/1134743555_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd5c/19903385/1134745027_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cda3/19903385/1134744330_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde1/19903385/1134745416_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd72/19903385/1134750425_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd06/19903385/1134745709_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cddb/19903385/1134744642_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd76/19903385/1134744029_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd60/19903385/1134745031_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd9e/19903385/1134743557_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cda7/19903385/1134745614_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdb9/19903385/1134745120_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cddc/19903385/1134744643_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd81/19903385/1134745320_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd07/19903385/1134745710_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd26/19903385/1134742925_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cddd/19903385/1134744644_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde3/19903385/1134745418_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdde/19903385/1134744645_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cddf/19903385/1134744646_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd3f/19903385/1134748838_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdbf/19903385/1134745126_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdc0/19903385/1134745127_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdab/19903385/1134744338_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd84/19903385/1134745323_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd78/19903385/1134744031_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde5/19903385/1134745420_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd28/19903385/1134742927_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd79/19903385/1134744032_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd51/19903385/1134744248_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdcf/19903385/1134750518_x.jpg">
+<meta property="og:image" content="http://cdn0.t17.techbang.com.tw/system/attached_images/2016/08/196048/show/5ca0d25b7d3651bd090814da3c4034e4.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd73/19903385/1134745818_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd86/19903385/1134745325_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cda2/19903385/1134743561_x.jpg">
+<meta property="og:image" content="http://cdn3.t17.techbang.com.tw/system/attached_images/2016/08/196049/show/af2b608fc491a787d5890796fd4c3539.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd75/19903385/1134745820_x.jpg">
+<meta property="og:image" content="http://cdn1.t17.techbang.com.tw/system/attached_images/2016/08/196051/show/4b8820c030e5c6708748e5061e6f7b09.gif">
+<meta property="og:image" content="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196050/show/491d52b153301e15f7babd267f36ad8c.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cda5/19903385/1134743564_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd0e/19903385/1134745717_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdeb/19903385/1134744146_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdec/19903385/1134744147_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd7d/19903385/1134744036_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd5c/19903385/1134744259_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd5d/19903385/1134744260_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cded/19903385/1134744148_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cda5/19903385/1134750220_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd5e/19903385/1134744261_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde2/19903385/1134744649_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd29/19903385/1134745232_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde5/19903385/1134744652_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd88/19903385/1134745327_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cde6/19903385/1134744653_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdb2/19903385/1134745625_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd10/19903385/1134745719_x.jpg">
+<meta property="og:image" content="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196052/show/021e16d40de771111a034b94ba9f5ece.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd12/19903385/1134745721_x.jpg">
+<meta property="og:image" content="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196053/show/37251ed700b258ec7f34809f2e61bb13.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdf3/19903385/1134744154_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd6d/19903385/1134744532_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdc5/19903385/1134745132_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd81/19903385/1134749928_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd8b/19903385/1134745330_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdb8/19903385/1134745631_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdcc/19903385/1134745139_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd2e/19903385/1134742933_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdf8/19903385/1134744159_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd3e/19903385/1134748837_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdce/19903385/1134745141_x.jpg">
+<meta property="og:image" content="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196054/show/b08ba2bd0ab0a571a38a6eb9cf5ff93a.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd7c/19903385/1134745827_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd7e/19903385/1134745829_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd86/19903385/1134744045_x.jpg">
+<meta property="og:image" content="http://cdn3.t17.techbang.com.tw/system/attached_images/2016/08/196055/show/5e5d48c1910e91751220de18281bb43a.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd89/19903385/1134744048_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd30/19903385/1134742935_x.jpg">
+<meta property="og:image" content="http://cdn3.t17.techbang.com.tw/system/attached_images/2016/08/196056/show/5a1e439e418aaaacae955277fcf10cd3.gif">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd16/19903385/1134745725_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd92/19903385/1134744825_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd30/19903385/1134745239_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd72/19903385/1134744537_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd18/19903385/1134750335_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cdc2/19903385/1134753065_x.jpg">
+<meta property="og:image" content="http://7.share.photo.xuite.net/a0933651578/176cd2d/19903385/1134753684_x.jpg">
+<meta property="article:published_time" content="2016-08-08T05:07:00.000Z">
+<meta property="article:modified_time" content="2019-07-17T18:22:20.468Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" Apollo">
+<meta property="article:tag" content=" Apollo Cloud">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" 應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://7.share.photo.xuite.net/a0933651578/176cd6d/19903385/1134751444_x.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2016/08/Apollo-Cloud/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[開箱] 雲端空間不夠用嗎？讓 Apollo Cloud 私有雲來解決你的煩惱吧！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/08/Apollo-Cloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [開箱] 雲端空間不夠用嗎？讓 Apollo Cloud 私有雲來解決你的煩惱吧！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-08-08 13:07:00" itemprop="dateCreated datePublished" datetime="2016-08-08T13:07:00+08:00">2016-08-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/NAS/" itemprop="url" rel="index"><span itemprop="name">其它NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/08/Apollo-Cloud/" class="post-meta-item leancloud_visitors" data-flag-title="[開箱] 雲端空間不夠用嗎？讓 Apollo Cloud 私有雲來解決你的煩惱吧！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>7.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="http://7.share.photo.xuite.net/a0933651578/176cd6d/19903385/1134751444_x.jpg" />
+
+<p>由於過去的人喜歡利用隨身碟來儲存資料，例如：報告、或是照片影片等，但是隨身碟小小一個，相信大家都有弄丟它的經驗、或是不小心放進口袋拿去洗衣機洗了，甚至是公司要開會，隨身碟放在家中忘了帶；如果遇到以上狀況，除了資料無法及時取得，資料可能就再也找不回來了。而<span style="color: #800000;">這也是為何越來越多人喜歡把檔案放在雲端來存放，因為不僅安全，也能隨時隨地的存取資料，非常方便</span>。</p>
+<a id="more"></a>
+
+<p>多數人都會使用目前常見的雲端空間如Dropbox、Google Drive、iCloud、MEGA…等來存放資料，不過<span style="color: #800000;">畢竟是免費的，容量都不大，若要額外的空間就要自行加錢，且都是月費制，十分划不來</span>；以下提供各家簡易比較圖。</p>
+<img src="https://c2.staticflickr.com/8/7414/27463979452_0a9907f888_o.png" />
+
+<p>喬鼎資訊(PROMISE Technology) 於今年推出了 <a href="http://www.promise.com/tw/Products/Apollo" target="_blank">Apollo Cloud 個人雲端儲存裝置</a>，<span style="color: #800000;">讓一般使用者能夠輕鬆建立個人專屬的私有雲系統，並且具備與親朋好友分享照片、影片等功能</span>；更棒的是這些功能都<span style="color: #800000;">不需額外設定</span>，只需將電源線與網路線插入Apollo，就能開始享受各項方便的功能。與目前各家雲端硬碟相比，有著<span style="color: #800000;">超大容量、免繳月費</span>(上面公有雲方案長期累積下來也是一筆可觀的金額)等優勢，且一次還能最多九位成員一起使用，是一台非常具有優勢的私有雲產品！</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd42/19903385/1134748841_x.jpg" />
+
+<p><a href="#a">產品開箱</a></p>
+<p><a href="#b">超簡易安裝及初始設定</a></p>
+<p><a href="#c">使用者新增</a></p>
+<p><a href="#d">基本功能：介面介紹、上傳/下載與同步</a></p>
+<p><a href="#e">進階功能：我的最愛、分享、註解</a></p>
+<p><a href="#f">其它功能：備份與還原</a></p>
+<p><a href="#g">行動裝置</a></p>
+<p><a href="#h">總結與心得</a></p>
+<p><a id="a" name="a"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde9/19903385/1134746192_x.jpg" />
+
+<p>本次要開箱的產品為Apollo Cloud(以下簡稱Apollo)，盒子和機器本身一樣，是使用純白的顏色當底色。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd02/19903385/1134745705_x.jpg" />
+
+<p>附上Apollo的產品規格：</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd20/19903385/1134742919_x.jpg" />
+
+<p>包裝盒正面的標語提到”<span style="color: #800000;">a secure cloud for your private circle</span>“，代表Apollo主打的就是私有雲、並且是提供給”私人圈”來使用，例如家庭成員、朋友…等。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd6f/19903385/1134744022_x.jpg" />
+
+<p>在外盒背面顯示出Apollo在多平台上的支援，以及左下角提到的產品三大特色：</p>
+<p><span style="color: #008000;">1. 簡易安裝，且能使用任何裝置來存取資料。</span></p>
+<p><span style="color: #008000;">2. 每位使用者都有獨立的私人空間，以及可自行決定哪些檔案要分享。</span></p>
+<p><span style="color: #008000;">3. 資料完全保存在Apollo私有雲，而不是在網際網路上。</span></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd68/19903385/1134742735_x.jpg" />
+
+<p>包裝盒兩側印出產品的規格、產品內容物、支援的系統版本、還有使用Apollo需要的東西。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd22/19903385/1134742921_x.jpg" />
+
+<p>產品內容物包含了：Apollo主體、變壓器、網路線，以及四種不同的插頭。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd4b/19903385/1134744242_x.jpg" />
+
+<p>網路線為Cat.5e的線材規格，長度約1公尺左右；在接頭的部分是使用金屬接頭，除了防止變形，也比較耐用。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd94/19903385/1134743547_x.jpg" />
+
+<p>四種不同的插頭列於下圖，有兩腳扁形插頭(分有洞和無洞，適用於台灣、日本、美國等)、雙腳圓形插頭(適用於韓國、歐洲等)與三角扁形插頭(適用於英國、香港、馬來西亞、新加坡等)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd95/19903385/1134743548_x.jpg" />
+
+<p>變壓器的製造商是亞元科技，型號為WA-36A12R，輸出是12V—3A，並支援100-240V的輸入電壓。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd96/19903385/1134743549_x.jpg" />
+
+<p>在安裝變壓器的插頭之前，需先將外蓋移除，只要壓著變壓器的”PUSH”部分，再將外蓋向外推出即可。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd73/19903385/1134744026_x.jpg" />
+
+<p>安裝插頭非常容易，只要插頭上的箭頭對準變壓器上的箭頭推入，並聽到”喀”一聲即更換完成。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd98/19903385/1134743551_x.jpg" />
+
+<p>更換完的四種插頭列於下圖。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd61/19903385/1134744520_x.jpg" />
+
+<p>最後看到產品主體，Apollo Cloud擁有全白的外觀、不占空間的一體設計。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdd8/19903385/1134744639_x.jpg" />
+
+<p>Apollo的尺寸規格為 19(長) x 6.1(寬) x 14.3(高) 公分，如果要比較，正面寬度大約就是悠遊卡的寬度。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd24/19903385/1134742923_x.jpg" />
+
+<p>而Apollo側面的大小，比A4紙摺一半後的大小還要小。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd68/19903385/1134745807_x.jpg" />
+
+<p>機器主體唯一有印東西的地方就是正面底部的”Apollo”。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd7f/19903385/1134745318_x.jpg" />
+
+<p>Apollo的側面也是全白設計；雖然上面有個像蓋子的線條，不過實際是打不開的。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd9b/19903385/1134743554_x.jpg" />
+
+<p>散熱孔主要分布於產品底部。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd9c/19903385/1134743555_x.jpg" />
+
+<p>產品資訊貼紙也貼在機器底部，型號為：PTNS001。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd5c/19903385/1134745027_x.jpg" />
+
+<p>Apollo的背部也有一些散熱孔和幾個接孔。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cda3/19903385/1134744330_x.jpg" />
+
+<p>接孔一共有USB3.0、網路接孔、電源接孔、防盜鎖，與一個重置按鈕。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde1/19903385/1134745416_x.jpg" />
+
+<p><a id="b" name="b"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd72/19903385/1134750425_x.jpg" />
+
+<p>Apollo的安裝需要一個<span style="color: #800000;">已連接網路的路由器</span>和<span style="color: #800000;">能幫助設定的裝置</span>(手機、電腦、平版等)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd06/19903385/1134745709_x.jpg" />
+
+<p>如果上圖看不清楚，其實簡單來說，<span style="color: #800000;">Apollo只需要接上兩條線，分別是網路線和電源線</span>。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cddb/19903385/1134744642_x.jpg" />
+
+<p>接著等待開機，Apollo會先閃爍綠燈，待白燈也亮時就可以開始設定了唷！</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd76/19903385/1134744029_x.jpg" />
+
+<p>為了展示Apollo的設定有多輕鬆簡單，筆者會以行動裝置來執行Apollo的第一次設定！以Android為例，先到Play商店搜尋”Apollo Cloud”並下載。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd60/19903385/1134745031_x.jpg" />
+
+<p>打開「<strong>Apollo Cloud</strong>」app，按下”<span style="color: #0000ff;">尋找新的Apollo</span>“，就能看到在同一網域內的Apollo，點選它然後按”下一步”。(務必確認<span style="color: #800000;">手機或電腦已連接至與Apollo相同的路由器</span>)</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd9e/19903385/1134743557_x.jpg" />
+
+<p>搜尋不到也沒關係，只要點選”<span style="color: #0000ff;">我並未在清單中看到我的Apollo序號</span>“就可以手動新增，序號和Key位於Apollo機器的底部。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cda7/19903385/1134745614_x.jpg" />
+
+<p>成功新增機器後，接下來要建立Apollo擁有者帳戶，輸入信箱和密碼(注意此密碼為Apollo登入用的密碼)，點選”<span style="color: #0000ff;">下一步</span>“後，系統會發送一則驗證信到該信箱(下左圖)；進入私人信箱並開啟驗證信，按一下”<span style="color: #0000ff;">Get validation</span>“(下右圖)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdb9/19903385/1134745120_x.jpg" />
+
+<p>之後會開啟一個網頁顯示驗證碼，將驗證碼輸入至app設定畫面中的欄位，待確認後就完成了！</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cddc/19903385/1134744643_x.jpg" />
+
+<p><span style="color: #ff6600;"><strong>【以下是其他設定】</strong></span></p>
+<p>Apollo的系統設定就只有以上幾個步驟，接著是電腦軟體「<strong>Apollo工具程式</strong>」的安裝；首先請到<a href="http://www.promise.com/tw/Support/downloadcenter/Apollo/Apollo/Apollo#Utilities" target="_blank">Apollo Cloud - 輔助工具</a>區，下載Windows or Mac版的Apollo桌面版程式；並將它安裝好。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd81/19903385/1134745320_x.jpg" />
+
+<p>打開「<strong>Apollo工具程式</strong>」，點選下方的”<span style="color: #0000ff;">登入</span>“，並輸入E-mail和密碼。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd07/19903385/1134745710_x.jpg" />
+
+<p>下一步要設定一個Apollo和此電腦同步的地方，預設是在該電腦使用者的路徑下。(注意之後無法再編輯資料夾路徑)</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd26/19903385/1134742925_x.jpg" />
+
+<p>下圖為「<strong>Apollo工具程式</strong>」的介面，進入”<span style="color: #0000ff;">設定</span>“，按一下名稱旁的”<span style="color: #0000ff;">編輯</span>“圖示，可以更改Apollo的名稱。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cddd/19903385/1134744644_x.jpg" />
+
+<p>點選韌體旁的”<span style="color: #0000ff;">更新</span>“按鈕，建議隨時保持系統為最新狀態。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde3/19903385/1134745418_x.jpg" />
+
+<p>若要更名，按一下右上角的”使用者” → “右箭頭”，就可以更換好辨識的使用者名稱，如下圖。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdde/19903385/1134744645_x.jpg" />
+
+<p>最後是使用者的其他設定，點擊”<span style="color: #0000ff;">編輯我的設定檔</span>“，在這裡能更換大頭貼、E-mail和密碼。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cddf/19903385/1134744646_x.jpg" />
+
+<p><a id="c" name="c"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd3f/19903385/1134748838_x.jpg" />
+
+<p>Apollo最多可新增9位使用者(包含自己10位)，對於一個家庭來說，也算足夠了。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdbf/19903385/1134745126_x.jpg" />
+
+<p>要新增使用者，首先進入”<span style="color: #0000ff;">設定</span>“ → “<span style="color: #0000ff;">成員</span>“頁面，按一下”<span style="color: #0000ff;">新增成員</span>“，並輸入成員名稱(輸入好辨識的名稱即可)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdc0/19903385/1134745127_x.jpg" />
+
+<p>成員的設定就完成了！</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdab/19903385/1134744338_x.jpg" />
+
+<p>接著管理者會收到一個”<span style="color: #0000ff;">建立該使用者的連結</span>“，如果連結遺失，也可以按下使用者旁的”<span style="color: #0000ff;">分享</span>“按鈕將連結再次取出。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd84/19903385/1134745323_x.jpg" />
+
+<p>複製下來的連結只要Ctrl+V或是滑鼠右鍵→貼上就能分享給特定的人；收到的人打開後，網頁會依照不同的裝置提供不同的app/軟體下載連結。(下面以iPad為例)</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd78/19903385/1134744031_x.jpg" />
+
+<p>安裝好後，其實與開頭建立使用者的步驟一樣，點選”<span style="color: #0000ff;">Click to join us now</span>“，會要求開啟「<strong>Apollo Cloud</strong>」。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde5/19903385/1134745420_x.jpg" />
+
+<p>輸入電子郵件，開啟該驗證信並按下”<span style="color: #0000ff;">Get validation</span>“。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd28/19903385/1134742927_x.jpg" />
+
+<p>之後會開啟一個網頁顯示驗證碼，將驗證碼輸入至app設定畫面中的欄位。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd79/19903385/1134744032_x.jpg" />
+
+<p>在驗證完E-mail後，最後才是輸入要Apollo的登入密碼；輸入完後使用者就建立完成了！</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd51/19903385/1134744248_x.jpg" />
+
+<p><a id="d" name="d"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdcf/19903385/1134750518_x.jpg" />
+
+<p><strong><span style="color: #ff6600;">【介面介紹】</span></strong></p>
+<p>桌面版的「Apollo工具程式」介面淺顯易懂，主要為三個畫面：</p>
+<p><span style="color: #008000;">1. <strong>首頁</strong>：存取檔案的地方。</span></p>
+<p><span style="color: #008000;">2. <strong>通知</strong>：顯示Apollo通知的地方，例如備份訊息、系統更新訊息，或是哪名使用者的共享邀請…等都會顯示於此。</span></p>
+<p><span style="color: #008000;">3. <strong>設定</strong>：所有的設定都在此，包括使用者新增、備份/還原、同步等功能。(普通使用者不會有備份/還原和”新增”使用者的功能)</span></p>
+<img src="http://cdn0.t17.techbang.com.tw/system/attached_images/2016/08/196048/show/5ca0d25b7d3651bd090814da3c4034e4.gif" />
+
+<p>右下角的工具列會有「<strong>Apollo工具程式</strong>」的常駐程式，開啟程式時就要點選它。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd73/19903385/1134745818_x.jpg" />
+
+<p>檔案的複製/刪除/移動/下載等功能都是在上方的功能列進行。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd86/19903385/1134745325_x.jpg" />
+
+<p>在”<span style="color: #0000ff;">相片</span>“頁面裡，會將該名使用者空間內的所有相片抓出來，依”時間”分類。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cda2/19903385/1134743561_x.jpg" />
+
+<p>任選一張照片開啟能更清楚地看到影像；點右上角的”<span style="color: #0000ff;">放大</span>“按鈕，可將圖片放大至全視窗。</p>
+<img src="http://cdn3.t17.techbang.com.tw/system/attached_images/2016/08/196049/show/af2b608fc491a787d5890796fd4c3539.gif" />
+
+<p>“<span style="color: #0000ff;">影片</span>“頁面也是將該名使用者空間內的所有影片抓出來依”時間”分類，不過建議官方也可以用名稱來分類(或是自行分類，例如電影、影集、出遊錄影等)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd75/19903385/1134745820_x.jpg" />
+
+<p>影片支援線上播放，如果按一下左下角的”<span style="color: #0000ff;">HD</span>“按鈕可以選擇HD和非HD畫質。(不過筆者實測畫質貌似沒什麼變化)</p>
+<img src="http://cdn1.t17.techbang.com.tw/system/attached_images/2016/08/196051/show/4b8820c030e5c6708748e5061e6f7b09.gif" />
+
+<p>按下右下角的全螢幕按鈕即可全螢幕播放影片。</p>
+<img src="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196050/show/491d52b153301e15f7babd267f36ad8c.gif" />
+
+<p>刪除後的檔案都會先放置”<span style="color: #0000ff;">垃圾桶</span>“中；如果有相同的檔案名稱，<span style="color: #800000;">利用刪除時間可以得知檔案差異</span>；而按下”<span style="color: #0000ff;">還原</span>“按鈕後就會還原該檔案。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cda5/19903385/1134743564_x.jpg" />
+
+<p><strong><span style="color: #ff6600;">【上傳/下載】</span></strong></p>
+<p>上傳檔案時，只要點選”<span style="color: #0000ff;">新增內容</span>“ → “<span style="color: #0000ff;">新增檔案</span>“，並選擇欲上傳的檔案。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd0e/19903385/1134745717_x.jpg" />
+
+<p>而下載檔案則是點選欲下載的檔案後，選擇”<span style="color: #0000ff;">下載</span>“圖示，並選擇下載後檔案的目錄。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdeb/19903385/1134744146_x.jpg" />
+
+<p>左列的檔案列如果有一個”<span style="color: #0000ff;">雙迴轉</span>“的圖示，就代表有上傳/下載任務正在進行；按下該圖示就會顯示”任務列表”，除了能看到上傳/下載中的檔案，也能對檔案進行取消上傳/下載(右邊的”動作”欄)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdec/19903385/1134744147_x.jpg" />
+
+<p><strong><span style="color: #ff6600;">【同步】</span></strong></p>
+<p>Apollo與電腦的雙向同步功能筆者認為還蠻實用的；舉例來說，<span style="color: #800000;">文件直接在此資料夾打開做編輯，儲存後就會立刻同步至Apollo</span>；或是<span style="color: #800000;">筆電和桌電都使用”同步”功能，就能共同傳遞資料，而手機也能順便存取資料</span>。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd7d/19903385/1134744036_x.jpg" />
+
+<p>打開檔案總管，左側目錄列會出現Apollo的應用程式圖示，裡面的”Apollo Cloud”(當初設定的機器名稱)就是同步的資料夾；只要將檔案丟進資料夾就會同步至Apollo。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd5c/19903385/1134744259_x.jpg" />
+
+<p>如果「<strong>Apollo工具程式</strong>」未出現同步後的檔案，就要點選左側的”<span style="color: #0000ff;">檔案</span>“，讓它重新整理。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd5d/19903385/1134744260_x.jpg" />
+
+<p>要注意的是，在「<strong>Apollo工具程式</strong>」新增的資料夾，預設是不會同步到電腦中(相反地，同步資料夾內的檔案一定會同步至Apollo)，若要開啟同步，就必須至”<span style="color: #0000ff;">設定</span>“ → “<span style="color: #0000ff;">選擇性同步化</span>“頁面，勾選欲同步的資料夾。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cded/19903385/1134744148_x.jpg" />
+
+<p>最後附上的影片為：</p>
+<ol>
+<li>將檔案上傳電腦資料夾，然後再讓「<strong>Apollo工具程式</strong>」同步至Apollo。(資料夾檔案會立即同步至Apollo)</li>
+<li>將檔案上傳至Apollo，然後再讓「<strong>Apollo工具程式</strong>」同步至電腦內的資料夾。(Apollo每30秒才會與電腦資料夾同步)</li>
+</ol>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j-2MVd8KE6w?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>PS. <span style="color: #800000;">為了降低持續檢查同步檔案所耗費的資源，「<strong>Apollo工具程式</strong>」會”每30秒”才檢查一次檔案的同步</span>(Apollo → 電腦資料夾)。</p>
+<p><a id="e" name="e"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cda5/19903385/1134750220_x.jpg" />
+
+<p><span style="color: #ff6600;"><strong>【我的最愛】</strong></span></p>
+<p>筆者認為”<span style="color: #0000ff;">我的最愛</span>“這個功能還蠻實用的。例如：看到喜愛或常逛的網頁，使用者可以將它加到”我的最愛”；在Windows 10系統的檔案總管裡，對於使用者常開啟的資料夾，系統也會自動加到檔案總管左列的”快速存取”中，為的就是能更方便地打開需要的資料或網頁。</p>
+<p>Apollo Cloud也有這項功能，欲將檔案加到”我的最愛”裡，只需按一下檔案旁的星星按鈕即可。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd5e/19903385/1134744261_x.jpg" />
+
+<p>舉例來說，<span style="color: #800000;">某個檔案分類在”六個”資料夾下，但筆者又常常會用到此檔案，這時就能用”我的最愛”功能，讓常用的檔案集中分類到一邊，但又不會改變檔案原本的存放路徑</span>。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde2/19903385/1134744649_x.jpg" />
+
+<p><strong><span style="color: #ff6600;">【分享：公用連結】</span></strong></p>
+<p>Apollo內的所有檔案都可以利用”分享”的功能來傳給其他人，而公用連結的分享最適合給無Apollo帳號的人，或是有特定檔案需求的人。只要對要分享的檔案或資料夾，點一下”<span style="color: #0000ff;">傳送公用連結</span>“，電腦版會直接將該連結複製，滑鼠點右鍵就能直接貼上。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd29/19903385/1134745232_x.jpg" />
+
+<p>將網址貼到瀏覽器後，就可以存取該檔案。不過若點選這個檔案會直接開啟(以影片檔為例，就會直接利用Chrome來播放該影片)，因此要下載的使用者，需對該檔案點右鍵 → “<span style="color: #0000ff;">另存連結為..</span>“來存至電腦。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde5/19903385/1134744652_x.jpg" />
+
+<p>公用連結也支援對整個資料夾的共享。(不過只支援分享1GB以下容量的檔案/資料夾)</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd88/19903385/1134745327_x.jpg" />
+
+<p>打開該連結，資料夾內的檔案會以列表的方式呈現。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cde6/19903385/1134744653_x.jpg" />
+
+<p><span style="color: #ff6600;"><strong>【分享：成員連結】</strong></span></p>
+<p>若要將檔案與Apollo成員分享，就只能把檔案放在資料夾內，以”資料夾”的形式分享。分享方式為：對要分享的資料夾，點一下”<span style="color: #0000ff;">傳送成員連結</span>“，接著選擇分享的成員以及權限(讀寫or唯讀)，設定完後Apollo會通知該成員。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdb2/19903385/1134745625_x.jpg" />
+
+<p>被分享的成員需到”<span style="color: #0000ff;">通知</span>“ → “<span style="color: #0000ff;">邀請</span>“頁面的地方，按下”<span style="color: #0000ff;">接受</span>“來確認其共享。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd10/19903385/1134745719_x.jpg" />
+
+<p>被分享的資料夾點選上面的”<span style="color: #0000ff;">i</span>“可以看到擁有者與其他資訊。</p>
+<img src="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196052/show/021e16d40de771111a034b94ba9f5ece.gif" />
+
+<p>共享者的分享資料夾會有”連結”的圖示；如果是被共享者，除了該資料夾會有”連結”的圖示，被分享資料夾和自己擁有的資料夾則會分開顯示。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd12/19903385/1134745721_x.jpg" />
+
+<p>最後在”<span style="color: #0000ff;">設定</span>“ → “<span style="color: #0000ff;">我的共用</span>“可以看到分享資料夾的成員和分享公用連結的檔案/資料夾。</p>
+<img src="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196053/show/37251ed700b258ec7f34809f2e61bb13.gif" />
+
+<p><span style="color: #ff6600;"><strong>【註解】</strong></span></p>
+<p>“<span style="color: #0000ff;">註解</span>“功能點一下檔案旁的留言按鈕就可以留言。此功能筆者也認為非常實用，舉例來說：文件或報告的進度、老師每堂課的授課範圍、考試重點註解…等。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdf3/19903385/1134744154_x.jpg" />
+
+<p>此外，如果是共同分享的檔案，<span style="color: #800000;">成員間可以進行留言，就像是一個留言板一樣</span>。如下圖：</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd6d/19903385/1134744532_x.jpg" />
+
+<p>和檔案加到”<span style="color: #0000ff;">我的最愛</span>“一樣，”<span style="color: #0000ff;">註解</span>“過的檔案也會有註記。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdc5/19903385/1134745132_x.jpg" />
+
+<p><a id="f" name="f"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd81/19903385/1134749928_x.jpg" />
+
+<p>“<span style="color: #0000ff;">備份</span>“可以將Apollo的所有檔案(包含各個使用者的檔案)完整地備份到外接硬碟；為了避免機器故障時，裡面的資料救不回來的窘境，筆者建議至少一個月要備份一次所有資料。</p>
+<p>在備份之前，需先準備一個隨身碟or外接硬碟，並在Apollo背面唯一的USB孔插入。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd8b/19903385/1134745330_x.jpg" />
+
+<p>插入外接裝置後，在”通知” → “Apollos”頁面會顯示：USB device inserted的訊息.</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdb8/19903385/1134745631_x.jpg" />
+
+<p>備份非常容易，只要點”下一頁”，接著輸入”CONFIRM”，確保要執行備份。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdcc/19903385/1134745139_x.jpg" />
+
+<p>備份成功後，左上角會有通知顯示(下圖右下角)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd2e/19903385/1134742933_x.jpg" />
+
+<p>如果要還原檔案，進入”還原”頁面後，也是點選”<span style="color: #0000ff;">下一頁</span>“，接著輸入”CONFIRM”，確保要執行還原任務。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdf8/19903385/1134744159_x.jpg" />
+
+<p><a id="g" name="g"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd3e/19903385/1134748837_x.jpg" />
+
+<p>「<strong>Apollo Cloud</strong>」在行動裝置上，功能和電腦版一樣完整。簡單來說，兩者唯一的差別就是：電腦版提供資料夾同步，而行動版則提供相機膠卷自動上傳的功能。</p>
+<p>若註冊過Apollo帳號的使用者，直接用帳號密碼登入Apollo即可。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdce/19903385/1134745141_x.jpg" />
+
+<p>第一次打開app，會出現下圖主要功能介紹。</p>
+<img src="http://cdn2.t17.techbang.com.tw/system/attached_images/2016/08/196054/show/b08ba2bd0ab0a571a38a6eb9cf5ff93a.gif" />
+
+<p>「<strong>Apollo Cloud</strong>」的主要介面如下左圖；下右圖則是點選左上角的”<span style="color: #0000ff;">設定</span>“後的頁面，在這裡可以進行使用者相關設定、變更大頭貼，以及查看通知。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd7c/19903385/1134745827_x.jpg" />
+
+<p>如果有通知進來(如共享資料夾通知)，app會有紅點提示。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd7e/19903385/1134745829_x.jpg" />
+
+<p><span style="color: #ff6600;"><strong>【相機膠卷同步】</strong></span></p>
+<p>“<span style="color: #0000ff;">相機膠卷同步</span>“特別適合手機和公有雲容量很小的使用者，只要手機或平板錄下影片或拍下照片後，該檔案就會自動同步至Apollo上，並且可以關閉”<span style="color: #0000ff;">使用行動數據</span>“上傳功能(也就是Wi-Fi環境才會上傳)，適合網路有流量限制的用戶。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd86/19903385/1134744045_x.jpg" />
+
+<p>若要查看同步至Apollo的相片和影片，點一下”<span style="color: #0000ff;">相機膠卷</span>“，然後選擇自己的設備，就能看到這些檔案。</p>
+<img src="http://cdn3.t17.techbang.com.tw/system/attached_images/2016/08/196055/show/5e5d48c1910e91751220de18281bb43a.gif" />
+
+<p><span style="color: #ff6600;"><strong>【相片與影片】</strong></span></p>
+<p>下圖為底部按鈕切換到”<span style="color: #0000ff;">相片</span>“頁面(下左圖)和切換到”<span style="color: #0000ff;">影片</span>“頁面(下右圖)的畫面，兩者都是以時間來分類檔案。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd89/19903385/1134744048_x.jpg" />
+
+<p>打開相片，如果是平板電腦右側會預覽圖片(下左圖)；點一下圖片可以放大檢視(下右圖)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd30/19903385/1134742935_x.jpg" />
+
+<p>影片支援線上播放，並可以隱藏控制列和標題列。</p>
+<img src="http://cdn3.t17.techbang.com.tw/system/attached_images/2016/08/196056/show/5a1e439e418aaaacae955277fcf10cd3.gif" />
+
+<p><span style="color: #ff6600;"><strong>【註解、儲存與分享】</strong></span></p>
+<p>對檔案點擊”<span style="color: #0000ff;">下載</span>“按鈕(向下箭頭圖示)可以把檔案儲存至設備中或是傳送到其他平台(下左圖)；右邊的”<span style="color: #0000ff;">註解</span>“為留言的功能(下右圖)。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd16/19903385/1134745725_x.jpg" />
+
+<p>檔案旁邊還有向上箭頭圖示，也就是”<span style="color: #0000ff;">分享</span>“(下左圖)；分享有成員連結和公開連結兩種，下右圖是”<span style="color: #0000ff;">成員連結</span>“，可以選擇分享的使用者及其權限。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd92/19903385/1134744825_x.jpg" />
+
+<p>如果點選了”<span style="color: #0000ff;">公開連結</span>“，會建立一個能存取該檔案的”連結”，可以將連結傳送至各平台。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd30/19903385/1134745239_x.jpg" />
+
+<p>以下左圖為例，把連結傳送至FB聊天室後，此訊息會有：分享人、分享檔案名稱、注意事項和連結等資訊；下右圖則是開啟連結後的畫面，如果一次分享多個檔案會以列表呈現。</p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd72/19903385/1134744537_x.jpg" />
+
+<p><a id="h" name="h"></a></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd18/19903385/1134750335_x.jpg" />
+
+<p><strong>對於一般家庭來說，Apollo Cloud本產品的定位為”<span style="color: #ff0000;">簡易好上手</span>“，除了<span style="color: #ff0000;">設定簡單，介面也非常人性化，任何人一定都能快速上手</span>；除此之外，對於手機容量小的人，例如只有16GB容量的iPhone，可能灌個音樂、安裝數個app、再拍幾張照片根本不夠用；<span style="color: #ff0000;">此時利用「Apollo Cloud」app來自動上傳手機內的相片影片，等到容量不夠時就可以刪除手機內的照片和影片。如有需要什麼檔案，只要利用「Apollo Cloud」就可以下載至手機觀看！</span></strong></p>
+<p><strong>若要彼此分享出遊照、影片，或是備份電腦資料，多數人會將它存在一個行動硬碟裡，但是拿來拿去硬碟很容易就會不見，或是硬碟經過長時間碰撞，可能哪一天資料就無法讀取了；且如果在外面要分享給親戚或朋友看，也不是這麼的方便。這時候擁有一台Apollo就會非常便利，<span style="color: #ff0000;">將出遊照全部放在一個共享資料夾，只要是在有網路的地方，打開「Apollo Cloud」app，就能隨時隨地的觀看照片和影片！</span></strong></p>
+<p><strong>最後附上筆者實測後的8大產品特色：</strong></p>
+<p><strong>1. <span style="color: #0000ff;">4TB大容量</span>，且最多可以設定<span style="color: #0000ff;">9位使用者</span>。(包含自己共10位)</strong></p>
+<p><strong>2. <span style="color: #0000ff;">體積小</span>，完全不占空間；<span style="color: #0000ff;">耗電低(16W)</span>，且<span style="color: #0000ff;">運作十分安靜</span>。</strong><br><strong> PS. 下圖為筆者將Apollo機器的變壓器插到智慧插座的結果；從官方耗電瓦數(16W)來看，Apollo真的不耗電(實測7W)，且使用7天之後才花1度多的電(下右圖上方顯示1Kwh)。</strong></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cdc2/19903385/1134753065_x.jpg" />
+
+<p><strong>3. <span style="color: #0000ff;">初始設定極為簡單</span>(誰都能輕鬆設定)，以及<span style="color: #0000ff;">淺顯易懂的Apollo程式介面，每個人皆可輕鬆上手</span>。</strong></p>
+<p><strong>4. <span style="color: #0000ff;">每個用戶的資料完全獨立</span>，即使是管理員也無法查看(僅可做刪除帳戶的動作)；且<span style="color: #0000ff;">使用者是利用專屬連結來創立帳戶，大幅提升了隱私和安全性</span>。</strong></p>
+<p><strong>5. <span style="color: #0000ff;">檔案留言功能</span>：除了相片可以做註解外(<span style="color: #0000ff;">以免之後忘記這照片是哪裡拍攝或是在做什麼</span>等等)，更實用的是<span style="color: #0000ff;">共享檔案的留言功能，就像是一個社群平台</span>。</strong></p>
+<p><strong>6. <span style="color: #0000ff;">我的最愛功能</span>：把檔案加到我的最愛就能輕鬆地存取，<span style="color: #0000ff;">又不變更檔案的原始路徑</span>。</strong></p>
+<p><strong>7. 「Apollo Cloud」的行動裝置app和電腦版程式<span style="color: #0000ff;">所能使用的功能皆相同(不會因為是行動版而功能減少)</span>，且電腦版額外提供<span style="color: #0000ff;">資料夾與Apollo雙向同步</span>，而行動版則額外提供<span style="color: #0000ff;">相機膠卷自動上傳的<span style="color: #000000;">功能</span></span>。</strong></p>
+<p><strong>8. <span style="color: #0000ff;">信件通知</span>：只要與Apollo無法使用有關(如意外關機、更新重啟等)、或是其他的重要事情，<span style="color: #0000ff;">Apollo就會發信到當初註冊的信箱</span>。</strong><br><strong> PS.下圖為韌體更新的警告，由於Apollo會暫時關閉，因此每個使用者都會收到信件通知。</strong></p>
+<img src="http://7.share.photo.xuite.net/a0933651578/176cd2d/19903385/1134753684_x.jpg" />
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NAS/" rel="tag"># 其它NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/10/Swatch-SISTEM-51-IRONY/" rel="prev" title="[開箱] Swatch SISTEM 51 IRONY 冰凍之心 機械腕錶 使平價，再也不是平凡 !">
+      <i class="fa fa-chevron-left"></i> [開箱] Swatch SISTEM 51 IRONY 冰凍之心 機械腕錶 使平價，再也不是平凡 !
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-DS916plus/" rel="next" title="[教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！">
+      [教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '5d36888150f9987ac803c22d01a667b7',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

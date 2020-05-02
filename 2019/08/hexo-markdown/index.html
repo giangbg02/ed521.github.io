@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Hexo 部落格教學文系列：[教學] 使用 GitHub Pages + Hexo 來架設個人部落格[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具[教學] 撰寫 Hexo 文章 - Markdown 語法大全[教學] Hexo 資料夾&#x2F;檔案架構、佈景主題修改介紹 Markdown 的目標是實現「易讀易寫」，並強調它的「可讀性」，因此 Markdown 的語法全由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] 撰寫 Hexo 文章 - Markdown 語法大全">
+<meta property="og:url" content="https://ed521.github.io/2019/08/hexo-markdown/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="Hexo 部落格教學文系列：[教學] 使用 GitHub Pages + Hexo 來架設個人部落格[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具[教學] 撰寫 Hexo 文章 - Markdown 語法大全[教學] Hexo 資料夾&#x2F;檔案架構、佈景主題修改介紹 Markdown 的目標是實現「易讀易寫」，並強調它的「可讀性」，因此 Markdown 的語法全由">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/08/262146/original/6275d5fc2d1f6efe2f881a998e7eb95d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/08/262148/original/69388a8d9f3a55b396d780af9ce9308c.png">
+<meta property="og:image" content="https://s1.yimg.com/rz/d/yahoo_frontpage_zh-Hant-TW_s_f_p_bestfit_frontpage_2x.png">
+<meta property="og:image" content="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+<meta property="og:image" content="https://ed521.github.io/2019/08/hexo-markdown/123.png">
+<meta property="article:published_time" content="2019-08-08T17:15:42.000Z">
+<meta property="article:modified_time" content="2020-05-01T18:07:39.271Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="教學">
+<meta property="article:tag" content=" GitHub">
+<meta property="article:tag" content=" GitHub Pages">
+<meta property="article:tag" content=" Hexo">
+<meta property="article:tag" content=" Hexo教學">
+<meta property="article:tag" content=" 部落格">
+<meta property="article:tag" content=" 懶人包">
+<meta property="article:tag" content=" 架站">
+<meta property="article:tag" content=" 架設部落格">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 個人">
+<meta property="article:tag" content=" 搭建">
+<meta property="article:tag" content=" Hexo admin">
+<meta property="article:tag" content=" 寫文章">
+<meta property="article:tag" content=" markdown">
+<meta property="article:tag" content=" markdown語法">
+<meta property="article:tag" content=" 語法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2019/08/262146/original/6275d5fc2d1f6efe2f881a998e7eb95d.png">
+
+<link rel="canonical" href="https://ed521.github.io/2019/08/hexo-markdown/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] 撰寫 Hexo 文章 - Markdown 語法大全 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2019/08/hexo-markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] 撰寫 Hexo 文章 - Markdown 語法大全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-08-09 01:15:42" itemprop="dateCreated datePublished" datetime="2019-08-09T01:15:42+08:00">2019-08-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/hexoblog/" itemprop="url" rel="index"><span itemprop="name">Hexo部落格</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/08/hexo-markdown/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] 撰寫 Hexo 文章 - Markdown 語法大全" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>5.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Hexo 部落格教學文系列：<br><a href="https://ed521.github.io/2019/07/hexo-install/">[教學] 使用 GitHub Pages + Hexo 來架設個人部落格</a><br><a href="https://ed521.github.io/2019/08/hexo-admin/">[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具</a><br><a href="https://ed521.github.io/2019/08/hexo-markdown/">[教學] 撰寫 Hexo 文章 - Markdown 語法大全</a><br><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">[教學] Hexo 資料夾/檔案架構、佈景主題修改介紹</a></p>
+<p>Markdown 的目標是實現「易讀易寫」，並強調它的「可讀性」，因此 Markdown 的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思；以下是 Markdown 大部分的語法。</p>
+<h1 id="常用語法-文字樣式"><a href="#常用語法-文字樣式" class="headerlink" title="常用語法 - 文字樣式"></a><font color=#0000FF>常用語法 - 文字樣式</font></h1><h2 id="文字字體"><a href="#文字字體" class="headerlink" title="文字字體"></a><font color=#FF6600>文字字體</font></h2><table>
+<thead>
+<tr>
+<th>類別</th>
+<th>語法</th>
+<th>顯示結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>粗體</td>
+<td><code>**我是粗體**</code></td>
+<td><strong>我是粗體</strong></td>
+</tr>
+<tr>
+<td>斜體</td>
+<td><code>*我是斜體*</code></td>
+<td><em>我是斜體</em></td>
+</tr>
+<tr>
+<td>粗斜體</td>
+<td><code>***我是粗斜體***</code></td>
+<td><strong><em>我是粗斜體</em></strong></td>
+</tr>
+<tr>
+<td>刪除線</td>
+<td><code>~~我是刪除線~~</code></td>
+<td><del>我是刪除線</del></td>
+</tr>
+<tr>
+<td>底線</td>
+<td><code>&lt;u&gt;我是底線&lt;u&gt;</code></td>
+<td><u>我是底線<u></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<h2 id="文字顏色"><a href="#文字顏色" class="headerlink" title="文字顏色"></a><font color=#FF6600>文字顏色</font></h2><p>Markdown 並沒有更改文字顏色的語法，因此只能我們靠自己加入 HTML 語法來修改文字顏色，只要在欲更改文字顏色的地方加入 <code>&lt;font color=#008000&gt;我是深綠色&lt;/font&gt;</code> ：<font color=#008000>我是深綠色</font>。</p>
+<p>在此附上一些常用的顏色，使用者也可以到 <a href="https://www.ifreesite.com/color/web-color-code.htm" target="_blank" rel="noopener">常用顏色表</a> 這個網站來找尋自己喜歡的顏色。</p>
+<table>
+<thead>
+<tr>
+<th>語法</th>
+<th>顯示結果</th>
+<th>語法</th>
+<th>顯示結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;font color=#800000&gt;酒紅色&lt;/font&gt;</code></td>
+<td><font color=#800000>酒紅色</font></td>
+<td><code>&lt;font color=#FF0000&gt;紅色&lt;/font&gt;</code></td>
+<td><font color=#FF0000>紅色</font></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#FF6600&gt;橘色&lt;/font&gt;</code></td>
+<td><font color=#FF6600>橘色</font></td>
+<td><code>&lt;font color=#FFD700&gt;金色&lt;/font&gt;</code></td>
+<td><font color=#FFD700>金色</font></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#FFFF00&gt;黃色&lt;/font&gt;</code></td>
+<td><font color=#FFFF00>黃色</font></td>
+<td><code>&lt;font color=#00FF00&gt;綠色&lt;/font&gt;</code></td>
+<td><font color=#00FF00>綠色</font></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#008000&gt;墨綠色&lt;/font&gt;</code></td>
+<td><font color=#008000>墨綠色</font></td>
+<td><code>&lt;font color=#00FFFF&gt;青色&lt;/font&gt;</code></td>
+<td><font color=#00FFFF>青色</font></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#0000FF&gt;深藍色&lt;/font&gt;</code></td>
+<td><font color=#0000FF>深藍色</font></td>
+<td><code>&lt;font color=#FF00FF&gt;粉紅色&lt;/font&gt;</code></td>
+<td><font color=#FF00FF>粉紅色</font></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#800080&gt;紫色&lt;/font&gt;</code></td>
+<td><font color=#800080>紫色</font></td>
+<td><code>&lt;font color=#808080&gt;灰色&lt;/font&gt;</code></td>
+<td><font color=#808080>灰色</font></td>
+</tr>
+</tbody></table>
+<h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a><font color=#FF6600>標題</font></h2><p>使用 <code>#</code> 來表示等級一的標題，總共有六個等級，<font color=#800000>且 # 字符號和文字間<strong>要空一格</strong></font>。語法依此類推：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 等級一標題</span><br><span class="line">## 等級二標題</span><br><span class="line">### 等級三標題</span><br><span class="line">#### 等級四標題</span><br><span class="line">##### 等級五標題</span><br><span class="line">###### 等級六標題</span><br></pre></td></tr></table></figure>
+<p>其結果顯示如下圖：</p>
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/08/262146/original/6275d5fc2d1f6efe2f881a998e7eb95d.png" alt=""></p>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a><font color=#FF6600>程式碼</font></h2><ul>
+<li><strong><font color=#008000>文字間程式碼</font></strong></li>
+</ul>
+<p><strong><font color=#800000>插入在文字間</font></strong>的程式碼請使用以下語法，也就是用鍵盤 Tab 鍵上方的反引號來包住：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C語言的輸入請使用 &#96;scanf()&#96; 函式。</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<p>C語言的輸入請使用 <code>scanf()</code> 函式。</p>
+<ul>
+<li><strong><font color=#008000>段落程式碼</font></strong></li>
+</ul>
+<p>若要以整行或整段來顯示程式碼，請使用也就是用鍵盤 Tab 上方的三個反引號來包住，且可以<font color=#800000><strong>在第一列最後方指定程式語言類型(也能不指定)，這樣會在特殊函式或語法上標示特殊顏色</strong></font>。</p>
+<p>例如使用 C 語言：</p>
+<p><img src="https://cdn2-t17.techbang.com/system/attached_images/2019/08/262148/original/69388a8d9f3a55b396d780af9ce9308c.png" alt=""></p>
+<p>其結果顯示如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HelloWorld 程式</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"HelloWorld\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>筆者查到支援的程式碼列表如下，在反引號後輸入下面括弧前的文字（<a href="https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown" target="_blank" rel="noopener">參考網站</a>）：</p>
+<ul>
+<li>Cucumber (‘*.feature’)</li>
+<li>abap (‘*.abap’)</li>
+<li>ada (‘<em>.adb’, ‘</em>.ads’, ‘*.ada’)</li>
+<li>ahk (‘<em>.ahk’, ‘</em>.ahkl’)</li>
+<li>apacheconf (‘.htaccess’, ‘apache.conf’, ‘apache2.conf’)</li>
+<li>applescript (‘*.applescript’)</li>
+<li>as (‘*.as’)</li>
+<li>as3 (‘*.as’)</li>
+<li>asy (‘*.asy’)</li>
+<li>bash (‘<em>.sh’, ‘</em>.ksh’, ‘<em>.bash’, ‘</em>.ebuild’, ‘*.eclass’)</li>
+<li>bat (‘<em>.bat’, ‘</em>.cmd’)</li>
+<li>befunge (‘*.befunge’)</li>
+<li>blitzmax (‘*.bmx’)</li>
+<li>boo (‘*.boo’)</li>
+<li>brainfuck (‘<em>.bf’, ‘</em>.b’)</li>
+<li>c (‘<em>.c’, ‘</em>.h’)</li>
+<li>cfm (‘<em>.cfm’, ‘</em>.cfml’, ‘*.cfc’)</li>
+<li>cheetah (‘<em>.tmpl’, ‘</em>.spt’)</li>
+<li>cl (‘<em>.cl’, ‘</em>.lisp’, ‘*.el’)</li>
+<li>clojure (‘<em>.clj’, ‘</em>.cljs’)</li>
+<li>cmake (‘*.cmake’, ‘CMakeLists.txt’)</li>
+<li>coffeescript (‘*.coffee’)</li>
+<li>console (‘*.sh-session’)</li>
+<li>control (‘control’)</li>
+<li>cpp (‘<em>.cpp’, ‘</em>.hpp’, ‘<em>.c++’, ‘</em>.h++’, ‘<em>.cc’, ‘</em>.hh’, ‘<em>.cxx’, ‘</em>.hxx’, ‘*.pde’)</li>
+<li>csharp (‘*.cs’)</li>
+<li>css (‘*.css’)</li>
+<li>cython (‘<em>.pyx’, ‘</em>.pxd’, ‘*.pxi’)</li>
+<li>d (‘<em>.d’, ‘</em>.di’)</li>
+<li>delphi (‘*.pas’)</li>
+<li>diff (‘<em>.diff’, ‘</em>.patch’)</li>
+<li>dpatch (‘<em>.dpatch’, ‘</em>.darcspatch’)</li>
+<li>duel (‘<em>.duel’, ‘</em>.jbst’)</li>
+<li>dylan (‘<em>.dylan’, ‘</em>.dyl’)</li>
+<li>erb (‘*.erb’)</li>
+<li>erl (‘*.erl-sh’)</li>
+<li>erlang (‘<em>.erl’, ‘</em>.hrl’)</li>
+<li>evoque (‘*.evoque’)</li>
+<li>factor (‘*.factor’)</li>
+<li>felix (‘<em>.flx’, ‘</em>.flxh’)</li>
+<li>fortran (‘<em>.f’, ‘</em>.f90’)</li>
+<li>gas (‘<em>.s’, ‘</em>.S’)</li>
+<li>genshi (‘*.kid’)</li>
+<li>glsl (‘<em>.vert’, ‘</em>.frag’, ‘*.geo’)</li>
+<li>gnuplot (‘<em>.plot’, ‘</em>.plt’)</li>
+<li>go (‘*.go’)</li>
+<li>groff (‘<em>.(1234567)’, ‘</em>.man’)</li>
+<li>haml (‘*.haml’)</li>
+<li>haskell (‘*.hs’)</li>
+<li>html (‘<em>.html’, ‘</em>.htm’, ‘<em>.xhtml’, ‘</em>.xslt’)</li>
+<li>hx (‘*.hx’)</li>
+<li>hybris (‘<em>.hy’, ‘</em>.hyb’)</li>
+<li>ini (‘<em>.ini’, ‘</em>.cfg’)</li>
+<li>io (‘*.io’)</li>
+<li>ioke (‘*.ik’)</li>
+<li>irc (‘*.weechatlog’)</li>
+<li>jade (‘*.jade’)</li>
+<li>java (‘*.java’)</li>
+<li>js (‘*.js’)</li>
+<li>jsp (‘*.jsp’)</li>
+<li>lhs (‘*.lhs’)</li>
+<li>llvm (‘*.ll’)</li>
+<li>logtalk (‘*.lgt’)</li>
+<li>lua (‘<em>.lua’, ‘</em>.wlua’)</li>
+<li>make (‘<em>.mak’, ‘Makefile’, ‘makefile’, ‘Makefile.</em>‘, ‘GNUmakefile’)</li>
+<li>mako (‘*.mao’)</li>
+<li>maql (‘*.maql’)</li>
+<li>mason (‘<em>.mhtml’, ‘</em>.mc’, ‘*.mi’, ‘autohandler’, ‘dhandler’)</li>
+<li>markdown (‘*.md’)</li>
+<li>modelica (‘*.mo’)</li>
+<li>modula2 (‘<em>.def’, ‘</em>.mod’)</li>
+<li>moocode (‘*.moo’)</li>
+<li>mupad (‘*.mu’)</li>
+<li>mxml (‘*.mxml’)</li>
+<li>myghty (‘*.myt’, ‘autodelegate’)</li>
+<li>nasm (‘<em>.asm’, ‘</em>.ASM’)</li>
+<li>newspeak (‘*.ns2’)</li>
+<li>objdump (‘*.objdump’)</li>
+<li>objectivec (‘*.m’)</li>
+<li>objectivej (‘*.j’)</li>
+<li>ocaml (‘<em>.ml’, ‘</em>.mli’, ‘<em>.mll’, ‘</em>.mly’)</li>
+<li>ooc (‘*.ooc’)</li>
+<li>perl (‘<em>.pl’, ‘</em>.pm’)</li>
+<li>php (‘<em>.php’, ‘</em>.php(345)’)</li>
+<li>postscript (‘<em>.ps’, ‘</em>.eps’)</li>
+<li>pot (‘<em>.pot’, ‘</em>.po’)</li>
+<li>pov (‘<em>.pov’, ‘</em>.inc’)</li>
+<li>prolog (‘<em>.prolog’, ‘</em>.pro’, ‘*.pl’)</li>
+<li>properties (‘*.properties’)</li>
+<li>protobuf (‘*.proto’)</li>
+<li>py3tb (‘*.py3tb’)</li>
+<li>pytb (‘*.pytb’)</li>
+<li>python (‘<em>.py’, ‘</em>.pyw’, ‘<em>.sc’, ‘SConstruct’, ‘SConscript’, ‘</em>.tac’)</li>
+<li>rb (‘<em>.rb’, ‘</em>.rbw’, ‘Rakefile’, ‘<em>.rake’, ‘</em>.gemspec’, ‘<em>.rbx’, ‘</em>.duby’)</li>
+<li>rconsole (‘*.Rout’)</li>
+<li>rebol (‘<em>.r’, ‘</em>.r3’)</li>
+<li>redcode (‘*.cw’)</li>
+<li>rhtml (‘*.rhtml’)</li>
+<li>rst (‘<em>.rst’, ‘</em>.rest’)</li>
+<li>sass (‘*.sass’)</li>
+<li>scala (‘*.scala’)</li>
+<li>scaml (‘*.scaml’)</li>
+<li>scheme (‘*.scm’)</li>
+<li>scss (‘*.scss’)</li>
+<li>smalltalk (‘*.st’)</li>
+<li>smarty (‘*.tpl’)</li>
+<li>sourceslist (‘sources.list’)</li>
+<li>splus (‘<em>.S’, ‘</em>.R’)</li>
+<li>sql (‘*.sql’)</li>
+<li>sqlite3 (‘*.sqlite3-console’)</li>
+<li>squidconf (‘squid.conf’)</li>
+<li>ssp (‘*.ssp’)</li>
+<li>tcl (‘*.tcl’)</li>
+<li>tcsh (‘<em>.tcsh’, ‘</em>.csh’)</li>
+<li>tex (‘<em>.tex’, ‘</em>.aux’, ‘*.toc’)</li>
+<li>text (‘*.txt’)</li>
+<li>v (‘<em>.v’, ‘</em>.sv’)</li>
+<li>vala (‘<em>.vala’, ‘</em>.vapi’)</li>
+<li>vbnet (‘<em>.vb’, ‘</em>.bas’)</li>
+<li>velocity (‘<em>.vm’, ‘</em>.fhtml’)</li>
+<li>vim (‘*.vim’, ‘.vimrc’)</li>
+<li>xml (‘<em>.xml’, ‘</em>.xsl’, ‘<em>.rss’, ‘</em>.xslt’, ‘<em>.xsd’, ‘</em>.wsdl’)</li>
+<li>xquery (‘<em>.xqy’, ‘</em>.xquery’)</li>
+<li>xslt (‘<em>.xsl’, ‘</em>.xslt’)</li>
+<li>yaml (‘<em>.yaml’, ‘</em>.yml’)</li>
+</ul>
+<h1 id="常用語法-其它"><a href="#常用語法-其它" class="headerlink" title="常用語法 - 其它"></a><font color=#0000FF>常用語法 - 其它</font></h1><h2 id="分隔線"><a href="#分隔線" class="headerlink" title="分隔線"></a><font color=#FF6600>分隔線</font></h2><p>一整列中輸入三個以上的 <code>***</code> 或三個以上的 <code>---</code>，且<font color=#800000>整列<strong>不能有其它文字</strong></font>，結果顯示如下：</p>
+<hr>
+<h2 id="項目符號-編號"><a href="#項目符號-編號" class="headerlink" title="項目符號/編號"></a><font color=#FF6600>項目符號/編號</font></h2><p><strong><font color=#008000>項目符號</font></strong>可以用 <code>*</code>、<code>+</code> 或 <code>-</code>，放在整列的開頭當作項目符號，<font color=#800000>且符號和文字間<strong>要空一格</strong></font>，語法範例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ aaa</span><br><span class="line">+ bbb</span><br><span class="line">+ ccc</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<ul>
+<li>aaa</li>
+<li>bbb</li>
+<li>ccc</li>
+</ul>
+<p>而<strong><font color=#008000>編號</font></strong>就是使用數字在加上 <code>.</code>，<font color=#800000>且 <code>.</code> 和文字間<strong>要空一格</strong></font>，語法範例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. aaa</span><br><span class="line">2. bbb</span><br><span class="line">3. ccc</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<ol>
+<li>aaa</li>
+<li>bbb</li>
+<li>ccc</li>
+</ol>
+<p>若使用<strong><font color=#008000>「階層式」的項目符號/編號</font></strong>，只要記得空的格數要整齊即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ 益者三友</span><br><span class="line">  + 友直</span><br><span class="line">  + 友諒</span><br><span class="line">  + 友多聞</span><br><span class="line">     + 益矣</span><br><span class="line">+ 損者三友</span><br><span class="line">  + 友便辟</span><br><span class="line">  + 友善柔</span><br><span class="line">  + 友便佞</span><br><span class="line">     + 損矣</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<ul>
+<li>益者三友<ul>
+<li>友直</li>
+<li>友諒</li>
+<li>友多聞<ul>
+<li>益矣</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>損者三友<ul>
+<li>友便辟</li>
+<li>友善柔</li>
+<li>友便佞<ul>
+<li>損矣</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="代辦事項"><a href="#代辦事項" class="headerlink" title="代辦事項"></a><font color=#FF6600>代辦事項</font></h2><p>代辦事項的語法如下，若要在框框中打勾，則需在 [ ] 中輸入 <code>x</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- [ ] 空心菜</span><br><span class="line">- [x] 玉米</span><br><span class="line">- [x] 醬油</span><br><span class="line">- [ ] 豬肉</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 空心菜</li>
+<li><input checked="" disabled="" type="checkbox"> 玉米</li>
+<li><input checked="" disabled="" type="checkbox"> 醬油</li>
+<li><input disabled="" type="checkbox"> 豬肉</li>
+</ul>
+<h2 id="引用區塊"><a href="#引用區塊" class="headerlink" title="引用區塊"></a><font color=#FF6600>引用區塊</font></h2><p>使用 <code>&gt;</code> 放在整列的開頭當作引用區塊，<font color=#800000>且 <code>&gt;</code> 和文字間<strong>要空一格</strong></font>，語法範例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 人遠比自己想象的要堅強</span><br><span class="line">&gt; 特別是當你回頭看看的時候</span><br><span class="line">&gt; 你會發現自己走了一段自己都沒想到的路</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<blockquote>
+<p>人遠比自己想象的要堅強<br>特別是當你回頭看看的時候<br>你會發現自己走了一段自己都沒想到的路</p>
+</blockquote>
+<p>而”引用”也支援「階層式」顯示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 人生就像一杯茶</span><br><span class="line">&gt; &gt; 不會苦一輩子</span><br><span class="line">&gt; &gt; &gt; 但總會苦一陣子</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<blockquote>
+<p>人生就像一杯茶</p>
+<blockquote>
+<p>不會苦一輩子</p>
+<blockquote>
+<p>但總會苦一陣子</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="文字超連結"><a href="#文字超連結" class="headerlink" title="文字超連結"></a><font color=#FF6600>文字超連結</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[奇摩首頁](https:&#x2F;&#x2F;tw.yahoo.com&#x2F;)</span><br><span class="line">[Google首頁](https:&#x2F;&#x2F;www.google.com&#x2F;)</span><br><span class="line">[Facebook](https:&#x2F;&#x2F;www.facebook.com&#x2F;)</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<p><a href="https://tw.yahoo.com/" target="_blank" rel="noopener">奇摩首頁</a><br><a href="https://www.google.com/" target="_blank" rel="noopener">Google首頁</a><br><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></p>
+<h2 id="圖片"><a href="#圖片" class="headerlink" title="圖片"></a><font color=#FF6600>圖片</font></h2><p>圖片的語法和文字超連結很像，只是在語法開頭再加上 <code>!</code>，<font color=#800000>中括弧內指的是圖片的”替代文字”</font>(當圖片連結失效後會顯示的文字，如下面的 FB Logo)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![奇摩首頁Logo](https:&#x2F;&#x2F;s1.yimg.com&#x2F;rz&#x2F;d&#x2F;yahoo_frontpage_zh-Hant-TW_s_f_p_bestfit_frontpage_2x.png)</span><br><span class="line">![Google首頁Logo](https:&#x2F;&#x2F;www.google.com&#x2F;images&#x2F;branding&#x2F;googlelogo&#x2F;1x&#x2F;googlelogo_color_272x92dp.png)</span><br><span class="line">![FB Logo](123.png)</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<p><img src="https://s1.yimg.com/rz/d/yahoo_frontpage_zh-Hant-TW_s_f_p_bestfit_frontpage_2x.png" alt="奇摩首頁Logo"><br><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google首頁Logo"><br><img src="123.png" alt="FB Logo"></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a><font color=#FF6600>表格</font></h2><p>表格的基本語法如下，第一列是表格的標題列，然後第二列固定要是以 <code>---</code> 做區隔，加欄位都是使用 <code>|</code> 來添加。注意<font color=#800000>表格的每欄寬度會<strong>自動分配</strong>，所以可以忽略一切的空格</font>(也就是<font color=#800000>每列的 <code>|</code> <strong>沒有對齊也沒關係</strong>，且加多少空格也不會影響每欄的寬度</font>)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Column 1 | Column 2 | Column 3 |</span><br><span class="line">| -------- | -------- | -------- |</span><br><span class="line">| Text1 | Text2 | Text3 |</span><br><span class="line">| Text4    | Text5    | Text6    |</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<table>
+<thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Text1</td>
+<td>Text2</td>
+<td>Text3</td>
+</tr>
+<tr>
+<td>Text4</td>
+<td>Text5</td>
+<td>Text6</td>
+</tr>
+</tbody></table>
+<p>而每欄可以決定要<font color=#800000>如何對齊</font>，對齊方式取決於第二列的 <code>---</code>，再加上 <code>:</code> 符號：</p>
+<ul>
+<li><code>:---</code> 靠左對齊。</li>
+<li><code>---:</code> 靠右對齊。</li>
+<li><code>:---:</code> 置中對齊。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 預設對齊 | 靠左對齊 | 靠右對齊 | 置中對齊 |</span><br><span class="line">| ----- | :----- | -----: | :-----: |</span><br><span class="line">| Text1 | Text2 | Text3 | Text4 |</span><br><span class="line">| Text5 | Text6 | Text7 | Text8 |</span><br><span class="line">| Text9 | Text10 | Text11 | Text12 |</span><br></pre></td></tr></table></figure>
+
+<p>其結果顯示如下：</p>
+<table>
+<thead>
+<tr>
+<th>預設對齊</th>
+<th align="left">靠左對齊</th>
+<th align="right">靠右對齊</th>
+<th align="center">置中對齊</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Text1</td>
+<td align="left">Text2</td>
+<td align="right">Text3</td>
+<td align="center">Text4</td>
+</tr>
+<tr>
+<td>Text5</td>
+<td align="left">Text6</td>
+<td align="right">Text7</td>
+<td align="center">Text8</td>
+</tr>
+<tr>
+<td>Text9</td>
+<td align="left">Text10</td>
+<td align="right">Text11</td>
+<td align="center">Text12</td>
+</tr>
+</tbody></table>
+<h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a><font color=#0000FF>注意事項</font></h1><ul>
+<li><p>某些語法的外觀樣式如：引用、分隔線、項目符號等，會因為<font color=#800000>使用者套用的 Hexo 主題而有不同。</font></p>
+</li>
+<li><p>圖片可以放在 Hexo 資料夾一併上傳到 GitHub，例如圖片 123.jpg 放到 <strong>myblog/source/images</strong> 路徑下，然後圖片語法連結的地方輸入 <strong>/images/123.jpg</strong> ，就會顯示該圖片。<br>不過<font color=#FF0000>這種方法<strong>筆者不建議</strong></font>(也就是<font color=#800000>不建議把 GitHub 當作圖床用</font>)，因為當文章一多，會有機會達到 GitHub Pages 的使用限制；因此可以<font color=#800000>搜尋各大免費圖床來使用，如 <a href="https://imgur.com/" target="_blank" rel="noopener">Imgur</a>, <a href="https://upload.cc/" target="_blank" rel="noopener">Upload.cc</a> 等</font>。</p>
+</li>
+<li><p><strong><font color=#800000>HTML 語法盡量包在 Markdown 語法裡面</font></strong>，否則可能會造成一些顯示上的錯誤，舉例如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">語法撰寫範例一：將「今天天氣真好。」顯示粗體並更改為紅色</span><br><span class="line">**&lt;font color&#x3D;#FF0000&gt;今天天氣真好。&lt;&#x2F;font&gt;**</span><br><span class="line"></span><br><span class="line">語法撰寫範例二：將「Title」設定成等級一標題並更改為藍色</span><br><span class="line"># &lt;font color&#x3D;#0000FF&gt;Title&lt;&#x2F;font&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>呈上，因為 HTML 語法和 Markdown 語法交錯使用，在 hexo-admin 文章後台的編輯區和預覽區可能會有顯示問題，<font color=#800000>請先 publish 後，以** localhost 的文章頁面顯示為準**。</font></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexoblog/" rel="tag"># Hexo部落格</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/HP-Smart-Tank-515/" rel="prev" title="[開箱] HP Smart Tank 515 無線三合一印表機，工作時的最佳利器，隨時隨地想印就印！">
+      <i class="fa fa-chevron-left"></i> [開箱] HP Smart Tank 515 無線三合一印表機，工作時的最佳利器，隨時隨地想印就印！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/08/hexo-admin/" rel="next" title="[教學] 我的第一篇 Hexo 文章：使用 hexo-admin 後台管理工具">
+      [教學] 我的第一篇 Hexo 文章：使用 hexo-admin 後台管理工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用語法-文字樣式"><span class="nav-number">1.</span> <span class="nav-text">常用語法 - 文字樣式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字字體"><span class="nav-number">1.1.</span> <span class="nav-text">文字字體</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字顏色"><span class="nav-number">1.2.</span> <span class="nav-text">文字顏色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#標題"><span class="nav-number">1.3.</span> <span class="nav-text">標題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程式碼"><span class="nav-number">1.4.</span> <span class="nav-text">程式碼</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用語法-其它"><span class="nav-number">2.</span> <span class="nav-text">常用語法 - 其它</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分隔線"><span class="nav-number">2.1.</span> <span class="nav-text">分隔線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#項目符號-編號"><span class="nav-number">2.2.</span> <span class="nav-text">項目符號&#x2F;編號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代辦事項"><span class="nav-number">2.3.</span> <span class="nav-text">代辦事項</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用區塊"><span class="nav-number">2.4.</span> <span class="nav-text">引用區塊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字超連結"><span class="nav-number">2.5.</span> <span class="nav-text">文字超連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圖片"><span class="nav-number">2.6.</span> <span class="nav-text">圖片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">2.7.</span> <span class="nav-text">表格</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事項"><span class="nav-number">3.</span> <span class="nav-text">注意事項</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '31227574ee07bd1df5f3225a710f488d',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

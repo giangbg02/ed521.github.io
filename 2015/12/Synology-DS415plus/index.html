@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Synology在2015年十月中的時候推出了全新的DSM 6.0 beta版，除了部分套件介面有全新的設計，更增加許多新功能。在使用的過程中，NAS的功能可以做的這麼強大，頻頻令筆者驚呼連連呀!!!在Synology DSM 6.0 Beta全新作業系統中做了不少大改革，這邊舉出幾個更新重點：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] 大躍進！Synology DS415+ 嶄新作業系統，全面激發NAS的潛能">
+<meta property="og:url" content="https://ed521.github.io/2015/12/Synology-DS415plus/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="Synology在2015年十月中的時候推出了全新的DSM 6.0 beta版，除了部分套件介面有全新的設計，更增加許多新功能。在使用的過程中，NAS的功能可以做的這麼強大，頻頻令筆者驚呼連連呀!!!在Synology DSM 6.0 Beta全新作業系統中做了不少大改革，這邊舉出幾個更新重點：">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://farm1.staticflickr.com/595/23175882793_6fa398fccc_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5687/23967356451_22a462bb4a_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5820/24023825846_468f5aeb42_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/692/23721395812_7ef7b3cfbc_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/595/23747299421_ef015ce493_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5722/23829789565_6c7f21d852_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/723/23534100670_ece3c4f1cd_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/629/23202985493_ed19e2a4a4_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/603/23721395832_de3037fc05_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5668/23721395162_b0c6e860aa_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5777/23202984943_d98992091b_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/679/23803684386_6c2f2d1c19_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5734/23829789375_3b57cfe6a8_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5718/23747299761_e3692ee213_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5820/23534100550_e614d4252e_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/761/23829788725_11f92ab3fd_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/781/23233364034_fae7ab5926_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5814/23201654694_79c7d1469f_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5716/23202985243_e369b5b924_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5725/23829789045_e17aef7ef2_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/654/23202984723_fe6b1abc73_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/764/23753162072_676d04d77f_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5713/23835418126_0dc07eb0e9_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/737/23753652582_5c8114c9b9_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/650/23779517241_78a0f5aa5b_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5804/23862231355_e5f5b7190f_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5775/23779718211_6430578d49_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5779/23862230805_ac5a58fa19_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/635/23234984524_b5fd7e5339_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5775/23780658361_8c7b312d1e_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/637/23780658371_ec827bf87a_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5803/23754927022_773c69cbbd_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/768/23495369299_9ece54b5b6_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5822/23863300335_245660506b_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/753/23235129494_c663e7a633_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5717/23567574200_ecda0b060f_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/710/23780800671_ea7f60dde5_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5658/23499534869_37d20613e5_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/701/23499534799_7f19db7e72_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5644/24049926425_00c52c59fa_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5668/23611538240_aa51349722_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5688/23798936092_738bb6e64e_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/589/23611538120_b0707a9d90_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/642/23539379419_3153010160_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/670/23824759541_c246e839b1_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/625/23907233505_fed72d9976_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5636/23279039644_68fdc79741_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5701/23881136776_773b8c0fae_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/598/23279039454_2580d2d950_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/695/23539379159_0ef5fd4d14_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/653/23279039244_9096bc7e4f_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5738/23835301032_f8a8cee9c5_o.gif">
+<meta property="og:image" content="https://farm6.staticflickr.com/5694/23881136806_2a1126f69d_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/647/23280470143_04d12d914b_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5775/23611537870_3462a959e5_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/621/23881136256_05b1fc5198_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5687/23882788356_65bf49e9ab_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5800/23800580422_2499fc3101_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1443/24023825966_6a76456fdb_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/780/23909694655_f3d58ee705_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/694/23883612936_5ac8470139_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/583/23282926923_d703967ddf_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/685/23827220091_32a79c51b0_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/728/23281501124_137446e9e6_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/743/23883612586_9635e21b83_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5810/23614008670_32a79c51b0_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5753/23909694445_d078056278_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5691/23614008490_524abcce29_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/686/23614008610_ebdbdf1cc7_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5701/23883612476_e2d437051f_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/648/23281500884_94c913a37d_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5687/23542234689_5f667b4681_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/771/23281896154_8c197a47fd_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5759/23542234439_e55e62cb35_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1644/24049926605_cbde8d1620_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5778/23300615773_6f02ff02d2_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5776/23927383015_4f00a6c94f_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1463/23559536959_429d2160c3_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5684/23819103202_d0bf510510_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5741/23631724650_724d1713b5_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1663/23819103512_e986e35e54_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5681/23927382825_cf074fea8e_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1668/24026606275_53f30e7f7a_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1619/23918402552_90724ec64c_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1711/23730945850_64043db8ce_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1478/23423136513_8b272cf3fd_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5795/23315151394_9d6b97aee3_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1488/23835125042_85ecdb3799_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5737/23835125002_bba9e67918_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5769/23860890341_c79c87ef9e_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1542/23860890521_b9972b914b_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5660/23917307356_893a607680_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5771/23575520569_4c7959e99f_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5824/23647731580_f6b254624e_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5633/23860890351_97343607c5_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5823/23943365615_fc3ebb316f_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1562/23423136923_4e5812716c_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1537/23397604743_352aec78e2_o.gif">
+<meta property="og:image" content="https://farm6.staticflickr.com/5802/23396165704_5ab222ff2e_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1551/24024382825_39f3cd790f_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5760/23656521649_c9f4ec49ee_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1584/23916158362_7dd4859f79_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1457/23941826121_46f9eec1ee_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5724/23397604713_a18fc6aa50_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1584/23728720100_3e724424c9_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1528/23656521469_9c1cbcffff_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5810/23941763072_c848445d21_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5817/24024682755_645e165348_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1707/23916465322_30e7b588e1_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1675/23397908983_9e34f8c3f7_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1701/24024682715_04dcfefcb9_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5834/23729021150_31bbe2eef4_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1583/23942132131_37b1dbae94_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1542/23942132021_37038a2592_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5763/23916464692_3925d6a3ce_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5791/23731448610_bb7e30eaac_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1535/23918902782_9d004755d3_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5766/23398824013_def9e82b0d_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1587/23943046001_6d13175a3e_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5625/23999500796_99687d8390_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5816/23999501146_7012577aeb_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1444/23943045841_8415edc2c5_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5622/23657887269_ea229efb15_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1669/23657887249_f1e3929bf9_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1473/23657887469_68e2e00c26_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1528/23943183431_86dfb770bf_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1715/23397517214_0da2017aec_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1530/23730073190_0633a159f4_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1589/23423136713_6bc0f93cc6_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1597/23399582084_59c3ec0239_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5687/23659962259_b157df430c_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1594/23732143640_3537906e99_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1711/23659962069_359edc156e_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5794/23919594562_fb38707665_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1693/23401038083_4a45fe2722_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5779/23945263161_15fc3420ac_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1459/23732143490_5d41dbf444_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1503/23941763082_5dd6cd28eb_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5818/23961739421_62bc185954_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1696/23676441869_ec9459cfbe_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5682/23417504333_861b77d9d8_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5732/24018234126_f9408c2c54_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5772/23676488399_aa4c7c2b6e_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5752/23676488439_b62d5c0ccd_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1584/23676488219_624dbfc836_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1674/24044320355_60158b404f_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1684/23748651410_20939d3ef0_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5701/23961787301_57f2b02fe7_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1680/23749227380_b04f20955c_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1453/23416683804_585aafc47a_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1503/23936745902_6fe01438a8_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1592/23962360351_72730e7e02_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5754/23936745672_aeaf5bcb14_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5733/23936745632_6b3ba5c518_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1590/23962831131_fed094b78d_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1458/23418595993_28851fce74_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5720/23749694760_cf4796bf52_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5719/23977537341_e5f2daef18_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5716/23423136763_bdd0635ca7_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1498/23662517450_b7e2cfe91a_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5747/23590310779_46a0298f14_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5734/23932092166_a146218550_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5664/23932092346_dfba1eccc0_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5711/23331388463_0e834a2bdf_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1563/23590309949_cdb3499f72_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5836/23849911062_d2b587780b_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1584/24019778926_069d816257_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1708/23417648994_622b71a385_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1642/23419094263_acf2f3028b_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1470/23678027789_bffc1983bd_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5803/23875747391_8d20d389c4_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1565/23932177316_9a3e190e02_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/23331477253_a9e20dc6de_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5778/23590399299_839bae1696_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5826/23958268925_61be0e992f_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5714/23875747231_1e61d2c90a_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1572/23958268495_fee1d08c63_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1662/23417783774_e2f26202f1_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5771/23419227963_231a712cbb_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1670/23963462551_6d099f9fea_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1511/23750327830_32ab44e7c0_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1548/24019913616_fb52dd4eda_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5795/23662719910_7f13b4567a_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5824/23330143424_5cdbe77cf0_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1662/23958380995_5ed5ca5ac8_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5786/23330143234_6799e764f9_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5790/23958380865_fd4e02629b_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1531/23875858361_6a21238be0_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1659/23330142674_8fcbb7dee5_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1688/23590512929_b5b66406d3_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1663/23330142904_f21b9797a4_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1627/23958380615_1fcfc3c6ac_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5767/24046550305_f88a88977b_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1508/23418323984_0dde1dabc8_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1683/23418324114_8ff1eff0f8_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1674/23938391922_a305b6f265_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5669/23750865760_bf7bd6dc85_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5711/24047203805_03f2947731_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5691/23420420713_b20e6471c6_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1552/23751514390_20d16757d1_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1590/23939039502_746b12d2bb_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1606/23418974494_98b93ed788_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1683/23421706444_c26f7c97fb_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5661/23422837063_02dbb98599_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1572/23967054551_10f0649ebd_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5643/23941464372_206578b9dc_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5788/23967056061_86a1026bec_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1527/23681779989_e332db360a_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1671/24049622115_0f6e3307d5_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1583/23421403064_5aeb5f1b3a_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5670/24023521276_1e8cc3bd0e_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1652/23681778049_082e79d699_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1602/24023521206_96b689d897_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5718/23967055481_501403e20b_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1711/24023520806_e458f49eb6_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1716/23422834953_fb9fa65ac8_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5791/23422834803_0d732ce2bc_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1713/23421401824_8e54550e4d_o.png">
+<meta property="og:image" content="https://farm2.staticflickr.com/1525/23421402264_2826f44bcd_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5662/24023520496_325d9a8708_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1573/23421402094_3618de28ab_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1606/23421402054_0e20702d96_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1569/23753934420_d0dd78821f_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1630/23681778539_6f87069d82_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1686/23753934970_df4b651de3_o.jpg">
+<meta property="og:image" content="https://farm2.staticflickr.com/1503/23421400904_2d44aaa104_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5726/23423136543_945fee3ed3_o.png">
+<meta property="article:published_time" content="2015-12-30T06:20:00.000Z">
+<meta property="article:modified_time" content="2019-07-17T18:50:36.292Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" 安裝">
+<meta property="article:tag" content=" 設定">
+<meta property="article:tag" content=" DDNS">
+<meta property="article:tag" content=" QuickConnect">
+<meta property="article:tag" content=" 檔案">
+<meta property="article:tag" content=" 資料">
+<meta property="article:tag" content=" 家目錄">
+<meta property="article:tag" content=" 共享資料夾">
+<meta property="article:tag" content=" File Station">
+<meta property="article:tag" content=" 分享">
+<meta property="article:tag" content=" 文字編輯">
+<meta property="article:tag" content=" 文件檢視">
+<meta property="article:tag" content=" Note Station">
+<meta property="article:tag" content=" 筆記">
+<meta property="article:tag" content=" Download Station">
+<meta property="article:tag" content=" 音樂">
+<meta property="article:tag" content=" 相簿">
+<meta property="article:tag" content=" 影片">
+<meta property="article:tag" content=" Photo Station">
+<meta property="article:tag" content=" Video Station">
+<meta property="article:tag" content=" 數位電視">
+<meta property="article:tag" content=" 快照">
+<meta property="article:tag" content=" 同步">
+<meta property="article:tag" content=" 備份">
+<meta property="article:tag" content=" WordPress">
+<meta property="article:tag" content=" 架站">
+<meta property="article:tag" content=" Discuz">
+<meta property="article:tag" content=" VPN">
+<meta property="article:tag" content=" MailPlus">
+<meta property="article:tag" content=" 郵件">
+<meta property="article:tag" content=" 監控">
+<meta property="article:tag" content=" btrfs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://farm1.staticflickr.com/595/23175882793_6fa398fccc_o.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2015/12/Synology-DS415plus/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] 大躍進！Synology DS415+ 嶄新作業系統，全面激發NAS的潛能 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2015/12/Synology-DS415plus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] 大躍進！Synology DS415+ 嶄新作業系統，全面激發NAS的潛能
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2015-12-30 14:20:00" itemprop="dateCreated datePublished" datetime="2015-12-30T14:20:00+08:00">2015-12-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2015/12/Synology-DS415plus/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] 大躍進！Synology DS415+ 嶄新作業系統，全面激發NAS的潛能" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>13k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://farm1.staticflickr.com/595/23175882793_6fa398fccc_o.jpg" alt="" />
+
+<p>Synology在2015年十月中的時候推出了全新的<span style="color: #0000ff;">DSM 6.0 beta</span>版，除了部分套件介面有全新的設計，更增加許多新功能。在使用的過程中，NAS的功能可以做的這麼強大，頻頻令筆者驚呼連連呀!!!在Synology DSM 6.0 Beta全新作業系統中做了不少大改革，這邊舉出幾個更新重點：</p>
+<a id="more"></a>
+
+<p><strong><span style="color: #800000;">1. 檔案搜尋/管理/分享方面</span></strong><br><strong><span style="color: #800000;"> 2. 高效率的檔案同步和備份</span></strong><br><strong><span style="color: #800000;"> 3. 生產力工具(如SpreadSheet, NoteStation, 文字編輯器等)</span></strong></p>
+<p>以下除了DSM 6.0 beta新功能，也會提及之前版本一些實用的功能，透過馬拉松式的介紹，讓大家知道DSM 6.0有多麼厲害！</p>
+<img src="https://farm6.staticflickr.com/5687/23967356451_22a462bb4a_o.png" alt="內容大綱" />
+
+<p><a href="#a">–產品開箱–</a><br><a href="#b">–初次設定–</a><br><a href="#c">–btrfs檔案系統、快照、檔案壓縮–</a><br><a href="#d">–文件搜尋–</a><br><a href="#e">–檔案請求/分享–</a><br><a href="#f">–文字編輯/文件檢視–</a><br><a href="#g">–筆記 &amp; 試算表協同–</a><br><a href="#h">–郵件–</a><br><a href="#i">–備份–</a><br><a href="#j">–影音娛樂中心–</a><br><a href="#k">–生活應用–</a><br><a href="#l">–總結與心得–</a></p>
+<p><a id="a" name="a"></a><br><img src="https://farm6.staticflickr.com/5820/24023825846_468f5aeb42_o.png" alt="產品開箱" /></p>
+<p>本次要開箱的產品就是Synology DS415+，由於箱子是使用普通土黃色的厚紙板紙箱，給人一種<span style="color: #800000;">簡約、環保的感覺</span>。</p>
+<img src="https://farm1.staticflickr.com/692/23721395812_7ef7b3cfbc_o.jpg" alt="" />
+
+<p>箱子正上方以黑底白字寫出DS415+的型號，旁邊還註明了本產品為”Plus Series”。</p>
+<img src="https://farm1.staticflickr.com/595/23747299421_ef015ce493_o.jpg" alt="" />
+
+<p>下方的貼紙寫出了DS415+的四大特色：四核心、硬體加密引擎(確保資料安全性)、2個網路孔(擁有通道聚合技術，可使傳輸具有負載平衡)、SSD 讀取/寫入快取。</p>
+<img src="https://farm6.staticflickr.com/5722/23829789565_6c7f21d852_o.jpg" alt="" />
+
+<p>箱子側面左下角印出群暉科技的廠牌Synology，以及其官方網址：<a href="http://www.synology.com/" target="_blank" rel="noopener">http://www.synology.com/</a>。</p>
+<img src="https://farm1.staticflickr.com/723/23534100670_ece3c4f1cd_o.jpg" alt="" />
+
+<p>另一面的貼紙則是詳細的標示了DS415+的產品外觀及其功能，還有硬體基本規格和產品內容物。</p>
+<img src="https://farm1.staticflickr.com/629/23202985493_ed19e2a4a4_o.jpg" alt="" />
+
+<p>而DS415+在系統方面，擁有以下幾個特色：行動裝置的管理、監控、備份、資料安全性，不過個人認為還可以將Entertainment(娛樂)加進去拉XDD</p>
+<img src="https://farm1.staticflickr.com/603/23721395832_de3037fc05_o.jpg" alt="" />
+
+<p>打開箱子上蓋，首先看到的是電源線以及產品配件盒，NAS主體則是放在下面。</p>
+<img src="https://farm6.staticflickr.com/5668/23721395162_b0c6e860aa_o.jpg" alt="" />
+
+<p>保護NAS的上蓋使用的是厚紙板，而產品主體則是用薄博的泡綿紙做包覆。不過為了不讓NAS在運送過程中容易搖晃，機器下方還是有墊一層厚厚的泡棉。</p>
+<img src="https://farm6.staticflickr.com/5777/23202984943_d98992091b_o.jpg" alt="" />
+
+<p>下圖為DS415+的產品內容物，有產品主體一台、變壓器和電源線一組、網路線兩條、螺絲一袋，以及快速安裝指南一張。</p>
+<img src="https://farm1.staticflickr.com/679/23803684386_6c2f2d1c19_o.jpg" alt="" />
+
+<p>電源供應器的供應商是翌勝電子，型號為EA11011D-120，輸出是12V—8.33A。</p>
+<img src="https://farm6.staticflickr.com/5734/23829789375_3b57cfe6a8_o.jpg" alt="" />
+
+<p>螺絲一共有18顆，還多提供了兩顆的備料。但本產品的托盤設計，3.5吋硬碟其實是”免螺絲”就可以固定在硬碟托盤上的，所以螺絲絕對是夠用的。</p>
+<img src="https://farm6.staticflickr.com/5718/23747299761_e3692ee213_o.jpg" alt="" />
+
+<p>網路線為Cat.5e的線材規格，長度約1.5公尺。</p>
+<img src="https://farm6.staticflickr.com/5820/23534100550_e614d4252e_o.jpg" alt="" />
+
+<p>接下來看到產品主體，正面的外蓋由於是亮面塑膠材質，看起來就像是一面鏡子一樣！而旁邊上面第一個是狀態燈，下面四個則是第1~4硬碟盒的狀態燈，若有硬碟插入就會亮燈。</p>
+<img src="https://farm1.staticflickr.com/761/23829788725_11f92ab3fd_o.jpg" alt="" />
+
+<p>NAS正面左下角寫出了本產品型號為DS415+。</p>
+<img src="https://farm1.staticflickr.com/781/23233364034_fae7ab5926_o.jpg" alt="" />
+
+<p>DS415+的側面兩邊都是印著大大的Synology商標，且此商標有做洞洞線條的通風散熱設計。</p>
+<img src="https://farm6.staticflickr.com/5814/23201654694_79c7d1469f_o.jpg" alt="" />
+
+<img src="https://farm6.staticflickr.com/5716/23202985243_e369b5b924_o.jpg" alt="" />
+
+<p>NAS的背面就是兩個大風扇，以利硬碟溫度過高時可以直接散熱。</p>
+<img src="https://farm6.staticflickr.com/5725/23829789045_e17aef7ef2_o.jpg" alt="" />
+
+<p>DS415+的連接埠比較簡單，只有一些常用的。一共有網路孔x2、eSATA埠x1、USB3.0連接埠x2、肯辛頓鎖孔x1和電源供應器接口x1。</p>
+<img src="https://farm1.staticflickr.com/654/23202984723_fe6b1abc73_o.jpg" alt="" />
+
+<p>風扇的外保護殼是可以拆下來做清潔的，以防灰塵卡太多影響排風。</p>
+<img src="https://farm1.staticflickr.com/764/23753162072_676d04d77f_o.jpg" alt="" />
+
+<p>雖然風扇無法拆卸，但也可透過棉花棒或小刷子清潔灰塵。</p>
+<img src="https://farm6.staticflickr.com/5713/23835418126_0dc07eb0e9_o.jpg" alt="" />
+
+<p>在機器的底部也有通風的洞洞。</p>
+<img src="https://farm1.staticflickr.com/737/23753652582_5c8114c9b9_o.jpg" alt="" />
+
+<p>NAS正面的鏡面塑膠外殼其實只要輕輕一扳就拆下了，而內部就是四個抽取式的硬碟托盤，且左下角也有寫出DS415+的型號。</p>
+<img src="https://farm1.staticflickr.com/650/23779517241_78a0f5aa5b_o.jpg" alt="" />
+
+<p>要取出硬碟抽取盒非常簡單，先壓著上方有寫著”PUSH”的地方，接著就可以將抽取盒拉出來了。</p>
+<img src="https://farm6.staticflickr.com/5804/23862231355_e5f5b7190f_o.jpg" alt="" />
+
+<p>在”PUSH”旁邊有以白色小圓點顯示硬碟的插入順序。</p>
+<img src="https://farm6.staticflickr.com/5775/23779718211_6430578d49_o.jpg" alt="" />
+
+<p>整台NAS的內部主要只有容納硬碟的空間，並且直對兩個風扇排風，使硬碟擁有較好的散熱效果！</p>
+<img src="https://farm6.staticflickr.com/5779/23862230805_ac5a58fa19_o.jpg" alt="" />
+
+<p>本次活動要試用的硬碟就是這顆HGST Deskstar 6TB NAS專用碟。</p>
+<img src="https://farm1.staticflickr.com/635/23234984524_b5fd7e5339_o.jpg" alt="" />
+
+<p>HGST Deskstar 6TB NAS專用碟擁有<span style="color: #800000;">7,200RPM高轉速</span>、<span style="color: #800000;">1M MTBF(平均無故障運行小時，比起一般桌上型硬碟的80萬小時MTBF高出許多)</span>，以及<span style="color: #800000;">旋轉震動傳感器(能夠感應硬碟震動，並加以修正磁頭讀寫功能，從而保持讀寫效率)</span>。</p>
+<img src="https://farm6.staticflickr.com/5775/23780658361_8c7b312d1e_o.jpg" alt="" />
+
+<p>HGST Deskstar 6TB NAS專用碟使用的是SATA3介面，傳輸速率高達6Gbit/s。</p>
+<img src="https://farm1.staticflickr.com/637/23780658371_ec827bf87a_o.jpg" alt="" />
+
+<p>硬碟托盤由於不是金屬材質，因此非常輕；把手的地方有Synology的廠牌字樣。</p>
+<img src="https://farm6.staticflickr.com/5803/23754927022_773c69cbbd_o.jpg" alt="" />
+
+<p>硬碟托盤支援2.5吋和3.5吋的硬碟；底部四個螺絲孔是給2.5吋硬碟使用的。</p>
+<img src="https://farm1.staticflickr.com/768/23495369299_9ece54b5b6_o.jpg" alt="" />
+
+<p>若是要安裝3.5吋硬碟，連螺絲都免了！只需將硬碟托盤側面的邊條拆下，裝上3.5吋硬碟後，再將邊條插回去即可。</p>
+<img src="https://farm6.staticflickr.com/5822/23863300335_245660506b_o.jpg" alt="" />
+
+<p>插入硬碟螺絲孔的旁邊還有橡膠，以及下方的止滑墊，提供硬碟防震和減少晃動的機會。</p>
+<img src="https://farm1.staticflickr.com/753/23235129494_c663e7a633_o.jpg" alt="" />
+
+<p>放置3.5吋硬碟前須先將兩邊條拆下，且硬碟有貼貼紙的那一面朝上，放入托盤中。</p>
+<img src="https://farm6.staticflickr.com/5717/23567574200_ecda0b060f_o.jpg" alt="" />
+
+<p>最後再將邊條插回硬碟托盤即可。</p>
+<img src="https://farm1.staticflickr.com/710/23780800671_ea7f60dde5_o.jpg" alt="" />
+
+<p>由於只有一顆硬碟，因此把有硬碟的那個托盤放入最左邊的硬碟槽。</p>
+<img src="https://farm6.staticflickr.com/5658/23499534869_37d20613e5_o.jpg" alt="" />
+
+<p>接著把網路線和電源線接好並且開機，電源鍵會亮藍燈，而運作中的硬碟會亮綠燈；如果NAS正在運作會亮綠燈，待設定或是休眠中則會亮橘燈。</p>
+<img src="https://farm1.staticflickr.com/701/23499534799_7f19db7e72_o.jpg" alt="" />
+
+<p><a id="b" name="b"></a><br><img src="https://farm6.staticflickr.com/5644/24049926425_00c52c59fa_o.png" alt="初次設定" /></p>
+<p>將DS415+和電腦連接至同一個區域網路下，此時開啟瀏覽器輸入<a href="http://find.synology.com" target="_blank" rel="noopener">http://find.synology.com</a>，即可打開NAS的設定畫面。</p>
+<img src="https://farm6.staticflickr.com/5668/23611538240_aa51349722_o.png" alt="" />
+
+<p>安裝DSM(DiskStation Manager)之前，須先將硬碟上所有資料做刪除。</p>
+<img src="https://farm6.staticflickr.com/5688/23798936092_738bb6e64e_o.png" alt="" />
+
+<p>安裝完成後，須要輸入系統名稱，系統管理員帳號和密碼。</p>
+<img src="https://farm1.staticflickr.com/589/23611538120_b0707a9d90_o.png" alt="" />
+
+<p>DSM的更新設定，建議選擇”自動安裝最新版本”。</p>
+<img src="https://farm1.staticflickr.com/642/23539379419_3153010160_o.png" alt="" />
+
+<p>下面QuickConnect的設定十分重要，因為它可以幫助你直接透過外網來存取NAS，而不用做其他的設定；連線方式為NAS–&gt;Synology–&gt;User(外網)。不過個人建議還是用DDNS直連會比較快，因此後面會介紹如何使用DDNS來做連線(須設定路由器的port)。</p>
+<img src="https://farm1.staticflickr.com/670/23824759541_c246e839b1_o.png" alt="" />
+
+<p>設定好QuickConnect ID後(這裡的範例ID為qk415)，我們就可以使用<a href="http://QuickkConnect.to/qk415" target="_blank" rel="noopener">http://QuickkConnect.to/qk415</a>來登入DSM了唷！</p>
+<img src="https://farm1.staticflickr.com/625/23907233505_fed72d9976_o.png" alt="" />
+
+<p>進入DSM的畫面，有沒有覺得畫面很豐富呀XD!!而每次登入會顯示”DSM說明”(可以取消勾選)，其實Synology要告訴你的就是有任何疑問可以先到”DSM說明”找找，裡頭一定有相關教學介紹的！</p>
+<img src="https://farm6.staticflickr.com/5636/23279039644_68fdc79741_o.png" alt="" />
+
+<p>事不宜遲，本次的試用重點就是DSM 6.0 Beta，其他的設定就等等再說吧QQ (<a href="https://www.synology.com/zh-tw/dsm/6.0beta/ReleaseNote" target="_blank" rel="noopener">DSM 6.0 Beta 計畫版本資訊</a>)</p>
+<img src="https://farm6.staticflickr.com/5701/23881136776_773b8c0fae_o.png" alt="" />
+
+<p>頁面向下滑，選擇好NAS的機型就可以進行DSM 6.0 Beta 的下載。</p>
+<img src="https://farm1.staticflickr.com/598/23279039454_2580d2d950_o.png" alt="" />
+
+<p>下載好後，於<span style="color: #003300;">控制台</span> → <span style="color: #333300;">更新&amp;還原</span> 就可以手動上傳更新DSM(注意升級後可是不能降級的喔！)。</p>
+<img src="https://farm1.staticflickr.com/695/23539379159_0ef5fd4d14_o.png" alt="" />
+
+<p>新的DSM 6.0 Beta 在介面上沒做太大的改變，不過下方有一個”<span style="color: #333300;">Report Bugs</span>“，讓有發現問題或疑問的使用者在第一時間可以做詢問和反應。</p>
+<img src="https://farm1.staticflickr.com/653/23279039244_9096bc7e4f_o.png" alt="" />
+
+<p>在控制台的部分，有分<span style="color: #333300;">基本模式</span>和<span style="color: #333300;">進階模式</span>兩種，可以用右上角的按鈕做切換。</p>
+<img src="https://farm6.staticflickr.com/5738/23835301032_f8a8cee9c5_o.gif" alt="" />
+
+<p>不過任何一個功能點進去後，其實左側的功能表都是一樣的。下圖為QuickConnect ID的設定畫面，如果要改ID的，這邊還可以隨時更改。</p>
+<img src="https://farm6.staticflickr.com/5694/23881136806_2a1126f69d_o.png" alt="" />
+
+<p>而在此筆者建議用DDNS直連NAS，首先必須先到DDNS的服務供應商申請一個帳號(如：NO-IP,當然Synology也有提供它自己的ddns)，並設定好host；在這邊只要輸入IP和帳密即可，如果家裡是動態IP，Synology會自動同步IP至DDNS。</p>
+<img src="https://farm1.staticflickr.com/647/23280470143_04d12d914b_o.png" alt="" />
+
+<p>接著就是設定路由器的port(此以ASUS RT-AC51U做示範)，請到外部存取 → 路由器設置 → 設定路由器，先讓NAS為家中的路由器做初步設定；再選擇”新增”，將可能用到應用程式的port加入(如80、443、5000、21等)，詳細應用程式會用到的port可以參考此這個網站：<a href="https://www.synology.com/zh-tw/knowledgebase/faq/299" target="_blank" rel="noopener">https://www.synology.com/zh-tw/knowledgebase/faq/299</a>。</p>
+<img src="https://farm6.staticflickr.com/5775/23611537870_3462a959e5_o.png" alt="" />
+
+<p>設定完成後，未來若使用者在瀏覽器輸入<a href="http://QuickConnect.to/qk415" target="_blank" rel="noopener">http://QuickConnect.to/qk415</a>，則會自動轉址到<a href="http://qk415.ddns.net:5000/" target="_blank" rel="noopener">http://qk415.ddns.net:5000/</a>，十分方便！</p>
+<img src="https://farm1.staticflickr.com/621/23881136256_05b1fc5198_o.png" alt="" />
+
+<p>在資訊中心 → 系統服務，這邊有更詳細的服務設定。</p>
+<img src="https://farm6.staticflickr.com/5687/23882788356_65bf49e9ab_o.png" alt="" />
+
+<p>最後在安全性的部分，建議將自訂封鎖的功能開啟，畢竟NAS是對外開放的，被人惡意地嘗試密碼入侵DSM就不好了。</p>
+<img src="https://farm6.staticflickr.com/5800/23800580422_2499fc3101_o.png" alt="" />
+
+<p><a id="c" name="c"></a><br><img src="https://farm2.staticflickr.com/1443/24023825966_6a76456fdb_o.png" alt="btrfs檔案系統、快照、檔案壓縮" /></p>
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【btrfs檔案系統】</span></strong></p>
+<p>相信有許多人還不知道BTRFS檔案系統是什麼吧？下圖附上官方說明：</p>
+<img src="https://farm1.staticflickr.com/780/23909694655_f3d58ee705_o.png" alt="" />
+
+<p>簡單來說BTRFS有以下幾點好處：</p>
+<p>1.<strong><span style="color: #0000ff;">備份資料的一致性</span></strong>(也就是備份開始時，即使資料之後有更動，也不用擔心資料會備份不完整)。</p>
+<p>2.<span style="color: #0000ff;"><strong>快照資料</strong></span>(可立即進行資料保護)，以及資料的偵測和修復。</p>
+<p>3.共用資料夾可設定<span style="color: #0000ff;"><strong>使用配額</strong></span>，並可直接複製所有內容。</p>
+<p>首先，請打開左上角的程式集 → 儲存空間管理員，點選”新增”，由於目前只有安裝一顆硬碟，因此選擇”快速”。</p>
+<img src="https://farm1.staticflickr.com/694/23883612936_5ac8470139_o.png" alt="" />
+
+<p>第二步驟將僅有的一顆硬碟打勾；接下來有Btrfs和ext4兩種檔案系統，這邊選擇的是Btrfs。</p>
+<img src="https://farm1.staticflickr.com/583/23282926923_d703967ddf_o.png" alt="" />
+
+<p>再次確定設定值後，就可以按一下套用”完成”設定。</p>
+<img src="https://farm1.staticflickr.com/685/23827220091_32a79c51b0_o.png" alt="" />
+
+<p>此時NAS會開始建立Btrfs檔案系統，大約須要數個小時。</p>
+<img src="https://farm1.staticflickr.com/728/23281501124_137446e9e6_o.png" alt="" />
+
+<p>成功建立後，就可以到設定 → 共用資料夾新增資料夾啦！點選”新增”，新增一個共用資料夾；這裡建議將資源回收桶打開，以免發生資料刪除後才後悔的窘境(不過常更新資料庫的話則不建議)。</p>
+<img src="https://farm1.staticflickr.com/743/23883612586_9635e21b83_o.png" alt="" />
+
+<p>接下來在”進階”為Btrfs的新功能，在設定上十分重要，因為它是在系統效能上和資料保護方面做取捨！</p>
+<ol>
+<li><p><span style="color: #0000ff;"><strong>快照瀏覽</strong></span>：開啟快照瀏覽可以在特定時間將檔案相像「拍照」一樣，進而將資料備份，不過它不會真正的備份，只會在檔案有更動的時候才額外備份出來，因此”建議開啟”。</p>
+</li>
+<li><p><span style="color: #0000ff;"><strong>進階資料完整性保護</strong></span>：在和客服確認過後，該模式會先將檔案在另一個空間作傳遞，等傳遞完成後才會送至原本的地方，這樣的好處是原本的資料不會因為傳輸中斷，而造成檔案毀損，該檔案會在傳輸完成後才被取代，不過經常更新資料庫者就不建議。</p>
+</li>
+</ol>
+<p>3.<span style="color: #0000ff;"><strong>檔案壓縮</strong></span>(須先開啟”進階資料完整性保護”)：顧名思義，在該共享資料夾的檔案都會被壓縮，不過開啟時就像平常用壓縮軟體直接開啟壓縮檔一樣，會降低存取速度，因此較適合一些Cold Data。</p>
+<ol start="4">
+<li><span style="color: #0000ff;"><strong>共用資料夾空間配額</strong></span>：防止單一共享資料夾的空間占用太多，可設定的容量為MB、GB、TB。</li>
+</ol>
+<img src="https://farm6.staticflickr.com/5810/23614008670_32a79c51b0_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【快照】</span></strong></p>
+<p>在左上角程式集 → 快照&amp;複寫 的地方，可以看到哪些資料夾有設定快照。</p>
+<img src="https://farm6.staticflickr.com/5753/23909694445_d078056278_o.png" alt="" />
+
+<p>在快照的地方，可以設定快照的拍攝週期，當然時間是越短越好；不過筆者為了測試，設定為30分鐘一張快照，一般來說大約12小時或每日一張快照就算很多了。</p>
+<img src="https://farm6.staticflickr.com/5691/23614008490_524abcce29_o.png" alt="" />
+
+<p>不過時間一久，快照一多也會浪費伺服器的空間；因此可以設定要保留最近多久的快照，如：12小時一張快照，然後保留最新的256張，這樣也能保存四個月以前的資料了呢！</p>
+<img src="https://farm1.staticflickr.com/686/23614008610_ebdbdf1cc7_o.png" alt="" />
+
+<p>而快照的檔案可以至<span style="color: #003300;">File Station</span> → <span style="color: #003300;">#snapshot</span> 查看，系統會幫你用”時間”顯示出所有的快照，要翻找也較方便。</p>
+<img src="https://farm6.staticflickr.com/5701/23883612476_e2d437051f_o.png" alt="" />
+
+<p>下圖就是快照的最好範例；若在上傳電影中執行快照功能，因為”惡靈古堡2：啟示錄”是在上傳中的檔案，檔案在下個時間點就不會相同，因此這個檔案就會被特地備份出來。(所以快照也像一個還原系統，可以將資料回復到某個時間點!!)</p>
+<img src="https://farm1.staticflickr.com/648/23281500884_94c913a37d_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【檔案壓縮】</span></strong></p>
+<p>以下將測試檔案壓縮的效果與功能，筆者先用電腦將Public檔案做未壓縮與壓縮後的比較，從下圖可知，未壓縮的檔案為21.7GB，而壓縮後則為842MB。</p>
+<img src="https://farm6.staticflickr.com/5687/23542234689_5f667b4681_o.png" alt="" />
+
+<p>接著將檔案上傳到有開”檔案壓縮”功能的Shares共享資料夾，可以看到實際檔案大小還是21.79GB。</p>
+<img src="https://farm1.staticflickr.com/771/23281896154_8c197a47fd_o.png" alt="" />
+
+<p>不過開啟進階頁面，我們看到空間配額只用了2.26GB呀!!!。由此可知，”檔案壓縮”較適合不常做更動的資料，畢竟檔案要存取還要經過壓縮、解壓縮，這樣是會降低系統效能的。</p>
+<img src="https://farm6.staticflickr.com/5759/23542234439_e55e62cb35_o.png" alt="" />
+
+<p><a id="d" name="d"></a><br><img src="https://farm2.staticflickr.com/1644/24049926605_cbde8d1620_o.png" alt="文件搜尋" /></p>
+<p>DSM 6.0 Beta 在檔案搜尋上提供了更有效率的搜尋方式，以下圖為例，如果在音樂資料夾搜尋”因你而在”，最多只能找到它的歌名(檔名)，搜尋效果不彰。</p>
+<img src="https://farm6.staticflickr.com/5778/23300615773_6f02ff02d2_o.png" alt="" />
+
+<p>因此我們可以在<span style="color: #003300;">設定 </span>→ <span style="color: #003300;">索引服務</span> → <span style="color: #003300;">檔案索引</span>的地方將KKBOX的地方建立索引，讓搜尋的時候能搜尋文件內容、甚至是多媒體檔案的屬性資料。</p>
+<img src="https://farm6.staticflickr.com/5776/23927383015_4f00a6c94f_o.png" alt="" />
+
+<p>待索引建立完成後，往後的在這個資料夾若有上傳新檔案，系統都會自動建立索引。<span style="color: #800000;">這時再重新搜尋”因你而在”，並把啟動檔案內容搜尋打勾，這時就可以看到7首歌跑出來了！</span>當然，這些就是在「因你而在」這張專輯屬性資料中的音樂。</p>
+<img src="https://farm2.staticflickr.com/1463/23559536959_429d2160c3_o.png" alt="" />
+
+<p>檔案屬性資料的應用還有很多，像筆者分別搜尋Canan和Samsung的屬性資料，這樣就有辦法比較出不同相機拍出來的差異；甚至是所有相片的<span style="color: #800000;">焦距、曝光時間、光圈孔徑</span>等等，都可以分別抓出來做比對。</p>
+<img src="https://farm6.staticflickr.com/5684/23819103202_d0bf510510_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5741/23631724650_724d1713b5_o.png" alt="" />
+
+<p>除了檔案屬性資料，它還可以<span style="color: #800000;">搜尋文件檔的內容</span>呢！如下圖，我把一篇文章分別丟到不同檔案類型如簡報、PDF、EXCEL等，而這些檔案經過搜尋內文”而現在的人”也都能正確顯示出來。</p>
+<img src="https://farm2.staticflickr.com/1663/23819103512_e986e35e54_o.png" alt="" />
+
+<p>順帶一提，File Station在不同的副檔名有不同的檔案圖示，這樣在辨識檔案的也較為直覺方便。</p>
+<img src="https://farm6.staticflickr.com/5681/23927382825_cf074fea8e_o.png" alt="" />
+
+<p>而File Station的app版 — 「DS file」，它和資料夾的顏色一樣，整個都是黃澄澄的介面；在”離線檔案”中，可以看到自行下載在手機內的檔案。</p>
+<img src="https://farm2.staticflickr.com/1668/24026606275_53f30e7f7a_o.png" alt="" />
+
+<p>共用資料夾有清單和縮圖(如下圖)的顯示方式。</p>
+<img src="https://farm2.staticflickr.com/1619/23918402552_90724ec64c_o.png" alt="" />
+
+<p>在圖片資料夾，利用縮圖的瀏覽方式就可以看到圖片的小圖；然後選擇一個檔案，有分享、下載、移動、刪除等等，不會因為是app功能就比較少。</p>
+<img src="https://farm2.staticflickr.com/1711/23730945850_64043db8ce_o.png" alt="" />
+
+<p><a id="e" name="e"></a><br><img src="https://farm2.staticflickr.com/1478/23423136513_8b272cf3fd_o.png" alt="檔案請求分享" /></p>
+<p>對於沒有DSM帳號的人，Synology很貼心地可以透過”檔案請求”的方式建立專屬網址下載；甚至沒有帳號的人，還能利用專屬網址來上傳檔案，這對於<span style="color: #800000;">有即時需求的使用者有一個便利快捷的方法來分享檔案</span>呀！使用者只要對檔案點右鍵 → 分享檔案連結即可，該連結甚至可以設定僅供DSM使用者or密碼、檔案開放/結束時間以及存取次數，有點像是在外面看到的免空分享機制。</p>
+<img src="https://farm6.staticflickr.com/5795/23315151394_9d6b97aee3_o.png" alt="" />
+
+<img src="https://farm2.staticflickr.com/1488/23835125042_85ecdb3799_o.png" alt="" />
+
+<p>無須密碼的連結，輸入網址後會直接下載檔案；否則會要求輸入密碼。</p>
+<img src="https://farm6.staticflickr.com/5737/23835125002_bba9e67918_o.png" alt="" />
+
+<p>按一下”取得QR碼”，就會顯示該連結的QR code；不過建議QR code可以有另存成圖片的功能，以利分享。</p>
+<img src="https://farm6.staticflickr.com/5769/23860890341_c79c87ef9e_o.png" alt="" />
+
+<p>而建立檔案請求，使用者必須對”資料夾”點右鍵 → <span style="color: #003300;">建立檔案請求</span>，接著設定和剛才差不多，可以選擇開放/關閉時間、密碼保護等。</p>
+<img src="https://farm2.staticflickr.com/1542/23860890521_b9972b914b_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5660/23917307356_893a607680_o.png" alt="" />
+
+<p>其他人拿到網址後，就可以上傳檔案，輸入的名字則會成為上傳後檔案資料夾的名稱。</p>
+<img src="https://farm6.staticflickr.com/5771/23575520569_4c7959e99f_o.png" alt="" />
+
+<p>回到建立檔案請求的資料夾，每個資料夾代表者上傳檔案時輸入的名字，且後方括弧會寫出是哪個DSM使用者建立的檔案請求。</p>
+<img src="https://farm6.staticflickr.com/5824/23647731580_f6b254624e_o.png" alt="" />
+
+<p>最後在<span style="color: #003300;">工具</span> → <span style="color: #003300;">分享連結管理員</span> 能看到自己建立過的連結，像是未來連結、過期連結也會一併顯示，這樣較方便整理。</p>
+<img src="https://farm6.staticflickr.com/5633/23860890351_97343607c5_o.png" alt="" />
+
+<p>對於過期的連結，使用者不用特地去刪除，只須點選”清除無效連結”，系統就會自動清理。</p>
+<img src="https://farm6.staticflickr.com/5823/23943365615_fc3ebb316f_o.png" alt="" />
+
+<p><a id="f" name="f"></a><br><img src="https://farm2.staticflickr.com/1562/23423136923_4e5812716c_o.png" alt="文字編輯&amp;文件檢視" /></p>
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【文字編輯器】</span></strong></p>
+<p>DSM有內建文字編輯器，不過這可不是Windows系統內建的”記事本”喔，而是類似notepad++軟體，提供了一些額外的功能。例如：常常我們會下載到簡體字的文章，看了真的很不舒服，這時候文字編輯器提供簡轉繁or繁轉簡的功能。</p>
+<img src="https://farm2.staticflickr.com/1537/23397604743_352aec78e2_o.gif" alt="" />
+
+<p>在偏好設定的部分，有一些功能如自動換行、顯示行數、字體大小等等。</p>
+<img src="https://farm6.staticflickr.com/5802/23396165704_5ab222ff2e_o.png" alt="" />
+
+<p>至於為何有”顯示行數”的功能？因為文字編輯器支援數十種程式語言，例如JAVA，特殊函式會土黃色表示，而數字會以綠色顯示。</p>
+<img src="https://farm2.staticflickr.com/1551/24024382825_39f3cd790f_o.png" alt="" />
+
+<p>像是文字編輯器切換到Assembly_x86後，分號後面的文字是以灰色表示，這是因為組合語言在”;”後面是註解的意思。</p>
+<img src="https://farm6.staticflickr.com/5760/23656521649_c9f4ec49ee_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【文件檢視器】</span></strong></p>
+<p>DSM也有線上文件檢視器的功能，如此一來，使用者不用為了每次要檢視文件還要特地下載下來。像筆者本人電腦內的Download資較夾就有一堆檔案，文件大約就佔了六成吧，而且本人也懶得整理…此外，電腦內沒有裝Offfce或是PDF Reader的，利用文件檢視器看文件就非常方便。如下圖，它支援Word, Powerpoint, Excel, pdf, txt等文件。</p>
+<img src="https://farm2.staticflickr.com/1584/23916158362_7dd4859f79_o.png" alt="" />
+
+<p>以下是分別開啟PDF, Powerpoint, Word三種文件。除了擁有文件預覽功能，還有放大/縮小、旋轉、列印、內文搜尋等，功能十分強大。</p>
+<img src="https://farm2.staticflickr.com/1457/23941826121_46f9eec1ee_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5724/23397604713_a18fc6aa50_o.png" alt="" />
+
+<img src="https://farm2.staticflickr.com/1584/23728720100_3e724424c9_o.png" alt="" />
+
+<p>在文件檢視器也可以啟用分享，且能設定安全分享(使用者or密碼)、文件效期，以及使否停用文件下載。</p>
+<img src="https://farm2.staticflickr.com/1528/23656521469_9c1cbcffff_o.png" alt="" />
+
+<p><a id="g" name="g"></a><br><img src="https://farm6.staticflickr.com/5810/23941763072_c848445d21_o.png" alt="筆記&amp;試算表協同" /></p>
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Note Station】</span></strong></p>
+<p>筆者認為在Synology裡，最實用的生產力工具就是Note Station了!!!如果善加利用這個套件，相信一定對生活更加便利~下圖看到的是代辦清單，只要在”按此新增任務”欄位打好要辦的事，並選好截止時間，甚至還可以選擇提醒的時間，非常簡單。</p>
+<img src="https://farm6.staticflickr.com/5817/24024682755_645e165348_o.png" alt="" />
+
+<p>按一下上面藍色的”建立”就可建立筆記；而右邊的功能列非常豐富，幾乎已經擁有Word大部分功能了，如：文字編輯，插入表格、圖表、圖片、聲音、連結，甚至是檔案等，這個”多媒體”的筆記功能應有盡有!!!</p>
+<img src="https://farm2.staticflickr.com/1707/23916465322_30e7b588e1_o.png" alt="" />
+
+<p>在”全部筆記”中，這裡會顯示所有使用者建立過的筆記，並且以時間排序。</p>
+<img src="https://farm2.staticflickr.com/1675/23397908983_9e34f8c3f7_o.png" alt="" />
+
+<p>做好的筆記，當然進而分享給其他人；除了公開分享，使用者也能分享給DSM特定使用者(檢視or編輯)，這有助於大家在討論報告的時候，能有一個共同的討論平台。</p>
+<img src="https://farm2.staticflickr.com/1701/24024682715_04dcfefcb9_o.png" alt="" />
+
+<p>但筆記一多，要翻找也麻煩，所以筆記本的功能因應而生！它能將自選的筆記一同整理到一個欄位，方便整理和查看。</p>
+<img src="https://farm6.staticflickr.com/5834/23729021150_31bbe2eef4_o.png" alt="" />
+
+<img src="https://farm2.staticflickr.com/1583/23942132131_37b1dbae94_o.png" alt="" />
+
+<p>不想要自己分類，還有智慧型筆記本！個人覺得它蠻聰明的，因為使用者輸入篩選條件，如：時間、標籤、或是筆記本，它就會幫你交叉比對所有的筆記，然後放入同一個筆記本中，以省去整理的時間。</p>
+<img src="https://farm2.staticflickr.com/1542/23942132021_37038a2592_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5763/23916464692_3925d6a3ce_o.png" alt="" />
+
+<p>最後是Note Station最強大的功能：Synology Web Clipper，它是Chrome瀏覽器的擴充功能，主要功能就是可以擷取畫面上的資訊，然後直接傳送到Note筆記。</p>
+<img src="https://farm6.staticflickr.com/5791/23731448610_bb7e30eaac_o.png" alt="" />
+
+<p>Synology Web Clipper擁有四種截取功能：<span style="color: #0000ff;">簡化內容</span>、<span style="color: #0000ff;">完整內容</span>、<span style="color: #0000ff;">完整頁面快照</span>、<span style="color: #0000ff;">螢幕快照</span>(若是開啟電子郵件，就會有”<span style="color: #0000ff;">電子郵件內容截取”</span>功能)。舉例來說，我如果要推薦家人這款濾水器，我可以利用”完整頁面快照”，並將筆記分享給家人；而若是超商的繳款代碼，我可以利用”螢幕快照”<br>來擷取圖片，和手機app同步後，手機就會收到該筆記。筆者不得不承認，這功能真的有夠厲害呀QQ</p>
+<img src="https://farm2.staticflickr.com/1535/23918902782_9d004755d3_o.png" alt="" />
+
+<p>接著看到「DS note」app，介面和Note Station的一模一樣。</p>
+<img src="https://farm6.staticflickr.com/5766/23398824013_def9e82b0d_o.png" alt="" />
+
+<p>螢幕向右滑，所有類別都在此切換；下方則可以建立相片、影片、圖片、語音、檔案、文件的多媒體筆記。</p>
+<img src="https://farm2.staticflickr.com/1587/23943046001_6d13175a3e_o.png" alt="" />
+
+<p>下圖是全部筆記和記事本頁面，筆記為一欄一欄的呈現方式，十分清楚。</p>
+<img src="https://farm6.staticflickr.com/5625/23999500796_99687d8390_o.png" alt="" />
+
+<p>功能表位於下方，可以左右滑動；由於下方的功能列都是小圖示，對於部分的人來說，熟悉每一個圖示的意思或許要多看幾次XD</p>
+<img src="https://farm6.staticflickr.com/5816/23999501146_7012577aeb_o.png" alt="" />
+
+<p>相關app設定在此。注意「DS note」登入後就會綁定手機(因此沒有登出鍵，而是”取消綁定”)了，以利隨時能同步和通知。</p>
+<img src="https://farm2.staticflickr.com/1444/23943045841_8415edc2c5_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><span style="color: #ff6600;"><strong>【SpreadSheet】</strong></span></p>
+<p>SpreadSheet是透過共享試算表，可與別人協同一起合作。對於一些商務人士和上班族，這個功能肯定很有幫助，因為它可以多<span style="color: #800000;">人同時編輯同一份試算表，並即時檢視更新的內容</span>。不過既然有協同試算表，<span style="color: #800000;">未來或許可以增加協同筆記、協同coding、協同簡報等等，且全部整合在同一個套件中，相信這樣一定會更便利</span>！</p>
+<img src="https://farm6.staticflickr.com/5622/23657887269_ea229efb15_o.png" alt="" />
+
+<p>建立試算表後，對該文件點右鍵 → 分享，即可分享試算表。</p>
+<img src="https://farm2.staticflickr.com/1669/23657887249_f1e3929bf9_o.png" alt="" />
+
+<p>分享的方式功能介面和之前的都一樣，主要就是有公開和DSM使用者分享兩種(權限有檢視和編輯)。</p>
+<img src="https://farm2.staticflickr.com/1473/23657887469_68e2e00c26_o.png" alt="" />
+
+<p>如果是僅供檢視，會發現所有編輯功能都無法使用。</p>
+<img src="https://farm2.staticflickr.com/1528/23943183431_86dfb770bf_o.png" alt="" />
+
+<p>收到協同合作文件的使用者，登入後會看到該協同通知。</p>
+<img src="https://farm2.staticflickr.com/1715/23397517214_0da2017aec_o.png" alt="" />
+
+<p>進入SpreadSheet後，此試算表會出現在”與我共用”欄位。</p>
+<img src="https://farm2.staticflickr.com/1530/23730073190_0633a159f4_o.png" alt="" />
+
+<p><a id="h" name="h"></a><br><img src="https://farm2.staticflickr.com/1589/23423136713_6bc0f93cc6_o.png" alt="郵件伺服器" /></p>
+<p>在Synology上架設一個郵件伺服器一點都不難，而且使用自己的伺服器，使用的就不用在意信箱配額的限制，或是免費信箱收不到信等問題了；或是有些網址的下方有寫道《有任何問題，請聯絡我們 <a href="mailto:contact@qk415.ddns.net">contact@qk415.ddns.net</a>》這類的文字，當然一般外面的信箱是不可能申請到”contact”這類的帳號，第二個好處就是此信箱還可以設定要轉寄到哪些郵件位址。</p>
+<p>首先先打開MailPlus Server，會自動跳出設定精靈，這裡請選擇”建立新的郵件系統”。</p>
+<img src="https://farm2.staticflickr.com/1597/23399582084_59c3ec0239_o.png" alt="" />
+
+<p>基本STMP設定，輸入主機名稱。</p>
+<img src="https://farm6.staticflickr.com/5687/23659962259_b157df430c_o.png" alt="" />
+
+<p>確認完摘要，按一下<span style="color: #003300;">套用</span>；接著會套用設定，看到三個綠色勾勾後，請按”完成”。</p>
+<img src="https://farm2.staticflickr.com/1594/23732143640_3537906e99_o.png" alt="" />
+
+<p>設定完成後，我們看一下伺服器狀態頁面，這時郵件伺服器已經開始運作了唷！</p>
+<img src="https://farm2.staticflickr.com/1711/23659962069_359edc156e_o.png" alt="" />
+
+<p>不過像是管理員帳號admin的信箱就會是<a href="mailto:admin@qk415.ddns.net">admin@qk415.ddns.net</a>，因此這裡STMP可以設定<span style="color: #800000;">自己喜愛的別名(帳號)</span>，如<a href="mailto:asd888@qk415.ddns.net">asd888@qk415.ddns.net</a>其實就是寄給admin這個使用者，或是設定<span style="color: #800000;">寄給多名使用者</span>。若是想<span style="color: #800000;">將郵件轉寄到gmail, yahoo等信箱，可以利用”外部信箱”來設定</span>。</p>
+<img src="https://farm6.staticflickr.com/5794/23919594562_fb38707665_o.png" alt="" />
+
+<p>這邊用Yahoo信箱來測試寄信功能，收件者打的是剛剛設定的別名：<a href="mailto:asd88888@qk415.ddns.net">asd88888@qk415.ddns.net</a>。</p>
+<img src="https://farm2.staticflickr.com/1693/23401038083_4a45fe2722_o.png" alt="" />
+
+<p>馬上回到Synology的專屬信箱套件 — MailPlus，可以看到剛剛寄出的信件唷！但是家中的固定IP正在架另一台NAS，這台DS415+是用浮動IP架設的，而浮動IP容易被gmail等郵件伺服器擋住信件，因此這邊就不測試MailPlus的寄信功能。</p>
+<img src="https://farm6.staticflickr.com/5779/23945263161_15fc3420ac_o.png" alt="" />
+
+<p>MailPlus也擁有行動app版，介面和DSM套件差不多。</p>
+<img src="https://farm2.staticflickr.com/1459/23732143490_5d41dbf444_o.png" alt="" />
+
+<p><a id="i" name="i"></a><br><img src="https://farm2.staticflickr.com/1503/23941763082_5dd6cd28eb_o.png" alt="備份" /></p>
+<p>說到備份，其實不外乎就兩種，第一就是將電腦中某些的資料備份到NAS上，而第二種是將NAS的某些資料同步到電腦上。聽起來好像差不多，不過前者偏向於<span style="color: #800000;">為了資料安全性而備份</span>，後者則是為了<span style="color: #800000;">可以隨時同步NAS的個人資料夾(方便到哪都能存取)</span>。剛好Synology為了這兩種功能個寫了一個應用程式，分別是<strong>Cloud Station Backup</strong>和<strong>Cloud Station Drive</strong>。</p>
+<img src="https://farm6.staticflickr.com/5818/23961739421_62bc185954_o.png" alt="" />
+
+<p>在Cloud Station Server套件 → <span style="color: #003300;">用戶端清單</span>的頁面，看到了那些使用者用什麼類別備份，以及上線狀態。</p>
+<img src="https://farm2.staticflickr.com/1696/23676441869_ec9459cfbe_o.png" alt="" />
+
+<p><span style="color: #003300;">設定</span>頁面 → <span style="color: #003300;">同步設定</span>是家目錄預設為可同步；這裡可自行選擇是否再開啟其他共享資料夾的同步功能，如此一來，後面提到的軟體和app就會出現該共享資料夾。</p>
+<img src="https://farm6.staticflickr.com/5682/23417504333_861b77d9d8_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Cloud Station Backup】</span></strong></p>
+<p>將Cloud Station Backup的軟體下載下來並安裝，開啟程式後會出現下圖畫面。</p>
+<img src="https://farm6.staticflickr.com/5732/24018234126_f9408c2c54_o.png" alt="" />
+
+<p>第一步先輸入QuickConnect ID和使用者帳密。</p>
+<img src="https://farm6.staticflickr.com/5772/23676488399_aa4c7c2b6e_o.png" alt="" />
+
+<p>選擇要備份的路徑，可以複選。</p>
+<img src="https://farm6.staticflickr.com/5752/23676488439_b62d5c0ccd_o.png" alt="" />
+
+<p>在按下完成之前，會詢問是否將備份目的設為”唯讀”，建議選擇”好”，以防電腦備份來源的資料被更動。</p>
+<img src="https://farm2.staticflickr.com/1584/23676488219_624dbfc836_o.png" alt="" />
+
+<p>接著程式會自動開始備份，當此路徑的資料有變動都會立即做備份。</p>
+<img src="https://farm2.staticflickr.com/1674/24044320355_60158b404f_o.png" alt="" />
+
+<p>為了不要備份一些不必要的資料，這裡可以選擇最大備份的檔案大小，以及不要備份的檔案副檔名。</p>
+<img src="https://farm2.staticflickr.com/1684/23748651410_20939d3ef0_o.png" alt="" />
+
+<p>備份完成後，會存放在<span style="color: #003300;">home</span> → <span style="color: #003300;">CloudStation</span> → <span style="color: #003300;">Backup</span>。而備份路徑設為：主機名稱 → 資料夾/檔案路徑，這樣的好處就是多台裝置要備份也能很容易地區別，且和實際電腦路徑可以對照。</p>
+<img src="https://farm6.staticflickr.com/5701/23961787301_57f2b02fe7_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Cloud Station Drive】</span></strong></p>
+<p>Cloud Station Drive的好處在於<span style="color: #800000;">資料能在多平台間即時做傳遞</span>。例如，我在筆電下載了一些音樂想拿到個人桌電去聽，不過身邊沒有隨身碟，這時將檔案丟到Drive資料夾就OK了；或是文件直接在Drive資料夾打開做編輯，儲存後就會及時同步至NAS。</p>
+<img src="https://farm2.staticflickr.com/1680/23749227380_b04f20955c_o.png" alt="" />
+
+<p>輸入QuickConnect ID和使用者帳密後，同步路徑只能選擇CloudStation內的資料夾。</p>
+<img src="https://farm2.staticflickr.com/1453/23416683804_585aafc47a_o.png" alt="" />
+
+<p>同步來源和目的地路徑再次確認後，請點”完成”。</p>
+<img src="https://farm2.staticflickr.com/1503/23936745902_6fe01438a8_o.png" alt="" />
+
+<p>Cloud Station Server會在電腦中建立一個”CloudStation”資料夾，使用者可以將它加入左側的”快速存取”，方便資料的存取。</p>
+<img src="https://farm2.staticflickr.com/1592/23962360351_72730e7e02_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5754/23936745672_aeaf5bcb14_o.png" alt="" />
+
+<p>點開右下角的小圖示，可以確認同步狀態；最新狀態小圖示右下角會以綠色勾勾表示。</p>
+<img src="https://farm6.staticflickr.com/5733/23936745632_6b3ba5c518_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【DS cloud】</span></strong></p>
+<p>由於”雲端”會聯想到藍天白雲，因此「DS cloud」的介面是藍色的！</p>
+<img src="https://farm2.staticflickr.com/1590/23962831131_fed094b78d_o.png" alt="" />
+
+<p>要同步的DiskStation在家目錄中僅能選擇CloudStation上的資料夾；並選擇目的端資料夾。</p>
+<img src="https://farm2.staticflickr.com/1458/23418595993_28851fce74_o.png" alt="" />
+
+<p>在選項中，亦可設定檔案大小上限、格式、是否僅於Wi-Fi模式同步，而背景同步預設為開啟。</p>
+<img src="https://farm6.staticflickr.com/5720/23749694760_cf4796bf52_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【rsync】</span></strong></p>
+<p>另外，rsync也是一種常見的備份方式。rsync為了要快速地完成備份工作，在開始傳輸檔案之前，會先比較兩端伺服器的檔案，找出資料有異動的部份，將這些異動的部份傳輸到目的端，完成備份工作。正因為rsync只將資料有異動的部份傳輸到目的端，因此可以用來同步兩端的資料。若要開啟rsync，在DSM 6.0的路徑已改為：<span style="color: #003300;">控制台</span> → <span style="color: #003300;">檔案服務</span> → <span style="color: #003300;">rsync</span>。</p>
+<img src="https://farm6.staticflickr.com/5719/23977537341_e5f2daef18_o.png" alt="" />
+
+<p><a id="j" name="j"></a><br><img src="https://farm6.staticflickr.com/5716/23423136763_bdd0635ca7_o.png" alt="影音娛樂中心" /></p>
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Video Station】</span></strong></p>
+<p>Video Station 真的是全新的介面，和之前的畫面相比有極大的不同！不過原始影片的預設資料夾路徑為”video”，如有不同，須自行在電影右方的”+”將路徑加入。</p>
+<img src="https://farm2.staticflickr.com/1498/23662517450_b7e2cfe91a_o.png" alt="" />
+
+<p>等待建立索引完成後，就能看到一些電影海報顯示在此。</p>
+<img src="https://farm6.staticflickr.com/5747/23590310779_46a0298f14_o.png" alt="" />
+
+<p>隨便點一部電影，畫面超棒的呀！有電影類型、片長、演員，甚至情節摘要等，陳列的一清二楚。</p>
+<img src="https://farm6.staticflickr.com/5734/23932092166_a146218550_o.png" alt="" />
+
+<p>不過剛剛有幾部沒有抓到電影資訊，這是當初檔案名稱的緣故，這時我們就要自己去搜尋；<span style="color: #800000;">若檔名為”蠟筆小新劇場版2015：我的搬家物語~仙人掌大襲擊”，這時建議在搜尋列搜尋”我的搬家物語”的關鍵字就好，幾乎所有的電影都能找得到</span>。</p>
+<img src="https://farm6.staticflickr.com/5664/23932092346_dfba1eccc0_o.png" alt="" />
+
+<p>有沒有看到電影資訊出來了呢！所以其他找不到電影資訊的，只要自行去抓電影關鍵字搜尋就好。</p>
+<img src="https://farm6.staticflickr.com/5711/23331388463_0e834a2bdf_o.png" alt="" />
+
+<p>現在再回來看電影區，真是完美呀XDD 讓人有一種隨時都想來逛一逛的衝動!!!</p>
+<img src="https://farm2.staticflickr.com/1563/23590309949_cdb3499f72_o.png" alt="" />
+
+<p>電影支援線上播放，且不用另外下載影片播放軟體，十分方便。</p>
+<img src="https://farm6.staticflickr.com/5836/23849911062_d2b587780b_o.png" alt="" />
+
+<p>下圖是「DS video」手機app的介面，如果未登入，只能從”已下載影片”觀賞下載至裝置的影片。</p>
+<img src="https://farm2.staticflickr.com/1584/24019778926_069d816257_o.png" alt="" />
+
+<p>電影是兩個兩個並排顯示；滑開功能列，可從電影/電視影集/家庭影片切換類別。</p>
+<img src="https://farm2.staticflickr.com/1708/23417648994_622b71a385_o.png" alt="" />
+
+<p>若切換到”最近觀看”頁面，每部電影右上角會有觀看進度條，超貼心的XD</p>
+<img src="https://farm2.staticflickr.com/1642/23419094263_acf2f3028b_o.png" alt="" />
+
+<p>影片支援線上直接播放，或是下載後離線播放。</p>
+<img src="https://farm2.staticflickr.com/1470/23678027789_bffc1983bd_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Audio Station】</span></strong></p>
+<p>Audio Station 也從原本藍色的介面換成白底綠控制條的配色，感覺清爽許多。</p>
+<img src="https://farm6.staticflickr.com/5803/23875747391_8d20d389c4_o.png" alt="" />
+
+<p>按一下音樂庫的所有音樂，NAS會自動抓取music共享資料夾裡面的音樂，也可以設定播放家目錄裡面的”個人音樂庫”。</p>
+<img src="https://farm2.staticflickr.com/1565/23932177316_9a3e190e02_o.png" alt="" />
+
+<p>Synology很貼心地將播放中的音樂到歌詞資料庫去抓歌詞，並且顯示在右側，非常便利呀！不過這個須要到<span style="color: #003300;">設定</span> → <span style="color: #003300;">歌詞外掛</span>新增資料庫來源，否則會找不到。</p>
+<img src="https://farm6.staticflickr.com/5640/23331477253_a9e20dc6de_o.png" alt="" />
+
+<p>下面是英文、日文、韓文的歌詞，都能找到且正常顯示唷！</p>
+<img src="https://farm6.staticflickr.com/5778/23590399299_839bae1696_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5826/23958268925_61be0e992f_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5714/23875747231_1e61d2c90a_o.png" alt="" />
+
+<p>如果自己的音樂聽膩了，Audio Station裡面還有數百個網路電台供你選擇，聽都聽不完呀！筆者最喜歡的電台是<span style="color: #800000;">JPOP</span>的<span style="color: #800000;">[Odyssey Radio]Jpop &amp; Anime</span>，它裡面有流行以及懷舊的卡通音樂和日文歌(而且它會顯示正在播放的歌曲名稱唷)，推薦給大家XD</p>
+<img src="https://farm2.staticflickr.com/1572/23958268495_fee1d08c63_o.png" alt="" />
+
+<p>「DS audio」是Audio Station的手機app版，由於登入播放後的音樂會自動下載下來(預設值)，因此在未登入的情況下，可以看到一些本裝置已下載的歌曲。</p>
+<img src="https://farm2.staticflickr.com/1662/23417783774_e2f26202f1_o.png" alt="" />
+
+<p>成功登入後，音樂有依作曲者、類型、專輯等做分類；瀏覽模式也可以切換為縮圖。</p>
+<img src="https://farm6.staticflickr.com/5771/23419227963_231a712cbb_o.png" alt="" />
+
+<p>手機螢幕從左滑到右為已下載歌曲/音樂庫/播放清單/網路電台的切換；如果是播放中的音樂，由上往下滑則會顯示目前播放中的歌曲。</p>
+<img src="https://farm2.staticflickr.com/1670/23963462551_6d099f9fea_o.png" alt="" />
+
+<p>音樂播放器介面較樸素，為灰色的底；如果再畫面空白處任點一下，就會顯示該首歌的歌詞。</p>
+<img src="https://farm2.staticflickr.com/1511/23750327830_32ab44e7c0_o.png" alt="" />
+
+<p>設定的地方，可以調整下載路徑、音樂轉碼格式、音質、音效等等。</p>
+<img src="https://farm2.staticflickr.com/1548/24019913616_fb52dd4eda_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Photo Station】</span></strong></p>
+<p>在加入新的圖片到photo共享資料夾的同時，NAS也會開始建立相簿，由於相片屬性資料較多，且為了建立相簿縮圖，整體的CPU占用約70多%。</p>
+<img src="https://farm6.staticflickr.com/5795/23662719910_7f13b4567a_o.png" alt="" />
+
+<p>打開Photo Station，每個相簿會以大縮圖的方式顯示，而且是使用磚塊牆，瀏覽比較方便。</p>
+<img src="https://farm6.staticflickr.com/5824/23330143424_5cdbe77cf0_o.png" alt="" />
+
+<p>隨便打開一個相簿，相片也是以磚塊牆呈現。</p>
+<img src="https://farm2.staticflickr.com/1662/23958380995_5ed5ca5ac8_o.png" alt="" />
+
+<p>相片還能以幻燈片的方式播放。</p>
+<img src="https://farm6.staticflickr.com/5786/23330143234_6799e764f9_o.png" alt="" />
+
+<p>開啟相片，右側有一些相片屬性的相關資訊。</p>
+<img src="https://farm6.staticflickr.com/5790/23958380865_fd4e02629b_o.png" alt="" />
+
+<p>如果想要分享這個相簿，而不透過DSM帳號的話，建議將帳號系統更改為”Photo Station帳號”。如此一來，管理員就能為不同帳號建立不同的相簿觀看權限。</p>
+<img src="https://farm2.staticflickr.com/1531/23875858361_6a21238be0_o.png" alt="" />
+
+<p>在使用者帳號的地方可以建立不同的帳號，並為其帳號指派每一個相簿的權限。</p>
+<img src="https://farm2.staticflickr.com/1659/23330142674_8fcbb7dee5_o.png" alt="" />
+
+<img src="https://farm2.staticflickr.com/1688/23590512929_b5b66406d3_o.png" alt="" />
+
+<p>我們還可以為帳號建立連結分享，甚至發佈到各社群平台。</p>
+<img src="https://farm2.staticflickr.com/1663/23330142904_f21b9797a4_o.png" alt="" />
+
+<p>收到連結的人只要登入帳密即可觀看相簿。</p>
+<img src="https://farm2.staticflickr.com/1627/23958380615_1fcfc3c6ac_o.png" alt="" />
+
+<p>「DS photo」的登入畫面和「DS cloud」很像，都是天空藍的顏色；而按一下下方的按鈕，會出現已下載的相片(以相簿顯示)。</p>
+<img src="https://farm6.staticflickr.com/5767/24046550305_f88a88977b_o.png" alt="" />
+
+<p>相簿也是兩個兩個並排顯示，且左側的功能列有相關功能能選擇。</p>
+<img src="https://farm2.staticflickr.com/1508/23418323984_0dde1dabc8_o.png" alt="" />
+
+<p>和多數的相機一樣，相簿能以日期排序，甚至還有地圖的定位，不過相片要有位置資訊。</p>
+<img src="https://farm2.staticflickr.com/1683/23418324114_8ff1eff0f8_o.png" alt="" />
+
+<p>照片可以批次選擇下載；打開相片會顯示它的詳細資訊。</p>
+<img src="https://farm2.staticflickr.com/1674/23938391922_a305b6f265_o.png" alt="" />
+
+<p>最後是「DS photo」的設定畫面。</p>
+<img src="https://farm6.staticflickr.com/5669/23750865760_bf7bd6dc85_o.png" alt="" />
+
+<p><img src="https://farm6.staticflickr.com/5640/24035114066_d2d03af848_o.png" alt="" /><strong><span style="color: #ff6600;">【Download Station】</span></strong></p>
+<p>Download Station能把檔案放在NAS下載，而不用電腦開著下載；第一次打開Download Station後，需要設定下載路徑，因此可以創一個”Download”的共享資料夾。</p>
+<img src="https://farm6.staticflickr.com/5711/24047203805_03f2947731_o.png" alt="" />
+
+<p>下載來源主要分為兩種：檔案(BT種子、具有連結的文字檔等)和網址。</p>
+<img src="https://farm6.staticflickr.com/5691/23420420713_b20e6471c6_o.png" alt="" />
+
+<img src="https://farm2.staticflickr.com/1552/23751514390_20d16757d1_o.png" alt="" />
+
+<p>下圖是手機app「DS download」，和「DS file」配色很像QQ</p>
+<img src="https://farm2.staticflickr.com/1590/23939039502_746b12d2bb_o.png" alt="" />
+
+<p>「DS download」app的內部畫面。</p>
+<img src="https://farm2.staticflickr.com/1606/23418974494_98b93ed788_o.png" alt="" />
+
+<p><a id="k" name="k"></a><br><img src="https://farm2.staticflickr.com/1683/23421706444_c26f7c97fb_o.png" alt="生活應用" /></p>
+<p>如果善用Synology DS415+，其實會發現到，它與我們日常生活息息相關唷！</p>
+<p>一早起床，可以利用「DS note」建立代辦事項，透過自行設定的提醒時間，交代一天要做的事。</p>
+<img src="https://farm6.staticflickr.com/5661/23422837063_02dbb98599_o.jpg" alt="" />
+
+<p>在捷運上，使用「DS audio」聽音樂，還有歌詞顯示可供哼唱，隨時隨地都是你的卡拉OK時間~~</p>
+<img src="https://farm2.staticflickr.com/1572/23967054551_10f0649ebd_o.jpg" alt="" />
+
+<p>在考試前，將「DS note」內的考試筆記再讀一遍，成績高分並非難事！</p>
+<img src="https://farm6.staticflickr.com/5643/23941464372_206578b9dc_o.jpg" alt="" />
+
+<p>除了使用手機瀏覽筆記，我也可以利用DSM的”Note Station”。</p>
+<img src="https://farm6.staticflickr.com/5788/23967056061_86a1026bec_o.jpg" alt="" />
+
+<p>若是個人筆電，下載Windows市集中的VIDE”Synology Note Station”查看/建立筆記更方便；由於是專屬應用程式，它會像手機一樣綁定並隨時同步唷！</p>
+<img src="https://farm2.staticflickr.com/1527/23681779989_e332db360a_o.jpg" alt="" />
+
+<p>如果是要與朋友間分享的網頁、訊息等，利用”Synology Web Clipper”將電子郵件內容截取、儲存至筆記再分享，節省不少時間。</p>
+<img src="https://farm2.staticflickr.com/1671/24049622115_0f6e3307d5_o.jpg" alt="" />
+
+<p>上課講義、投影片不用特地印出來，只要開啟”文件檢視器”線上瀏覽即可。</p>
+<img src="https://farm2.staticflickr.com/1583/23421403064_5aeb5f1b3a_o.jpg" alt="" />
+
+<img src="https://farm6.staticflickr.com/5670/24023521276_1e8cc3bd0e_o.jpg" alt="" />
+
+<p>螢幕被切畫面的時候很無聊嗎？這時準備一台平板電腦，打開Windows市集的應用程式”DS Video”，NAS上的影片讓你隨時都能觀賞！</p>
+<img src="https://farm2.staticflickr.com/1652/23681778049_082e79d699_o.png" alt="" />
+
+<img src="https://farm2.staticflickr.com/1602/24023521206_96b689d897_o.jpg" alt="" />
+
+<p>沒有平板沒關係，筆電一樣能滿足需求!!!</p>
+<img src="https://farm6.staticflickr.com/5718/23967055481_501403e20b_o.jpg" alt="" />
+
+<p>如果資料放在家中的電腦沒帶怎麼辦？只要打開遠端桌面，先用Cloud Station Drive將檔案放到CloudStation資料夾，這樣筆電就能直接從NAS下載。</p>
+<img src="https://farm2.staticflickr.com/1711/24023520806_e458f49eb6_o.jpg" alt="" />
+
+<p>跟朋友要報告、檔案的話，把檔案請求功能的連結給對方就好。</p>
+<img src="https://farm2.staticflickr.com/1716/23422834953_fb9fa65ac8_o.png" alt="" />
+
+<p>如果要將檔案轉寄給其他人，直接開啟”MailPlus”，輸入寄件人、主旨和夾帶的檔案就好，所有事情在Synology就能包辦。</p>
+<img src="https://farm6.staticflickr.com/5791/23422834803_0d732ce2bc_o.png" alt="" />
+
+<p>想聽音樂的時候，我們可以利用NAS直接進行本地播放。首先準備個藍芽接收器，並將該藍芽裝置配對好。</p>
+<img src="https://farm2.staticflickr.com/1713/23421401824_8e54550e4d_o.png" alt="" />
+
+<p>這時打開”Audio Station”，記得先將輸出裝置選好(NDZ-03-GA)。音樂開始播放的時後，聲音會直接從藍芽喇叭輸出。</p>
+<img src="https://farm2.staticflickr.com/1525/23421402264_2826f44bcd_o.jpg" alt="" />
+
+<p>最後是媒體伺服器的功能，只要在同一個區域網路下，我們就可以將影片、音樂、圖片透過DLNA串流至電視播放。</p>
+<img src="https://farm6.staticflickr.com/5662/24023520496_325d9a8708_o.jpg" alt="" />
+
+<p>媒體伺服器會自動抓Vudeo Station上的影片出來。</p>
+<img src="https://farm2.staticflickr.com/1573/23421402094_3618de28ab_o.jpg" alt="" />
+
+<p>但若是以資料夾顯示，如果電影是電視不支援的格式檔(如mkv)，該電影就無法顯示。</p>
+<img src="https://farm2.staticflickr.com/1606/23421402054_0e20702d96_o.jpg" alt="" />
+
+<p>這時就要到媒體伺服器將”影片轉碼器”的功能打開，電影就能正常播放了!!!</p>
+<img src="https://farm2.staticflickr.com/1569/23753934420_d0dd78821f_o.jpg" alt="" />
+
+<p>分享大螢幕播放電影的快感XDD</p>
+<img src="https://farm2.staticflickr.com/1630/23681778539_6f87069d82_o.jpg" alt="" />
+
+<p>它也可以播放音樂、圖片，家中的電視頓時成為多媒體影音中心QQ</p>
+<img src="https://farm2.staticflickr.com/1686/23753934970_df4b651de3_o.jpg" alt="" />
+
+<img src="https://farm2.staticflickr.com/1503/23421400904_2d44aaa104_o.jpg" alt="" />
+
+<p><a id="l" name="l"></a><br><img src="https://farm6.staticflickr.com/5726/23423136543_945fee3ed3_o.png" alt="總結與心得" /></p>
+<p><strong>其實筆者接觸NAS也才一年左右，不過這一年改變了筆者不少的生活習慣！大多數沒用過的人可能跟之前的我一樣，當時對於NAS的想法就是”資料備份……還是資料備份”。這段期間筆者接觸過大約五家不同廠商做的伺服器，每一家都有不同的特色，有的主打硬體規格、有的簡易好上手、有的在備份這方面做得非常好，<span style="color: #ff0000;">不過要說到各方面都做得很完善的廠商，果然還是Synology獨占鰲頭</span>！</strong></p>
+<p><strong>Synology在台灣成立至今約十五年，算是老牌子的廠商，過程中Synology不斷在硬體和軟體上做更新，為的就是要給消費者更好的使用體驗。<span style="color: #0000ff;">2016年初即將推出的DSM 6.0，不管是資料保護和安全性、生產力工具、檔案搜尋及分享、多媒體的視覺體驗等，在各方面都加強了一般人在使用上的習慣和體驗。</span></strong></p>
+<p><strong>而Synology DS415+的應用層面，舉例來說，現在和朋友間分享影音檔案(如音樂、電影、動漫…等)一律都是靠NAS，且不用下載也能線上觀看；在生產力方面，除了能建立各種多媒體筆記，還能與別人共同分享和編輯；而檔案一多，我們甚至可以透過”內文搜尋”的方式，及時找到需要的資料。這些上述的應用，<span style="color: #0000ff;">在多平台(如：手機、筆電、平板等)都能同步的接收，因此NAS不僅方便，更與我們的生活息息相關。</span></strong></p>
+<p><strong>全新DSM6.0的系統中，我認為最大的更新是<span style="color: #ff0000;">生產力工具和資料的搜尋管理方式</span>。如同標題，這台NAS根本就是”<span style="color: #ff0000;">全面激發NAS的潛能</span>“呀!!!<span style="color: #0000ff;">如今只要與辦公有關的事情，幾乎都可以在NAS上做處理，由於檔案分享/共享/共同編輯更加的便利，這已竟打破了過去還要用E-mail來傳遞文件的使用習慣</span>。在娛樂方面，<span style="color: #0000ff;">DSM擁有各專屬影音套件，加上百看不厭的新介面和貼近使用者的操作方式，這就是Synology最大的優勢</span>。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/03/D-Link-DCS-2630L-Wireless-IPCam/" rel="prev" title="[開箱] 沒有最廣，只有更廣！D-Link DCS-2630L 180° 超廣角AC無線攝影機，擁抱視界的極限">
+      <i class="fa fa-chevron-left"></i> [開箱] 沒有最廣，只有更廣！D-Link DCS-2630L 180° 超廣角AC無線攝影機，擁抱視界的極限
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/12/Microsoft-Surface-Pro-4/" rel="next" title="[開箱] 旅遊、筆記、商務、繪畫，高機動性 Microsoft Surface Pro 4 輕鬆包辦你的生活">
+      [開箱] 旅遊、筆記、商務、繪畫，高機動性 Microsoft Surface Pro 4 輕鬆包辦你的生活 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '0b5020fd0f05af9c2ff5e4d345e1d7b1',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

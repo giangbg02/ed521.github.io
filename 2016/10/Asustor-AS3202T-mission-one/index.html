@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="我們經常要把一個檔案分享給別人，例如：工作時需要分享的專案、學生製作的遊戲專題、家人要分享給親戚看的照片影片，或是朋友之間常共享的電影連續劇…等，每個人一定都有要把資料傳給別人的經驗，不過到底要用什麼方式才比較適合？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務一 分享檔案，全體與共！">
+<meta property="og:url" content="https://ed521.github.io/2016/10/Asustor-AS3202T-mission-one/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="我們經常要把一個檔案分享給別人，例如：工作時需要分享的專案、學生製作的遊戲專題、家人要分享給親戚看的照片影片，或是朋友之間常共享的電影連續劇…等，每個人一定都有要把資料傳給別人的經驗，不過到底要用什麼方式才比較適合？">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201393/original/0e16d26281b9ae6157d08281b9084f81.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200759/original/1aff76c2cfff9ac08159bd9c3e96d217.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200760/original/4ebe189540a10490e5e6bd5407970a70.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200761/original/a5bb784d9a19f536cb8a8bedaf766368.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200762/original/e799ef6957494b3924d81ee3f136cea8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200763/original/72d04e55f87dec36035976d81a13f0c3.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200779/original/69b30af07fc778015322b1dff2b5a2e4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200764/original/6a59b040171f667e695590cf00647896.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200765/original/88391d527a4414e641e0c1fe73bc1913.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200766/original/3859c3b32c01551ffc7c9d3a70b2917a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200767/original/f42e0c61e6247141c5404aa67ca2657d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200768/original/bf84982184f58ed202e0c9920023be6f.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/200769/original/c5f5510c7871a3467364211b0b39ba59.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/200770/original/69a8a5b8b8c097a67d97bda10362647a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200771/original/4100cfba5447b813a218fbbc7f8e0846.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200772/original/01885892d31911abf50bc9f16c95c4c1.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200773/original/0d24a80f8057a3fd4b3781f94eeb6adc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201385/original/65d06af0295f74b32ed96d9dc936be18.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/200778/original/cde6bbe95928b048c771a000f1c4a5db.png?1476878246">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201386/original/10dd0f54b1148e53cdadb3e00089ddf2.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201387/original/b1f7f0946914a30749d5c2f199117b0f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200775/original/f3a66c342a59f7f9f160d5c3c03f2e30.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201388/original/0db7d9b4a8104ed010c68ec0856a41fc.png">
+<meta property="og:image" content="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201389/original/836f29b04f9ae5848f4b8e538853685e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201390/original/66df5d499f1422949c3cddf4f6071eae.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201391/original/0e466eeed3fca74f30dbee70ced4aa20.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200777/original/8cf2d659641032f8283c248481f48774.png">
+<meta property="article:published_time" content="2016-10-30T05:01:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:29:29.382Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 華芸">
+<meta property="article:tag" content=" Asustor">
+<meta property="article:tag" content=" AS3202T">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 分享">
+<meta property="article:tag" content=" 資料">
+<meta property="article:tag" content=" 同步">
+<meta property="article:tag" content=" 檔案">
+<meta property="article:tag" content=" 應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201393/original/0e16d26281b9ae6157d08281b9084f81.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2016/10/Asustor-AS3202T-mission-one/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務一 分享檔案，全體與共！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/10/Asustor-AS3202T-mission-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務一 分享檔案，全體與共！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-10-30 13:01:00" itemprop="dateCreated datePublished" datetime="2016-10-30T13:01:00+08:00">2016-10-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/asustor/" itemprop="url" rel="index"><span itemprop="name">Asustor NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/10/Asustor-AS3202T-mission-one/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務一 分享檔案，全體與共！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.2k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201393/original/0e16d26281b9ae6157d08281b9084f81.jpg" />
+
+<p>我們經常要把一個檔案分享給別人，例如：工作時需要分享的專案、學生製作的遊戲專題、家人要分享給親戚看的照片影片，或是朋友之間常共享的電影連續劇…等，每個人一定都有要把資料傳給別人的經驗，不過到底要用什麼方式才比較適合？</p>
+<a id="more"></a>
+
+<p><span style="color: #ff6600;"><strong>【原方法 一：電子郵件夾帶檔案】</strong></span></p>
+<p><span style="color: #0000ff;">優點：安全(可傳送給指定對象)</span><br><span style="color: #800000;">缺點：單檔大小限制(25MB)</span></p>
+<p>如果是小檔案，例如簡報、文件，或是兩三張照片等，使用E-mail絕對是最多人的選擇。但是電子郵件都有25MB的夾檔限制，若檔案一大，E-mail就無法夾帶檔案了。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200759/original/1aff76c2cfff9ac08159bd9c3e96d217.png" />
+
+<p><span style="color: #ff6600;"><strong>【原方法 二：免費空間】</strong></span></p>
+<p><span style="color: #0000ff;">優點：無須登入即可上傳 (部分免空)</span><br><span style="color: #800000;">缺點：單檔大小限制、單檔保存期限、下載等待時間、下載速度限制 (各種免空不同)</span></p>
+<p>免空是許多人分享檔案的地方，舉例來說，zippyshare具有快速、便利等優點；不過它也有200MB檔案大小限制，且一段時間後無人存取會被刪檔。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200760/original/4ebe189540a10490e5e6bd5407970a70.png" />
+
+<p>而MEGA註冊後會提供50GB的免費空間，但是現在如果使用瀏覽器下載，下載超過一定流量(2~5GB不等)時，就會暫停下載(6小時等待時間)。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200761/original/a5bb784d9a19f536cb8a8bedaf766368.png" />
+
+<p><span style="color: #ff6600;"><strong>【原方法 三：公有雲】</strong></span></p>
+<p><span style="color: #0000ff;">優點：檔案永遠保存</span><br><span style="color: #800000;">缺點：帳戶空間限制</span></p>
+<p>綜合以上兩個方法，公有雲常是朋友間分享檔案的地方。由於資料不會被刪除，部分還具有”共用”的功能(如Google Drive, Dropbox等)，使公有雲成為最適合保存資料、分享資料的好地方。<strong>不過這些公有雲容量都不大，若要額外的空間就要自行加錢，且都是月費制。</strong></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200762/original/e799ef6957494b3924d81ee3f136cea8.png" />
+
+<p><strong><span style="color: #ff6600;">【原方法 四：將隨身碟親自拿給對方】</span></strong></p>
+<p><span style="color: #0000ff;">優點：不限檔案大小、數量</span><br><span style="color: #800000;">缺點：親自送資料，費時費力</span></p>
+<p>假設要一次把幾十GB的資料給別人(例如好幾部電影)，以上的方法都不適用，只能親自給將USB儲存裝置拿給對方，費時又費力。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200763/original/72d04e55f87dec36035976d81a13f0c3.jpg" />
+
+<p>以上方法皆有不便處，但<span style="color: #800000;"><strong>只要使用ASUSTOR AS3202T，就能解決上述所有問題唷！</strong></span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200779/original/69b30af07fc778015322b1dff2b5a2e4.png" />
+
+<p><span style="color: #ff6600;"><strong>【把檔案放入NAS中】</strong></span></p>
+<p>如果原本要用隨身碟給對方資料，此時不用特地跑一趟，只需要將它插上家中的ASUSTOR AS3202T。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200764/original/6a59b040171f667e695590cf00647896.jpg" />
+
+<p>把隨身裝置內的資料丟到NAS中。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200765/original/88391d527a4414e641e0c1fe73bc1913.png" />
+
+<p><span style="color: #ff6600;"><strong>【建立分享連結】</strong></span></p>
+<p>對欲分享的檔案點右鍵 → “建立 Share Link”就能夠建立分享連結了！(支援單檔或資料夾)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200766/original/3859c3b32c01551ffc7c9d3a70b2917a.png" />
+
+<p>連結的設定有兩種，分別是”<strong>連結有效期限</strong>“和”<strong>密碼</strong>“；密碼可自行設定是否開啟。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200767/original/f42e0c61e6247141c5404aa67ca2657d.png" />
+
+<p>連結有效期限有兩種設定，除了上圖的”日期”(設定到期日)，還有下圖的”時間”(設定幾天後到期，最短1小時，最長31天)。舉例來說，設定一個20天效期的檔案，選擇”時間”設定，就不用推算20天後的日期是哪一天。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200768/original/bf84982184f58ed202e0c9920023be6f.png" />
+
+<p>接下來會出現共享連結，使用者只要將藍色反白處複製，貼給對方即可。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/200769/original/c5f5510c7871a3467364211b0b39ba59.png" />
+
+<p><span style="color: #ff6600;"><strong>【連結接收端】</strong></span></p>
+<p>收到連結的人，貼上網址，若有該連結有密碼，輸入後會自動下載；否則貼上連結會直接下載檔案。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/200770/original/69a8a5b8b8c097a67d97bda10362647a.png" />
+
+<p>以資料夾來分享的，接收端可以事先瀏覽檔案，然後挑選需要的檔案下載。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200771/original/4100cfba5447b813a218fbbc7f8e0846.png" />
+
+<p>如果是相片資料夾，將瀏覽方式改為”大圖示”，如此一來，選擇需要的照片再下載就好，不用一次打包下載。(批次下載的檔案會是壓縮檔)</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200772/original/01885892d31911abf50bc9f16c95c4c1.png" />
+
+<p><span style="color: #ff6600;"><strong>【資料共享】</strong></span></p>
+<p>前面提到的「連結分享資料」，接收端只能對檔案做”下載”動作；而透過「共享」資料夾，就是擁有帳號的使用者都可以讀寫or唯讀此資料夾；例如下圖為管理員對使用者進行各個資料夾的權限設定。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/200773/original/0d24a80f8057a3fd4b3781f94eeb6adc.png" />
+
+<p>利用「共享」(登入NAS來存取資料)的好處是：</p>
+<ol>
+<li><p><span style="color: #008000;"><strong>查看檔案屬性</strong></span> (唯讀or讀寫權限的資料夾)</p>
+</li>
+<li><p><span style="color: #008000;"><strong>可把檔案”複製”到自己家目錄or可讀寫的資料夾，而不用先下載下來</strong></span> (唯讀or讀寫權限的資料夾)</p>
+</li>
+<li><p><span style="color: #008000;"><strong>移動、上傳、刪除檔案</strong></span> (讀寫權限的資料夾)</p>
+</li>
+</ol>
+<p>簡單來說，「連結分享」不知道該連結何時失效，且只能對檔案下載；但是<span style="color: #800000;">成員間「共享」資料的話就能同時一起存取檔案</span>；下面三種是該成員登入NAS來存取資料(ADM登入、FTP和行動app)，能進行的動作比「連結分享資料」來的多，除了上述提到的三點，<span style="color: #800000;">它就像是一個能共同”分享資料的大平台”</span>。</p>
+<p><span style="color: #008000;"><strong>一、網頁版登入(ADM登入)</strong></span></p>
+<p>網址列輸入NAS的DDNS網址+port:8000，並輸入帳號密碼，來登入ADM。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2016/10/201385/original/65d06af0295f74b32ed96d9dc936be18.png" />
+
+<p>然後打開檔案總管，就可以進行資料的存取了。如果使用者對於該共享資料夾只有唯讀權限，則對檔案無法進行移動/刪除/更名等動作；反之讀/寫權限則都可以。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/200778/original/cde6bbe95928b048c771a000f1c4a5db.png?1476878246" />
+
+<p><strong><span style="color: #008000;">二、FTP登入</span></strong></p>
+<p>若要使用FTP服務來存取檔案，必須先到服務 → FTP伺服器 中將”啟用FTP伺服器”打勾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201386/original/10dd0f54b1148e53cdadb3e00089ddf2.png" />
+
+<p>接著只要開啟電腦裡的檔案總管，在路徑列輸入ftp://(NAS的ip)，例如<a href="ftp://eded.myasustor.com，輸入帳號密碼。">ftp://eded.myasustor.com，輸入帳號密碼。</a></p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201387/original/b1f7f0946914a30749d5c2f199117b0f.png" />
+
+<p>這時候NAS內部的資料就像平常開啟電腦中的檔案一樣，使用上較直覺方便。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200775/original/f3a66c342a59f7f9f160d5c3c03f2e30.png" />
+
+<p>此外，假如自己做了一個網站，有許多零碎的檔案要上傳到NAS，利用FTP傳檔軟體：Filezilla能一次拖曳多個檔案上傳/下載，非常方便。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201388/original/0db7d9b4a8104ed010c68ec0856a41fc.png" />
+
+<p><span style="color: #008000;"><strong>三、行動版app登入</strong></span></p>
+<p>NAS上的資料也能利用手機來存取。首先，手機要到Play商店或App Store下載AiData app，打開後輸入Cloud ID和帳號密碼來登入。</p>
+<img src="https://cdn0-t17.techbang.com/system/attached_images/2016/10/201389/original/836f29b04f9ae5848f4b8e538853685e.png" />
+
+<p>AiData上方綠色部分會顯示目前的路徑，對檔案長按，能進行更名/複製等動作(如下右圖)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201390/original/66df5d499f1422949c3cddf4f6071eae.png" />
+
+<p>如果按一下右上角的”更多”符號，則可以對檔案進行”批次”動作。(如多個檔案下載)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/201391/original/0e466eeed3fca74f30dbee70ced4aa20.png" />
+
+<p><span style="color: #ff6600;"><strong>【結論】</strong></span></p>
+<p>除了分享的檔案沒有大小限制，總使用空間也是NAS有多少空間就有多少，不像公有雲只有十幾GB。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2016/10/200777/original/8cf2d659641032f8283c248481f48774.png" />
+
+<p>以上，筆者整理出使用ASUSTOR AS3202T來分享/共享資料的好處：</p>
+<p><span style="color: #0000ff;"><strong>*不限制檔案大小、無下載速度限制、無下載等待時間</strong></span></p>
+<p><span style="color: #0000ff;"> <strong> *不限制總使用空間(TB ↑)</strong></span></p>
+<p><span style="color: #0000ff;"> <strong> *「資料共享」，對方可修改or唯讀檔案</strong></span></p>
+<p><span style="color: #0000ff;"> <strong> *檔案下載連結可加密，可設定連結存活時間</strong></span></p>
+<p><span style="color: #0000ff;"> <strong> *資料永久保存，不會被刪檔</strong></span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/asustor/" rel="tag"># Asustor NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/11/Asustor-AS3202T-mission-two/" rel="prev" title="[教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務二 影視享受，自由無限！">
+      <i class="fa fa-chevron-left"></i> [教學] 超級英雄，即刻召喚！華芸 ASUSTOR AS3202T 任務二 影視享受，自由無限！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/10/Swatch-SISTEM-51-IRONY/" rel="next" title="[開箱] Swatch SISTEM 51 IRONY 冰凍之心 機械腕錶 使平價，再也不是平凡 !">
+      [開箱] Swatch SISTEM 51 IRONY 冰凍之心 機械腕錶 使平價，再也不是平凡 ! <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '2c6489d91303793b45eabd2fb83a2728',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

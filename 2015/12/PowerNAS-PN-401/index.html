@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="大家對於NAS(Network Attached Storage，網路附加儲存)的印象是什麼呢？如果是複雜難上手的話，那麼這台PowerNAS PN-401要顛覆你既有的印象了！這台PowerNAS不僅設定簡單、介面更是清楚又容易使用；搭配XBMC，家裡搖身一變成為影音劇院！使用DDNS，不管到哪裡，都能隨時隨地存取你的NAS唷！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[開箱] 史上最易傳說！PowerNAS PN-401顛覆你對簡單的定義">
+<meta property="og:url" content="https://ed521.github.io/2015/12/PowerNAS-PN-401/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="大家對於NAS(Network Attached Storage，網路附加儲存)的印象是什麼呢？如果是複雜難上手的話，那麼這台PowerNAS PN-401要顛覆你既有的印象了！這台PowerNAS不僅設定簡單、介面更是清楚又容易使用；搭配XBMC，家裡搖身一變成為影音劇院！使用DDNS，不管到哪裡，都能隨時隨地存取你的NAS唷！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://farm6.staticflickr.com/5814/23425340192_3cd6432ace_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5825/23568996102_2d31d31c21_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/653/23049389184_df8e8f2044_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/581/23425484292_8e68435ac3_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5772/23561182191_fef8320761_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5805/23238499080_28f3ac11c6_k.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/716/23238834890_56641bb1be_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5699/23510578176_6ad4745810_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5738/23455914271_06f3c44dde_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5777/23170398239_3db5156874_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5622/23459997211_ea79c90605_k.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/722/22912447244_5b4f38d6e4_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5829/23244953570_a8697676e6_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5646/23458758421_7f962305da_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5631/23458758251_1c1a85cc72_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5832/23458758091_c5c6d83d25_k.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/609/23541607705_8442cd45bc_k.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5681/23560344569_13738d3869_o.gif">
+<meta property="og:image" content="https://farm6.staticflickr.com/5764/23528236516_0d6a0d243b_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/708/23445794322_f7fcf1aa43_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5622/22926532474_680a9c0f40_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5745/22926531884_48a8dffbd6_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/659/23259199870_98fdbd6e1f_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5643/22926687744_c0cd7007ff_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5749/23259537210_64b8f052a8_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/695/23472829661_9992f6b459_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/616/23259661420_01bebcaa64_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5645/23259661380_2bb8f5210d_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/583/22927274414_a619f54059_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/678/23259785710_51e5dbba4f_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5722/23902128856_f9829e2748_o.gif">
+<meta property="og:image" content="https://farm6.staticflickr.com/5704/23845711671_00c494d2f4_o.gif">
+<meta property="og:image" content="https://farm6.staticflickr.com/5787/23529844206_337e172395_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5785/23307148529_d07359c085_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/661/23595080891_7a2dcf2e5b_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/609/22932900643_1915ecc463_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/677/23192032169_d2485cdaed_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5799/23534879496_a971c41ef7_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5774/23193199329_ce747b5eec_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5823/23265729810_d99e466afc_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/665/22933206724_883e7f0b5a_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5722/22935042544_9573748aba_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/741/23267557270_3ed2d02a41_b.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/23611254085_39edf6a3cc_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5695/23560344679_4546a86c2e_o.gif">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/633/23558207096_e029ecaed6_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5799/23288568090_ffc31210ee_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/568/22957214003_17173c46c7_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5634/23216341579_dc1da3957a_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/583/23501875671_d7bc1f8ffc_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5761/23469707002_0561f87b4e_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/636/23578250485_081160460b_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5795/23211591629_12198a3469_b.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5816/23284603700_beda7b946c_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/725/22957270574_6d1ac5817d_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/748/23585431645_4ca0f27a45_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/659/23289724740_b0aa21506c_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/720/23587922145_2f0c7ab40d_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5640/23587922155_88b10a17b4_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/730/22959738664_73ec25f859_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5637/22959738654_f6aab3096d_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/777/22971120033_2ffb3cd4a8_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5722/23314742040_f395478c1c_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5683/23677550935_c45804681a_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/568/23610425825_fbc5b38dce_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5789/22983390353_ac30358df1_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/640/23242523189_10668372f7_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5629/23584356716_f4b204667e_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5761/23547397221_0af31d8007_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5634/23001621654_20fb878e37_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/622/23603718716_0bb5a27e55_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/706/23629809815_9fd551276a_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/666/23537930962_5dd0ce2859_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5812/23646502505_4164bb79b0_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/735/23019442883_8db2e59fc3_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/585/23018610904_8faa531ef8_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5698/23309592399_2368133d4d_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/589/23257878389_6626dd0d2b_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5652/23599731036_be0b494842_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/744/23599730746_9625be3db5_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5783/23626578095_8f0eb18f3b_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/735/23544169161_08591dc6fb_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5762/23258640829_cc81171e3c_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/763/23518002082_56dbcf46db_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/757/23044183723_311f82377e_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5720/23819910232_7ff35dc1dd_o.gif">
+<meta property="og:image" content="https://farm6.staticflickr.com/5675/23671256645_caed7875d8_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/631/23309592259_d41e64e1b1_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5707/23260196509_a30145b3a6_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/718/23001055923_8614b1765c_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/734/23000881144_87ca24e3c8_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/682/23333377540_3b17155795_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5771/23334546990_6f2045fd15_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5696/23003173743_565d4f49e8_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5807/23548606471_ff579cd8e2_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/659/23263087269_572d296748_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5788/23604927836_704f40eb17_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/685/23548606361_62f8364c9a_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/569/23568996152_bd895b2b0c_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5671/23263915679_8f8b6ee5c2_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/648/23523277252_934acc6295_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/693/23549436381_f45ec6d5f0_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/740/23004773003_8777fb2478_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5649/23003884294_414fc38a39_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5783/23595080941_8a4412bb9e_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5625/23023354854_9c01d7d61b_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/590/23625457986_c05b8cebda_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5666/23355850240_142e10b6da_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5641/23285035119_9467bbbf29_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/735/23357300930_ac9ba316f1_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/736/23652977345_4e61d8a786_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/764/23570546921_8a2d0d918c_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5725/23570547331_5b294cccd6_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5645/23626908406_c2ff4b9de9_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/680/23357300660_3c461342b9_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5680/23626908346_aae8ebaa63_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5688/23357300550_368b806494_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5661/23570547071_1e344a6176_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5696/23285034819_7f2b65cb52_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/670/23025103414_42989ae7b3_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5707/23285330569_e402dd9df2_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/632/23651456456_cbc2a54386_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5723/23043232454_75ffddfcf5_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/621/23043233174_6f95da9651_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5778/23044327783_0c77a38aca_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5629/23671400275_22bc718570_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/755/23375719010_5aceca314a_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5799/23588931531_6c2a5b2286_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/777/23588930831_f9eb953af1_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5730/23645320036_3967a59902_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/719/23562839502_5e30b7ea3a_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5741/23588930941_2f29524893_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5741/23303434029_05e3cd625a_o.jpg">
+<meta property="og:image" content="https://farm6.staticflickr.com/5821/23043232524_1c36ed5813_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/699/23303433859_53c98bae1b_o.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/645/23565955102_bf13fe94e2_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5712/23378844240_4fb4d55341_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5666/23046349254_7a7cbcdd6e_o.png">
+<meta property="og:image" content="https://farm1.staticflickr.com/777/23674515275_7a27f46f03_o.png">
+<meta property="og:image" content="https://farm6.staticflickr.com/5777/23651456306_99030d86ea_o.jpg">
+<meta property="article:published_time" content="2015-12-11T07:21:00.000Z">
+<meta property="article:modified_time" content="2019-07-17T18:49:42.357Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" PowerNAS">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" PN-401">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://farm6.staticflickr.com/5814/23425340192_3cd6432ace_b.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2015/12/PowerNAS-PN-401/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[開箱] 史上最易傳說！PowerNAS PN-401顛覆你對簡單的定義 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2015/12/PowerNAS-PN-401/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [開箱] 史上最易傳說！PowerNAS PN-401顛覆你對簡單的定義
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2015-12-11 15:21:00" itemprop="dateCreated datePublished" datetime="2015-12-11T15:21:00+08:00">2015-12-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/NAS/" itemprop="url" rel="index"><span itemprop="name">其它NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2015/12/PowerNAS-PN-401/" class="post-meta-item leancloud_visitors" data-flag-title="[開箱] 史上最易傳說！PowerNAS PN-401顛覆你對簡單的定義" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>9.2k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://farm6.staticflickr.com/5814/23425340192_3cd6432ace_b.jpg" alt="" />
+
+<p>大家對於NAS(Network Attached Storage，網路附加儲存)的印象是什麼呢？如果是複雜難上手的話，那麼這台PowerNAS PN-401要顛覆你既有的印象了！這台PowerNAS不僅設定簡單、介面更是清楚又容易使用；搭配XBMC，家裡搖身一變成為影音劇院！使用DDNS，不管到哪裡，都能隨時隨地存取你的NAS唷！</p>
+<a id="more"></a>
+
+<img src="https://farm6.staticflickr.com/5825/23568996102_2d31d31c21_o.jpg" alt="文章大綱" />
+
+<p><a href="#a"><strong>產品開箱</strong></a></p>
+<p><a href="#b"><strong>基本設定/介紹</strong></a><br><a href="#b-1">-設定&amp;介面</a><br><a href="#b-2">-系統管理</a><br><a href="#b-3">-DDNS設定</a><br><a href="#b-4">-Wi-Fi設定</a><br><a href="#b-5">-使用者帳號綁定/新增/設定</a></p>
+<p><a href="#c"><strong>檔案存取教學</strong></a><br><a href="#c-1">-By PDM</a><br><a href="#c-2">-By 網路磁碟機</a><br><a href="#c-3">-By FTP</a></p>
+<p><a href="#d"><strong>實用功能介紹</strong></a><br><a href="#d-1">-便利貼</a><br><a href="#d-2">-PowerNAS Capture</a><br><a href="#d-3">-iTunes 伺服器</a></p>
+<p><a href="#e"><strong>Win10 app ─ Solter Center</strong></a><br><a href="#e-1">-社群分享</a><br><a href="#e-2">-影音娛樂</a><br><a href="#e-3">-備份/還原</a></p>
+<p><a href="#f"><strong>手機app ─ PowerCloud</strong></a><br><a href="#f-1">-檔案管理</a><br><a href="#f-2">-手機通訊錄備份</a></p>
+<p><a href="#g">**家庭影音娛樂中心 ─ XBMC</a></p>
+<p><a href="#h"><strong>終極應用 ─ Ubuntu</strong></a><br><a href="#h-1">-Ubuntu應用</a><br><a href="#h-2">-Ubuntu遠端桌面連線</a></p>
+<p><a href="#i"><strong>總結與心得</strong></a></p>
+<p><a id="a" name="a"></a><br><img src="https://farm1.staticflickr.com/653/23049389184_df8e8f2044_o.jpg" alt="產品開箱" /></p>
+<p>今天這個就是我們要測試的NAS機器：<span style="color: #0000ff;"><strong>PowerNAS PN-401</strong></span>(產品頁面：<a href="http://www.ite2nas.com/Product?ProdName=PN-401" target="_blank" rel="noopener">http://www.ite2nas.com/Product?ProdName=PN-401</a>)。由於是第三梯次試用的產品，紙箱外觀難免有些破損。</p>
+<img src="https://farm1.staticflickr.com/581/23425484292_8e68435ac3_k.jpg" alt="" />
+
+<p>外箱的上方貼了一張產品貼紙，寫明了產品型號和交流電源輸入規格，右邊有QR code可供掃描，條碼為詮力科技的官方網址<a href="http://www.powernas.com.tw" target="_blank" rel="noopener">http://www.powernas.com.tw</a>。</p>
+<img src="https://farm6.staticflickr.com/5772/23561182191_fef8320761_o.jpg" alt="" />
+
+<p>從外箱顯示出該產品主打的是以家庭使用、或是朋友間共享為主的NAS。</p>
+<img src="https://farm6.staticflickr.com/5805/23238499080_28f3ac11c6_k.jpg" alt="" />
+
+<p>紙箱的另外兩面則是顯示<span style="color: #0000ff;"><strong>PN-401</strong></span>的基本規格。</p>
+<img src="https://farm1.staticflickr.com/716/23238834890_56641bb1be_k.jpg" alt="" />
+
+<p>下圖為產品包裝內容物：PN-401產品主體 x1台、網路線 x2條、電源線 x1條、簡易說明書 x1張、螺絲 x1袋、金屬Logo貼紙 x3張、無線網路天線 x2根(選購)。</p>
+<img src="https://farm6.staticflickr.com/5699/23510578176_6ad4745810_k.jpg" alt="" />
+
+<p>網路線為Cat.5e的線材規格，長度則為1.5公尺。</p>
+<img src="https://farm6.staticflickr.com/5738/23455914271_06f3c44dde_k.jpg" alt="" />
+
+<p>比較特別的是，網路線是使用<span style="color: #0000ff;"><strong>金屬的外殼接頭</strong></span>，能有效降低網路接頭長期下來的磨損。</p>
+<img src="https://farm6.staticflickr.com/5777/23170398239_3db5156874_k.jpg" alt="" />
+
+<p>下圖附贈的立體金屬貼紙就是在PN-401正面左上角的Logo貼紙，有橘、黑、藍三張，而貼紙表面”PowerNAS”還有做斜邊的金屬條紋處理，非常具有質感。</p>
+<img src="https://farm6.staticflickr.com/5622/23459997211_ea79c90605_k.jpg" alt="" />
+
+<p>詮力科技也貼心地附上超級清楚的簡易安裝教學，讓從未接觸過NAS的人也能輕易上手。</p>
+<img src="https://farm1.staticflickr.com/722/22912447244_5b4f38d6e4_k.jpg" alt="" />
+
+<p>接著看到本產品外觀，PN-401擁有4Bay的磁碟槽數量，磁碟槽上方有著小螢幕面板，以及數個功能鍵按鈕。</p>
+<img src="https://farm6.staticflickr.com/5829/23244953570_a8697676e6_k.jpg" alt="" />
+
+<p>產品正面左下角有一個USB 3.0的連接埠，如果有USB需要存取或備份就可以優先利用此孔。</p>
+<img src="https://farm6.staticflickr.com/5646/23458758421_7f962305da_k.jpg" alt="" />
+
+<p>右側面寫著大大『PowerNAS』的Logo，簡單卻富有設計感。</p>
+<img src="https://farm6.staticflickr.com/5631/23458758251_1c1a85cc72_k.jpg" alt="" />
+
+<p>左側面則是做散熱孔。</p>
+<img src="https://farm6.staticflickr.com/5832/23458758091_c5c6d83d25_k.jpg" alt="" />
+
+<p>PN-401的背面，支援無線網路、MIC輸入/音源輸出、VGA/HDMI接口、USB2.0/3.0連接埠各兩個、甚至還有P/S2接口，<span style="color: #0000ff;">輸出入接口十分完整</span>。</p>
+<img src="https://farm1.staticflickr.com/609/23541607705_8442cd45bc_k.jpg" alt="" />
+
+<p>若要將外殼拆開，只需將四個角落的螺絲拴出，接著再把外殼向後拉出即可。</p>
+<img src="https://farm6.staticflickr.com/5681/23560344569_13738d3869_o.gif" alt="" />
+
+<p>拆開外殼後的內部</p>
+<img src="https://farm6.staticflickr.com/5764/23528236516_0d6a0d243b_b.jpg" alt="" />
+
+<p>電源的部分則是採用全漢(FSP)的電源供應器，型號為FSP250-50LC。</p>
+<img src="https://farm1.staticflickr.com/708/23445794322_f7fcf1aa43_b.jpg" alt="" />
+
+<p>主機板藏在磁碟槽的旁邊，不過這樣一來，若要自行更換記憶體就不太容易了。</p>
+<img src="https://farm6.staticflickr.com/5622/22926532474_680a9c0f40_b.jpg" alt="" />
+
+<p>無線網路最快可以支援<span style="color: #0000ff;">802.11ac</span>的傳輸協定，型號為Intel® Dual Band Wireless-AC 7260。</p>
+<img src="https://farm6.staticflickr.com/5745/22926531884_48a8dffbd6_b.jpg" alt="" />
+
+<p>將兩根黑色的天線順時鐘旋入無線網路的接孔，如下圖所示。</p>
+<img src="https://farm1.staticflickr.com/659/23259199870_98fdbd6e1f_b.jpg" alt="" />
+
+<p>裝好後的天線，NAS就可以透過無線網路做分享，也可以當作分享器，這樣就不受實體線路的限制了！</p>
+<img src="https://farm6.staticflickr.com/5643/22926687744_c0cd7007ff_b.jpg" alt="" />
+
+<p>在4Bay的磁碟槽後面就是一顆大風扇，能提供絕佳的散熱效果。</p>
+<img src="https://farm6.staticflickr.com/5749/23259537210_64b8f052a8_b.jpg" alt="" />
+
+<img src="https://farm1.staticflickr.com/695/23472829661_9992f6b459_b.jpg" alt="" />
+
+<p>PowerNAS PN-401的硬碟托盤。</p>
+<img src="https://farm1.staticflickr.com/616/23259661420_01bebcaa64_b.jpg" alt="" />
+
+<p>硬碟托盤也可以放置2.5吋的硬碟，並且刻有2.5吋或3.5吋提示硬碟螺絲該拴的位置。</p>
+<img src="https://farm6.staticflickr.com/5645/23259661380_2bb8f5210d_b.jpg" alt="" />
+
+<p>本次活動試用的硬碟是東芝Toshiba推出的企業級容量型硬碟，型號：MG03ACA400。<strong><span style="color: #800000;">它專為伺服器工作和容量密集的第二層關鍵任務提供網路儲存系統、雲端資料、物件導向儲存及硬碟到硬碟的數據資料保護應用</span>。</strong>除此之外，MG03ACA400 也擁有全年無休運轉的耐用度，並提供消費者<span style="color: #800000;"><strong> 5 年原廠保固</strong></span>！</p>
+<img src="https://farm1.staticflickr.com/583/22927274414_a619f54059_b.jpg" alt="" />
+
+<p>MG03ACA400擁有7200 RPM 轉速、64MB 快取記憶體，SATA 3的高速傳輸，為<strong><span style="color: #800000;">4TB的儲存空間</span></strong>。</p>
+<img src="https://farm1.staticflickr.com/678/23259785710_51e5dbba4f_b.jpg" alt="" />
+
+<p>硬碟托盤的抽取十分簡單，只要向左施力按下托盤右側凹槽的扣片，利用彈起的托盤扣片手把向外施力拉出硬碟托盤。</p>
+<img src="https://farm6.staticflickr.com/5722/23902128856_f9829e2748_o.gif" alt="" />
+
+<p>將硬碟標籤面朝上，裝進硬碟托盤，並對準背面的3.5吋螺絲位置，再把四個螺絲拴入，如下圖動畫所示。</p>
+<img src="https://farm6.staticflickr.com/5704/23845711671_00c494d2f4_o.gif" alt="" />
+
+<p>將鎖上固定螺絲的硬碟托盤插回 NAS 主機，請確定托盤正確推至抽槽底部後，再壓下扣片手把。</p>
+<img src="https://farm6.staticflickr.com/5787/23529844206_337e172395_b.jpg" alt="" />
+
+<p>PN-401的螢幕面板，六個按鍵功能如下圖所示：</p>
+<img src="https://farm6.staticflickr.com/5785/23307148529_d07359c085_o.png" alt="" />
+
+<p><a id="b" name="b"></a><br><img src="https://farm1.staticflickr.com/661/23595080891_7a2dcf2e5b_o.jpg" alt="基本設定/介紹" /></p>
+<p><a id="b-1" name="b-1"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【設定&amp;介面】</span></strong></p>
+<p>為了能讓電腦與PowerNAS做連線，必須先到此網站(<a href="http://www.ite2nas.com/Support/Download" target="_blank" rel="noopener">http://www.ite2nas.com/Support/Download</a>)下載”<span style="color: #333300;"><strong>IP搜尋工具</strong></span>“，並且依照指示安裝。</p>
+<img src="https://farm1.staticflickr.com/609/22932900643_1915ecc463_b.jpg" alt="" />
+
+<p>安裝完成後，PowerNAS Tools會自動跳出<span style="color: #333300;"><strong>小幫手</strong></span>頁面，幫助使用者選擇自己要安裝的NAS(注意電腦和NAS要接在同一個區域網路下)，請點”<span style="color: #333300;"><strong>開啟NAS網頁</strong></span>“。</p>
+<img src="https://farm1.staticflickr.com/677/23192032169_d2485cdaed_b.jpg" alt="" />
+
+<p>第一次設定會要求輸入NAS的名稱，以及系統管理員的密碼，點選”<span style="color: #333300;"><strong>OK，進行下一步</strong></span>“。</p>
+<img src="https://farm6.staticflickr.com/5799/23534879496_a971c41ef7_b.jpg" alt="" />
+
+<p>由於NAS目前只有安裝一顆硬碟，因此點選”<strong><span style="color: #333300;">快速、簡易安裝</span></strong>“即可；有兩顆以上的硬碟，就可以進行自訂安裝，自行設定硬碟切割方式(RAID陣列)。</p>
+<img src="https://farm6.staticflickr.com/5774/23193199329_ce747b5eec_b.jpg" alt="" />
+
+<p>未來在許多頁面都可以看到這兩隻黑白貓，之後看到等待畫面的黑白貓還會動，真的太可愛了XD</p>
+<img src="https://farm6.staticflickr.com/5823/23265729810_d99e466afc_b.jpg" alt="" />
+
+<p>等看到一個笑臉來迎接你，就代表設定完成了唷！</p>
+<img src="https://farm1.staticflickr.com/665/22933206724_883e7f0b5a_b.jpg" alt="" />
+
+<p>這就是PowerNAS的登入畫面。</p>
+<img src="https://farm6.staticflickr.com/5722/22935042544_9573748aba_b.jpg" alt="" />
+
+<p>如果是以”admin”帳戶登入，瀏覽器右下角會顯示目前四個硬碟槽的狀態，點”<span style="color: #333300;"><strong>開啟硬碟詳細資訊</strong></span>“則會顯示各硬碟的型號/序號/容量，以及健康狀態(這在<strong><span style="color: #333300;">設定</span></strong>→<strong><span style="color: #333300;">硬碟管理</span></strong>也可以看到)。</p>
+<img src="https://farm1.staticflickr.com/741/23267557270_3ed2d02a41_b.jpg" alt="" />
+
+<p>假如每天早上習慣先開電腦，這時打開PDM(PowerNAS Data Manager)就會看到今日溫度和天氣，算是PowerNAS的一點小貼心唷！</p>
+<img src="https://farm6.staticflickr.com/5640/23611254085_39edf6a3cc_o.png" alt="" />
+
+<p>在PDM裡的各個應用程式磚塊都可以依照個人喜好做位置的擺放；比較特別的是，每個磚塊底下都有藏一隻不同的貓，而且每次貓咪插圖都不一樣呢！</p>
+<img src="https://farm6.staticflickr.com/5695/23560344679_4546a86c2e_o.gif" alt="" />
+
+<p><a id="b-2" name="b-2"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【系統管理】</strong></span></p>
+<p>在<span style="color: #333300;"><strong>設定</strong></span>→<span style="color: #333300;"><strong>系統管理</strong></span>頁面，建議先到系統更新執行更新，以維持最新最穩定的系統。</p>
+<img src="https://farm1.staticflickr.com/633/23558207096_e029ecaed6_o.png" alt="" />
+
+<p><strong><span style="color: #333300;">關於PowerNAS</span></strong>中，則會顯示有關NAS的資訊。</p>
+<img src="https://farm6.staticflickr.com/5799/23288568090_ffc31210ee_o.png" alt="" />
+
+<p>若要回到出廠設定，請到<span style="color: #333300;"><strong>系統重置</strong></span>，並且可選擇是否保留使用者和硬碟資料。</p>
+<img src="https://farm1.staticflickr.com/568/22957214003_17173c46c7_o.png" alt="" />
+
+<p>詮力科技提供了將使用者帳號設定備份至PowerNAS雲端的服務，這在執行系統重置或是更換硬碟時就不用重新設定使用者帳戶，十分便利。</p>
+<img src="https://farm6.staticflickr.com/5634/23216341579_dc1da3957a_o.png" alt="" />
+
+<p>在<span style="color: #333300;"><strong>系統控制台</strong></span>的部分，可以設定”<span style="color: #333300;"><strong>允許搜尋引擎顯示網頁內容</strong></span>“、”<span style="color: #333300;"><strong>SSH的開啟</strong></span>“，以及是否要<span style="color: #333300;"><strong>寄送系統通知信</strong></span>(E-mail)。</p>
+<img src="https://farm1.staticflickr.com/583/23501875671_d7bc1f8ffc_o.png" alt="" />
+
+<p><a id="b-3" name="b-3"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【DDNS設定】</strong></span></p>
+<p>首先我們要對NAS做一些基本設定，請到設定→網路設定。<span style="color: #333300;"><strong>IP設定</strong></span>無須設定，都使用預設的自動取得IP/DNS即可；然後到<span style="color: #333300;"><strong>DDNS設定</strong></span>，按一下”開始設定”，輸入<span style="color: #800000;">電子郵件</span>和<span style="color: #800000;">DDNS</span>(未來可以直接做外連的網址，這邊自訂的是pnas.powernas.com.tw)，接著點選<span style="color: #333300;"><strong>下一步</strong></span>，就設定完成了唷！</p>
+<img src="https://farm6.staticflickr.com/5761/23469707002_0561f87b4e_b.jpg" alt="" />
+
+<p>雖然系統是寫此連結即將在24小時內開通，不過實際在數分鐘之內就完成了。如果當初NAS是接在路由器的話，記得一定要到路由器設定的”<span style="color: #333300;"><strong>虛擬伺服器</strong></span>“，<span style="color: #0000ff;">將http/https的port：80/443加入</span>，才能透過外網連上唷！</p>
+<img src="https://farm1.staticflickr.com/636/23578250485_081160460b_o.png" alt="" />
+
+<p>接著請找一台與NAS不在同一個區網內的裝置來測試，於瀏覽器輸入<span style="color: #800000;">pnas.powernas.com.tw</span>，看看是否可以連上，可以就代表成功了唷！</p>
+<img src="https://farm6.staticflickr.com/5795/23211591629_12198a3469_b.jpg" alt="" />
+
+<p><a id="b-4" name="b-4"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【Wi-Fi設定】</span></strong></p>
+<p><span style="color: #0000ff;"><strong>PowerNAS PN-401</strong></span>內建了無線網路，最快支援到802.11ac的傳輸協定，這邊可以設定要做為無線網路接收器還是分享器，如此一來就不受空間限制！若要分享網路，到<strong><span style="color: #333300;">設定</span></strong>→<span style="color: #333300;"><strong>網路設定</strong></span>→<span style="color: #333300;"><strong>Wi-Fi設定</strong></span>，將”分享無線網路”開啟，並且輸入名稱和密碼就完成了！(若無法連上網際網路，請將NAS和路由器重開)</p>
+<img src="https://farm6.staticflickr.com/5816/23284603700_beda7b946c_o.png" alt="" />
+
+<p><a id="b-5" name="b-5"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【使用者帳號綁定/新增/設定】</strong></span></p>
+<p>PowerNAS最實用且方便就是社群綁定的功能了！如此一來，<span style="color: #0000ff;"><strong>使用者不用特地在多記下一組帳號密碼，並且能利用自己最常用的社群帳戶如Facebook、Google+、Twitter做登入</strong>。</span>而這樣除了可以讓NAS快速地分享資料，系統管理員對於各個帳號也較便於管理！</p>
+<p>若要給朋友進行社群綁定，<span style="color: #0000ff;">請務必自行先做綁定</span>，這樣社群綁定的按鈕才會出現在登入頁面唷！</p>
+<img src="https://farm1.staticflickr.com/725/22957270574_6d1ac5817d_o.png" alt="" />
+
+<p>待自行綁定完成後，就可以將<a href="http://pnas.powernas.com.tw" target="_blank" rel="noopener">http://pnas.powernas.com.tw</a>此連結告知親朋好友，讓大家進行社群的綁定！</p>
+<img src="https://farm1.staticflickr.com/748/23585431645_4ca0f27a45_o.png" alt="" />
+
+<p>進行帳戶綁定之後，需要管理員的同意才可以加入。這時要到<strong><span style="color: #333300;">設定</span></strong>→<span style="color: #333300;"><strong>個人化設定</strong></span>→<span style="color: #333300;"><strong>名單篩選</strong></span>，就會顯示有進行帳戶綁定的使用者；若是不想要每次新加入都設定一次，可以勾選”<span style="color: #333300;"><strong>允許社群好友直接通過審核</strong></span>“。要注意的是，使用Google+做帳號綁定的使用者，必須先和管理員成為Google+好友圈後才能做綁定。</p>
+<img src="https://farm1.staticflickr.com/659/23289724740_b0aa21506c_o.png" alt="" />
+
+<p>同意加入後，在<strong>核准名單管理</strong>頁面，就可以對每個使用者進行相關權限的設定。</p>
+<img src="https://farm1.staticflickr.com/720/23587922145_2f0c7ab40d_o.png" alt="" />
+
+<p>除了用社群綁定，如果以上三種社群帳號都沒有的話，也可進行手動設定唷！到<span style="color: #333300;"><strong>設定</strong></span>→<span style="color: #333300;"><strong>使用者管理</strong></span>，除了剛剛新增的社群使用者，也可以手動新增使用<span style="color: #0000ff;">帳號密碼登入</span>的使用者。</p>
+<img src="https://farm6.staticflickr.com/5640/23587922155_88b10a17b4_o.png" alt="" />
+
+<p>在群組的頁面中，這邊可以設定有哪些使用者可以一起共享什麼資料夾。假如有個小組專案要一起討論，或是家庭成員要一起共享出遊時的照片、影片等，群組的功能就非常實用了。新增群組需要輸入一個群組名稱，並且選擇要加入的使用者；使用者可以設定只能讀取還是可以做讀寫。</p>
+<img src="https://farm1.staticflickr.com/730/22959738664_73ec25f859_o.png" alt="" />
+
+<img src="https://farm6.staticflickr.com/5637/22959738654_f6aab3096d_o.png" alt="" />
+
+<p>像我剛剛新增了兩個群組，在<span style="color: #333300;"><strong>檔案管理</strong></span>→<span style="color: #333300;"><strong>群組空間</strong></span>中就能看到自己剛建立的群組空間了。不過在建立群組的時候，若沒有把自己的帳號加入，即使自己是管理員，還是看不到該群組資料夾的唷！</p>
+<img src="https://farm1.staticflickr.com/777/22971120033_2ffb3cd4a8_o.png" alt="" />
+
+<p>最後在<strong><span style="color: #333300;">配額設定</span></strong>的部分，可以設定每個使用者上傳檔案至NAS的總容量(包含共享、個人、群組等空間)，如此一來，就能限制和觀察每個人的空間使用量。</p>
+<img src="https://farm6.staticflickr.com/5722/23314742040_f395478c1c_o.png" alt="" />
+
+<p><a id="c" name="c"></a><br><img src="https://farm6.staticflickr.com/5683/23677550935_c45804681a_o.jpg" alt="檔案存取教學" /></p>
+<p><a id="c-1" name="c-1"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【檔案存取 By PDM】</span></strong></p>
+<p>PowerNAS把檔案空間分類的十分詳細，分別是<span style="color: #333300;"><strong>共享</strong></span>/<span style="color: #333300;"><strong>個人空間</strong></span>/<span style="color: #333300;"><strong>備份</strong></span>/<span style="color: #333300;"><strong>群組</strong></span>/<span style="color: #333300;"><strong>雲端空間</strong></span>；在<span style="color: #333300;"><strong>共享空間</strong></span>中，目前有DOWNLOAD、MUSIC、PHOTO、VIDEO四個預設資料夾，這裡的檔案所有人都能做存取，當然也能依照個人喜好新增資料夾和上傳檔案。</p>
+<img src="https://farm1.staticflickr.com/568/23610425825_fbc5b38dce_o.png" alt="" />
+
+<p>若上傳不同類型的檔案，系統還會自動幫你分辨檔案類型(音樂/影片/圖片等)，不過.rmvb檔目前沒辦法只能顯示為影片類型，而是顯示”檔案”。</p>
+<img src="https://farm6.staticflickr.com/5789/22983390353_ac30358df1_o.png" alt="" />
+
+<p>在檔案的瀏覽方式一共有<span style="color: #333300;"><strong>清單</strong></span>/<span style="color: #333300;"><strong>小圖</strong></span>/<span style="color: #333300;"><strong>大圖</strong></span>三種模式，要瀏覽圖片就可以切換至<span style="color: #333300;"><strong>大圖模式</strong></span>，觀看時清楚又方便。</p>
+<img src="https://farm1.staticflickr.com/640/23242523189_10668372f7_o.png" alt="" />
+
+<p>如果要下載整個資料夾，它會自動先壓縮成.zip檔才下載。不過檔名的部分為201512820(年+月+日+分鐘)，整理起來不太容易，這邊建議可以改為日期+時間_資料夾名稱，如：12092318_example。</p>
+<img src="https://farm6.staticflickr.com/5629/23584356716_f4b204667e_o.png" alt="" />
+
+<p><a id="c-2" name="c-2"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【檔案存取 By 網路磁碟機】</span></strong></p>
+<p>不過既然是NAS，每次都要打開PDM才能存取NAS也是挺麻煩的。因此這邊提供一個用”區網”就能直接在資料夾存取資料的辦法：</p>
+<p>打開電腦裡的檔案總管，並點選”<strong><span style="color: #333300;">連線網路磁碟機</span></strong>“。</p>
+<img src="https://farm6.staticflickr.com/5761/23547397221_0af31d8007_o.png" alt="" />
+
+<p>這時會要求輸入資料夾位址，請輸入NAS的區網IP(例如\192.168.0.173)，並按下旁邊的”<strong><span style="color: #333300;">瀏覽</span></strong>“。</p>
+<img src="https://farm6.staticflickr.com/5634/23001621654_20fb878e37_o.png" alt="" />
+
+<p>選擇欲建立網路位址的資料夾。</p>
+<img src="https://farm1.staticflickr.com/622/23603718716_0bb5a27e55_o.png" alt="" />
+
+<p>輸入網路認證的號密碼即可。</p>
+<img src="https://farm1.staticflickr.com/706/23629809815_9fd551276a_o.png" alt="" />
+
+<p><a id="c-3" name="c-3"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【檔案存取 By FTP】</span></strong></p>
+<p>由於不用開啟PDM，FTP也是常見存取資料的方式。而要使用FTP之前，須先到PDM裡的Power Box開啟FTP，才可使用唷！</p>
+<img src="https://farm1.staticflickr.com/666/23537930962_5dd0ce2859_o.png" alt="" />
+
+<p>開啟電腦裡的檔案總管，於網址列輸入DDNS網址，並且在前面加上ftp://。</p>
+<img src="https://farm6.staticflickr.com/5812/23646502505_4164bb79b0_o.png" alt="" />
+
+<p>接下來會要求輸入帳號密碼，輸入後即可進行資料存取。</p>
+<img src="https://farm1.staticflickr.com/735/23019442883_8db2e59fc3_o.png" alt="" />
+
+<p>由於上述的方法比較適合少量的檔案，因此也可利用FTP軟體(此以Filezilla做示範)登入做存取。打開Filezilla後，輸入DDNS和帳號密碼後即可。該軟體主要是以<span style="color: #0000ff;">拖曳的方式來進行檔案的上傳/下載，而且下方會有傳輸速率和進度，以及剩餘多少檔案需傳輸</span>，使用上十分方便。</p>
+<img src="https://farm1.staticflickr.com/585/23018610904_8faa531ef8_o.png" alt="" />
+
+<p><a id="d" name="d"></a><br><img src="https://farm6.staticflickr.com/5698/23309592399_2368133d4d_o.jpg" alt="實用功能介紹" /></p>
+<p><a id="d-1" name="d-1"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【便利貼】</strong></span></p>
+<p>PowerNAS主打的好用功能之一就是『<span style="color: #800000;">便利貼</span>』拉！不曉得剛剛是否有發現為何社群登入跑到右上角，而中間卻一大片空白呢？其實這裡就像是家庭成員之間的”傳聲筒”，透過一句簡單的問候，或是注意事項、有事情無法立刻通知，這時『<span style="color: #800000;">便利貼</span>』就取代了家中的白板，讓NAS不再成為一台冰冷冷的機器。</p>
+<img src="https://farm1.staticflickr.com/589/23257878389_6626dd0d2b_o.png" alt="" />
+
+<p>這個便利貼居然還支援HTML!!!不過既然都叫便利貼了，應該不會特地在要留言的訊息上加工再加工吧XD 下圖為便利貼的情境應用：</p>
+<img src="https://farm6.staticflickr.com/5652/23599731036_be0b494842_o.png" alt="" />
+
+<p>既然可以使用HTML，當然也可以在便利貼上加上Youtube影片、彩色文字等：</p>
+<img src="https://farm1.staticflickr.com/744/23599730746_9625be3db5_o.png" alt="" />
+
+<p>『<span style="color: #800000;">便利貼</span>』這個功能固然方便好用，不過筆者建議可以做些改進：</p>
+<ol>
+<li><p>建議能在每個帳戶設個”暱稱”和”個人化的便利貼顏色”，在辨識誰PO的便利貼會更方便。</p>
+</li>
+<li><p>便利貼也可以像群組一樣，指定是要給哪個群組看的，這樣不僅是家人之間能使用，朋友、同事一樣也行。</p>
+</li>
+<li><p>在PO便利貼前可以設個時效性，也就是過幾小時/天後會自動移除，畢竟如”今天不回家吃晚餐”這類的留言不用保存太久，也不用特地去手動移除。</p>
+</li>
+<li><p>希望未來手機app也能查看和建立便利貼，並開啟”通知”功能，以利及時獲得訊息。</p>
+</li>
+</ol>
+<p><a id="d-2" name="d-2"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【PowerNAS Capture】</span></strong></p>
+<p>『<span style="color: #800000;">PowerNAS Capture</span>』可以將電腦端的光碟擷取保存至NAS或電腦上。此功能需先至<span style="color: #333300;"><strong>PowerNAS Tools</strong></span>點選”<span style="color: #333300;"><strong>PowerNAS Capture</strong></span>“並安裝程式。</p>
+<img src="https://farm6.staticflickr.com/5783/23626578095_8f0eb18f3b_o.png" alt="" />
+
+<p>接下來將DVD放入光碟機，如果DVD有讀到會顯示光碟機名稱(F:_)，這時請輸入NAS的區網IP。</p>
+<img src="https://farm1.staticflickr.com/735/23544169161_08591dc6fb_o.png" alt="" />
+
+<p>在進階擷取中，還可以設定影片的品質、音軌、字幕等等，影片格式則有Mp4和Mkv兩種選擇。</p>
+<img src="https://farm6.staticflickr.com/5762/23258640829_cc81171e3c_o.png" alt="" />
+
+<p>一部3.5GB的影片約需20分鐘左右擷取完成。</p>
+<img src="https://farm1.staticflickr.com/763/23518002082_56dbcf46db_o.png" alt="" />
+
+<p><a id="d-3" name="d-3"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【iTunes 伺服器】</strong></span></p>
+<p>iTunes是主要的功能是音樂播放器，不過它也可以透過iTunes Store下載音樂、影片、書報等。使用iTunes來播放NAS中的音樂十分容易，首先請到<span style="color: #333300;"><strong>PDM</strong></span>→<span style="color: #333300;"><strong>Power Box開</strong></span>啟”<span style="color: #333300;"><strong>iTunes伺服器</strong></span>“。</p>
+<img src="https://farm1.staticflickr.com/757/23044183723_311f82377e_o.png" alt="" />
+
+<p>接著打開iTunes，左上有有個房子符號點一下，選擇”<span style="color: #333300;"><strong>My Music on PowerNAS</strong></span>“。</p>
+<img src="https://farm6.staticflickr.com/5720/23819910232_7ff35dc1dd_o.gif" alt="" />
+
+<p>如下圖所示，播放清單上就會有NAS上的音樂。</p>
+<img src="https://farm6.staticflickr.com/5675/23671256645_caed7875d8_o.png" alt="" />
+
+<p><a id="e" name="e"></a><br><img src="https://farm1.staticflickr.com/631/23309592259_d41e64e1b1_o.jpg" alt="Win10 app ─ Solter Center" /></p>
+<p><a id="e-1" name="e-1"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【社群分享】</strong></span></p>
+<p>若您目前使用的是Windows 10的作業系統，那麼就可以使用市集的app：『<span style="color: #800000;">Solter Center</span>』了!!這個app除了可以<span style="color: #0000ff;">幫你的FB、Twitter貼文</span>，還<span style="color: #0000ff;">可排程備份、播放音樂影片</span>等。</p>
+<img src="https://farm6.staticflickr.com/5707/23260196509_a30145b3a6_o.png" alt="" />
+
+<p>接著打開”<strong><span style="color: #333300;">您的ITE2NAS</span></strong>“，輸入DDNS和帳密。</p>
+<img src="https://farm1.staticflickr.com/718/23001055923_8614b1765c_o.png" alt="" />
+
+<p>成功登入後，在左邊的互動功能就是”<span style="color: #800000;">社群分享</span>“，透過Facebook或Twitter就可以直接把想說的話發布至社群網站。</p>
+<img src="https://farm1.staticflickr.com/734/23000881144_87ca24e3c8_o.png" alt="" />
+
+<p>FB貼文除了文字，也可以附上相片；而相片也會很貼心地同步上傳到NAS的<strong><span style="color: #333300;">共享空間</span></strong>中。</p>
+<img src="https://farm1.staticflickr.com/682/23333377540_3b17155795_o.png" alt="" />
+
+<p><a id="e-2" name="e-2"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【影音娛樂】</span></strong></p>
+<p>回到『<span style="color: #800000;">Solter Center</span>』，右上角第一個是<strong><span style="color: #333300;">社群設定</span></strong>，也就是打開PDM做設定。接著第二個是<span style="color: #333300;"><strong>影音娛樂</strong></span>，使用者可以選擇播放NAS或是電腦中的影片。打開<strong><span style="color: #333300;">影音娛樂</span></strong>功能的同時，檔案路徑也會一併開啟；由於之前設定過網路位置了，因此可以直接打開NAS的路徑。</p>
+<img src="https://farm6.staticflickr.com/5771/23334546990_6f2045fd15_o.png" alt="" />
+
+<p>打開影片後的播放器介面如下圖所示：</p>
+<img src="https://farm6.staticflickr.com/5696/23003173743_565d4f49e8_o.png" alt="" />
+
+<p><a id="e-3" name="e-3"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【備份/還原】</span></strong></p>
+<p>最後是『<span style="color: #800000;">Solter Center</span>』的<span style="color: #800000;">備份/還原</span>功能，該功能點進去後，有<span style="color: #333300;"><strong>今天執行</strong></span>(立即備份)、<span style="color: #333300;"><strong>排程自動</strong></span>和<span style="color: #333300;"><strong>歷史紀錄</strong></span>三個按鈕。</p>
+<img src="https://farm6.staticflickr.com/5807/23548606471_ff579cd8e2_o.png" alt="" />
+
+<p>我點選的是<span style="color: #333300;"><strong>排程自動</strong></span>，接著可以選擇備份來源(可多個檔案or資料夾)，備份日期時間(可選擇週期，單位為日/週/月)和目的地等，輸入完按下右下角的儲存。<br>PS.要注意的是，若備份時間到的時候電腦為關機狀態，NAS是不會特地幫你將電腦開機備份資料唷！</p>
+<img src="https://farm1.staticflickr.com/659/23263087269_572d296748_o.png" alt="" />
+
+<p>若備份完成，NAS會發出訊息通知。</p>
+<img src="https://farm6.staticflickr.com/5788/23604927836_704f40eb17_o.png" alt="" />
+
+<p>在<span style="color: #333300;"><strong>PDM檔案管理</strong></span>→<span style="color: #333300;"><strong>備份空間</strong></span>中，我們可以看到剛剛備份的資料夾。PowerNAS貼心地將路徑設為：主機→備份名稱→資料夾/檔案路徑。這樣最大的好處就是<span style="color: #0000ff;"><strong>不管過多久，都能很清楚知道什麼裝置在什麼時候備份了什麼東西，因為連路徑都有備份，未來要對照也比較方便</strong>！</span></p>
+<img src="https://farm1.staticflickr.com/685/23548606361_62f8364c9a_o.png" alt="" />
+
+<p><a id="f" name="f"></a><br><img src="https://farm1.staticflickr.com/569/23568996152_bd895b2b0c_o.jpg" alt="手機app ─ PowerCloud" /></p>
+<p><a id="f-1" name="f-1"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【檔案管理】</span></strong></p>
+<p>PowerNAS也有手機板的專用app，請到GOOGLE PLAY商店搜尋PowerCloud就可以找到。打開app後，輸入IP位址(輸入pnas.後面就會自動輸入了！)和帳密，並勾選”<span style="color: #333300;"><strong>記住我</strong></span>“，下次登入就不用再輸入。</p>
+<img src="https://farm6.staticflickr.com/5671/23263915679_8f8b6ee5c2_o.png" alt="" />
+
+<p>『<span style="color: #800000;">PowerCloud</span>』登入後的介面，若點選右上角的”三”符號，是管理員的話還有重新啟動和關閉NAS的按鈕。</p>
+<img src="https://farm1.staticflickr.com/648/23523277252_934acc6295_o.png" alt="" />
+
+<p>進入第二個”<span style="color: #333300;"><strong>檔案管理</strong></span>“，介面就和PDM的一樣。在檔案目錄裡點右上角的”三”符號，還有<span style="color: #333300;"><strong>搜尋</strong></span>、<span style="color: #333300;"><strong>選取</strong></span>、<strong>新增資料夾</strong>、<strong>重新整理</strong>和<span style="color: #333300;"><strong>顯示縮圖</strong></span>等功能。</p>
+<img src="https://farm1.staticflickr.com/693/23549436381_f45ec6d5f0_o.png" alt="" />
+
+<p>按一下檔案旁邊的齒輪符號，可以下載/刪除/重新命名/分享/發布到FB。分享就是可以把此檔案傳到手機內的其他app，如傳送Gmail至夾帶檔案、傳送至LINE分享等等。</p>
+<img src="https://farm1.staticflickr.com/740/23004773003_8777fb2478_o.png" alt="" />
+
+<p><a id="f-2" name="f-2"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【手機通訊錄備份】</span></strong></p>
+<p>手機app最後一個功能就是<span style="color: #0000ff;">手機通訊錄備份</span>，三不五時備份一下，如此一來手機要重灌、換新機，或是手機遺失的時候，就不會找不到人，或是又要重新問每個人電話號碼了。</p>
+<img src="https://farm6.staticflickr.com/5649/23003884294_414fc38a39_o.png" alt="" />
+
+<p><a id="g" name="g"></a><br><img src="https://farm6.staticflickr.com/5783/23595080941_8a4412bb9e_o.jpg" alt="家庭影音娛樂中心 ─ XBMC" /></p>
+<p>其中，NAS的重頭戲當然就是<span style="color: #800000;">XBMC</span>啦！<span style="color: #0000ff;">只要一條HDMI線接到大電視，由於內建無線網路，因此甚至不受實體線路的限制，NAS要放哪都可以！</span></p>
+<img src="https://farm6.staticflickr.com/5625/23023354854_9c01d7d61b_o.jpg" alt="" />
+
+<p>要控制XBMC的畫面，可以使用手機app：PowerCloud的<span style="color: #333300;"><strong>XBMC遙控器</strong></span>來做遙控，不過個人認為去買一個藍芽鍵盤滑鼠會更好操控啦~~</p>
+<img src="https://farm1.staticflickr.com/590/23625457986_c05b8cebda_o.png" alt="" />
+
+<p>下圖為XBMC的主畫面：</p>
+<img src="https://farm6.staticflickr.com/5666/23355850240_142e10b6da_o.jpg" alt="" />
+
+<p>首先進入”<span style="color: #333300;"><strong>影片</strong></span>“，當初在共享空間會有MUSIC/PHOTO/VIDEO三個資料夾，就是PowerNAS預設要放在XBMC上的，不然就要自行新增影片來源路徑。</p>
+<img src="https://farm6.staticflickr.com/5641/23285035119_9467bbbf29_o.jpg" alt="" />
+
+<p>若在NAS外接儲存裝置，XBMC也會立刻抓到，並顯示於影片路徑中。</p>
+<img src="https://farm1.staticflickr.com/735/23357300930_ac9ba316f1_o.jpg" alt="" />
+
+<p>影片的擴充套件；XBMC最好玩的地方在於，它提供了許多的擴充套件供大家來下載，如此一來，影片內容就不只限於NAS內的影片了！</p>
+<img src="https://farm1.staticflickr.com/736/23652977345_4e61d8a786_o.jpg" alt="" />
+
+<p>影片的播放介面，個人覺得簡單又好看。在影片的旁邊寫了影片畫質、音軌等資訊；下圖是播放1080P的影片。</p>
+<img src="https://farm1.staticflickr.com/764/23570546921_8a2d0d918c_o.jpg" alt="" />
+
+<p>那麼播放4K的影片呢？當然也十分地順暢！</p>
+<img src="https://farm6.staticflickr.com/5725/23570547331_5b294cccd6_o.jpg" alt="" />
+
+<p>附上4K影片實測：</p>
+<p><a href="https://www.youtube.com/watch?v=RO8ZTvAjAF4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=RO8ZTvAjAF4</a></p>
+<p>相片在瀏覽時，右下角會<span style="color: #0000ff;">顯示縮圖</span>。</p>
+<img src="https://farm6.staticflickr.com/5645/23626908406_c2ff4b9de9_o.jpg" alt="" />
+
+<p>拉開左邊的目錄，檢視<span style="color: #333300;"><strong>選項</strong></span>→<span style="color: #333300;"><strong>顯示</strong></span>→<span style="color: #333300;"><strong>縮略圖</strong></span>，就可以以縮圖的方式瀏覽圖片。</p>
+<img src="https://farm1.staticflickr.com/680/23357300660_3c461342b9_o.jpg" alt="" />
+
+<p>圖片的附加元件，眾多套件等著被發掘~</p>
+<img src="https://farm6.staticflickr.com/5680/23626908346_aae8ebaa63_o.jpg" alt="" />
+
+<p>下面的影片是圖片集以幻燈片的方式播放(音樂另加的)，如此一來，XBMC立即成為大螢幕的數位相框！當然也可以一邊播音樂一邊播放幻燈片唷！</p>
+<p><a href="https://www.youtube.com/watch?v=CDk4f3QF2wY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=CDk4f3QF2wY</a></p>
+<p>音樂清單的瀏覽；版面一大，很長的檔名也能完整顯示了!!!左下角會顯示目前播放的歌曲。</p>
+<img src="https://farm6.staticflickr.com/5688/23357300550_368b806494_o.jpg" alt="" />
+
+<p>音樂的預設播放介面，不過在附加元件區應該有很多可以換介面的套件！</p>
+<img src="https://farm6.staticflickr.com/5661/23570547071_1e344a6176_o.jpg" alt="" />
+
+<p>這裡就是音樂的附加套件。</p>
+<img src="https://farm6.staticflickr.com/5696/23285034819_7f2b65cb52_o.jpg" alt="" />
+
+<p>除了音樂、影片和圖片的播放，XBMC還有天氣預報的功能。</p>
+<img src="https://farm1.staticflickr.com/670/23025103414_42989ae7b3_o.jpg" alt="" />
+
+<p>天氣設定的地方可以設定所在地，預設是台北。</p>
+<img src="https://farm6.staticflickr.com/5707/23285330569_e402dd9df2_o.jpg" alt="" />
+
+<p>小結：</p>
+<p>第四台轉呀轉的不知道要看什麼的時候，這時候NAS就派上用場了！接上HDMI線，電視立刻成為家庭影音中心。XBMC可以拿來播放NAS裡面的影片、音樂、相片，甚至還有天氣預報等等，完全不會無聊；若不想看影片的時候，開啟相片幻燈片來播放家庭出遊的照片也是不錯的選擇！</p>
+<p><a id="h" name="h"></a><br><img src="https://farm1.staticflickr.com/632/23651456456_cbc2a54386_o.jpg" alt="終極應用 ─ Ubuntu" /></p>
+<p><a id="h-1" name="h-1"></a>v<br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><strong><span style="color: #ff6600;">【Ubuntu應用】</span></strong></p>
+<p>要進入Ubuntu，首先須將XBMC做登出，請先點選XBMC主畫面左下角的<strong><span style="color: #333300;">電源鍵</span></strong>→<span style="color: #333300;"><strong>離開即可</strong></span>；然後就會自動來到登入介面。</p>
+<img src="https://farm6.staticflickr.com/5723/23043232454_75ffddfcf5_o.jpg" alt="" />
+
+<p>Ubuntu閒置一陣子會跳到此畫面，需要重新輸入密碼。</p>
+<img src="https://farm1.staticflickr.com/621/23043233174_6f95da9651_o.jpg" alt="" />
+
+<p>Ubuntu登出前的畫面，會二度確認是否要登出。</p>
+<img src="https://farm6.staticflickr.com/5778/23044327783_0c77a38aca_o.jpg" alt="" />
+
+<p>該系統內建的瀏覽器為<span style="color: #800000;">Firefox</span>。</p>
+<img src="https://farm6.staticflickr.com/5629/23671400275_22bc718570_o.jpg" alt="" />
+
+<p>不過光是搜尋就需要輸入中文了，因此附上中文輸入法的安裝教學：</p>
+<p>按一下畫面右上角的齒輪按鈕，選擇”<strong><span style="color: #333300;">System Settings..</span></strong>“，並點選”<span style="color: #333300;"><strong>Language Support…</strong></span>“。(有沒有覺得系統設定和A牌電腦的介面很像XD)</p>
+<img src="https://farm1.staticflickr.com/755/23375719010_5aceca314a_o.jpg" alt="" />
+
+<p>按一下”<span style="color: #333300;"><strong>Install/Remove Languages…</strong></span>“，在眾多語言中找到”<span style="color: #333300;"><strong>Chinese (traditional)</strong></span>“，點”<span style="color: #333300;"><strong>Apply Changes</strong></span>“安裝。</p>
+<img src="https://farm6.staticflickr.com/5799/23588931531_6c2a5b2286_o.jpg" alt="" />
+
+<p>安裝好將頁面全部關閉，點一下畫面右上角「En」輸入法符號→”<span style="color: #333300;"><strong>Text Entry Settings…</strong></span>“，左下角有一個”<span style="color: #333300;"><strong>+</strong></span>“符號按一下並找到”<span style="color: #333300;"><strong>Chinese(Chewing)</strong></span>“(新酷音輸入法)，選擇”<span style="color: #333300;"><strong>Add</strong></span>“。</p>
+<img src="https://farm1.staticflickr.com/777/23588930831_f9eb953af1_o.jpg" alt="" />
+
+<p>新酷音輸入法裝好後，打開內建在Ubuntu的<span style="color: #800000;">辦公室軟體LibreOffice — Writer</span>，就可以輸出中文了唷！</p>
+<img src="https://farm6.staticflickr.com/5730/23645320036_3967a59902_o.jpg" alt="" />
+
+<p>除了<span style="color: #800000;">Writer</span>(類似Microsoft Office Word)，還有內建的<span style="color: #800000;">Impress</span>(類似Powerpoint)和<span style="color: #800000;">Calc</span>(類似Excel)可以使用喔！</p>
+<img src="https://farm1.staticflickr.com/719/23562839502_5e30b7ea3a_o.jpg" alt="" />
+
+<img src="https://farm6.staticflickr.com/5741/23588930941_2f29524893_o.jpg" alt="" />
+
+<p>接著，Ubuntu也有支援<span style="color: #0000ff;">Flash插件</span>；請到左邊工作列上面數下來第七個”<span style="color: #333300;"><strong>Ubuntu Software Center</strong></span>“，搜尋Flash並安裝。</p>
+<img src="https://farm6.staticflickr.com/5741/23303434029_05e3cd625a_o.jpg" alt="" />
+
+<p>安裝好後就可以跑需要Flash支援的插件了；連Facebook的小遊戲也不例外。</p>
+<img src="https://farm6.staticflickr.com/5821/23043232524_1c36ed5813_o.jpg" alt="" />
+
+<p>最後是利用NetBeans軟體寫C++。</p>
+<img src="https://farm1.staticflickr.com/699/23303433859_53c98bae1b_o.jpg" alt="" />
+
+<p><a id="h-2" name="h-2"></a><br><img src="https://farm1.staticflickr.com/776/23470988582_32257de178_t.jpg" alt="" /><span style="color: #ff6600;"><strong>【Ubuntu遠端桌面連線】</strong></span></p>
+<p>要從自己的電腦連線到NAS的Ubuntu系統非常簡單，請先確保NAS和電腦在同一個網域內，並且開啟<span style="color: #333300;"><strong>PDM</strong></span>→<span style="color: #333300;"><strong>Power Box</strong></span>開啟<strong><span style="color: #333300;">遠端桌面</span></strong>的功能；接著打開<span style="color: #800000;">Windows內建軟體 — 遠端桌面連線</span>，並且輸入”NAS區網IP:3389”，如”192.168.0.173:3389”，然後輸入帳號密碼來登入。</p>
+<img src="https://farm1.staticflickr.com/645/23565955102_bf13fe94e2_o.png" alt="" />
+
+<p>如果成功，下圖就是登入後的畫面。</p>
+<img src="https://farm6.staticflickr.com/5712/23378844240_4fb4d55341_o.png" alt="" />
+
+<p>打開Firefox瀏覽器，進入Yahoo的頁面：</p>
+<img src="https://farm6.staticflickr.com/5666/23046349254_7a7cbcdd6e_o.png" alt="" />
+
+<p>使用VLC media player播放影片，完全沒有延遲問題！</p>
+<img src="https://farm1.staticflickr.com/777/23674515275_7a27f46f03_o.png" alt="" />
+
+<p>最後，我認為Ubuntu系統介面漂亮，操作也十分簡單；而由於它是開放的作業系統，想要做各項開發也較為容易。整體來說，第一次接觸Ubuntu一定可以容易上手！</p>
+<p><a id="i" name="i"></a><br><img src="https://farm6.staticflickr.com/5777/23651456306_99030d86ea_o.jpg" alt="總結與心得" /></p>
+<p><strong>根據2015年臉書統計數據，全世界的人每天平均有1500篇貼文會出現在使用者的首頁(難怪滑也滑不完)、3.5億張照片每天上傳到臉書，且全球使用者使用臉書時間占所有網路活動的15.8%等等，顯示出現今社群網站和人類之間的重要性。(資料來源：<a href="http://www.astralweb.com.tw/2015-facebook-statistics/" target="_blank" rel="noopener">http://www.astralweb.com.tw/2015-facebook-statistics/</a>)</strong></p>
+<p><strong>因此我認為PowerNAS以<span style="color: #0000ff;">社群分享</span>為出發點就做得非常好，首先，<span style="color: #0000ff;">使用者可以透過社群直接登入PDM介面，而不用另外輸入帳號密碼</span>；然後利用<span style="color: #0000ff;"><span style="color: #800000;">Solter Center</span>就可以直接PO相片文章至FB，甚至相片還會同步上傳至NAS</span>；最後是<span style="color: #800000;">便利貼</span>功能，<span style="color: #0000ff;">使用者可以互相分享心情大小事</span>，或是<span style="color: #0000ff;">要叮嚀注意的事情</span>，讓PowerNAS本身就是一個塗鴉牆！</strong></p>
+<p><strong>再來就是<span style="color: #800000;">XBMC</span>和<span style="color: #800000;">Ubuntu</span>，將PowerNAS另外接上螢幕，NAS立刻成為<span style="color: #0000ff;">影音娛樂中心</span>，<span style="color: #0000ff;">隨時播放相片影音檔案</span>；而關閉XBMC後就是另一台電腦，使用Ubuntu時操作容易，也能上網、玩遊戲等等非常方便！</strong></p>
+<p><strong>最後是NAS最重要的功能，就是<span style="color: #0000ff;">備份</span>和<span style="color: #0000ff;">資料存取功能</span>。使用<span style="color: #800000;">Solter Center</span>，可以選擇排程備份，且備份的時間來源寫得非常清楚，時間一久也不會雜亂難整理；而資料存取就是不受地點限制，在家中將資料上傳到NAS，在外就可以用手機、筆電來下載查看，隨時隨地都能對檔案做存取，十分便利！</strong></p>
+<p><strong>即使是很少接觸電腦的人，我相信使用PowerNAS時也能輕易上手，由於它的介面簡單，每個按鍵功能也有做說明，因此<span style="color: #0000ff;">這台PN-401絕對適合大多數的家庭來使用</span>！</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NAS/" rel="tag"># 其它NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/12/Microsoft-Surface-Pro-4/" rel="prev" title="[開箱] 旅遊、筆記、商務、繪畫，高機動性 Microsoft Surface Pro 4 輕鬆包辦你的生活">
+      <i class="fa fa-chevron-left"></i> [開箱] 旅遊、筆記、商務、繪畫，高機動性 Microsoft Surface Pro 4 輕鬆包辦你的生活
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/10/HackNTU-2015/" rel="next" title="2015 台大黑客松成果作品—智慧家庭">
+      2015 台大黑客松成果作品—智慧家庭 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'c5e77d0e290d56148ca5a3ea77500960',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片">
+<meta property="og:url" content="https://ed521.github.io/2018/08/Synology-Docker-ytdl/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242501/original/439fe1168b8e8bc0add742b7909540b7.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242219/original/d2a987f1fb05f2c915b3fa1f08ced181.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242498/original/6fc96fb7cda4cf4d02c487905e276840.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242499/original/fc9823067dc47946e31e2845a9cfd01a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242220/original/9ede7f8ec46ab8aca7832195c8cd5791.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242267/original/0b18d5cb577830847a6e12a04c4f9a5c.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242268/original/582ddd94d90cedd8fc521c139750265d.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242221/original/f36119bd44383d355348381639860d38.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242222/original/9fa7a89f443670af90607125b8edf1f4.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242223/original/d4af1edb04d45b183251d3d06508913b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242224/original/e3ac52ee853e2eb391ae90a47d7aa3b3.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242225/original/a030fe6719c99df0beedccb7beeedd9c.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242226/original/b72f206a7bff7fcb33a78409eadd1186.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242227/original/4305db0004b3ad1817d33d6c13e030e0.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242228/original/de10b7c99ddf439c8f1d1bd78256cb66.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242229/original/61105a5dee0b04a2ca3500f42f963bf6.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242230/original/9552791659caf4ddd3ac818078005693.jpg">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242231/original/a506843f38446b79bc0ffabe7b1de556.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242269/original/5c9f482e26120ba303bf4d0d115f0815.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242232/original/fe304772fdf1af52a14e959e957553f0.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242233/original/2c3d2fb86796a12d0ec63474970c429b.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242234/original/f41e52c99b768d1c2771c3d4c726d161.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242263/original/4738e0a11ddc35d1f741dbacf33403f3.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242236/original/6c0aeda52fcb35cbcab2561eae25399d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242237/original/9164dec06dada9c91a26cac38a333674.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242238/original/433e0ee28fae56f20c8e58697191477a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242239/original/5d2e949b90b468cd6fbf574be03892ed.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242281/original/511453fa00d4d099d26364dbb323775a.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242240/original/301ccfec20729b91d0613b5c52802a76.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242241/original/2ee537d15f31f81884937586fdcbdd4d.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242242/original/310418468fc17c6a9e38ba15f8fcf651.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242243/original/30de30a8906a7469db0ff294bd58dacc.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242244/original/063c94ca8209bcf4a7c5d48374f8ca4f.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242245/original/6deac9aa90659042726b98e938eeb956.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242246/original/b4fd20075a050a4d3f76ca836c36d44c.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242247/original/f3c2e9ba627d7f074bd1e6a0ba01d828.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242248/original/2f6a11d6eee1eaad56826473e4c92647.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242249/original/5dfbadd9e7cfc6969d14fdb9ce8b7b03.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242250/original/55c58d9dc5dd90893444e75513f9de98.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242251/original/9bfca0e8f72d23d33636383b9b1e5b88.png">
+<meta property="og:image" content="http://i1042.photobucket.com/albums/b429/eden0521/35_zpswvutgp6k.gif">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242252/original/a8d4da073fa7b2b8745f3ff970cc8599.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242253/original/5e109e41a7b65877cd2ee181b061b1dd.png">
+<meta property="og:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242254/original/8fc0cf590d3317786ac7e6554310489a.png">
+<meta property="article:published_time" content="2018-08-23T09:35:00.000Z">
+<meta property="article:modified_time" content="2019-08-24T18:31:26.103Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" Docker">
+<meta property="article:tag" content=" youtube-dl">
+<meta property="article:tag" content=" 影片">
+<meta property="article:tag" content=" 下載">
+<meta property="article:tag" content=" 影音">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242501/original/439fe1168b8e8bc0add742b7909540b7.png">
+
+<link rel="canonical" href="https://ed521.github.io/2018/08/Synology-Docker-ytdl/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2018/08/Synology-Docker-ytdl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2018-08-23 17:35:00" itemprop="dateCreated datePublished" datetime="2018-08-23T17:35:00+08:00">2018-08-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/08/Synology-Docker-ytdl/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Docker 應用 (上)：使用 youtube-dl 下載各大影音網站的影片" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>4.3k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242501/original/439fe1168b8e8bc0add742b7909540b7.png" />
+
+<a id="more"></a>
+
+<p>〈本文為上篇，下篇的連結為：<a href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft/" target="_blank" rel="noopener">Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器</a>〉</p>
+<p>市面上有著許多廠牌的 NAS（Network Attached Storage，網路附加儲存），每家都有著不同的使用介面與其主打功能；而本次筆者要介紹的 Synology - 也就是群暉科技的 NAS，擁有<span style="color: #800000;">淺顯易懂的介面及說明、完善的功能，以及各種企業解決方案等，非常適合家用、進階使用者和中小企業等客群來使用。</span></p>
+<p>PS. 下面是一些常用的 Synology 官方應用程式。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242219/original/d2a987f1fb05f2c915b3fa1f08ced181.png" />
+
+<p>目前本人使用的這台 <strong>Synology DS916+</strong> 已推出兩年以上，具兩個 Gigabit (RJ-45) 網路孔、三個 USB 3.0 連接埠（正面一個、背面兩個），以及一個 eSATA 孔；而這台擁有 4 Bay 的硬碟槽，且安裝 3.5 吋硬碟時無需拴螺絲（使用邊條固定於硬碟托盤上），安裝上十分方便。另外，NAS 背後有兩個大風扇，提供絕佳的散熱能力。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242498/original/6fc96fb7cda4cf4d02c487905e276840.jpg" />
+
+<p>DS916+ 搭載 INTEL Pentium N3710 1.6GHz(4C4T, up to 2.56 GHz) ，使用的 DSM(DiskStaion Manager) 版本為 6.2。這台在當時算是為專業用戶設計的機種，由於筆者自行加到 8GB RAM，<span style="color: #800000;">同時進行監控、虛擬機、影音/相簿、BT下載、架站等應用絕對是綽綽有餘的。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242499/original/fc9823067dc47946e31e2845a9cfd01a.png" />
+
+<p>雖然群暉內建了許多應用程式，總會有一些進階使用者找不到的應用，而<span style="color: #800000;"> Docker 套件就能解決這個問題。Docker 擁有各種開發者所創造的上萬種容器應用程式，讓無法在 Synology NAS 上執行的應用程式都可於 Docker 進行佈署。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242220/original/9ede7f8ec46ab8aca7832195c8cd5791.gif" />
+
+<p>另外，<span style="color: #800000;"><strong>Docker 套件並非所有 Synology NAS 都能使用，用戶需先確認自己或欲添購的機種是否支援 Docker 套件的安裝</strong></span>：<a href="https://www.synology.com/zh-tw/dsm/packages/Docker" target="_blank" rel="noopener">Docker 套件適用機種</a>。而這次筆者要介紹的兩大影音娛樂方面應用就是：<strong>「使用 youtube-dl 下載各大影音網站的影片」</strong>，以及<strong>「架設 Minecraft 遊戲伺服器」</strong>。</p>
+<hr />
+
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242267/original/0b18d5cb577830847a6e12a04c4f9a5c.gif" alt="內容大綱" />
+
+<p><a href="#a">★ Synology NAS 進階應用：Docker 套件 ★</a></p>
+<p><a href="#b">★ Docker 套件應用一：使用 youtube-dl 下載各大影音網站的影片 ★</a><br>└ <a href="#b-1">架設動機與使用情境</a><br>└ <a href="#b-2">youtube-dl 設置教學</a><br>└ <a href="#b-3">應用展示</a></p>
+<p>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft#c/" target="_blank" rel="noopener">下篇</a>〕★ Docker 套件應用二：架設 Minecraft 伺服器 ★<br>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft#c-1/" target="_blank" rel="noopener">下篇</a>〕└ 動機與使用情境<br>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft#c-2/" target="_blank" rel="noopener">下篇</a>〕└ Minecraft 伺服器設置教學<br>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft#c/-3" target="_blank" rel="noopener">下篇</a>〕└ 應用展示及密技介紹</p>
+<p>〔<a href="https://ed521.github.io/2018/08/Synology-Docker-Minecraft#d/" target="_blank" rel="noopener">下篇</a>〕★ 總結與心得 ★</p>
+<hr />
+
+<p><a id="a" name="a"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242268/original/582ddd94d90cedd8fc521c139750265d.gif" alt="Synology NAS 進階應用：Docker 套件" /></p>
+<p>本次筆者要介紹的就是專業用戶會玩的 Synology NAS 套件：Docker（<a href="https://www.synology.com/zh-tw/dsm/feature/docker" target="_blank" rel="noopener">Synology Docker 官方介紹頁面</a>）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242221/original/f36119bd44383d355348381639860d38.jpg" />
+
+<p><span style="color: #800000;">Docker 是一個輕量級的虛擬化環境，讓應用程式布署在軟體容器下的工作可以自動化進行。</span>簡單來說，Docker 就是在<span style="color: #800000;">不同且隔離的容器裡建立及執行多個應用程式，且彼此互不影響。</span></p>
+<p>首先到《套件中心》，接著在搜尋欄輸入”docker”並安裝套件。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242222/original/9fa7a89f443670af90607125b8edf1f4.png" />
+
+<p>接著打開《Docker》套件，畫面中會跳出提示”開啟說明頁”的畫面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242223/original/d4af1edb04d45b183251d3d06508913b.png" />
+
+<p>說明頁（<a href="https://www.synology.com/zh-tw/knowledgebase/DSM/help/Docker/docker_desc" target="_blank" rel="noopener">Synology 網頁版說明頁面</a>）能讓剛接觸 Docker 的新手有更進一步認識，裡面有”建立容器”、”一般設定”、”網路設定”和”DDSM”，也就是 Docker DSM 的簡易設定說明。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242224/original/e3ac52ee853e2eb391ae90a47d7aa3b3.gif" />
+
+<p>回到《Docker》，在 “概況”頁面會顯示執行中的容器，包含它的 CPU 使用率和 RAM 的使用量。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242225/original/a030fe6719c99df0beedccb7beeedd9c.jpg" />
+
+<p>而 Docker 也能架設獨立的 DSM，除了一些需要額外授權的套件，例如《Surveillance Station》、《MailPlus》等不能用之外，基本上多數套件在 Docker DSM (DDSM) 都能使用。<br>PS. Docker 中僅能架設”一套”免費的 DSM，額外架設另需付費。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242226/original/b72f206a7bff7fcb33a78409eadd1186.jpg" />
+
+<p>《Docker》也能直接於”倉庫伺服器”頁面中搜尋 <a href="https://hub.docker.com/explore/" target="_blank" rel="noopener">Docker Hub</a> 上的各種容器應用，並且可以直接進行下載，十分方便。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242227/original/4305db0004b3ad1817d33d6c13e030e0.jpg" />
+
+<p>從”倉庫伺服器”下載下來的映像檔，會顯示於”映像檔”頁面中，使用者能進行佈署，也就是讓它在自己的 NAS 上運作。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242228/original/de10b7c99ddf439c8f1d1bd78256cb66.jpg" />
+
+<p>由於大多數的情況下，在建立容器時需要進行變數設定，因此<span style="color: #800000;">使用者必須要先到映像檔的官方頁面，來查看有什麼變數需要額外設定。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242229/original/61105a5dee0b04a2ca3500f42f963bf6.gif" />
+
+<p>佈署完成後，在”容器”頁面可以對每個容器查看詳細資訊，或是將容器打開/關閉。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242230/original/9552791659caf4ddd3ac818078005693.jpg" />
+
+<p>接著我們隨意打開一個容器的詳細資訊，分別有”概況”、”程序”、”日誌”，以及使用者能在這裡自行下指令的”終端機”頁面。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242231/original/a506843f38446b79bc0ffabe7b1de556.gif" />
+
+<hr />
+
+<p><a id="b" name="b"></a><br><img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242269/original/5c9f482e26120ba303bf4d0d115f0815.gif" alt="Docker 套件應用一：使用 youtube-dl 下載各大影音網站的影片" /><br><a id="b-1" name="b-1"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td bgcolor="#DAEDFE"><strong>　架設動機與使用情境　</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>說明完《Docker》套件的介面之後，筆者要先來介紹一個簡單的 Docker 應用：<strong>使用 youtube-dl 來下載各大影音網站的影片</strong>。</p>
+<p>根據官方說法，目前 youtube-dl 支援<a href="https://rg3.github.io/youtube-dl/supportedsites.html" target="_blank" rel="noopener">上千種影音網站的影片下載</a>，用戶<span style="color: #800000;">只要把該影片網址複製後貼到 youtube-dl，它就會自動下載最高畫質的影片。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242232/original/fe304772fdf1af52a14e959e957553f0.png" />
+
+<p>但是有人可能會說：網路上可以下載 YouTube 影片的網站一堆呀？因此這邊筆者也找了幾個下載 YT 影片的網站，來看看普通網站到底有何限制所在。</p>
+<p><span style="color: #0000ff;"><strong>〔情況一：下載連結要等好久，不然就是打不開〕</strong></span></p>
+<p>如圖所示，貼上影片連結就要等它轉圈圈轉好久…</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242233/original/2c3d2fb86796a12d0ec63474970c429b.png" />
+
+<hr />
+
+<p><strong><span style="color: #0000ff;">〔情況二：強制跳出廣告頁面〕</span></strong></p>
+<p>很多影片下載網站為了營利，都會有內嵌廣告，或是在按下”下載”時，強制跳出廣告。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242234/original/f41e52c99b768d1c2771c3d4c726d161.png" />
+
+<hr />
+
+<p><strong><span style="color: #0000ff;">〔情況三：無法下載到最高畫質〕</span></strong></p>
+<p>根據 YouTube 的畫質設定中，”一日幕僚”這支影片最高支援 1080P 的畫質，但是”買噹噹影片下載工具”只提供了 720P 影片下載連結。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242263/original/4738e0a11ddc35d1f741dbacf33403f3.png" />
+
+<hr />
+
+<p><span style="color: #0000ff;"><strong>〔情況四：雖然可以下載最高畫質，卻是無聲音的影片〕</strong></span></p>
+<p>好不容易找到一個支援 1080P 影片畫質的下載網站，卻只能下載無聲音的版本…</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242236/original/6c0aeda52fcb35cbcab2561eae25399d.png" />
+
+<p>因此透過自架的 youtube-dl，不管在哪，只要打開該頁面並且輸入影片網址；而在送出的同時，NAS 就會自動下載影片，然後將影片儲存至 NAS 之中。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242237/original/9164dec06dada9c91a26cac38a333674.png" />
+
+<p>下載好的影片，我們再將它移動到 Video Station 的影片庫索引資料夾中。如此一來，透過《Video Station》就能和其他成員一起共享影片，或是利用『DS video』App，在行動裝置線上/下載觀看。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242238/original/433e0ee28fae56f20c8e58697191477a.png" />
+
+<hr />
+
+<p><a id="b-2" name="b-2"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td bgcolor="#daedfe"><strong>　youtube-dl 設置教學　</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong><span style="color: #0000ff;">〔Step 1：打開《Docker》套件 → “倉庫伺服器”頁面搜尋”youtube-dl”，找到 kmb32123/youtube-dl-server 並下載〕</span></strong></p>
+<p>搜尋 youtube-dl 後會出現許多不同人製作的映像檔，我們下載的是擁有網頁 gui 介面的 kmb32123/youtube-dl-server。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242239/original/5d2e949b90b468cd6fbf574be03892ed.png" />
+
+<p><strong><span style="color: #0000ff;">〔Step 2：打開<a style="color: #0000ff;" href="https://hub.docker.com/r/kmb32123/youtube-dl-server/" target="_blank" rel="noopener">映像檔的官方頁面</a>，來查看有什麼變數需要額外設定。〕</span></strong></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242281/original/511453fa00d4d099d26364dbb323775a.png" />
+
+<p>其實設置 Docker 容器最難的地方就在這，<span style="color: #800000;">使用者必須看好有哪些參數需要另外設定，直接佈署的話很容易就失敗。</span></p>
+<p>點一下映像檔名稱旁的藍色箭頭圖示，並進入<a href="https://hub.docker.com/r/kmb32123/youtube-dl-server/~/dockerfile/" target="_blank" rel="noopener">“Dockerfile”分頁</a>。雖然大多的指令參數都不用理會它，但 <strong>EXPOSE 的 8080 Port</strong> 和<strong> VOLUME 的 [“/youtube-dl”]</strong> 會在後面用到，一個是 <strong>youtube-dl 網站的入口 Port</strong>，一個是<strong>影片下載的檔案位置</strong>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242240/original/301ccfec20729b91d0613b5c52802a76.png" />
+
+<p>然後到<a href="https://hub.docker.com/r/kmb32123/youtube-dl-server/" target="_blank" rel="noopener">“Repo Info”分頁</a>，上面提到使用此映像檔的方式，就是瀏覽器打開 http:// [NAS位址]:8080/youtube-dl ，然後輸入影片位址即可。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242241/original/2ee537d15f31f81884937586fdcbdd4d.png" />
+
+<p><span style="color: #0000ff;"><strong>〔Step 3：佈署 youtube-dl 映像檔，並輸入相關設定〕</strong></span></p>
+<p>回到《Docker》中，已下載的映像檔會在”映像檔”頁面，我們按一下 kmb32123/youtube-dl-server，並按下”佈署”按鈕。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242242/original/310418468fc17c6a9e38ba15f8fcf651.png" />
+
+<p>打開後，按下”進階設定”，在”進階設定”分頁中按下”新增捷徑至桌面”，網頁中輸入網址 http:// [NAS的IP]:8080/youtube-dl （預設 Port 為 8080，或是自訂的 Port）。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242243/original/30de30a8906a7469db0ff294bd58dacc.png" />
+
+<p>接著到”儲存空間”分頁，這邊就是要設定下載後的影片檔案位置，這邊選擇 /video 路徑（使用者自訂）；而掛載路徑請輸入 /youtube-dl。</p>
+<p>PS. <span style="color: #800000;">掛載路徑所要輸入的 /youtube-dl，也就是前面文件提到的 “VOLUME”。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242244/original/063c94ca8209bcf4a7c5d48374f8ca4f.png" />
+
+<p>再來看到”連接埠設定”和”環境設定”分頁，這邊都幫我們事先設定好了，不過建議將 本機連接埠 裡的”自動設定”，手動更改為”8080” Port（<span style="color: #800000;">或是自訂的 Port，如果不是設定 8080，則 youtube-dl 網址的 Port 也要更改</span>）；輸入完按下套用。</p>
+<p>PS. <span style="color: #800000;">容器連接埠的 8080 Port，也就是前面文件提到的 “EXPOSE”。</span></p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242245/original/6deac9aa90659042726b98e938eeb956.png" />
+
+<p>進階設定完成，按下”下一步”，再按下”套用”，就會在精靈完成後立刻啟動容器。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242246/original/b4fd20075a050a4d3f76ca836c36d44c.png" />
+
+<p>最後記得到路由器設定頁面新增 8080 的外連 Port（或是自訂的 Port），否則從外網無法連線到自架的 youtube-dl 網站。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242247/original/f3c2e9ba627d7f074bd1e6a0ba01d828.gif" />
+
+<hr />
+
+<p><a id="b-3" name="b-3"></a></p>
+<table border="0">
+<tbody>
+<tr align="center" valign="middle">
+<td bgcolor="#daedfe"><strong>　應用展示　</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>由於我們剛剛有新增網站捷徑至桌面，按一下就能打開 youtube-dl 網頁；或是在網址列輸入 http://[NAS位址]:8080/youtube-dl 也一樣能進入。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242248/original/2f6a11d6eee1eaad56826473e4c92647.gif" />
+
+<p>接著實測超簡易的下載方式，只要複製影音連結，貼至 youtube-dl 網頁並按下”Submit”後，看到白底的網頁寫了”Success: true”就完成了。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242249/original/5dfbadd9e7cfc6969d14fdb9ce8b7b03.gif" />
+
+<p>如果到”終端機”分頁會看到正在下載的詳細資訊，而終端機顯示的內容也會移至”日誌”分頁中，方便未來查看。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242250/original/55c58d9dc5dd90893444e75513f9de98.gif" />
+
+<p>筆者測試了三大影音網站：YouTube、Facebook 和 Twitch 都能正常下載 Full HD(1080P) 的影片，包含前面提到”一日幕僚”這支 YouTube 影片，1080P 是沒有問題的。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242251/original/9bfca0e8f72d23d33636383b9b1e5b88.png" />
+
+<p>YouTube 的播放清單也能一次打包下載，可以看到終端機畫面中，一支接著一支影片不中斷地下載。</p>
+<img src="http://i1042.photobucket.com/albums/b429/eden0521/35_zpswvutgp6k.gif" />
+
+<p>不過筆者在實測上也遇到一些限制，包含<span style="color: #800000;"> 4K 的 YouTube 影片，youtube-dl 只會下載 1080P 畫質</span>；此外，雖然官方說明可以下載”愛奇異”的影片，但由於此容器的作者已經四個月沒有更新容器版本了，目前測試無法下載（也有可能是地區限制的關係），錯誤訊息如下圖。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242252/original/a8d4da073fa7b2b8745f3ff970cc8599.png" />
+
+<p>如此一來，<span style="color: #800000;">下載的影片就能集中管理</span>；不過比較可惜的是，目前 Synology NAS 的限制是：<strong><span style="color: #800000;">Docker 將影片新增到 /video 資料夾的這個行為並不會觸發影片索引的動作</span></strong>。一種解決方式是<span style="color: #800000;">另外設定排程任務來定期移動影片檔案</span>，否則就要<span style="color: #800000;">使用者自行手動將檔案移動至 Video Station 索引資料夾中</span>。</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242253/original/5e109e41a7b65877cd2ee181b061b1dd.png" />
+
+<p>移動影片後，透過《Video Station》就能觀看 youtube-dl 下載的影片，不管要和朋友分享或是在手機上觀看，通通沒問題！</p>
+<img src="https://cdn2-t17.techbang.com/system/attached_images/2018/08/242254/original/8fc0cf590d3317786ac7e6554310489a.png" />
+
+<p>最後，筆者統整<span style="color: #800000;">使用 Synology Docker 架設 youtube-dl 來下載影片的優點：</span></p>
+<p><strong>1. 下載十分方便，不管在家或在辦公室，<span style="color: #ff6600;">打開 youtube-dl 網站並貼上影音網址，就會自動開始下載。</span></strong><br><strong>2. <span style="color: #ff6600;">支援 FB影片、YouTube影片和播放清單，和 Twitch 等各大影音網站。</span></strong><br><strong>3. <span style="color: #ff6600;">自動偵測下載最高畫質(1080P) 的影片。</span></strong><br><strong>4. 下載後的影片通通能<span style="color: #ff6600;">在 NAS 中的指定資料夾進行集中管理</span>，而《Video Station》套件還能直接觀看這些影片，非常方便。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/Synology-Docker-Minecraft/" rel="prev" title="[教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器">
+      <i class="fa fa-chevron-left"></i> [教學] Synology NAS Docker 應用 (下)：架設 Minecraft 伺服器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/AfoBot/" rel="next" title="[開箱] 簡單動動口，即可享受影音娛樂！QNAP Afobot 阿福寶 帶給您全新體驗的智能居家助理！">
+      [開箱] 簡單動動口，即可享受影音娛樂！QNAP Afobot 阿福寶 帶給您全新體驗的智能居家助理！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'dc2e62b716108b16840608ad85da9157',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

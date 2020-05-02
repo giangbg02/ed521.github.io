@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ A-1 DS916+開箱A-2 硬碟安裝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Synology NAS Tip A. DS916+開箱&#x2F;硬碟安裝篇">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-Tip-A/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="※本文章為NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！之分支※ A-1 DS916+開箱A-2 硬碟安裝">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270171/original/84c1a5b2e16802109a7483d3eba7dbe8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270172/original/5d3b492729ace6342c80cc8e517ce452.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270173/original/4b8547df57be31c68c5ee8817a48a30c.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270174/original/4ec33c10e5f74d9dfe3908b1805f625a.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270175/original/41d219f81454177829c34cf1d6c27d27.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270176/original/b39bf4c11c5e45f2d91c4472cbaafb22.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270177/original/388da615279be9889362926d51889cb1.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270178/original/1a9af3ead2b33195823038b44369864a.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270179/original/1cba6f409427f7d3eadd9d60228509ab.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270180/original/7db081fd5841c9e49ac24172484f7a3d.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270181/original/f2a39f99ef1301415db396321b1dfeb6.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270182/original/bc6733da3e991f09215303f9807b3bd6.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270183/original/885eb342fe9f51b48ea712eba761f419.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270184/original/f515c3eb1dfd6d225fdc266d5ab17b53.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270185/original/ea5b5db461c3734624ec0e7f16e1d62f.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270186/original/bedd16a78d300453fd484e126d3768a4.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270187/original/f17565f50541aa37df8af91ee9519f54.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270188/original/eab2c9d9ffd4c76c9597b3bb491952a1.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270189/original/092862080e6bf0ca65f8ebd2315afdb0.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270190/original/b209f7ef2a6963ada50ec6baa03633d8.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270209/original/76fc3ba14aa61e8b5f1f77318e5eb2e0.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270192/original/3945951a0978cba5f9f1fbeae395c9f1.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270193/original/e465c96060bae004453f2b70c0c282df.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270194/original/ef1537f8e8f8693c1c6b76bf4da39c90.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270195/original/0c7dc3eaf78ddede2e0375406d384d50.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270196/original/a4b3efa25d17ef817b6418c9f73597da.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270197/original/198d85bf800201a3ea1680eb3cebbd97.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270198/original/f7146c25c26db08ac54ff94547c575e6.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270207/original/a24b17b1f36ce95c7140fb849b85d706.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270199/original/842362873bcdfbcd2664fc139c9a1aa4.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270200/original/eb09d447a3c6c8f3ae42c9f967d01148.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270201/original/b5f95e763a6a292e49830d206b230b89.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270208/original/169971481a63a6ecfd6a888c533d0428.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270202/original/1ee55077f263e85cec48b33e176cf15f.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270203/original/dc869ed045a84d09c9bcd26cc4bb1fe4.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270204/original/a10f9ce37c5a42dad13b972f5ee63d11.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270205/original/71eb8d12795e6b78da792104e2a087c9.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270206/original/db907b29cecbfc5bcd30e28fa7092879.jpg">
+<meta property="article:published_time" content="2016-07-27T05:23:00.000Z">
+<meta property="article:modified_time" content="2019-12-22T14:16:43.195Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" 設定">
+<meta property="article:tag" content=" 安裝">
+<meta property="article:tag" content=" 硬碟">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270171/original/84c1a5b2e16802109a7483d3eba7dbe8.png">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-Tip-A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Synology NAS Tip A. DS916+開箱/硬碟安裝篇 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-Tip-A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Synology NAS Tip A. DS916+開箱/硬碟安裝篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-27 13:23:00" itemprop="dateCreated datePublished" datetime="2016-07-27T13:23:00+08:00">2016-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-Tip-A/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Synology NAS Tip A. DS916+開箱/硬碟安裝篇" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>※本文章為<a href="https://ed521.github.io/2016/07/Synology-DS916plus/" target="_blank">NAS教戰手冊，讓Synology DS916+ “易”發不可收拾！</a>之分支※</p>
+<p><a href="#A-1">A-1 DS916+開箱</a><br><a href="#A-2">A-2 硬碟安裝</a></p>
+<a id="more"></a>
+
+<p><a id="A-1" name="A-1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270171/original/84c1a5b2e16802109a7483d3eba7dbe8.png" /></p>
+<p>本次要開箱的產品型號為<span style="color: #800000;">Synology DS916+</span>，由於箱子是使用普通土黃色的厚紙板紙箱，給人一種簡約、環保的感覺。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270172/original/5d3b492729ace6342c80cc8e517ce452.jpg" />
+
+<p>箱子正上方以黑底白字寫出DS916+的型號，旁邊還註明了本產品為”Plus Series”，且為2GB Ram版。<br>PS. “DS”代表DiskStation；”9”表示最多可擴充到9顆硬碟；”16”為2016年推出的產品(下半年)；”+”則是較高階機種的意思。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270173/original/4b8547df57be31c68c5ee8817a48a30c.jpg" />
+
+<p>貼紙提到了DS916+的四大特色：<span style="color: #800000;">四核心<span style="color: #000000;">(並具有AES-NI 硬體加密引擎，可加快加密與解密的速度)</span></span>、<span style="color: #800000;">4K影片轉碼</span>、<span style="color: #800000;">雙網路孔</span>(擁有通道聚合技術，可使傳輸具有負載平衡)、<span style="color: #800000;">DSM</span>(DiskStation Manager)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270174/original/4ec33c10e5f74d9dfe3908b1805f625a.jpg" />
+
+<p>紙箱側面左下角印出群暉科技的廠牌Synology，以及其官方網址：<a href="http://www.synology.com/" target="_blank">http://www.synology.com/</a>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270175/original/41d219f81454177829c34cf1d6c27d27.jpg" />
+
+<p>另一面的貼紙則是詳細的標示了DS916+的產品外觀及其功能，還有硬體基本規格和產品內容物。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270176/original/b39bf4c11c5e45f2d91c4472cbaafb22.jpg" />
+
+<p>Synology NAS擁有以下幾個特點：資料共享、隨時隨地的存取資料、雲端同步、豐富的多媒體、行動裝置管理、監控、備份，以及資料安全性！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270177/original/388da615279be9889362926d51889cb1.jpg" />
+
+<p>打開箱子上蓋，首先看到的是電源線以及產品配件盒，NAS主體則是放在下面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270178/original/1a9af3ead2b33195823038b44369864a.jpg" />
+
+<p>利用紙板折成的上蓋來保護NAS，產品主體則是用薄薄的泡綿紙包覆。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270179/original/1cba6f409427f7d3eadd9d60228509ab.jpg" />
+
+<p>不過為了不讓NAS在運送過程中容易搖晃，機器下方還是有墊一層厚厚的泡棉。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270180/original/7db081fd5841c9e49ac24172484f7a3d.jpg" />
+
+<p>下圖為配件盒的內容物，裡頭有變壓器、網路線兩條、螺絲一袋，以及快速安裝指南一張。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270181/original/f2a39f99ef1301415db396321b1dfeb6.jpg" />
+
+<p>電源線與一般桌機用的相同，約長50cm。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270182/original/bc6733da3e991f09215303f9807b3bd6.jpg" />
+
+<p>電源線需接到變壓器上，此變壓器的製造商是翌勝電子，型號為EA11011D-120，輸出是12V—8.33A。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270183/original/885eb342fe9f51b48ea712eba761f419.jpg" />
+
+<p>螺絲共有18顆，還多提供了兩顆的備料。不過此NAS的硬碟托盤設計，3.5吋硬碟是”免螺絲”就可以固定在托盤上，2.5吋硬碟才需要拴螺絲。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270184/original/f515c3eb1dfd6d225fdc266d5ab17b53.jpg" />
+
+<p>網路線為Cat.5e的線材規格，長度約1.5公尺。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270185/original/ea5b5db461c3734624ec0e7f16e1d62f.jpg" />
+
+<p>快速安裝指南中的硬碟安裝教學非常詳細，讓第一次接觸的人能快速上手。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270186/original/bedd16a78d300453fd484e126d3768a4.jpg" />
+
+<p>接著看到DS916+產品主體，正面的外蓋由於是亮面塑膠材質，看起來就像是一面鏡子！機器側面第一個是狀態燈，下面四個則是第1~4硬碟盒的狀態燈，若有硬碟插入就會亮綠燈；在燈號的下面還有一個USB 3.0連接埠，以及一個電源鍵。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270187/original/f17565f50541aa37df8af91ee9519f54.jpg" />
+
+<p>左側和D右側兩邊都印著大大的Synology商標，且<span style="color: #800000;">此商標有做洞洞線條的通風散熱設計</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270188/original/eab2c9d9ffd4c76c9597b3bb491952a1.jpg" />
+
+<p>NAS的背面就是兩個大風扇，以利<span style="color: #800000;">直接散熱</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270189/original/092862080e6bf0ca65f8ebd2315afdb0.jpg" />
+
+<p>風扇外蓋可以拆卸下來，如此一來，就能利用棉花棒或小刷子來清潔風扇。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270190/original/b209f7ef2a6963ada50ec6baa03633d8.jpg" />
+
+<p>DS916+的連接埠較為簡單：一共有網路孔x2、eSATA埠x1、USB3.0連接埠x2、肯辛頓鎖孔x1和電源接口x1。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270209/original/76fc3ba14aa61e8b5f1f77318e5eb2e0.jpg" />
+
+<p>NAS正面外蓋左下角印出了本產品型號為DS916+。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270192/original/3945951a0978cba5f9f1fbeae395c9f1.jpg" />
+
+<p>此鏡面塑膠外殼只要輕輕向外一扳就拆下了，內部就是四個抽取式的硬碟托盤，且左下角也有印出DS916+型號。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270193/original/e465c96060bae004453f2b70c0c282df.jpg" />
+
+<p>要取出硬碟抽取盒非常簡單，先壓著上方有寫著”PUSH”的地方，接著就可以將抽取盒拉出來了。(注意<span style="color: #800000;">托盤上方有寫”UP”的地方要朝上</span>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270194/original/ef1537f8e8f8693c1c6b76bf4da39c90.jpg" />
+
+<p>在”PUSH”旁邊有以白色小圓點顯示硬碟的插入順序。(<span style="color: #000000;">一個小圓點就代表第一顆硬碟的插入位置</span>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270195/original/0c7dc3eaf78ddede2e0375406d384d50.jpg" />
+
+<p>整台NAS的內部主要只有容納硬碟的空間，並且直對兩個風扇排風，讓硬碟擁有較好的散熱效果！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270196/original/a4b3efa25d17ef817b6418c9f73597da.jpg" />
+
+<p>硬碟托盤為非金屬材質，因此非常輕；把手的地方印有Synology的商標。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270197/original/198d85bf800201a3ea1680eb3cebbd97.jpg" />
+
+<p>托盤尾端有個”PULL”字樣，朝箭頭處拉開就能把邊條取下。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270198/original/f7146c25c26db08ac54ff94547c575e6.jpg" />
+
+<p>硬碟托盤支援2.5吋和3.5吋的硬碟；<span style="color: #800000;">3.5吋的硬碟只需用邊條來固定(無須拴螺絲)</span>，底部四個螺絲孔則是給2.5吋硬碟拴螺絲用的。<br>硬碟托盤支援2.5吋和3.5吋的硬碟；<span style="color: #800000;">3.5吋的硬碟只需用邊條來固定(無須拴螺絲)</span>，底部四個螺絲孔則是給2.5吋硬碟拴螺絲用的。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270207/original/a24b17b1f36ce95c7140fb849b85d706.jpg" />
+
+<p>插入硬碟螺絲孔的旁邊有橡膠，以及下方的止滑墊，提供<span style="color: #800000;">硬碟防震</span>和<span style="color: #800000;">減少晃動</span>的機會。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270199/original/842362873bcdfbcd2664fc139c9a1aa4.jpg" />
+
+<p>本次搭配NAS使用的硬碟就是這顆<span style="color: #008000;"><strong>TOSHIBA 6TB 企業級硬碟(型號：MG04ACA600E)</strong></span>。此硬碟提供高達<span style="color: #800000;">6TB的大容量</span>以及<span style="color: #800000;">7,200 rpm</span>的效能，標準的3.5吋26.1 mm外型規格搭載先進格式磁區技術，造就最佳的容量與資料可靠性。512e 型號支援 Toshiba 持續性寫入快取技術，能妥善因應突發斷電的情況，有效提升效能表現。4Kn 型號可在 4K 應用程式和作業環境下提供最佳效能和相容性。(<a href="http://toshiba.semicon-storage.com/tw/product/storage-products/enterprise-hdd/mg04acaxxxx.html" target="_blank">產品網頁</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270200/original/eb09d447a3c6c8f3ae42c9f967d01148.jpg" />
+
+<p>TOSHIBA 6TB 企業級硬碟使用的是 SATA3 介面，傳輸速率高達6.0 Gbit/s。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270201/original/b5f95e763a6a292e49830d206b230b89.jpg" />
+
+<p><a id="A-2" name="A-2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270208/original/169971481a63a6ecfd6a888c533d0428.png" /></p>
+<p>在將硬碟放入托盤之前，須先把邊條拆下，硬碟有貼貼紙的那一面朝上，再插回邊條。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270202/original/1ee55077f263e85cec48b33e176cf15f.jpg" />
+
+<p>裝好硬碟後的托盤如圖所示：</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270203/original/dc869ed045a84d09c9bcd26cc4bb1fe4.jpg" />
+
+<p>由於只有一顆硬碟，因此把有硬碟的那個托盤放入最左邊的硬碟槽。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270204/original/a10f9ce37c5a42dad13b972f5ee63d11.jpg" />
+
+<p>安裝好硬碟後基本上前置作業就完成了。在啟動NAS電源之前，只要再接上三條線即可：<span style="color: #800000;">電源線</span>和<span style="color: #800000;">兩條網路線</span>(網路線只接一條也行)；由於NAS需利用區域網路來進行設定，電腦和NAS要接上同一台路由器(否則也可利用筆電連無線網路至該路由器)。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270205/original/71eb8d12795e6b78da792104e2a087c9.jpg" />
+
+<p>接著進行開機，首先電源鍵會閃藍燈，待長亮藍燈後，第一個狀態指示燈會亮橘燈，即可開始系統設定！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270206/original/db907b29cecbfc5bcd30e28fa7092879.jpg" />
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-B/" rel="prev" title="[教學] Synology NAS Tip B. 系統安裝/設定篇">
+      <i class="fa fa-chevron-left"></i> [教學] Synology NAS Tip B. 系統安裝/設定篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/06/Apollo/" rel="next" title="[開箱] 小空間大實現，Apollo 個人雲端儲存裝置，矚目上市">
+      [開箱] 小空間大實現，Apollo 個人雲端儲存裝置，矚目上市 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '0f1e1b543ea19374a95b1613cb67b889',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="由於NAS(Network Attached Storage，網路附加儲存)可以到處對於檔案做存取和分享，以及它的影音娛樂、架網站、架伺服器、備份資料等優點，現在許多企業、學校，甚至是家庭都至少擁有一台NAS了。NAS固然好用，但是硬碟就像一顆不定時炸彈，什麼時候會壞沒有人知道；如果買了個便宜的普通硬碟，可能過不了多久，硬碟可能就掛了，裡頭的資料再也救不回來。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[開箱] 超大容量、高穩定度 HGST Deskstar 6TB NAS 專用碟 強勢登場">
+<meta property="og:url" content="https://ed521.github.io/2015/10/HGST-HDD/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="由於NAS(Network Attached Storage，網路附加儲存)可以到處對於檔案做存取和分享，以及它的影音娛樂、架網站、架伺服器、備份資料等優點，現在許多企業、學校，甚至是家庭都至少擁有一台NAS了。NAS固然好用，但是硬碟就像一顆不定時炸彈，什麼時候會壞沒有人知道；如果買了個便宜的普通硬碟，可能過不了多久，硬碟可能就掛了，裡頭的資料再也救不回來。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://i.imgur.com/duXUuD5.jpg">
+<meta property="og:image" content="http://i.imgur.com/cHKQv5U.jpg">
+<meta property="og:image" content="http://i.imgur.com/XJP8IDb.jpg">
+<meta property="og:image" content="http://i.imgur.com/6NillFL.jpg">
+<meta property="og:image" content="http://i.imgur.com/bFlqFJB.jpg">
+<meta property="og:image" content="http://i.imgur.com/LMh7fqi.jpg">
+<meta property="og:image" content="http://i.imgur.com/C9efNwf.jpg">
+<meta property="og:image" content="http://i.imgur.com/8YxMxM4.jpg">
+<meta property="og:image" content="http://i.imgur.com/uczFfZq.jpg">
+<meta property="og:image" content="http://i.imgur.com/z2wqkpH.jpg">
+<meta property="og:image" content="http://i.imgur.com/UGM5FJ6.png">
+<meta property="og:image" content="http://i.imgur.com/441Hy89.png">
+<meta property="og:image" content="http://i.imgur.com/H1bqhjc.png">
+<meta property="og:image" content="http://i.imgur.com/DpBT6fO.jpg">
+<meta property="og:image" content="http://i.imgur.com/kLMkhLe.png">
+<meta property="og:image" content="http://i.imgur.com/3lHlDHV.gif">
+<meta property="og:image" content="http://i.imgur.com/0IrsAP5.png">
+<meta property="og:image" content="http://i.imgur.com/DSe4Q02.jpg">
+<meta property="og:image" content="http://i.imgur.com/emCGPvs.png">
+<meta property="og:image" content="http://i.imgur.com/N1ypZww.png">
+<meta property="og:image" content="http://i.imgur.com/lNW0RGD.png">
+<meta property="og:image" content="http://i.imgur.com/pGZguhD.png">
+<meta property="og:image" content="http://i.imgur.com/TN6ylOl.png">
+<meta property="og:image" content="http://i.imgur.com/iBc3Lfy.png">
+<meta property="og:image" content="http://i.imgur.com/3aYv6jz.png">
+<meta property="og:image" content="http://i.imgur.com/fCD2Sb6.png">
+<meta property="og:image" content="http://i.imgur.com/Lu3MBny.png">
+<meta property="og:image" content="http://i.imgur.com/Dd9g9ei.png">
+<meta property="og:image" content="http://i.imgur.com/G6JxNS6.png">
+<meta property="og:image" content="http://i.imgur.com/OKXcMfr.png">
+<meta property="og:image" content="http://i.imgur.com/Aw2VJWy.png">
+<meta property="og:image" content="http://i.imgur.com/4vWPBKr.png">
+<meta property="og:image" content="http://i.imgur.com/fXxvx2o.png">
+<meta property="og:image" content="http://i.imgur.com/gCywSnt.png">
+<meta property="og:image" content="http://i.imgur.com/W5HuPcS.png">
+<meta property="og:image" content="http://i.imgur.com/7qlnmHi.png">
+<meta property="og:image" content="http://i.imgur.com/fYOMGOj.png">
+<meta property="og:image" content="http://i.imgur.com/damZ8yV.jpg">
+<meta property="og:image" content="http://i.imgur.com/oSdgcsD.jpg">
+<meta property="og:image" content="http://i.imgur.com/M2sc0nQ.png">
+<meta property="og:image" content="http://i.imgur.com/Anzgyg3.jpg">
+<meta property="og:image" content="http://i.imgur.com/F3NL4qg.jpg">
+<meta property="og:image" content="http://i.imgur.com/pPU7Q9b.jpg">
+<meta property="og:image" content="http://i.imgur.com/jVlSkm4.jpg">
+<meta property="og:image" content="http://i.imgur.com/HP3kXUc.png">
+<meta property="og:image" content="http://i.imgur.com/EBsi9EW.png">
+<meta property="og:image" content="http://i.imgur.com/Ix3pJRt.jpg">
+<meta property="og:image" content="http://i.imgur.com/rDSSN7L.png">
+<meta property="og:image" content="http://i.imgur.com/kQagxKR.png">
+<meta property="og:image" content="http://i.imgur.com/uXSsddK.png">
+<meta property="og:image" content="http://i.imgur.com/b3dlmSK.png">
+<meta property="og:image" content="http://i.imgur.com/ThlN4s2.png">
+<meta property="og:image" content="http://i.imgur.com/gUEDgh7.png">
+<meta property="og:image" content="http://i.imgur.com/mpLf3mQ.png">
+<meta property="og:image" content="http://i.imgur.com/N9tyZBV.png">
+<meta property="og:image" content="http://i.imgur.com/gUzBgSI.png">
+<meta property="og:image" content="http://i.imgur.com/OeuW2Bp.png">
+<meta property="og:image" content="http://i.imgur.com/4wqJPRr.png">
+<meta property="og:image" content="http://i.imgur.com/Ix3pJRt.jpg">
+<meta property="og:image" content="http://i.imgur.com/fr5g3Yy.png">
+<meta property="og:image" content="http://i.imgur.com/UGjBa73.png">
+<meta property="og:image" content="http://i.imgur.com/Ix3pJRt.jpg">
+<meta property="og:image" content="http://i.imgur.com/Oopg6a8.png">
+<meta property="og:image" content="http://i.imgur.com/rD9fhbo.png">
+<meta property="og:image" content="http://i.imgur.com/Tu9ViGf.png">
+<meta property="og:image" content="http://i.imgur.com/Ix3pJRt.jpg">
+<meta property="og:image" content="http://i.imgur.com/gFyMRZg.png">
+<meta property="og:image" content="http://i.imgur.com/fJAqv2z.png">
+<meta property="og:image" content="http://i.imgur.com/0bcmV5W.png">
+<meta property="og:image" content="http://i.imgur.com/dDU9RGp.png">
+<meta property="og:image" content="http://i.imgur.com/oQ6kv69.png">
+<meta property="og:image" content="http://i.imgur.com/UJI0scf.png">
+<meta property="og:image" content="http://i.imgur.com/tzE68kg.png">
+<meta property="og:image" content="http://i.imgur.com/CuExLaQ.png">
+<meta property="og:image" content="http://i.imgur.com/pP8ys8y.png">
+<meta property="og:image" content="http://i.imgur.com/aEuRUOB.png">
+<meta property="og:image" content="http://i.imgur.com/NqLygMJ.png">
+<meta property="og:image" content="http://i.imgur.com/0g1ngLO.png">
+<meta property="og:image" content="http://i.imgur.com/juC66mf.png">
+<meta property="og:image" content="http://i.imgur.com/QVDC3iV.png">
+<meta property="og:image" content="http://i.imgur.com/Ix3pJRt.jpg">
+<meta property="og:image" content="http://i.imgur.com/rG2GPMW.png">
+<meta property="og:image" content="http://i.imgur.com/8tgfRbN.png">
+<meta property="og:image" content="http://i.imgur.com/UnMxszj.png">
+<meta property="og:image" content="http://i.imgur.com/nzIFmmM.png">
+<meta property="og:image" content="http://i.imgur.com/42PjznX.png">
+<meta property="og:image" content="http://i.imgur.com/taoOMBO.png">
+<meta property="og:image" content="http://i.imgur.com/7NlTIjI.png">
+<meta property="og:image" content="http://i.imgur.com/WvIjk1g.png">
+<meta property="og:image" content="http://i.imgur.com/s9QzyG0.png">
+<meta property="og:image" content="http://i.imgur.com/JcjG0O9.jpg">
+<meta property="og:image" content="http://i.imgur.com/MC6GIFg.png">
+<meta property="og:image" content="http://i.imgur.com/NOGRFtx.jpg">
+<meta property="og:image" content="http://i.imgur.com/biEEvX1.jpg">
+<meta property="og:image" content="http://i.imgur.com/JTKp7lr.png">
+<meta property="og:image" content="http://i.imgur.com/chimrqy.png">
+<meta property="og:image" content="http://i.imgur.com/V9ZlnUk.png">
+<meta property="og:image" content="http://i.imgur.com/ml17S5X.jpg">
+<meta property="og:image" content="http://i.imgur.com/Oe7Gpxo.jpg">
+<meta property="article:published_time" content="2015-10-04T07:36:00.000Z">
+<meta property="article:modified_time" content="2019-07-17T18:42:51.026Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" HGST">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 硬碟">
+<meta property="article:tag" content=" 6TB">
+<meta property="article:tag" content=" Deskstar">
+<meta property="article:tag" content=" HDD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/duXUuD5.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2015/10/HGST-HDD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[開箱] 超大容量、高穩定度 HGST Deskstar 6TB NAS 專用碟 強勢登場 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2015/10/HGST-HDD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [開箱] 超大容量、高穩定度 HGST Deskstar 6TB NAS 專用碟 強勢登場
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2015-10-04 15:36:00" itemprop="dateCreated datePublished" datetime="2015-10-04T15:36:00+08:00">2015-10-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/disk/" itemprop="url" rel="index"><span itemprop="name">硬碟</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2015/10/HGST-HDD/" class="post-meta-item leancloud_visitors" data-flag-title="[開箱] 超大容量、高穩定度 HGST Deskstar 6TB NAS 專用碟 強勢登場" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>6k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a href="http://imgur.com/duXUuD5" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/duXUuD5.jpg" alt="" /></a></p>
+<p>由於NAS(Network Attached Storage，網路附加儲存)可以到處對於檔案做存取和分享，以及它的影音娛樂、架網站、架伺服器、備份資料等優點，現在許多企業、學校，甚至是家庭都至少擁有一台NAS了。NAS固然好用，但是硬碟就像一顆不定時炸彈，什麼時候會壞沒有人知道；如果買了個便宜的普通硬碟，可能過不了多久，硬碟可能就掛了，裡頭的資料再也救不回來。</p>
+<a id="more"></a>
+
+<p>若要防範這種情況發生，許多人會使用RAID 1、RAID 5…等磁碟陣列來增強資料的保護性，以防硬碟壞掉資料找不回來。但一切問題的根源當然還是硬碟，如果能挑選一顆穩定耐用的硬碟，相信發生以上問題的機率就可以降到最低。</p>
+<p>HGST是全球第一顆硬碟的發明者。藉助其卓越的技術傳承，HGST為資訊時代的來臨帶來儲存技術的革新，滿足社交網路、雲端服務、物連網服務供應商、移動設備、大數據及企業業務交易的需求。<span style="color: #800000;">HGST的產品品質可靠，產品組合覆蓋各類高品質硬碟和固態硬碟，為消費者以及企業的重要資料提供了安全高效的儲存、管理與保護。</span></p>
+<p>今天要測試的就是這顆<span style="color: #008000;"><strong>HGST Deskstar 6TB NAS專用碟</strong></span>，以下就來看看這顆NAS專用碟的特色吧。</p>
+<ul>
+    <li><strong><span style="color: #0000ff;">7200RPM高轉速</span></strong></li>
+</ul>
+<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>擁有7200RPM的轉速，根據數據，這比市面上5400RPM 的硬碟快了約20%。
+<ul>
+    <li><span style="color: #0000ff;"><strong>旋轉震動傳感器 (Rotational Vibration sensor)</strong></span></li>
+</ul>
+震動是硬碟效能影響最大的因素，因為震動會造成讀寫頭的震動，進而讀與寫資料的不準確。而<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>這個RV震動保護的機制就能夠確實的將震動造成的效能損失減少到最低的程度。
+<ul>
+    <li><strong><span style="color: #0000ff;">1M MTBF (平均無故障運行小時)</span></strong></li>
+</ul>
+<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>具備最高100萬小時MTBF，這樣就能有效確保數據的安全性，提升NAS的可靠性。
+
+<p>&nbsp;</p>
+<p><a href="http://imgur.com/cHKQv5U" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/cHKQv5U.jpg" alt="" /></a></p>
+<p>首先讓我們來看看<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>外包裝盒的外觀，正面的左上角提到的三大規格：<span style="color: #800000;">7200RPM</span>、<span style="color: #800000;">128MB快取</span>以及<span style="color: #800000;">SATA3 6Gbit/s的運行速度</span>。包裝背面則寫道該3.5吋硬碟適用於桌上型的NAS系統 (Windows, Mac OS, Linux)，並且提供3年的保固。</p>
+<p><a href="http://imgur.com/XJP8IDb" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/XJP8IDb.jpg" alt="" /></a></p>
+<p>打開產品包裝後，以下是產品的內容物：</p>
+<p><a href="http://imgur.com/6NillFL" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/6NillFL.jpg" alt="" /></a></p>
+<p>接著拆開NAS專用碟的銀色塑膠包裝，兩顆硬碟分別為2014年10月和2015年出產。</p>
+<p><a href="http://imgur.com/bFlqFJB" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/bFlqFJB.jpg" alt="" /></a></p>
+<p>產品背面</p>
+<p><a href="http://imgur.com/LMh7fqi" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/LMh7fqi.jpg" alt="" /></a></p>
+<p><span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>使用的是SATA3介面，傳輸速率高達6Gbit/s。</p>
+<p><a href="http://imgur.com/C9efNwf" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/C9efNwf.jpg" alt="" /></a></p>
+<p>將它放到電子秤上，量出來的重量為 <span style="color: #800000;">690公克</span>。</p>
+<p><a href="http://imgur.com/8YxMxM4" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/8YxMxM4.jpg" alt="" /></a></p>
+<p>接下來我們就要將NAS硬碟拿到電腦上做跑分測試了，下圖為NAS專用碟拴入硬碟托盤的畫面。</p>
+<p><a href="http://imgur.com/uczFfZq" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/uczFfZq.jpg" alt="" /></a></p>
+<p>&nbsp;</p>
+<p><a href="http://imgur.com/z2wqkpH" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/z2wqkpH.jpg" alt="" /></a></p>
+<p>以下列出<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟<span style="color: #000000;">的電腦測試平台：</span></span></p>
+<p><strong>CPU:</strong> <span style="color: #800000;">Intel i7-4790S @ 3.20GHz</span><br><strong>主機板:</strong> <span style="color: #800000;">MSI 78511</span><br><strong>記憶體:</strong> <span style="color: #800000;">Kingston 8GB DDR3 1600(4G*2)</span><br><strong>儲存空間:</strong> <span style="color: #800000;">Transcend SSD370 128GB</span>、<span style="color: #800000;">WD WD10EZEX-22BN5<wbr />A0 1TB</span><br><strong>作業系統:</strong> <span style="color: #800000;">Windows 10 家用版 64 Bit</span></p>
+<p><a href="http://imgur.com/UGM5FJ6" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/UGM5FJ6.png" alt="" /></a><br><a href="http://imgur.com/441Hy89" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/441Hy89.png" alt="" /></a></p>
+<p><a href="http://imgur.com/H1bqhjc" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/H1bqhjc.png" alt="" /></a></p>
+<p>&nbsp;</p>
+<p>將NAS專用硬碟插入電腦後要做的第一件事就是<span style="color: #800000;">配置磁區</span>，所以先到<strong>控制台</strong>→<strong>系統管理工具</strong>→<strong>電腦管理</strong>。</p>
+<p>要注意的是，電腦會自動偵測到新的硬碟並顯示「初始化磁碟」的視窗，磁碟樣式請選擇「<span lang="EN-US">GPT</span>」(<span style="color: #800000;">因為<span lang="EN-US">MBR</span>只能管理<span lang="EN-US">2.19TB</span>的硬碟空間</span>)。</p>
+<p><a href="http://imgur.com/DpBT6fO" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/DpBT6fO.jpg" alt="" /></a></p>
+<p>接下來到<strong>磁碟管理</strong>，在欲新增的磁碟點右鍵→<strong>新增簡單磁碟區</strong>。</p>
+<p><a href="http://imgur.com/kLMkhLe" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/kLMkhLe.png" alt="" /></a></p>
+<p>在下面的設定中，若無更改的內容，一直點”<strong>下一步</strong>“即可。</p>
+<p><a href="http://imgur.com/3lHlDHV" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/3lHlDHV.gif" alt="" /></a></p>
+<p>然後到<strong>檔案總管</strong>→<strong>本機</strong>的部分就可以看到自己剛剛新增的磁碟了。</p>
+<p><a href="http://imgur.com/0IrsAP5" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/0IrsAP5.png" alt="" /></a></p>
+<p><a href="http://imgur.com/DSe4Q02" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/DSe4Q02.jpg" alt="" /></a></p>
+<p><a href="http://imgur.com/emCGPvs" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/emCGPvs.png" alt="" /></a> <span style="color: #ff6600;"><strong>《CrystalDiskInfo》</strong></span></p>
+<p><a href="http://imgur.com/N1ypZww" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/N1ypZww.png" alt="" /></a></p>
+<p><a href="http://imgur.com/lNW0RGD" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/lNW0RGD.png" alt="" /></a> <span style="color: #ff6600;"><strong>《CrystalDiskMark》</strong></span></p>
+<p><span style="color: #0000ff;">寫入：221.1 MB/s ；讀取：210.3MB/s</span></p>
+<p><a href="http://imgur.com/pGZguhD" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/pGZguhD.png" alt="" /></a></p>
+<p><a href="http://imgur.com/TN6ylOl" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/TN6ylOl.png" alt="" /></a> <span style="color: #ff6600;"><strong>《AS SSD Benchmark》</strong></span></p>
+<p><span style="color: #0000ff;">寫入：212.55 MB/s ；讀取：213.70MB/s</span></p>
+<p><a href="http://imgur.com/iBc3Lfy" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/iBc3Lfy.png" alt="" /></a></p>
+<p><img title="source: imgur.com" src="http://i.imgur.com/3aYv6jz.png" alt="" /> <span style="color: #ff6600;"><strong>《ATTO Disk Benchmark》</strong></span></p>
+<p><span style="color: #0000ff;">寫入：227.247 MB/s ；讀取：225.918MB/s (最後四項數據平均)</span></p>
+<p><a href="http://imgur.com/fCD2Sb6" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/fCD2Sb6.png" alt="" /></a></p>
+<p><a href="http://imgur.com/Lu3MBny" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Lu3MBny.png" alt="" /></a> <span style="color: #ff6600;"><strong>《HD Tune Pro》</strong></span></p>
+<p>由於該軟體的相容問題，顯示時會有切邊的問題，因此幾張圖為後製完成，並且附上文字數據：</p>
+<ul>
+    <li><span style="color: #0000ff;">效能測試 — 讀取 (平均值：175.9 MB/s)</span></li>
+</ul>
+<a href="http://imgur.com/Dd9g9ei" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Dd9g9ei.png" alt="" /></a>
+
+<p><a href="http://imgur.com/G6JxNS6" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/G6JxNS6.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">效能測試 — 寫入 (平均值：172.9 MB/s)</span></li>
+</ul>
+<a href="http://imgur.com/OKXcMfr" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/OKXcMfr.png" alt="" /></a>
+
+<p><a href="http://imgur.com/Aw2VJWy" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Aw2VJWy.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">隨機存取 — 讀取</span></li>
+</ul>
+<a href="http://imgur.com/4vWPBKr" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/4vWPBKr.png" alt="" /></a>
+
+<p><a href="http://imgur.com/fXxvx2o" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/fXxvx2o.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">隨機存取 — 寫入</span></li>
+</ul>
+<a href="http://imgur.com/gCywSnt" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/gCywSnt.png" alt="" /></a>
+
+<p><a href="http://imgur.com/W5HuPcS" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/W5HuPcS.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">額外測試 — 讀取</span></li>
+</ul>
+<a href="http://imgur.com/7qlnmHi" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/7qlnmHi.png" alt="" /></a>
+<ul>
+    <li><span style="color: #0000ff;">額外測試 — 寫入</span></li>
+</ul>
+<a href="http://imgur.com/fYOMGOj" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/fYOMGOj.png" alt="" /></a>
+
+<p>&nbsp;</p>
+<p><a href="http://imgur.com/damZ8yV" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/damZ8yV.jpg" alt="" /></a></p>
+<p>這次很榮幸的可以測試到<strong><span style="color: #008000;">Thecus色卡司</span></strong>的伺服器，型號為<strong><span style="color: #008000;">N5550</span></strong>，為<span style="color: #800000;">5 Bay的儲存數量</span>。</p>
+<p><a href="http://imgur.com/oSdgcsD" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/oSdgcsD.jpg" alt="" /></a></p>
+<p>以下附上它的基本規格，以及該產品的官方網址：<a href="http://tc.thecus.com/product.php?PROD_ID=76" target="_blank" rel="noopener">http://tc.thecus.com/product.php?PROD_ID=76</a></p>
+<p><a href="http://imgur.com/M2sc0nQ" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/M2sc0nQ.png" alt="" /></a></p>
+<p>硬碟槽只要拉開就可以做更換，十分方便；另外每一個硬碟槽都有鑰匙鎖孔，以防NAS運作時，不小心將硬碟托盤拉出。</p>
+<p><a href="http://imgur.com/Anzgyg3" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Anzgyg3.jpg" alt="" /></a></p>
+<p>從下圖可知SATA3的插槽是位於各硬碟槽的<span style="color: #800000;">右下方</span>。</p>
+<p><a href="http://imgur.com/F3NL4qg" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/F3NL4qg.jpg" alt="" /></a></p>
+<p>安裝<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>非常容易，因為硬碟托盤很貼心地告知<span style="color: #800000;">了3.5吋和2.5吋硬碟螺絲該拴上的位置，也就是拴上六顆螺絲釘的地方</span>，因此也不用怕會擺錯位置。</p>
+<p><a href="http://imgur.com/pPU7Q9b" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/pPU7Q9b.jpg" alt="" /></a></p>
+<p>接著把硬碟托盤放回NAS，並啟動電源；這時可以看到<span style="color: #800000;">若是有運作的硬碟槽，會亮藍燈顯示</span>。</p>
+<p><a href="http://imgur.com/jVlSkm4" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/jVlSkm4.jpg" alt="" /></a></p>
+<p>請先下載Thecus專用的設定管理程式”<span style="color: #ff6600;">Thecus Setup Wizard</span>“，然後照著指示進行，最後進到瀏覽器介面：(請點選”Admin”做登入，預設密碼為admin；若事前有做更改，請輸入更改後密碼)</p>
+<p><a href="http://imgur.com/HP3kXUc" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/HP3kXUc.png" alt="" /></a></p>
+<p>成功登入後，到<strong>儲存</strong>→<strong>磁碟資訊</strong>，可以看到目前已插入的兩顆<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>。</p>
+<p><a href="http://imgur.com/EBsi9EW" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/EBsi9EW.png" alt="" /></a></p>
+<p><a href="http://imgur.com/Ix3pJRt" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Ix3pJRt.jpg" alt="" /></a><span style="color: #0065a7;"><strong> RAID建立</strong></span></p>
+<p>在還未真正開始使用NAS之前，建議先設定Raid磁碟陣列。就像文章一開始提到的，<span style="color: #ff0000;">再怎麼穩定、耐用的硬碟，都還是有故障的可能性</span>，因此若是NAS<span style="color: #800000;">目前擁有兩顆以上的硬碟，都建議使用Raid 1以上的磁碟陣列架構，畢竟比起容量變小，多數人更不希望資料找不回來吧；如此一來，用了好的NAS專用碟，加上Raid 1以上的磁碟陣列，資料不見的問題就幾乎不可能發生了！</span></p>
+<p>所以請先到<strong>儲存</strong>→<strong>磁碟資訊</strong>，並點選<strong>建立</strong>。</p>
+<p><a href="http://imgur.com/rDSSN7L" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/rDSSN7L.png" alt="" /></a></p>
+<p>將兩顆硬碟在”<strong>可用的</strong>“項目中勾選起來，若有更多磁碟，則通通將它們勾選。</p>
+<p><a href="http://imgur.com/kQagxKR" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/kQagxKR.png" alt="" /></a></p>
+<p>由於目前只擁有兩顆硬碟，因此能使用的磁碟陣列層級只有：JBOD, RAID 0, RAID 1，我選擇的是<span style="color: #0000ff;"><strong>RAID 1</strong></span>，為<span style="color: #800000;">鏡像</span>的儲存空間。</p>
+<img title="source: imgur.com" src="http://i.imgur.com/uXSsddK.png" alt="" />
+
+<p>以下做各磁碟陣列的詳細介紹：</p>
+<p><span style="color: #0000ff;">RAID 0</span>：<span style="color: #800000;">將兩顆(含)以上的硬碟空間合併，成為一個儲存空</span>間。優點是可使用不同容量的硬碟及擁有較大的儲存空間。此外，由於 RAID 0 是同時對多顆硬碟平行做資料存取，因此它也擁有<span style="color: #800000;">較佳的資料讀取速度；但缺點則是不具任何資料保護性</span>。</p>
+<p><span style="color: #0000ff;">RAID 1</span>：<span style="color: #800000;">將兩顆的硬碟空間合併，成為一個鏡像的儲存空間。</span>當資料寫入此儲存空間時，系統將會同時在每顆硬碟上寫入相同的資料，因此當其中一顆硬碟損毀時，此儲存空間仍可保有完整的資料。<span style="color: #800000;">優點是提供資料的保護，缺點則是當兩顆硬碟容量不同時，此儲存空間的可用容量將以較小的硬碟來計算，會造成另一顆 (較大) 硬碟的容量無法被利用。</span></p>
+<p><span style="color: #0000ff;">RAID 5</span>：<span style="color: #800000;">至少需要三顆硬碟</span>，RAID 5不是對儲存的資料進行備份，而是把資料和相對應的奇偶校驗資訊儲存到組成RAID5的各個磁碟上，並且奇偶校驗資訊和相對應的資料分別儲存於不同的磁碟上。當RAID5的一個磁碟資料發生損壞後，可以利用剩下的資料和相應的奇偶校驗資訊去恢復被損壞的資料。<span style="color: #800000;">RAID 5可以為系統提供資料安全保障，但保障程度要比鏡像低而磁碟空間利用率要比鏡像高。</span></p>
+<p><span style="color: #0000ff;">RAID 6</span>：<span style="color: #800000;">至少需要四顆硬碟</span>，與RAID 5相比，RAID 6增加第二個獨立的奇偶校驗資訊塊。兩個獨立的奇偶系統使用不同的演算法，資料的可靠性非常高，任意兩塊磁碟同時失效時不會影響資料完整性。<span style="color: #800000;">RAID 6運算量比 RAID 5 大，但空間利用率比 RAID 5 低。</span></p>
+<p><span style="color: #0000ff;">RAID 10</span>：<span style="color: #800000;">至少需要四顆硬碟</span>來建立 RAID 等級 0 與 1 的組合，藉由分段，形成 RAID 0 陣列的兩個 RAID 1 陣列。其主要好處是其優點結合 RAID 0 效能與 RAID 1 容錯能力，並且提供良好的資料可靠性。<span style="color: #800000;">當一個硬碟機故障時，其餘硬碟會繼續運作；萬一磁碟發生故障，更換故障的磁碟機可以還原資料容錯的功能。</span></p>
+<p>附上一張<span style="color: #800000;">磁碟陣列比較表</span>，可以清楚地知道各磁碟陣列的差異性。(資料來源：<a href="https://zh.wikipedia.org/wiki/RAID#RAID_10.2F01" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/RAID#RAID_10.2F01</a>)</p>
+<p><a href="http://imgur.com/b3dlmSK" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/b3dlmSK.png" alt="" /></a></p>
+<p>下一步為設定RAID的內容；此時記得將”<strong>快速磁盤數組</strong>“打勾，加快RAID建立時間。</p>
+<p><a href="http://imgur.com/ThlN4s2" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/ThlN4s2.png" alt="" /></a></p>
+<p>接著為RAID系統設定，點<strong>下一步</strong>即可。</p>
+<p><a href="http://imgur.com/gUEDgh7" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/gUEDgh7.png" alt="" /></a></p>
+<p>確認設定資訊後，即可點”<strong>提交</strong>“。</p>
+<p><a href="http://imgur.com/mpLf3mQ" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/mpLf3mQ.png" alt="" /></a></p>
+<p>系統提示建立RAID時，所有使用中服務都會停止，請點選 <strong>Yes</strong>。</p>
+<p><a href="http://imgur.com/N9tyZBV" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/N9tyZBV.png" alt="" /></a></p>
+<p>按下”完成”後，就會開始建立磁碟陣列。</p>
+<p><a href="http://imgur.com/gUzBgSI" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/gUzBgSI.png" alt="" /></a></p>
+<p>開始建立後，需要耐心等待一段時間。</p>
+<p><a href="http://imgur.com/OeuW2Bp" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/OeuW2Bp.png" alt="" /></a></p>
+<p>待至設定完成後，可以看到<strong>狀況</strong>欄位顯示<span style="color: #008000;"><strong>正常</strong></span>，即<span style="color: #800000;">RAID 1</span>建立完成。</p>
+<p><a href="http://imgur.com/4wqJPRr" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/4wqJPRr.png" alt="" /></a></p>
+<p><a href="http://imgur.com/Ix3pJRt" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Ix3pJRt.jpg" alt="" /></a><span style="color: #0065a7;"><strong> 共享資料夾建立</strong></span></p>
+<p>首先請到<strong>儲存 </strong>→ <strong>Share Folder</strong>，並點選”<strong>新增</strong>“；輸入自己的資料夾名稱，並且將<strong>開放</strong>打開，即完成新增。</p>
+<p><a href="http://imgur.com/fr5g3Yy" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/fr5g3Yy.png" alt="" /></a></p>
+<p>這時就可以看到自己剛新增的資較夾顯示在目錄中了。</p>
+<img title="source: imgur.com" src="http://i.imgur.com/UGjBa73.png" alt="" />
+
+<p><a href="http://imgur.com/Ix3pJRt" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Ix3pJRt.jpg" alt="" /></a><span style="color: #0065a7;"><strong> Samba服務建立</strong></span></p>
+<p>到<strong>網務服務</strong> → <strong>Samba / CIFS</strong>，將<strong>Samba 服務</strong>“啟用”。</p>
+<p><a href="http://imgur.com/Oopg6a8" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Oopg6a8.png" alt="" /></a></p>
+<p>到<strong>儲存 </strong>→ <strong>Share Folder</strong>，選擇要開啟Samba瀏覽的資料夾，點選”<strong>Samba</strong>“；並且將<strong>是否可瀏覽</strong>勾選”啟動”。</p>
+<p><a href="http://imgur.com/rD9fhbo" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/rD9fhbo.png" alt="" /></a></p>
+<p>以上設定好後，就可以到電腦內的<strong>檔案總管 → 網路</strong>，並點選<span style="color: #008000;"><strong>N5550</strong></span>的電腦圖示，輸入帳號密碼後，即能以Samba的服務直接對資料做存取。</p>
+<p>ps. 輸入網路認證時，建議勾選”<strong>記住我的認證</strong>“就不用每次都要登入才能存取資料唷！</p>
+<p><a href="http://imgur.com/Tu9ViGf" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Tu9ViGf.png" alt="" /></a></p>
+<p><a href="http://imgur.com/Ix3pJRt" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Ix3pJRt.jpg" alt="" /></a><span style="color: #0065a7;"><strong> FTP傳輸</strong></span></p>
+<p>FTP傳輸有分好幾種方式做傳輸，如：Fillzilla、網路磁碟機等等，只要用對方法，在外面傳輸資料時就會十分方便。但是在開始介紹前，必須先到<strong>網路服務 </strong>→ <strong>FTP</strong>，將FTP的服務”啟用”。</p>
+<p><a href="http://imgur.com/gFyMRZg" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/gFyMRZg.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">Filezilla</span></li>
+</ul>
+<span style="color: #ff6600;">Filezilla</span>是一套FTP傳檔軟體，好處是<span style="color: #800000;">可以輕鬆將大量資料做上傳和下載，並且視窗下方有清楚的狀態顯示。</span>
+
+<p><a href="http://imgur.com/fJAqv2z" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/fJAqv2z.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">FTP資料夾</span></li>
+</ul>
+利用FTP資料夾的好處就是：<span style="color: #800000;">在外面時可以非常快速地登入FTP做檔案的存取；適合對傳輸較少檔案的使用者。</span>
+
+<p>開啟電腦中的<strong>檔案總管</strong>，並在路徑區輸入以ftp://為開頭的網址。</p>
+<p><a href="http://imgur.com/0bcmV5W" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/0bcmV5W.png" alt="" /></a></p>
+<p>接著會出現要求登入的畫面，請輸入在NAS設定的帳號密碼。</p>
+<p><a href="http://imgur.com/dDU9RGp" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/dDU9RGp.png" alt="" /></a></p>
+<p>登入後即完成！不過記得<span style="color: #800000;">上傳/下載檔案請用拖曳或複製貼上的方式，而不要以直接點兩下打開</span>；因為這並不是直接儲存在電腦中的資料夾。</p>
+<p><a href="http://imgur.com/oQ6kv69" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/oQ6kv69.png" alt="" /></a></p>
+<ul>
+    <li><span style="color: #0000ff;">網路位置</span></li>
+</ul>
+網路位置的存取和上個方法差不多，主要的優點是可以<span style="color: #800000;">固定一個網路磁碟機在檔案總管，而不用每次都要輸入網路位置。</span>
+
+<p>首先到<strong>檔案總管 </strong>→ <strong>本機</strong>，滑鼠點右鍵，”<strong>新增一個網路位置</strong>“。</p>
+<p><a href="http://imgur.com/UJI0scf" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/UJI0scf.png" alt="" /></a></p>
+<p>點”下一步”。</p>
+<p><a href="http://imgur.com/tzE68kg" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/tzE68kg.png" alt="" /></a></p>
+<p>選擇”<strong>選擇自訂網路位置</strong>“，接著點”下一步”。</p>
+<p><a href="http://imgur.com/CuExLaQ" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/CuExLaQ.png" alt="" /></a></p>
+<p>和剛才一樣，輸入以ftp://為開頭的網路位置。</p>
+<p><a href="http://imgur.com/pP8ys8y" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/pP8ys8y.png" alt="" /></a></p>
+<p>把”<strong>匿名登入</strong>“取消勾選，且輸入使用者名稱。</p>
+<p><a href="http://imgur.com/aEuRUOB" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/aEuRUOB.png" alt="" /></a></p>
+<p>接著輸入網路位置的名稱，名稱自訂。</p>
+<p><a href="http://imgur.com/NqLygMJ" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/NqLygMJ.png" alt="" /></a></p>
+<p>按下<strong>完成</strong>即設定完成。</p>
+<p><a href="http://imgur.com/0g1ngLO" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/0g1ngLO.png" alt="" /></a></p>
+<p>之後會自動跳出登入畫面，如果不想要每次做帳號登入，可以勾選”儲存密碼”。</p>
+<p><a href="http://imgur.com/juC66mf" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/juC66mf.png" alt="" /></a></p>
+<p>未來只要在<strong>網路位置</strong>的地方，就可以看到自己剛新增的網路位置。</p>
+<p><a href="http://imgur.com/QVDC3iV" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/QVDC3iV.png" alt="" /></a></p>
+<p><a href="http://imgur.com/Ix3pJRt" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Ix3pJRt.jpg" alt="" /></a><span style="color: #0065a7;"><strong> Rsync 備份</strong></span></p>
+<p>目前要介紹的最後一項的實用功能就是 — Rsync備份。Rsync為了要快速地完成備份工作，<span style="color: #800000;">在開始傳輸檔案之前，會先比較兩端的檔案，找出資料有異動的部份，將這些異動的部份傳輸到目的端，完成備份工作</span>。正因為rsync只將資料有異動的部份傳輸到目的端，因此可以用來同步兩端的資料。</p>
+<p>首先請先到<strong>備份</strong> → <strong>Rsync Target</strong>，啟用Rsync目標伺服器，並且輸入使用者名稱和密碼。注意<span style="color: #800000;">這和NAS的用戶帳密是不同的，為獨立設定</span>。</p>
+<p><a href="http://imgur.com/rG2GPMW" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/rG2GPMW.png" alt="" /></a></p>
+<p>這邊使用家中的NAS ，利用<span style="color: #0065a7;">Rsync 服務</span>來測試資料的備份。</p>
+<p><a href="http://imgur.com/8tgfRbN" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/8tgfRbN.png" alt="" /></a></p>
+<p>輸入伺服器位置，以及剛剛設定的帳號密碼。</p>
+<p><a href="http://imgur.com/UnMxszj" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/UnMxszj.png" alt="" /></a></p>
+<p>選擇要備份的資料。</p>
+<p><a href="http://imgur.com/nzIFmmM" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/nzIFmmM.png" alt="" /></a></p>
+<p>選擇要備份的目的地路徑。</p>
+<p><a href="http://imgur.com/42PjznX" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/42PjznX.png" alt="" /></a></p>
+<p>選擇”立即備份”，不然也可以選擇其他時間備份。</p>
+<p><a href="http://imgur.com/taoOMBO" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/taoOMBO.png" alt="" /></a></p>
+<p>Rsync還支援<span style="color: #0000ff;">增量備份</span>，就是只備份從上次備份後，資料有異動的部份；不過是第一次備份，所以不用選。</p>
+<p><a href="http://imgur.com/7NlTIjI" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/7NlTIjI.png" alt="" /></a></p>
+<p>確認以上設定內容後，就可以按下”完成”結束設定。</p>
+<p><a href="http://imgur.com/WvIjk1g" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/WvIjk1g.png" alt="" /></a></p>
+<p>回到<span style="color: #008000;">Thecus N5550</span>，就可以看到<span style="color: #800000;">WAN/LIN1</span>的部分已經開始做資料的備份。</p>
+<p><a href="http://imgur.com/s9QzyG0" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/s9QzyG0.png" alt="" /></a></p>
+<p><a href="http://imgur.com/JcjG0O9" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/JcjG0O9.jpg" alt="" /></a></p>
+<p>網路環境：<span style="color: #800000;">下載 93.66Mbps / 上傳 38.74Mbps</span></p>
+<p><a href="http://imgur.com/MC6GIFg" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/MC6GIFg.png" alt="" /></a></p>
+<p>從桌機的硬碟傳輸，到NAS下載/上傳的檔案傳輸速率測試，以下實測：</p>
+<p>而這邊用到的檔案傳輸軟體為<span style="color: #ff6600;">FastCopy</span>，該軟體的好處為可以明確的顯示出檔案來源/目的地的路徑和大小，以及傳輸速率與耗費的時間。</p>
+<ul>
+    <li>電腦內SSD  ←→ 電腦內 <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span></li>
+</ul>
+傳輸3916MB的電影檔，SSD → <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>耗時 <span style="color: #800000;">18.2秒</span>，速率 <span style="color: #800000;">215.3 MB/s</span>；<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span> → SSD耗時<span style="color: #800000;"> 26.1秒</span>，速率 <span style="color: #800000;">150.3 MB/s</span>。
+
+<p><a href="http://imgur.com/NOGRFtx" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/NOGRFtx.jpg" alt="" /></a></p>
+<ul>
+    <li>電腦內HDD  ←→ 電腦內 <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span></li>
+</ul>
+傳輸3916MB的電影檔，HDD →<span style="color: #008000;"> HGST Deskstar 6TB NAS專用碟</span>耗時 <span style="color: #800000;">21.4秒</span>，速率 <span style="color: #800000;">183.2 MB/s</span>；<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span> → SSD耗時 <span style="color: #800000;">26.5秒</span>，速率 <span style="color: #800000;">148.0 MB/s</span>。
+
+<p><a href="http://imgur.com/biEEvX1" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/biEEvX1.jpg" alt="" /></a></p>
+<ul>
+    <li>電腦硬碟 ←→ NAS內 <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span> (Samba連線；區網連線)</li>
+</ul>
+傳輸3916MB的電影檔，電腦硬碟 → <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>耗時 <span style="color: #800000;">346秒</span>，速率<span style="color: #800000;"> 11.3 MB/s</span>；<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span> → 電腦硬碟耗時<span style="color: #800000;"> 348秒</span>，速率 <span style="color: #800000;">11.2 MB/s</span>。受到網路連線速率限制 (100Mbps)，檔案傳輸速率最高為 <span style="color: #800000;">11.3 MB/s</span>。
+
+<p><a href="http://imgur.com/JTKp7lr" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/JTKp7lr.png" alt="" /></a></p>
+<ul>
+    <li>電腦硬碟 ←→ NAS內 <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span> (網際網路連線)</li>
+</ul>
+網際網路連線的方面我是用另一台電腦，並且使用<span style="color: #ff6600;">Filezilla</span>的FTP軟體做檔案的傳輸測試。
+
+<p>傳輸3916MB的電影檔，電腦硬碟 → <span style="color: #008000;">HGST Deskstar 6TB NAS專用碟<span style="color: #ff0000;">(上傳)</span></span>耗時約 <span style="color: #800000;">13分37秒</span>，速率 <span style="color: #800000;">4.8 MB/s</span>；<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟 </span>→ 電腦硬碟<span style="color: #ff0000;">(下載)</span>耗時 <span style="color: #800000;">14分15秒</span>，速率 <span style="color: #800000;">4.6 MB/s</span>。主要受到家中上傳連線速率限制(40Mbps)，檔案傳輸速率最高為 <span style="color: #800000;">11.3 MB/s</span>。</p>
+<p><a href="http://imgur.com/chimrqy" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/chimrqy.png" alt="" /></a></p>
+<p><a href="http://imgur.com/V9ZlnUk" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/V9ZlnUk.png" alt="" /></a></p>
+<p>&nbsp;</p>
+<p><a href="http://imgur.com/ml17S5X" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/ml17S5X.jpg" alt="" /></a></p>
+<p><span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>因為擁有<span style="color: #800000;">7200RPM高轉速</span>、<span style="color: #800000;">128MB的磁碟快取</span>，這使得在電腦測試數據時，讀取和寫入的速率都可以達到<span style="color: #800000;">226MB/s (</span><span style="color: #ff6600;">ATTO Disk Benchmark</span><span style="color: #800000;">)</span>。有了優異的讀寫速率，<span style="color: #008000;">HGST Deskstar 6TB NAS專用碟</span>也因具備RV sensor，可以有效的降低使震動時帶來的效能損失。</p>
+<p>最後來看個實際的數據，Backblaze將所有硬碟都在它的的資料中心裡運作，並且讓每顆硬碟都在同樣的工作環境裡受到各自獨立的監測，以測試各家廠商硬碟的故障率。在2015年第二季的測試中，針對使用者最關心的使用時間與溫度，從硬碟穩定度為標準，分析出硬碟品牌<span style="color: #ff0000;">「穩定度最高」的品牌即為HGST</span>。</p>
+<p>(資料來源：<a href="http://technews.tw/2015/07/30/hard-drive-reliability-stats-for-q2-2015/" target="_blank" rel="noopener">http://technews.tw/2015/07/30/hard-drive-reliability-stats-for-q2-2015/</a>)</p>
+<p><a href="http://imgur.com/Oe7Gpxo" target="_blank" rel="noopener"><img title="source: imgur.com" src="http://i.imgur.com/Oe7Gpxo.jpg" alt="" /></a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/disk/" rel="tag"># 硬碟</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/10/HackNTU-2015/" rel="prev" title="2015 台大黑客松成果作品—智慧家庭">
+      <i class="fa fa-chevron-left"></i> 2015 台大黑客松成果作品—智慧家庭
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/09/MSI-Nightblade-MI/" rel="next" title="[開箱] 蘊藏的力量 超乎你的想像 MSI NIGHTBLADE MI電競主機 磅礡登場">
+      [開箱] 蘊藏的力量 超乎你的想像 MSI NIGHTBLADE MI電競主機 磅礡登場 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '1d17ed9b809106feab01eccc437f95fa',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

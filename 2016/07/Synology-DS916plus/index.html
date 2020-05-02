@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="NAS(Network Attached Storage，網路儲存裝置)可能對於多數人來說，還是一台複雜難上手的產品。不過其實筆者接觸NAS也不過一年半，第一次接觸時，卻完全不會感覺操作困難；在安裝時，就像是看圖說故事一樣，只要照著系統的步驟就能完成安裝。而面對眾多的套件，NAS也會告知哪些是推薦安裝的，剩下就自行慢慢研究即可！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] NAS教戰手冊，讓Synology DS916+ &quot;易&quot;發不可收拾！">
+<meta property="og:url" content="https://ed521.github.io/2016/07/Synology-DS916plus/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="NAS(Network Attached Storage，網路儲存裝置)可能對於多數人來說，還是一台複雜難上手的產品。不過其實筆者接觸NAS也不過一年半，第一次接觸時，卻完全不會感覺操作困難；在安裝時，就像是看圖說故事一樣，只要照著系統的步驟就能完成安裝。而面對眾多的套件，NAS也會告知哪些是推薦安裝的，剩下就自行慢慢研究即可！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270013/original/40907203ea9cb86fcd21a26ce4ca3007.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270014/original/f562211a48e24bb9781a51dbcd5f74bd.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270015/original/0968026c4752ff81eb94f8a6536effe8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270016/original/1bab12acd1658add0da48dadb9be1efa.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270017/original/463cc99e2c0f2c0336190960d7cd3cae.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270018/original/dfb06b1c4c764f3fa8d76edbac559c10.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270019/original/3147db9e55bd4b0d83ed4896c7d3a96f.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270020/original/857427ffba96b88a94575fb59c7ef09b.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270021/original/66b48a91665e3ff5884fd711f58a5db1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270022/original/1f8d708003d8690a74124550cabeb18d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270023/original/d7ea255b51a881534abe54d7ca6ab07f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270024/original/2e71b4b215f28be1390f4556c801fb1e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270025/original/46d4e278ebff1d4163f28706eedd4b3a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270026/original/efaca32d0c394d59275602b5642d00cd.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270027/original/21a7a2a16d601a20a1f679cbfa5f8944.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270028/original/250485c65b8084abe0ed149b73914f6a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270029/original/efbbf3fe33f2911bef9c20e5cd33d2c5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270030/original/5db74a6b8b439e38dbe9b6a7c45b80b5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270031/original/b903d275eed0ffb027f41d60bed11661.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270032/original/ae7e3e714526bce5d6ecc3355e2ef96d.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270033/original/abfa7a86afa02bc668d3d1df35c5f713.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270034/original/c8e8af419150f3f8a143e6b6f436e471.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270035/original/6992d27b2e66c2fe4513508172eca1c4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270036/original/f311603deed04203b0525d82a4cb2999.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270037/original/6145a0586bb692a698595c442eb5984b.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270038/original/342d30fd47b1e7727358c0d25bec45b0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270039/original/13c3216080034ae6312b1e01368189a2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270040/original/62c127a8ec1781346159d7ab4d1146d9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270041/original/4758f2f8e52b42f5040a5cc06f988608.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270042/original/1fec515b8e0aa51d05bafc5d300cd966.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270047/original/275ed132ee3f7f8b36b59d9af3424927.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270048/original/79e0957509b9d4b9bc94585d38fe2cf9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270049/original/06e9bd7cb806c5b12d59c3e854671fd0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270050/original/764af16294b5d20bc3d543a4bf1f5b92.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270051/original/41f941b507834def7b241f57bf04a5e1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270052/original/23923e05ce1f8c7ede3e0f98808d17d9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270053/original/7cbbd2470422b480e3a87efeb7dff246.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270054/original/1e859815c791b2c8448c17a52c1e9d59.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270056/original/cc325177f6a2a7eaacc61a641a5b7943.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270055/original/9b14424678017976ab12e834b515a272.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270057/original/78ec39affcb1b9c382e2eedd92760950.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270058/original/60b01912ab27b7350d6e2e22257c17d0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270059/original/880dfc5287c8acbd2a0bac27b112cc3a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270060/original/5aecaaca9c50342cb02f3d28d414679a.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270061/original/4b23d408786e9fd6ceb7586bdd9b6cd6.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270062/original/1929bec4dc55e5a46157363b57c1762c.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270063/original/4f638636eb5e8fdfbe4dc5c5ac710dd5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270064/original/173b657a8751b2220d8a6f68fa7c9450.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270065/original/b210d0c9a0d13967e15b3ec1d4818a34.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270066/original/6523a9a8bd837d3bd4f788f76243e661.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270067/original/ddce7b5e05d95912f36a50b0782d94f8.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270068/original/395a2cf2df095686b648cfd526845bb4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270069/original/6bda469bff5cfcb19d81c5610dec5352.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270070/original/e2b905caabe6eabb211af32abebb1b79.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270071/original/551b62e0f98a87c2fb2669f586463c97.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270072/original/78cea7c238a7b3117b1a791bec5ab971.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270073/original/8c6c1478d256b88c6bd675833450e656.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270074/original/fa11ebcdc129bf7b713c5f86791f1892.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270075/original/a74ce3a558acd944bb29bd600ee6d8ef.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270076/original/d84de1d6ea9c44ed2aa6102fb7c1b068.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270077/original/e8a9160b8233c027adabe13d0a31aaf9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270078/original/fcab186c36b9df7c3ba2627c9aa8253e.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270079/original/02dc96f56f0835809dcf2d9765b46af1.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270080/original/85600e8a71d00f22a6d0233fa00ed3f0.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270081/original/d4a1664867cfcb609610e8589cff19ca.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270082/original/e56ff4c3b410c9ec593b7fe2cd1e42a5.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270083/original/683f9ca35345c793649ca17709ec9645.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270084/original/28d46400d7833dd2e8c2fdcad4ed9ac4.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270085/original/7c0d81a3a7c7f449be23031cfa43da2f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270086/original/efa78ddcff859a4f50b1b0e9562aec49.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270087/original/6dfb34a3f4a1c82ee49f2e30a1f6dc92.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270088/original/9e2519f6fa47e18f9e98980925f28862.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270089/original/ae313cb69e716be9e6ea34c88b62994e.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270090/original/addd253fb8711e07e3a187729bef1a9f.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270091/original/acf98bba959227b1f28a942ee6a01f67.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270092/original/ff4861d27ee2a767935269270760ae06.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270093/original/d2c13ee09ddebb9c9b0b93cc4fe6297c.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270094/original/15916e3dec517bb6d9ca84e8c20afbc4.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270095/original/35378e17ca627de25c48ada28e89a214.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270096/original/4d007e6cdf74acba349602ae4e9eefd2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270097/original/1052f733a8e7c1c07b5ee6ed25a5c8ce.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270098/original/e9e667c963709d851ba10df7d4328a4d.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270099/original/526e1e20102da1b37b90897814f9ec0e.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270100/original/760d019236fe19998ac86863ec8ee912.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270101/original/7df376af492769b30f119ffa095dbd01.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270102/original/e103d728107c7b385543c29707d08719.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270103/original/48220474269e816927a51ef36c7da105.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270104/original/97e6d17970f416cef29e0132748df1b6.jpg">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270105/original/c6c9184f86261cce662fda1b441dbd01.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270106/original/432ddc7371f3c45c97a4f5a7beb0ec34.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270107/original/a6eacff051dcd1a8b648c87e223b9dee.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270108/original/0ab03fe618d7eaf12e50e976e633b6ce.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270109/original/3b070da74c5556c688f7e8b44d41099f.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270110/original/379469a70c1913cfe3dbdb18c266fab9.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270111/original/91db4cbe77e54fc1d18ce017a1b88448.png">
+<meta property="article:published_time" content="2016-07-28T05:12:00.000Z">
+<meta property="article:modified_time" content="2019-12-22T14:16:47.028Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="心得">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 評測">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" 應用">
+<meta property="article:tag" content=" 雲端">
+<meta property="article:tag" content=" 儲存裝置">
+<meta property="article:tag" content=" 個人儲存">
+<meta property="article:tag" content=" 私有雲">
+<meta property="article:tag" content=" 公有雲">
+<meta property="article:tag" content=" DSM">
+<meta property="article:tag" content=" DS916+">
+<meta property="article:tag" content=" 安裝">
+<meta property="article:tag" content=" 設定">
+<meta property="article:tag" content=" DDNS">
+<meta property="article:tag" content=" QuickConnect">
+<meta property="article:tag" content=" 檔案">
+<meta property="article:tag" content=" 資料">
+<meta property="article:tag" content=" 家目錄">
+<meta property="article:tag" content=" 共享資料夾">
+<meta property="article:tag" content=" File Station">
+<meta property="article:tag" content=" 分享">
+<meta property="article:tag" content=" 文字編輯">
+<meta property="article:tag" content=" 文件檢視">
+<meta property="article:tag" content=" Note Station">
+<meta property="article:tag" content=" 筆記">
+<meta property="article:tag" content=" Download Station">
+<meta property="article:tag" content=" 音樂">
+<meta property="article:tag" content=" 相簿">
+<meta property="article:tag" content=" 影片">
+<meta property="article:tag" content=" Photo Station">
+<meta property="article:tag" content=" Video Station">
+<meta property="article:tag" content=" 數位電視">
+<meta property="article:tag" content=" 快照">
+<meta property="article:tag" content=" 同步">
+<meta property="article:tag" content=" 備份">
+<meta property="article:tag" content=" WordPress">
+<meta property="article:tag" content=" 架站">
+<meta property="article:tag" content=" Discuz">
+<meta property="article:tag" content=" VPN">
+<meta property="article:tag" content=" MailPlus">
+<meta property="article:tag" content=" 郵件">
+<meta property="article:tag" content=" 監控">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270013/original/40907203ea9cb86fcd21a26ce4ca3007.jpg">
+
+<link rel="canonical" href="https://ed521.github.io/2016/07/Synology-DS916plus/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！ | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">56</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2016/07/Synology-DS916plus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2016-07-28 13:12:00" itemprop="dateCreated datePublished" datetime="2016-07-28T13:12:00+08:00">2016-07-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/" itemprop="url" rel="index"><span itemprop="name">開箱文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/" itemprop="url" rel="index"><span itemprop="name">教學文</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/teaching/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unboxing/synology/" itemprop="url" rel="index"><span itemprop="name">Synology NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/Synology-DS916plus/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] NAS教戰手冊，讓Synology DS916+ "易"發不可收拾！" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>8.8k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270013/original/40907203ea9cb86fcd21a26ce4ca3007.jpg" />
+
+<p>NAS(Network Attached Storage，網路儲存裝置)可能對於多數人來說，還是一台複雜難上手的產品。不過其實筆者接觸NAS也不過一年半，第一次接觸時，卻完全不會感覺操作困難；在安裝時，就像是看圖說故事一樣，只要照著系統的步驟就能完成安裝。而面對眾多的套件，NAS也會告知哪些是推薦安裝的，剩下就自行慢慢研究即可！</p>
+<a id="more"></a>
+
+<p>為了擺脫大家對於NAS的刻板印象，筆者將從<span style="color: #800000;">NAS安裝、系統設定、基本功能操作，到影音應用、生產力應用、架站、監控等，每一個主題都會一步一步詳細地介紹與教學</span>，為了能讓每個人快速好上手，筆者也希望<span style="color: #800000;">藉由這篇文章，能讓大家知道NAS到底有哪些好用的功能，到底適合哪些人</span>。</p>
+<p>舉例來說，多數人會：<br><span style="color: #008000;"><strong>1. 使用Google Drive雲端空間來存放檔案。</strong></span><br><span style="color: #008000;"><strong> 2. 利用Google行事曆來建立代辦清單、活動等。</strong></span><br><span style="color: #008000;"><strong> 3. 用Evernote來製作筆記。</strong></span><br><span style="color: #008000;"><strong> 4. 用行動硬碟來備份電腦檔案，並用行動硬碟來儲存家中出遊照、影片等。</strong></span><br><span style="color: #008000;"><strong> 5. 用電腦來掛BT下載。</strong></span><br><span style="color: #008000;"><strong> 6. 使用Gmail寄信。</strong></span><br><span style="color: #008000;"><strong> 7. 利用免費的虛擬主機來架站。</strong></span><br><span style="color: #008000;"><strong> 8. 利用Youtube來聽音樂。</strong></span><br><span style="color: #008000;"><strong> 9. 使用Flickr存放相片。</strong></span><br><span style="color: #008000;"><strong> 10. 使用免費空間來和朋友分享檔案。</strong></span><br><span style="color: #008000;"><strong> 11. 使用IP攝影機來監控家門外或辦公室。</strong></span><br>…等等。不過上述的功能中，還是有一些限制和問題，例如Google Drive只有15GB容量、電腦來掛BT很耗電、行動硬碟若常移動容易壞軌、免費虛擬主機通常頻寬低且有流量限制等。</p>
+<p><strong>因此，不曉得大家有沒有想過，這些服務和應用可以全部在一台伺服器上執行？</strong></p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270014/original/f562211a48e24bb9781a51dbcd5f74bd.png" />
+
+<p>【本文介紹】<a href="#1"><strong>前言</strong></a></p>
+<p>【本文介紹】<a href="#A"><strong>DS916+開箱/硬碟安裝篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-A/#A-1" target="_blank">A-1 DS916+開箱</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-A/#A-2" target="_blank">A-2 硬碟安裝</a></p>
+<p>【本文介紹】<a href="#B"><strong>系統安裝/設定篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-1" target="_blank">B-1 DSM安裝&amp;介面介紹</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-2" target="_blank">B-2 通訊埠轉送設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-3" target="_blank">B-3 DDNS設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-4" target="_blank">B-4 QuickConnect設定&amp;介紹</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-5" target="_blank">B-5 安全性/通知設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-6" target="_blank">B-6 檔案服務/服務</a></p>
+<p>【本文介紹】<a href="#C"><strong>儲存空間/使用者設定篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-1" target="_blank">C-1 儲存空間建立</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-2" target="_blank">C-2 家目錄/共享資料夾建立</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-3" target="_blank">C-3 儲存空間—檔案壓縮功能實測</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-4" target="_blank">C-4 使用者帳號/群組建立</a></p>
+<p>【本文介紹】<a href="#D"><strong>存取/協同/生產力篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-1" target="_blank">D-1 『File Station』&amp;《DS File》</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-2" target="_blank">D-2 檔案存取方法</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-3" target="_blank">D-3 檔案(索引)搜尋</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-4" target="_blank">D-4 檔案請求/分享</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-5" target="_blank">D-5 文字編輯&amp;文件檢視</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-6" target="_blank">D-6 筆記『Note Station』&amp;《DS Note》</a></p>
+<p>【本文介紹】<a href="#E"><strong>多媒體娛樂篇</strong></a><br>『Download Station』<br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-1" target="_blank">E-1 『Download Station』介紹</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-2" target="_blank">E-2 行動裝置《DS Download》</a><br>『Audio Station』<br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-3" target="_blank">E-3 音樂匯入&amp;動態歌詞</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-4" target="_blank">E-4 『Audio Station』介紹</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-5" target="_blank">E-5 行動裝置《DS Audio》</a><br>『Photo Station』<br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-6" target="_blank">E-6 使用者權限&amp;其他設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-7" target="_blank">E-7 『Photo Station』介紹</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-8" target="_blank">E-8 智慧相簿</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-9" target="_blank">E-9 行動裝置《DS Photo》</a><br>『Video Station』<br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-10" target="_blank">E-10 影片庫建立</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-11" target="_blank">E-11 影片資訊建立</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-12" target="_blank">E-12 轉檔設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-13" target="_blank">E-13 『Video Station』介紹</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-14" target="_blank">E-14 收看數位電視</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-15" target="_blank">E-15 行動裝置《DS Video》</a><br>其他<br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-16" target="_blank">E-16 使用Chromecast觀看多媒體資料</a></p>
+<p>【本文介紹】<a href="#F"><strong>備份與同步篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-1" target="_blank">F-1 快照功能介紹/設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-2" target="_blank">F-2 NAS與電腦雙向同步</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-3" target="_blank">F-3 電腦資料同步(備份)至NAS</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-4">F-4 NAS資料同步至行動裝置</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-5" target="_blank">F-5 同步公有雲資料</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-6" target="_blank">F-6 兩台Synology NAS間備份</a></p>
+<p>【本文介紹】<a href="#G"><strong>架站篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-1" target="_blank">G-1 利用WordPress架設部落格</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-2" target="_blank">G-2 利用Discuz架設論壇</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-3" target="_blank">G-3 使用自製網頁架站</a></p>
+<p>【本文介紹】<a href="#H"><strong>架VPN/郵件伺服器篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-1" target="_blank">H-1 VPN架設</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-2" target="_blank">H-2 VPN連線與實測</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-3" target="_blank">H-3 架設郵件伺服器</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-4" target="_blank">H-4 郵件測試&amp;《Synology MailPlus》</a></p>
+<p>【本文介紹】<a href="#I"><strong>監控篇</strong></a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-1" target="_blank">I-1 攝影機安裝教學</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-2" target="_blank">I-2 『即時影像』&amp;『快照』</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-3" target="_blank">I-3 『時間線』</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-4" target="_blank">I-4 『智慧搜尋』</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-5" target="_blank">I-5 『錄影』</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-6" target="_blank">I-6 使用者設定</a><br>〔開新視窗〕<a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-7" target="_blank">I-7 行動裝置《DS cam》</a></p>
+<p>【本文介紹】<a href="#2"><strong>生活應用</strong></a></p>
+<p>【本文介紹】<a href="#3"><strong>總結與心得</strong></a></p>
+<p><a id="1" name="1"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270015/original/0968026c4752ff81eb94f8a6536effe8.png" /></p>
+<p>本次要測試的產品為<strong>Synology DS916+</strong>(<a href="https://www.synology.com/zh-tw/products/DS916+" target="_blank">產品網頁</a>)，該產品最大的好處是，<span style="color: #800000;">9 Bay的高擴充性</span>(如下圖，需搭配DX513 5Bay NAS專用擴充槽)、<span style="color: #800000;">4K高畫質影像轉碼功能</span>、<span style="color: #800000;">AES-NI 硬體加密引擎</span>(可加快加密讀寫的速度)，並且有2<span style="color: #800000;">GB及8GB兩種記憶體</span>的選擇。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270016/original/1bab12acd1658add0da48dadb9be1efa.png" />
+
+<p>或許有人會說，我買2 Bay的NAS就夠用了呀，我的資料又沒有很多，為何要選擇4 Bay以上的NAS呢？在此，筆者列舉出下列兩個原因：</p>
+<p>第一種是對於<span style="color: #800000;">資料的使用量</span>，<span style="color: #800000;">由於2 Bay NAS的硬碟如果滿了，還要再添購更大空間的硬碟</span>，否則就是要另購4 Bay的NAS，除了擴充麻煩，又是另一筆額外的費用；因此4 Bay就比較不會有這個問題，因為在資料快不夠放時可以提前作擴充準備(再購買一顆硬碟擴充)。</p>
+<p>第二種則是為了<span style="color: #800000;">資料安全性而建立的Raid(磁碟陣列，用於保護資料用)</span>，由於2 Bay NAS若建立Raid1(鏡像磁碟，也就是兩顆硬碟存放一模一樣的資料)，那麼就等於只有1 Bay的NAS了；而Raid5以上的磁碟陣列又至少要3bay以上的NAS，因此照目前情況來看，4 Bay的NAS已經是基本需求了。</p>
+<p>如下圖是筆者之前用的2 Bay伺服器，不過因為2個硬碟不夠用了，在換了4 Bay NAS之後，這台就放在儲藏間沒動過了XD</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270017/original/463cc99e2c0f2c0336190960d7cd3cae.jpg" />
+
+<p><a id="A" name="A"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270018/original/dfb06b1c4c764f3fa8d76edbac559c10.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-A/#A-1" target="_blank">A-1 DS916+開箱</a><br>本節將介紹Synology DS916+的產品外觀，以及配件等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270019/original/3147db9e55bd4b0d83ed4896c7d3a96f.jpg" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-A/#A-2" target="_blank">A-2 硬碟安裝</a><br>本節將會介紹如何將硬碟安裝至NAS。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270020/original/857427ffba96b88a94575fb59c7ef09b.jpg" />
+
+<p><a id="B" name="B"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270021/original/66b48a91665e3ff5884fd711f58a5db1.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-1" target="_blank">B-1 DSM安裝&amp;介面介紹</a><br>本節將會介紹剛裝好的NAS要如何進行初次設定，以及簡易DSM介面的介紹。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270022/original/1f8d708003d8690a74124550cabeb18d.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-2" target="_blank">B-2 通訊埠轉送設定</a><br>通訊埠轉送是NAS最重要的設定之一，因為NAS與外網需要經由通訊埠(port)才能溝通。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270023/original/d7ea255b51a881534abe54d7ca6ab07f.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-3" target="_blank">B-3 DDNS設定</a><br>DDNS設定是將<span style="color: #800000;"><strong>原本為數字IP改為較容易記憶的網址</strong></span>，例如<span style="color: #800000;">奇摩官網的數字IP為206.190.36.45，但是普通人只會記住yahoo.com一樣</span>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270024/original/2e71b4b215f28be1390f4556c801fb1e.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-4" target="_blank">B-4 QuickConnect設定&amp;介紹</a><br>使用QuickConnect便可以<span style="color: #800000;">輕鬆透過網際網路存取NAS</span>，無需另外設定連接埠轉送規則或進行其他複雜的網路設定；例如QuickConnect ID設定為sy916，則行動裝置app、網頁套件等需要登入NAS的地方，只需輸入sy916和帳密即可登入。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270025/original/46d4e278ebff1d4163f28706eedd4b3a.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-5" target="_blank">B-5 安全性/通知設定</a><br>安全性設定也是一台NAS最重要的設定之一，例如NAS會不會容易被駭入，或是密碼被破解、被DDOS等等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270026/original/efaca32d0c394d59275602b5642d00cd.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-B/#B-6" target="_blank">B-6 檔案服務/服務</a><br>本節會教學NAS的一些服務，如：FTP、rsync和套件的服務要去哪裡開或關。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270027/original/21a7a2a16d601a20a1f679cbfa5f8944.png" />
+
+<p><a id="C" name="C"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270028/original/250485c65b8084abe0ed149b73914f6a.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-1" target="_blank">C-1 儲存空間建立</a><br>系統設定完後，接下來就是設定儲存空間，如此一來才能在NAS上存放資料。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270029/original/efbbf3fe33f2911bef9c20e5cd33d2c5.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-2" target="_blank">C-2 家目錄/共享資料夾建立</a><br>家目錄是為每個使用者所建立的獨立空間，而共享資料夾則是使用者可以一起存取資料的地方。(可以<span style="color: #800000;">經由權限，讓每個人能存取的共享資料夾皆不同</span>，詳見 <a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-4" target="_blank">C-4 使用者帳號/群組建立</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270030/original/5db74a6b8b439e38dbe9b6a7c45b80b5.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-3" target="_blank">C-3 儲存空間—檔案壓縮功能實測</a><br>由於檔案壓縮功能確實能降低儲存使用空間(適用於<span style="color: #800000;">不常存取的資料</span>)，本節會實測檔案壓縮功能實際的效果。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270031/original/b903d275eed0ffb027f41d60bed11661.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-C/#C-4" target="_blank">C-4 使用者帳號/群組建立</a><br>因為使用者帳號的建立關係到每個人能夠看到哪些共用資料夾、能夠使用哪項服務等等，因此<strong>本節的設定非常重要</strong>。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270032/original/ae7e3e714526bce5d6ecc3355e2ef96d.png" />
+
+<p><a id="D" name="D"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270033/original/abfa7a86afa02bc668d3d1df35c5f713.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-1" target="_blank">D-1 『File Station』&amp;《DS File》</a><br>只要在NAS上存取檔案就會透過『<span style="color: #800080;">File Station</span>』，而《<span style="color: #800080;">DS File</span>》為app版本。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270034/original/c8e8af419150f3f8a143e6b6f436e471.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-2" target="_blank">D-2 檔案存取方法</a><br>本節將介紹區網和外網不同存取檔案的方式(透過DSM、FTP等)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270035/original/6992d27b2e66c2fe4513508172eca1c4.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-3" target="_blank">D-3 檔案(索引)搜尋</a><br>檔案(索引)搜尋能提供使用者<span style="color: #800080;">更有效率的搜尋方式</span>，例如：搜尋音樂相片時，會順便搜尋影音檔案的屬性資料；若是文件檔，還能進行文件的內文搜尋。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270036/original/f311603deed04203b0525d82a4cb2999.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-4" target="_blank">D-4 檔案請求/分享</a><br>對於沒有DSM帳號的人，或是需要分享一個檔案給很多人，Synology很貼心地可以透過”檔案分享”的方式建立專屬網址以供下載。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270037/original/6145a0586bb692a698595c442eb5984b.png" />
+
+<p>而檔案請求則提供了從對方接收檔案的一個好地方，對方透過專屬連結就能上傳檔案至NAS。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270038/original/342d30fd47b1e7727358c0d25bec45b0.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-5" target="_blank">D-5 文字編輯&amp;文件檢視</a><br>DSM內建多功能『<span style="color: #800080;">文字編輯器</span>』，提供繁簡轉換、以及不同程式語言的語法顏色顯示。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270039/original/13c3216080034ae6312b1e01368189a2.png" />
+
+<p>『<span style="color: #800080;">文件檢視器</span>』為線上開啟文件檔的程式，如此一來，就不必為了每次要檢視文件還要特地載下來看。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270040/original/62c127a8ec1781346159d7ab4d1146d9.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-6" target="_blank">D-6 筆記『Note Station』&amp;《DS Note》</a><br>『<span style="color: #800080;">Note Station</span>』除了可以建立代辦事項、筆記之外，透過瀏覽器套件，就能輕鬆擷取網頁畫面至『Note Station』。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270041/original/4758f2f8e52b42f5040a5cc06f988608.png" />
+
+<p><a id="E" name="E"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270042/original/1fec515b8e0aa51d05bafc5d300cd966.png" /></p>
+<p><span style="color: #008000;"><strong>『Download Station』</strong></span><br><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-1" target="_blank">E-1 『Download Station』介紹</a><br>『<span style="color: #800080;">Download Station</span>』能夠下載BT種子檔，以及具有下載連結的網址等。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270047/original/275ed132ee3f7f8b36b59d9af3424927.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-2" target="_blank">E-2 行動裝置《DS Download》</a><br>《<span style="color: #800080;">DS Download</span>》為『<span style="color: #800080;">Download Station</span>』的app版。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270048/original/79e0957509b9d4b9bc94585d38fe2cf9.png" />
+
+<p><span style="color: #008000;"><strong>『Audio Station』</strong></span><br><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-3" target="_blank">E-3 音樂匯入&amp;動態歌詞</a><br>本節會介紹如何將音樂匯入『<span style="color: #800080;">Audio Station</span>』，並且在播歌時顯示動態歌詞。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270049/original/06e9bd7cb806c5b12d59c3e854671fd0.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-4" target="_blank">E-4 『Audio Station』介紹</a><br>『<span style="color: #800080;">Audio Station</span>』可以播放NAS裡存放的歌曲，並支援動態歌詞的顯示；除此之外，還能收聽百台以上的音樂電台。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270050/original/764af16294b5d20bc3d543a4bf1f5b92.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-5" target="_blank">E-5 行動裝置《DS Audio》</a><br>《<span style="color: #800080;">DS Audio</span>》為『<span style="color: #800080;">Audio Station</span>』的app版，除了線上收聽，也能把音樂下載下來聽。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270051/original/41f941b507834def7b241f57bf04a5e1.png" />
+
+<p><span style="color: #008000;"><strong>『Photo Station』</strong></span><br><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-6" target="_blank">E-6 使用者權限&amp;其他設定</a><br>由於預設值為管理員外的使用者皆無法看到相簿，本節將教學如何設定權限，以及『<span style="color: #800080;">Photo Station</span>』的其他設定。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270052/original/23923e05ce1f8c7ede3e0f98808d17d9.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-7" target="_blank">E-7 『Photo Station』介紹</a><br>『<span style="color: #800080;">Photo Station</span>』的相簿有相片牆、時間軸等檢視方式，與幻燈片、社群分享等功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270053/original/7cbbd2470422b480e3a87efeb7dff246.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-8" target="_blank">E-8 智慧相簿</a><br>透過不同標籤、時間的分類方式，智慧相簿能夠交叉比對，並分類出符合該特定條件的相片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270054/original/1e859815c791b2c8448c17a52c1e9d59.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-9" target="_blank">E-9 行動裝置《DS Photo》</a><br>利用《<span style="color: #800080;">DS Photo</span>》，在戶外也能觀看電子相簿。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270056/original/cc325177f6a2a7eaacc61a641a5b7943.png" />
+
+<p><strong><span style="color: #008000;">『Video Station』</span></strong><br><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-10" target="_blank">E-10 影片庫建立</a><br>影片庫分為三大類：電影、電視影集和其他，本節將介紹如何分類這些影片。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270055/original/9b14424678017976ab12e834b515a272.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-11" target="_blank">E-11 影片資訊建立</a><br>剛新增建立的電影/影集會自動搜尋影片資訊，但搜尋不到的影片/影集就要手動搜尋，因此<span style="color: #800000;">本節非常重要</span>！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270057/original/78ec39affcb1b9c382e2eedd92760950.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-12" target="_blank">E-12 轉檔設定</a><br>NAS支援mp4檔線上播放，若不是mp4檔的影片就必須事先轉檔。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270058/original/60b01912ab27b7350d6e2e22257c17d0.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-13" target="_blank">E-13 『Video Station』介紹</a><br>透過『<span style="color: #800080;">Video Station</span>』建立的影片庫，本節會列舉出該套件的九大特色。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270059/original/880dfc5287c8acbd2a0bac27b112cc3a.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-14" target="_blank">E-14 收看數位電視</a><br>只要具備一隻數位電視棒，『<span style="color: #800080;">Video Station</span>』也可以收看數位電視，並支援排程錄影功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270060/original/5aecaaca9c50342cb02f3d28d414679a.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-15" target="_blank">E-15 行動裝置《DS Video》</a><br>《<span style="color: #800080;">DS Video</span>》可隨時隨觀看NAS中的影片，也能收看數位電視。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270061/original/4b23d408786e9fd6ceb7586bdd9b6cd6.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-16" target="_blank">E-16 使用Chromecast觀看多媒體資料</a><br>如果想把相簿、音樂影片輸出到大螢幕觀看，只要有一支Chromecast，就能在大螢幕上享受所有影音內容。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270062/original/1929bec4dc55e5a46157363b57c1762c.jpg" />
+
+<p><a id="F" name="F"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270063/original/4f638636eb5e8fdfbe4dc5c5ac710dd5.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-1" target="_blank">F-1 快照功能介紹/設定</a><br>快照瀏覽可以在特定時間為共享資料夾進行「<span style="color: #0000ff;">拍照</span>」，進而將資料備份。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270064/original/173b657a8751b2220d8a6f68fa7c9450.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-2" target="_blank">F-2 NAS與電腦雙向同步</a><br>安裝Cloud Station Drive後就能利用電腦內的特定資料夾與NAS雙向同步資料。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270065/original/b210d0c9a0d13967e15b3ec1d4818a34.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-3" target="_blank">F-3 電腦資料同步(備份)至NAS</a><br>安裝Cloud Station Backup後，在電腦內的指定資料夾就會單向同步(備份)至NAS。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270066/original/6523a9a8bd837d3bd4f788f76243e661.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-4" target="_blank">F-4 NAS資料同步至行動裝置</a><br>於行動裝置安裝《<span style="color: #800080;">DS cloud</span>》app，就能將個人CloudStation內的資料同步至行動裝置。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270067/original/ddce7b5e05d95912f36a50b0782d94f8.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-5" target="_blank">F-5 同步公有雲資料</a><br>Synology NAS能與各種公有雲(如：Dropbox、Google Drive…等)服務間作雙向同步或單向同步。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270068/original/395a2cf2df095686b648cfd526845bb4.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-6" target="_blank">F-6 兩台Synology NAS間備份</a><br>將一台Synology NAS內的指定資料排程備份至另一台Synology NAS。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270069/original/6bda469bff5cfcb19d81c5610dec5352.png" />
+
+<p><a id="G" name="G"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270070/original/e2b905caabe6eabb211af32abebb1b79.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-1" target="_blank">G-1 利用WordPress架設部落格</a><br>WordPress是目前最受歡迎的部落格架設平台之一，本節將教學如何架設部落格，包含建立所需的資料庫，以及提供幾個好用的外掛。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270071/original/551b62e0f98a87c2fb2669f586463c97.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-2" target="_blank">G-2 利用Discuz架設論壇</a><br>Discuz論壇是各大論壇最常用的框架之一，本節將教學如何架設部落格，包含建立所需的資料庫。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270072/original/78cea7c238a7b3117b1a791bec5ab971.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-3" target="_blank">G-3 使用自製網頁架站</a><br>如果使用Dreamweaver等網頁製作軟體寫出來的網頁一樣能放到網路上，本節會教學如何放到網路上。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270073/original/8c6c1478d256b88c6bd675833450e656.png" />
+
+<p><a id="H" name="H"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270074/original/fa11ebcdc129bf7b713c5f86791f1892.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-1" target="_blank">H-1 VPN架設</a><br>本節會教學如何架設VPN。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270075/original/a74ce3a558acd944bb29bd600ee6d8ef.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-2" target="_blank">H-2 VPN連線與實測</a><br>本節將介紹VPN要如何連線；並實測人在大陸連回家中VPN，是不是就能翻牆上FB。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270076/original/d84de1d6ea9c44ed2aa6102fb7c1b068.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-3" target="_blank">H-3 架設郵件伺服器</a><br>透過『<span style="color: #800080;">MailPlus Server</span>』可以為NAS上建立專屬的郵件服務，本節會介紹如何架設郵件伺服器。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270077/original/e8a9160b8233c027adabe13d0a31aaf9.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-4" target="_blank">H-4 郵件測試&amp;《Synology MailPlus》</a><br>本節將測試『<span style="color: #800080;">MailPlus</span>』是否能寄信/收信，以及行動裝置版的《<span style="color: #800080;">Synology MailPlus</span>》。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270078/original/fcab186c36b9df7c3ba2627c9aa8253e.png" />
+
+<p><a id="I" name="I"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270079/original/02dc96f56f0835809dcf2d9765b46af1.png" /></p>
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-1" target="_blank">I-1 攝影機安裝教學</a><br>利用IP網路攝影機，就可以自行建立一套監視系統；為居家、辦公室等提供更安全的環境。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270080/original/85600e8a71d00f22a6d0233fa00ed3f0.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-2" target="_blank">I-2 『即時影像』&amp;『快照』</a><br>『<span style="color: #800080;">即時影像</span>』為收看即時畫面的地方；『<span style="color: #800080;">快照</span>』則是能把即時畫面拍下來。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270081/original/d4a1664867cfcb609610e8589cff19ca.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-3" target="_blank">I-3 『時間線』</a><br>『<span style="color: #800080;">時間線</span>』可以觀看過去某個時間點的畫面。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270082/original/e56ff4c3b410c9ec593b7fe2cd1e42a5.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-4" target="_blank">I-4 『智慧搜尋』</a><br>『<span style="color: #800080;">智慧搜尋</span>』提供多種搜尋方式，例如”動作偵測”，就能把某一時段，監視畫面裡有移動的畫面片段全部抓出來。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270083/original/683f9ca35345c793649ca17709ec9645.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-5" target="_blank">I-5 『錄影』</a><br>『<span style="color: #800080;">錄影</span>』把所有網路攝影機錄到的影片都放在此。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270084/original/28d46400d7833dd2e8c2fdcad4ed9ac4.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-6" target="_blank">I-6 使用者設定</a><br>透過使用者設定，能建立具有觀看監視畫面權限的使用者。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270085/original/7c0d81a3a7c7f449be23031cfa43da2f.png" />
+
+<p><a href="https://ed521.github.io/2016/07/Synology-Tip-I/#I-7" target="_blank">I-7 行動裝置《DS cam》</a><br>《<span style="color: #800080;">DS cam</span>》為『<span style="color: #800080;">Surveillance Station</span>』的app版。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270086/original/efa78ddcff859a4f50b1b0e9562aec49.png" />
+
+<p><a id="2" name="2"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270087/original/6dfb34a3f4a1c82ee49f2e30a1f6dc92.png" /></p>
+<p><span style="color: #800000;">NAS其實和我們日常生活息息相關</span>，以下就是NAS對於生活上的一點應用：</p>
+<p>利用『<span style="color: #800080;">Note Station</span>』是事前建立好代辦事項；這樣每天起床後，<span style="color: #800000;">就能透過自行設定的提醒時間，交代一天要做的事</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-6" target="_blank">D-6 筆記『Note Station』&amp;《DS Note》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270088/original/9e2519f6fa47e18f9e98980925f28862.jpg" />
+
+<p>在路上，可以利用《<span style="color: #800080;">DS audio</span>》聽音樂，還有<span style="color: #800000;">動態歌詞顯示可供哼唱<del></span><br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-3" target="_blank">E-3</del>E-5 『Audio Station』</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270089/original/ae313cb69e716be9e6ea34c88b62994e.jpg" />
+
+<p><span style="color: #800000;">把生活上的小靈感，或是網路上看到不錯的內容，全部把它記到筆記中</span>，如此一來就就能快速地查看！<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-6" target="_blank">D-6 筆記『Note Station』&amp;《DS Note》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270090/original/addd253fb8711e07e3a187729bef1a9f.jpg" />
+
+<p>網頁上有考試重點筆記，這時候<span style="color: #800000;">使用”Synology Web Clipper”就能完整擷取至筆記中</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-6" target="_blank">D-6 筆記『Note Station』&amp;《DS Note》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270091/original/acf98bba959227b1f28a942ee6a01f67.jpg" />
+
+<p>若是個人筆電，下載Windows市集中的”Synology Note Station”，查看/建立筆記會更方便；由於是專屬應用程式，它會<span style="color: #800000;">像手機一樣綁定並隨時同步</span>！<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-6" target="_blank">D-6 筆記『Note Station』&amp;《DS Note》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270092/original/ff4861d27ee2a767935269270760ae06.jpg" />
+
+<p>上課講義、投影片不用特地印出來，<span style="color: #800000;">只要開啟『<span style="color: #800080;">文件檢視器』</span>線上瀏覽即可</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-5" target="_blank">D-5 文字編輯&amp;文件檢視</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270093/original/d2c13ee09ddebb9c9b0b93cc4fe6297c.jpg" />
+
+<p>電視機前有想看的節目，可是報告還在打怎麼辦？只要使用『<span style="color: #800080;">Video Station</span>』數位電視播放，<span style="color: #800000;">一樣可以邊打報告邊看電視</span>！<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-14" target="_blank">E-14 收看數位電視</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270094/original/15916e3dec517bb6d9ca84e8c20afbc4.jpg" />
+
+<p>只要在筆電和桌電上同時安裝Cloud Station Drive，就能夠<span style="color: #800000;">NAS ⇔ 筆電 ⇔ 桌電 三方同步資料</span>了！像是在桌電上工作就能隨時轉移到筆電工作，如果急著出門還能在公共電腦上繼續辦公，非常方便。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-F/#F-2" target="_blank">F-2 NAS與電腦雙向同步</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270095/original/35378e17ca627de25c48ada28e89a214.jpg" />
+
+<p>跟朋友要前幾天的出遊照，<span style="color: #800000;">把檔案請求功能的連結給對方就好</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-D/#D-4" target="_blank">D-4 檔案請求/分享</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270096/original/4d007e6cdf74acba349602ae4e9eefd2.png" />
+
+<p>如果檔案在NAS裡要寄給別人，直接開啟『<span style="color: #800080;">MailPlus</span>』，<span style="color: #800000;">輸入寄件人、主旨和夾帶的檔案(直接從NAS匯入)就好，所有事情在Synology就能包辦</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-H/#H-3" target="_blank">H-3~H-4 郵件伺服器</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270097/original/1052f733a8e7c1c07b5ee6ed25a5c8ce.jpg" />
+
+<p>筆電打開Windows市集的應用程式《<span style="color: #800080;">DS Video</span>》，<span style="color: #800000;">NAS上的影片隨時都能觀賞</span>！<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-15" target="_blank">E-15 行動裝置《DS Video》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270098/original/e9e667c963709d851ba10df7d4328a4d.jpg" />
+
+<p>用《<span style="color: #800080;">DS Video</span>》看影片非常方便，且<span style="color: #800000;">支援外部字幕、全螢幕等功能</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-15" target="_blank">E-15 行動裝置《DS Video》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270099/original/526e1e20102da1b37b90897814f9ec0e.jpg" />
+
+<p>嫌筆電太麻煩也沒關係，使用<span style="color: #800000;">平版一樣可以收看電視和影片</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-14" target="_blank">E-14 收看數位電視</a>和<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-15" target="_blank">E-15 行動裝置《DS Video</a>》)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270100/original/760d019236fe19998ac86863ec8ee912.jpg" />
+
+<p>使用iPad來聽《<span style="color: #800080;">DS Audio</span>》的音樂，就能使用<span style="color: #800000;">AirPlay將聲音直接輸出到喇叭上播放</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-9" target="_blank">E-9 行動裝置《DS Photo》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270101/original/7df376af492769b30f119ffa095dbd01.jpg" />
+
+<p>使用Chromecast也能夠<span style="color: #800000;">將NAS的音樂放到大電視上，一樣支援動態字幕功能</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-16" target="_blank">E-16 使用Chromecast觀看多媒體資料</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270102/original/e103d728107c7b385543c29707d08719.jpg" />
+
+<p>如果要到朋友家看電影，只要在對方家裡，<span style="color: #800000;">把Chromecast和無線網路連接好，到哪裡都能夠播放NAS的影片了</span>唷！<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-16" target="_blank">E-16 使用Chromecast觀看多媒體資料</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270103/original/48220474269e816927a51ef36c7da105.jpg" />
+
+<p>這時候如果不放心家裡狀況，利用《<span style="color: #800080;">DS Cam</span>》可以<span style="color: #800000;">隨時隨地觀看家中即時畫面</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-I/" target="_blank">I-1~I-7 監控篇</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270104/original/97e6d17970f416cef29e0132748df1b6.jpg" />
+
+<p>這是筆者自架的wordpress部落格，<span style="color: #800000;">選單列上有個”DSM登入”，點一下就會進入DSM登入頁面</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-G/#G-1" target="_blank">G-1 利用WordPress架設部落格</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270105/original/c6c9184f86261cce662fda1b441dbd01.png" />
+
+<p>使用Windows市集的應用程式《<span style="color: #800080;">DS Photo</span>》，將程式釘選在工作列上，想要回憶以前的高中生活時，就可以<span style="color: #800000;">隨時打開來看</span>。<br>(參閱：<a href="https://ed521.github.io/2016/07/Synology-Tip-E/#E-9" target="_blank">E-9 行動裝置《DS Photo》</a>)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270106/original/432ddc7371f3c45c97a4f5a7beb0ec34.png" />
+
+<p>以上的教學和應用只是Synology NAS常用的一些功能，其他還有『<span style="color: #800080;">docker</span>』、『<span style="color: #800080;">媒體伺服器</span>』…等多元的套件都等著使用者自行去研究；不過不用擔心這些套件很難上手，只要是在Synology的官方套件，它們都會有一份非常完善的說明書以供閱讀。(應用程式右上角有個”?”按鈕就是了)</p>
+<p>最後還是有幾個功能和應用筆者要簡單介紹一下：</p>
+<p>▼ <strong>客製化的DSM登入畫面</strong>：可自訂標語、背景和LOGO。(位於『控制台』→「主題樣式」)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270107/original/a6eacff051dcd1a8b648c87e223b9dee.png" />
+
+<p>▼ <strong>專屬應用程式入口網頁</strong>：透過自訂的port和客製化的登入畫面，無須透過DSM就能使用特定應用程式。(位於『控制台』→「應用程式入口」)</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270108/original/0ab03fe618d7eaf12e50e976e633b6ce.png" />
+
+<p>▼ 『<span style="color: #800080;">儲存空間分析器</span>』：用於分析硬碟空間的使用情況。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270109/original/3b070da74c5556c688f7e8b44d41099f.png" />
+
+<p>▼ 『<span style="color: #800080;">SpreadSheet</span>』：用於和其他使用者一起編輯試算表，以及檢視、分享等功能。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270110/original/379469a70c1913cfe3dbdb18c266fab9.png" />
+
+<p><a id="3" name="3"></a><br><img src="https://cdn1-t17.techbang.com/system/attached_images/2019/12/270111/original/91db4cbe77e54fc1d18ce017a1b88448.png" /></p>
+<p><strong>不過為何NAS是理想的儲存方案？從文章開頭的介紹，以下列舉出其改善方案：</strong></p>
+<p><strong>1. 使用Google Drive雲端空間來存放檔案。</strong><br><strong> └ 使用NAS存放檔案<span style="color: #800000;"><span style="color: #000000;">，</span>能隨時隨地的存取，且沒有15GB容量上限、頻寬等問題</span>。</strong><br><strong> 2. 利用Google行事曆來建立代辦清單、活動等。</strong><br><strong> 3. 用Evernote來製作筆記。</strong><br><strong> └ 使用<span style="color: #800000;">『Note Station』來製作筆記和代辦清單，並且具有個平台即時同步，功能也更強大</span>。(例如：<span style="color: #800000;">網頁擷取功能、更完善的筆記功能，如音訊、圖片、夾帶檔案</span>等)</strong><br><strong> 4. 用行動硬碟來備份電腦檔案，並用行動硬碟來儲存家中出遊照、影片等。</strong><br><strong> └ 使用<span style="color: #800000;">Cloud Station Backup來備份電腦檔案(就不會有備份裝置常常移動造成的硬碟損壞)</span>；並<span style="color: #800000;">利用NAS來存放儲存家中出遊照、影片，而且還能製作相簿、影片也能線上看</span>。</strong><br><strong> 5. 用電腦來掛BT下載。</strong><br><strong> └ 使用NAS來掛BT，<span style="color: #800000;">耗電瓦數大約為電腦的20分之1</span>。</strong><br><strong> 6. 使用Gmail寄信。</strong><br><strong> └ 利用『MailPlus』寄信，<span style="color: #800000;">使用者名稱能夠隨意取(就會有無限多個E-mail)，且不限一封信的大小、信箱容量也都不受限制</span>。</strong><br><strong> 7. 利用免費的虛擬主機來架站。</strong><br><strong> └ 用『Web Station』架站，<span style="color: #800000;">想架幾個部落格、論壇皆沒問題，一樣不受容量頻寬限制</span>。</strong><br><strong> 8. 利用Youtube來聽音樂。</strong><br><strong> └ 用『Audio Station』聽音樂，<span style="color: #800000;">手機可下載離線播放(並且有動態歌詞顯示)，任何電腦也只需登入DSM即可聽音樂</span>。</strong><br><strong> 9. 使用Flickr存放相片。</strong><br><strong> └ 用『Photo Station』存放並建立相簿，而且<span style="color: #800000;">可以讓特定人或是所有人觀看相簿</span>。</strong><br><strong> 10. 使用免費空間來和朋友分享檔案。</strong><br><strong> └ 用”檔案分享”功能，<span style="color: #800000;">提供一個連結就能讓對方下載</span>；並且有”檔案請求”功能，<span style="color: #800000;">讓對方能透過連結上傳檔案至NAS</span>。</strong><br><strong> 11. 使用IP攝影機來監控家門外或辦公室。</strong><br><strong> └ <span style="color: #800000;">NAS可以整合所有的IP攝影機，就像是一個中控系統，一次看所有的畫面</span>。</strong></p>
+<p><strong>大多數沒用過NAS的人可能對於NAS的想法就是”資料備份……還是資料備份”。不過就像前面介紹的各種功能，其實NAS就像是一台「<span style="color: #ff0000;">萬能的機器人</span>」，<span style="color: #0000ff;">能對付工作上的各種需求、家裡的多媒體娛樂中心、讀書與考試的重要利器，以及完善的備份需求</span>。</strong></p>
+<p><strong>Synology(群暉)是筆者在使用過各家NAS之後，<span style="color: #ff0000;">功能最完整</span>、<span style="color: #ff0000;">介面最漂亮的</span>！<span style="color: #0000ff;">從影音多媒體、生產力、架站、監控、備份…每一個功能、每一項應用群暉都會把它做到最好</span>；例如”監控”，其完整的界面和幾百台攝影機的支援度真的讓筆者非常驚艷；而多媒體套件在DSM6.0之後真的改了許多，筆者就非常喜歡『Video Station』的介面，還有為了線上播放的離線轉檔功能。</strong></p>
+<p><strong><span style="color: #ff0000;">若要說到最高裝置平台支援度的NAS廠商，那絕對非群暉莫屬</span>！舉例來說，群暉在多媒體播放上就支援<span style="color: #0000ff;">Samsung Smart TV、Roku 播放器、Apple TV、Android TV、DLNA TV、Chromecast電視棒</span>等各平台；此外，還能透過<span style="color: #0000ff;">Apple Watch切歌、代辦事項的通知與建立</span>等。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/synology/" rel="tag"># Synology NAS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/08/Apollo-Cloud/" rel="prev" title="[開箱] 雲端空間不夠用嗎？讓 Apollo Cloud 私有雲來解決你的煩惱吧！">
+      <i class="fa fa-chevron-left"></i> [開箱] 雲端空間不夠用嗎？讓 Apollo Cloud 私有雲來解決你的煩惱吧！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/07/Synology-Tip-I/" rel="next" title="[教學] Synology NAS Tip I. 監控篇">
+      [教學] Synology NAS Tip I. 監控篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+&nbsp;
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+    <li>
+        <a href="/" title="" target="_blank"></a>
+    </li>
+    
+</ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : 'f23592490b2da5e38e3d6824b42338fe',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>
