@@ -18,139 +18,159 @@ const ap = new APlayer({
         url: 'https://drive.google.com/uc?export=download&id=1MJsGgodLNQ-sW6xaGUPCeEFrM5KDTISe',
         cover: '/music/cover/前前前世.jpg',
 		lrc: '/music/lyrics/前前前世.lrc',
+		theme: '#3c586e'
       },
       {
         name: 'Butter-Fly',
         artist: '和田光司 (By コバソロ & 七穂)',
         url: 'https://drive.google.com/uc?export=download&id=1MsP1LkJj8K5k_Dq7kwYGJDbRbXSN4mfP',
         cover: '/music/cover/Butter-Fly.jpg',
-		lrc: '/music/lyrics/Butter-Fly.lrc'
+		lrc: '/music/lyrics/Butter-Fly.lrc',
+		theme: '#60affe'
       },
       {
         name: 'Catch the Moment',
         artist: 'LiSA',
         url: 'https://drive.google.com/uc?export=download&id=1tYigvqC9QoUj5JzTFO_RHEuUIqzxHDmu',
         cover: '/music/cover/Catch the Moment.jpg',
-		lrc: '/music/lyrics/Catch the Moment.lrc'
+		lrc: '/music/lyrics/Catch the Moment.lrc',
+		theme: '#1973dc'
       },
 	  {
         name: "Baby Don't Know Why",
         artist: 'Ms.OOJA (NC)',
         url: 'https://drive.google.com/uc?export=download&id=1mRjlDRVX3hZAlShGUvfj2KrGO9qaHOpd',
         cover: '/music/cover/Baby Dont Know Why.jpg',
-		lrc: '/music/lyrics/Baby Dont Know Why.lrc'
+		lrc: '/music/lyrics/Baby Dont Know Why.lrc',
+		theme: '#b38972'
       },
 	  {
         name: 'LOSER',
         artist: '米津玄師',
         url: 'https://drive.google.com/uc?export=download&id=192n7GXieQ6zrfkrg5HM2YoYsvk8DfuLH',
         cover: '/music/cover/LOSER.jpg',
-		lrc: '/music/lyrics/LOSER.lrc'
+		lrc: '/music/lyrics/LOSER.lrc',
+		theme: '#18131a'
       },
 	  {
         name: '打上花火',
         artist: 'DAOKO × 米津玄師',
         url: 'https://drive.google.com/uc?export=download&id=1sBHIt_Pm7tSwtsu-cDOAwR3ba6KgpkNd',
         cover: '/music/cover/打上花火.jpg',
-		lrc: '/music/lyrics/打上花火.lrc'
+		lrc: '/music/lyrics/打上花火.lrc',
+		theme: '#864378'
       },
 	  {
         name: '光年之外',
         artist: '鄧紫棋',
         url: 'https://drive.google.com/uc?export=download&id=1uaon36UBGsRO80J1a-VHAe3KUrpuLFrT',
         cover: '/music/cover/光年之外.jpg',
-		lrc: '/music/lyrics/光年之外.lrc'
+		lrc: '/music/lyrics/光年之外.lrc',
+		theme: '#616061'
       },
 	  {
         name: '再見',
         artist: '鄧紫棋',
         url: 'https://drive.google.com/uc?export=download&id=1UwfvmmtaGxH56KkOUYqv24F5SslNQFW4',
         cover: '/music/cover/再見.jpg',
-		lrc: '/music/lyrics/再見.lrc'
+		lrc: '/music/lyrics/再見.lrc',
+		theme: '#4f1b22'
       },
 	  {		
         name: '漂向北方',
         artist: '黃明志 (ft.王力宏)',
         url: 'https://drive.google.com/uc?export=download&id=1J5CVTDt2dhJRnZPTAhkzLwXge-26CUi0',
         cover: '/music/cover/漂向北方.jpg',
-		lrc: '/music/lyrics/漂向北方.lrc'
+		lrc: '/music/lyrics/漂向北方.lrc',
+		theme: '#50213d'
       },
 	  {
         name: '等你下課',
         artist: '周杰倫 (ft.楊瑞代)',
         url: 'https://drive.google.com/uc?export=download&id=11jThCYn8sx2jWuzu1jaVM2vRHqLhJ0TC',
         cover: '/music/cover/等你下課.jpg',
-		lrc: '/music/lyrics/等你下課.lrc'
+		lrc: '/music/lyrics/等你下課.lrc',
+		theme: '#241e21'
       },
 	  {
         name: '告白氣球',
         artist: '周杰倫',
         url: 'https://drive.google.com/uc?export=download&id=1eHvYYqVlSx2T-a6L8GPXAKuz-eCoNkaF',
         cover: '/music/cover/告白氣球.jpg',
-		lrc: '/music/lyrics/告白氣球.lrc'
+		lrc: '/music/lyrics/告白氣球.lrc',
+		theme: '#533634'
       },
 	  {
         name: 'I Really Like You',
         artist: 'Carly Rae Jepsen (NC)',
         url: 'https://drive.google.com/uc?export=download&id=19jwcHWKAFbOnnvbIpTKxkMSNw-IG5Ld4',
         cover: '/music/cover/I Really Like You.jpg',
-		lrc: '/music/lyrics/I Really Like You.lrc'
+		lrc: '/music/lyrics/I Really Like You.lrc',
+		theme: '#090b0a'
       },
 	  {
         name: '終わりの世界から',
         artist: '麻枝 准×やなぎなぎ',
         url: 'https://drive.google.com/uc?export=download&id=1L1S0-i1B9LpxYLFOrfZW05If3kKauHIx',
         cover: '/music/cover/終わりの世界から.jpg',
-		lrc: '/music/lyrics/終わりの世界から.lrc'
+		lrc: '/music/lyrics/終わりの世界から.lrc',
+		theme: '#2e477e'
       },
 	  {
         name: '好想你 2.0',
         artist: '黃明志 (feat.四葉草)',
         url: 'https://drive.google.com/uc?export=download&id=1fCBfoYkBsKm_PmI-Q9yGiFt_uQEtLOo0',
         cover: '/music/cover/漂向北方.jpg',
-		lrc: '/music/lyrics/好想你2.0.lrc'
+		lrc: '/music/lyrics/好想你2.0.lrc',
+		theme: '#50213d'
       },
 	  {
         name: '體面',
         artist: '于文文',
         url: 'https://drive.google.com/uc?export=download&id=1CDk8hM9vikyxLAbsI8Nv1cD5mSbwc50I',
         cover: '/music/cover/體面.jpg',
-		lrc: '/music/lyrics/體面.lrc'
+		lrc: '/music/lyrics/體面.lrc',
+		theme: '#4b4f4c'
       },
 	  {
         name: '追光者',
         artist: '汪蘇瀧',
         url: 'https://drive.google.com/uc?export=download&id=1eaJv3A9cuAdJY5lv2ys7bbRe3M96oZQa',
         cover: '/music/cover/追光者.jpg',
-		lrc: '/music/lyrics/追光者.lrc'
+		lrc: '/music/lyrics/追光者.lrc',
+		theme: '#282e39'
       },
 	  {
         name: '剛好遇見你',
         artist: '李玉剛',
         url: 'https://drive.google.com/uc?export=download&id=1a04cgWHlXsZaZ9SP27SK_4Ku9_mpnJKF',
         cover: '/music/cover/剛好遇見你.jpg',
-		lrc: '/music/lyrics/剛好遇見你.lrc'
+		lrc: '/music/lyrics/剛好遇見你.lrc',
+		theme: '#dbd6b8'
       },
 	  {
         name: 'Faded',
         artist: 'Alan Walker',
         url: 'https://drive.google.com/uc?export=download&id=1oXmEsZiE0AzctsE7yjE11pKw_a4VlhOP',
         cover: '/music/cover/Faded.jpg',
-		lrc: '/music/lyrics/Faded.lrc'
+		lrc: '/music/lyrics/Faded.lrc',
+		theme: '#a5b199'
       },
 	  {
         name: 'TT',
         artist: 'TWICE',
         url: 'https://drive.google.com/uc?export=download&id=1k4vT8n6EXH1kejESQQbreV6E37vpIQQf',
         cover: '/music/cover/TT.jpg',
-		lrc: '/music/lyrics/TT.lrc'
+		lrc: '/music/lyrics/TT.lrc',
+		theme: '#fb609e'
       },
 	  {
         name: '나팔바지(NAPAL BAJI)',
         artist: 'PSY',
         url: 'https://drive.google.com/uc?export=download&id=1xLqz6K84KVKJWDNYaFPg8ZaSZmNJ7uRz',
         cover: '/music/cover/NAPAL BAJI.jpg',
-		lrc: '/music/lyrics/NAPAL BAJI.lrc'
+		lrc: '/music/lyrics/NAPAL BAJI.lrc',
+		theme: '#077834'
       },
 	  {
         name: 'Break Beat Bark!',
