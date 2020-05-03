@@ -620,6 +620,27 @@ const ap = new APlayer({
         url: 'https://drive.google.com/uc?export=download&id=1IggcHU8UHKOfVvKlxgXv8zqZ_ywc2JVx',
         cover: '/music/cover/生きていたんだよな.jpg',
 		lrc: '/music/lyrics/生きていたんだよな.lrc'
+      },
+	  {
+        name: '心做し',
+        artist: '鹿乃',
+        url: 'https://drive.google.com/uc?export=download&id=11FcJbQv8zhmhF42QzXPJ_SSNFV4hXk3F',
+        cover: '/music/cover/心做し.jpg',
+		lrc: '/music/lyrics/心做し.lrc'
+      },
+	  {
+        name: '夜空中最亮的星',
+        artist: '逃跑計劃',
+        url: 'https://drive.google.com/uc?export=download&id=1kj1EVQiz0VKX-By_j3cEM4AaJzUx5eY8',
+        cover: '/music/cover/夜空中最亮的星.jpg',
+		lrc: '/music/lyrics/夜空中最亮的星.lrc'
+      },
+	  {
+        name: '途中',
+        artist: '黃美珍',
+        url: 'https://drive.google.com/uc?export=download&id=121OFJwywtj2tCbDgCTa0jaecLQxQnzUR',
+        cover: '/music/cover/途中.jpg',
+		lrc: '/music/lyrics/途中.lrc'
       }
     ]
 });
