@@ -731,7 +731,31 @@ const ap = new APlayer({
         url: 'https://drive.google.com/uc?export=download&id=121OFJwywtj2tCbDgCTa0jaecLQxQnzUR',
         cover: '/music/cover/途中.jpg',
 		lrc: '/music/lyrics/途中.lrc',
-		theme: '#b7b0aa'
+		theme: '#757061'
+      },
+	  {
+        name: 'あの世行きのバスに乗ってさらば。',
+        artist: 'ツユ',
+        url: 'https://drive.google.com/uc?export=download&id=1CzfPnhSfdxwvEFM4BI9VdLEq7j4UhleD',
+        cover: '/music/cover/あの世行きのバスに乗ってさらば。.jpg',
+		lrc: '/music/lyrics/あの世行きのバスに乗ってさらば。.lrc',
+		theme: '#232a60'
+      },
+	  {
+        name: '願い～あの頃のキミへ～',
+        artist: '當山みれい',
+        url: 'https://drive.google.com/uc?export=download&id=12wWGwnIkDaJ_WTgJDSpt632j6cSpHZyq',
+        cover: '/music/cover/願い～あの頃のキミへ～.jpg',
+		lrc: '/music/lyrics/願い～あの頃のキミへ～.lrc',
+		theme: '#163472'
+      },
+	  {
+        name: '茜さす',
+        artist: 'Aimer',
+        url: 'https://drive.google.com/uc?export=download&id=11Iajbd44r2BXFlj9oQ7XNwaQeeMNp4SD',
+        cover: '/music/cover/茜さす.jpg',
+		lrc: '/music/lyrics/茜さす.lrc',
+		theme: '#ec3a36'
       }
     ]
 });

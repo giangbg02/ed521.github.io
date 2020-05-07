@@ -1217,7 +1217,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #38715d;
+  background: #2fffec;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2646,7 +2646,7 @@ canvas#canvas {
   margin-top: 20px;
 }
 .sidebar {
-  background: url("/images/sidebg3.jpg");
+  background: url("/images/sidebg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
