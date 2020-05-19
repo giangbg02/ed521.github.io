@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ed521.github.io/about/index.html</loc>
+    
+    <lastmod>2020-05-19T16:43:36.271Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ed521.github.io/2020/05/hexo-next-upgrade/</loc>
     
     <lastmod>2020-05-19T16:28:04.211Z</lastmod>
@@ -327,13 +334,6 @@
     <loc>https://ed521.github.io/2017/03/Apex-Stand-with-M720-mouse/</loc>
     
     <lastmod>2019-08-24T18:28:50.107Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ed521.github.io/about/index.html</loc>
-    
-    <lastmod>2019-07-31T16:25:03.025Z</lastmod>
     
   </url>
   
