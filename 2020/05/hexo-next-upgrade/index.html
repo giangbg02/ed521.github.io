@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#0084ff">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/android-icon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/android-icon-16x16.png">
+  <link rel="mask-icon" href="/images/android-icon-192x192.svg" color="#0084ff">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ed521.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":280,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#0000ff","save":"manual"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Hexo 部落格教學文系列：[教學] 使用 GitHub Pages + Hexo 來架設個人部落格[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具[教學] 撰寫 Hexo 文章 - Markdown 語法大全[教學] Hexo 資料夾&#x2F;檔案架構、佈景主題修改介紹[教學] Hexo 筆記 - Next 主題升級、客製功能及樣板編輯全記錄 從開始使用 Hexo 架站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[教學] Hexo 部落格升級、Next 主題升級、客製功能及樣板編輯全記錄">
+<meta property="og:url" content="https://ed521.github.io/2020/05/hexo-next-upgrade/index.html">
+<meta property="og:site_name" content="瑪利歐的部落格">
+<meta property="og:description" content="Hexo 部落格教學文系列：[教學] 使用 GitHub Pages + Hexo 來架設個人部落格[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具[教學] 撰寫 Hexo 文章 - Markdown 語法大全[教學] Hexo 資料夾&#x2F;檔案架構、佈景主題修改介紹[教學] Hexo 筆記 - Next 主題升級、客製功能及樣板編輯全記錄 從開始使用 Hexo 架站">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277170/original/1dacb0a844fcb22016049f24a8009a07.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277171/original/6504ce823dbf4feb7c7ed562e4bb9219.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277172/original/673e8841bce414a927519e3cd877db83.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277173/original/da8d4cf46ba91a8babdc0f73e2990022.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277174/original/7cb4e8c27f1e368c71af0c4b027b3ce2.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277175/original/0a5e203b742d232dae25da48fe382d19.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277176/original/0a336ed6779f7537b59845aa7a1715ed.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277177/original/7265f33bc176c1dc82a05711f302ad71.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277178/original/8a486dfba76bb69c40c2a49c2e6eccb3.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277179/original/39abbaf3f292fcb1f5406ade609e4214.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277180/original/50240436ea9d7237900c29b335dcc992.png">
+<meta property="og:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277181/original/87536e970d757b91fab3ace649db62bf.gif">
+<meta property="article:published_time" content="2020-05-19T15:31:54.000Z">
+<meta property="article:modified_time" content="2020-05-19T16:16:59.005Z">
+<meta property="article:author" content="EDEN">
+<meta property="article:tag" content="eden">
+<meta property="article:tag" content=" hexo">
+<meta property="article:tag" content=" NAS">
+<meta property="article:tag" content=" Synology">
+<meta property="article:tag" content=" Asustor">
+<meta property="article:tag" content=" 教學">
+<meta property="article:tag" content=" 開箱">
+<meta property="article:tag" content=" 群暉">
+<meta property="article:tag" content=" 心得">
+<meta property="article:tag" content=" 評測">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277170/original/1dacb0a844fcb22016049f24a8009a07.png">
+
+<link rel="canonical" href="https://ed521.github.io/2020/05/hexo-next-upgrade/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>[教學] Hexo 部落格升級、Next 主題升級、客製功能及樣板編輯全記錄 | 瑪利歐的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61473305-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-61473305-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">瑪利歐的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">57</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ed521.github.io/2020/05/hexo-next-upgrade/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="EDEN">
+      <meta itemprop="description" content="文章多以開箱文、教學文為主~~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瑪利歐的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [教學] Hexo 部落格升級、Next 主題升級、客製功能及樣板編輯全記錄
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-05-19 23:31:54" itemprop="dateCreated datePublished" datetime="2020-05-19T23:31:54+08:00">2020-05-19</time>
+            </span>
+
+          
+            <span id="/2020/05/hexo-next-upgrade/" class="post-meta-item leancloud_visitors" data-flag-title="[教學] Hexo 部落格升級、Next 主題升級、客製功能及樣板編輯全記錄" title="閱讀次數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>3.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Hexo 部落格教學文系列：<br><a href="https://ed521.github.io/2019/07/hexo-install/">[教學] 使用 GitHub Pages + Hexo 來架設個人部落格</a><br><a href="https://ed521.github.io/2019/08/hexo-admin/">[教學] 我的第一篇 Hexo 文章 - 使用 hexo-admin 後台管理工具</a><br><a href="https://ed521.github.io/2019/08/hexo-markdown/">[教學] 撰寫 Hexo 文章 - Markdown 語法大全</a><br><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">[教學] Hexo 資料夾/檔案架構、佈景主題修改介紹</a><br><a href="https://ed521.github.io/2020/05/hexo-next-upgrade/">[教學] Hexo 筆記 - Next 主題升級、客製功能及樣板編輯全記錄</a></p>
+<p>從開始使用 Hexo 架站已過了一年多，本部落格使用的 Next 主題也過了好幾個版本的更新，因為要讓 Next 主題看起來與眾不同，筆者也爬了各種文、做了各式各樣的樣板修改…但直到最近看到 Next 更新支援了 pjax（下面會介紹 pjax 是什麼），這讓筆者決定花費心力來更新自己的部落格主題呀!!!</p>
+<p>由於個人目前使用的 Hexo 版本為 3.9.0，最新的 Next 主題需要 Hexo 4.0.0 版本以上，<a href="https://ed521.github.io/2020/05/hexo-folder-theme/#%E7%82%BA%E4%BD%95%E4%B8%8D%E5%BB%BA%E8%AD%B0%E7%9B%B4%E6%8E%A5%E5%8D%87%E7%B4%9A-hexo-%E7%89%88%E6%9C%AC">前一篇文章</a> 也討論過為何不建議直接升級部落格主題，因此這裡決定寫一篇教學，如何<font color=#800000>完整更新部落格版本，包含所有資料（圖片、文章、config 等）的移轉，還有筆者自己對 Next 主題的客製功能（例如左下方的音樂播放器）及樣板編輯（例如背景、右方滾動條色彩和一些細微調整）</font>，方便需要的人和自己在未來的時候會用到。</p>
+<a id="more"></a>
+
+<p>升級環境：<br><strong>Hexo: 3.8.0 -&gt; 4.2.0</strong><br><strong>Next 主題: v6.4.0 -&gt; v7.8.0</strong></p>
+<hr>
+<h1 id="Hexo-部落格升級移轉、Next-主題升級"><a href="#Hexo-部落格升級移轉、Next-主題升級" class="headerlink" title="Hexo 部落格升級移轉、Next 主題升級"></a><font color=#0000FF>Hexo 部落格升級移轉、Next 主題升級</font></h1><h2 id="重建-Hexo-資料夾"><a href="#重建-Hexo-資料夾" class="headerlink" title="重建 Hexo 資料夾"></a><font color=#FF6600>重建 Hexo 資料夾</font></h2><p>首先是重建 Hexo 資料夾，才能安裝最新版本的 Hexo，為了區別，資料夾名稱就用 myblog-new，接著打開 cmd 輸入以下指令，路徑要設定在<strong>欲放置部落格資料夾的路徑</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog-new  //初始化新的 Hexo，會在當前路徑建立一個叫 myblog-new 的資料夾，資料夾名稱可以隨意取。</span><br><span class="line"><span class="built_in">cd</span> myblog-new  //進入您剛剛建立的 myblog-new 資料夾當中，<span class="built_in">cd</span> 是 change directory 的意思</span><br><span class="line">npm install  //安裝 Hexo</span><br><span class="line">npm install hexo-deployer-git --save  //安裝 git 部署套件</span><br><span class="line">npm install hexo-admin --save  //安裝 hexo-admin 文章管理的後台插件</span><br></pre></td></tr></table></figure>
+
+<p>剛建好的新部落格資料夾如下圖：</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277170/original/1dacb0a844fcb22016049f24a8009a07.png" />
+
+<h2 id="比對-config-yml-檔案"><a href="#比對-config-yml-檔案" class="headerlink" title="比對 _config.yml 檔案"></a><font color=#FF6600>比對 _config.yml 檔案</font></h2><p>接著要修改新的 _config.yml，但是不能直接從舊的複製過去，因為內容在 hexo 更新後已不完全相同。這時候只能出動<a href="https://diffnow.com/compare-clips" target="_blank" rel="noopener">比對工具</a>，將舊的 _config.yml 檔案內容慢慢修改到新的檔案之中：（下圖為節錄一部分比對）</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277171/original/6504ce823dbf4feb7c7ed562e4bb9219.png" />
+
+<h2 id="複製-source-下資料"><a href="#複製-source-下資料" class="headerlink" title="複製 /source 下資料"></a><font color=#FF6600>複製 /source 下資料</font></h2><p>之前有提到過 /source 資料夾就相當於原始檔的概念，因此全部檔案都可以複製到新的部落格 /source 資料夾。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277172/original/673e8841bce414a927519e3cd877db83.png" />
+
+<h2 id="Next-主題升級"><a href="#Next-主題升級" class="headerlink" title="Next 主題升級"></a><font color=#FF6600>Next 主題升級</font></h2><p>接著要下載最新的 <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">Next 主題</a>，請輸入以下指令：（執行 cmd 在 Hexo 資料夾根目錄下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>記得在根目錄的 _config.yml 要修改套用的主題為 next。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="比對-Next-主題的-config-yml-檔案"><a href="#比對-Next-主題的-config-yml-檔案" class="headerlink" title="比對 Next 主題的 _config.yml 檔案"></a><font color=#FF6600>比對 Next 主題的 _config.yml 檔案</font></h2><p>主題 next 資料夾下一樣有 _config.yml，也一樣不能直接從舊的複製過去，因為內容在主題更新後已不完全相同。這裡一樣透過 <a href="https://diffnow.com/compare-clips" target="_blank" rel="noopener">比對工具</a>，將舊的 _config.yml 檔案內容慢慢修改到新的檔案之中：（下圖為節錄一部分比對）</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277173/original/da8d4cf46ba91a8babdc0f73e2990022.png" />
+
+<p>要注意的是，有些設定有新增、被移除、被換位置等等，比前面 Hexo 的 _config.yml 還要難修改多了。</p>
+<h1 id="Next-客製功能及樣板編輯筆記"><a href="#Next-客製功能及樣板編輯筆記" class="headerlink" title="Next 客製功能及樣板編輯筆記"></a><font color=#0000FF>Next 客製功能及樣板編輯筆記</font></h1><h2 id="pjax-安裝"><a href="#pjax-安裝" class="headerlink" title="pjax 安裝"></a><font color=#FF6600>pjax 安裝</font></h2><p>究竟什麼是 pjax 呢？簡單來說，pjax 實現了 <strong>URL 改變但不重新整理整個頁面</strong>，也就是只有局部的頁面會更新，不會讓整個頁面重新閃動（重新整理）。那這個功能有什麼特色呢？最重要的就是原本左下角的音樂播放器遇到切換頁面，就會停掉然後重新載入；但使用 pjax 後就能解決這個問題。</p>
+<p>要啟用 pjax，首先到 <code>/themes/next/_config.yml</code>，修改 <code>pjax: true</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Easily enable fast Ajax navigation on your website.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-pjax</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>根據 <a href="https://github.com/theme-next/theme-next-pjax" target="_blank" rel="noopener">官方教學</a>，需要輸入以下指令來載入必要檔案：（cmd 在 Hexo 資料夾根目錄下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-pjax themes/next/<span class="built_in">source</span>/lib/pjax</span><br></pre></td></tr></table></figure>
+
+<p>看似沒什麼的功能，其實在切換頁面的時候，就不會整個 refresh 了唷！重點是音樂還能不中斷播放！</p>
+<h2 id="文章字數統計-閱讀時間安裝"><a href="#文章字數統計-閱讀時間安裝" class="headerlink" title="文章字數統計/閱讀時間安裝"></a><font color=#FF6600>文章字數統計/閱讀時間安裝</font></h2><p><code>/themes/next/_config.yml</code> 的 <strong>閱讀字數/時間</strong> 設定如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span> <span class="comment"># 是否"換行顯示"字數統計及閱讀時長</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">false</span> <span class="comment"># 字數統計和閱讀時長是要使用小圖示(true)還是文字表示(false)</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">false</span> <span class="comment"># 文章底部的字數統計和閱讀時長是要使用小圖示(true)還是文字表示(false)</span></span><br></pre></td></tr></table></figure>
+
+<p>根據 <a href="https://github.com/theme-next/hexo-symbols-count-time" target="_blank" rel="noopener">官方教學</a>，需要輸入以下指令安裝：（cmd 在 Hexo 資料夾根目錄下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+
+<p>接著要在 Hexo 資料夾根目錄的 _config.yml 加入以下內容：（加在檔案最下方即可）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字數統計及閱讀時長</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span> <span class="comment"># 文章是否顯示字數統計</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span> <span class="comment"># 文章是否顯示閱讀時間</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span> <span class="comment"># 網頁底部是否顯示字數統計</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span> <span class="comment"># 網頁底部是否顯示閱讀時間</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span> <span class="comment"># 排除程式碼字數統計</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">2</span>  <span class="comment">#平均文字長度，中文為 2, 英文為 5, 預設為 4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span>  <span class="comment">#一分鐘閱讀字數，預設為 275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">"分鐘"</span></span><br></pre></td></tr></table></figure>
+
+<p>實際結果如下圖：</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277174/original/7cb4e8c27f1e368c71af0c4b027b3ce2.png" />
+
+<h2 id="Aplayer-音樂播放器安裝"><a href="#Aplayer-音樂播放器安裝" class="headerlink" title="Aplayer 音樂播放器安裝"></a><font color=#FF6600>Aplayer 音樂播放器安裝</font></h2><p><font color=#FF0000><strong>PS. 詳細 Aplayer 音樂播放器設定，包含音樂該丟哪個免費空間、LRC 動態歌詞尋找or製作、專輯封面搜尋等工作，筆者之後會再另外寫一篇文章。</strong></font></p>
+<p>首先到 <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener">Aplayer 的 GitHub</a> 網站，點選綠色的”Clone or download”，然後點選 Download ZIP。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277175/original/0a5e203b742d232dae25da48fe382d19.png" />
+
+<p>打開壓縮檔後，我們只要裡面的 dist 資料夾（裡面有四個檔案），把它放到 <code>/根目錄/themes/next/source/</code> 路徑下。</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277176/original/0a336ed6779f7537b59845aa7a1715ed.png" />
+
+<p>點開 dist 資料夾，新增 music.js 檔案，以下是範例內容，使用者要自己去找 url（音樂網址，必要）, cover（音樂專輯圖片）, lrc（音樂動態歌詞），然後歌曲依序新增下去。</p>
+<p>PS. 有關參數設定可以查看 <a href="https://aplayer.js.org/#/zh-Hans/" target="_blank" rel="noopener">APlayer 中文文檔</a>，例如下方有個 <code>fixed: true</code> 就是開啟吸底模式（播放器固定於頁面底端）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">'aplayer'</span>),</span><br><span class="line">    fixed: <span class="literal">false</span>,</span><br><span class="line">    autoplay: <span class="literal">false</span>,</span><br><span class="line">    theme: <span class="string">'#b7daff'</span>,</span><br><span class="line">    loop: <span class="string">'all'</span>,</span><br><span class="line">    order: <span class="string">'list'</span>,</span><br><span class="line">    preload: <span class="string">'auto'</span>,</span><br><span class="line">    volume: <span class="number">0.7</span>,</span><br><span class="line">    mutex: <span class="literal">true</span>,</span><br><span class="line">    listFolded: <span class="literal">false</span>,</span><br><span class="line">    listMaxHeight: <span class="string">'200px'</span>,</span><br><span class="line">    lrcType: <span class="number">3</span>,</span><br><span class="line">    audio: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">"兩隻老虎"</span>,</span><br><span class="line">        artist: <span class="string">'兒歌'</span>,</span><br><span class="line">        url: <span class="string">'https://XXX.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/music/cover/兩隻老虎.jpg'</span>,</span><br><span class="line">        lrc: <span class="string">'/music/lyrics/兩隻老虎.lrc'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">'哥哥爸爸真偉大'</span>,</span><br><span class="line">        artist: <span class="string">'兒歌'</span>,</span><br><span class="line">        url: <span class="string">'https://XXX.mp3'</span>,</span><br><span class="line">        cover: <span class="string">'/music/cover/兩隻老虎.jpg'</span>,</span><br><span class="line">        lrc: <span class="string">'/music/lyrics/兩隻老虎.lrc'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>新增完 music.js 後，還要到  <code>/根目錄/themes/next/layout/_layout.swig</code> 檔案，加入以下內容：（新增於倒數第二列<code>&lt;/body&gt;</code>前即可）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/dist/APlayer.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"aplayer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/dist/APlayer.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/dist/music.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277177/original/7265f33bc176c1dc82a05711f302ad71.png" />
+
+<p>設定完成後，搭配 pjax，就可實現切換頁面不中斷音樂了！</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277178/original/8a486dfba76bb69c40c2a49c2e6eccb3.png" />
+
+<h2 id="文章搜尋功能安裝"><a href="#文章搜尋功能安裝" class="headerlink" title="文章搜尋功能安裝"></a><font color=#FF6600>文章搜尋功能安裝</font></h2><p><code>/themes/next/_config.yml</code> 的 <strong>文章搜尋功能</strong> 設定如下：（將 enable 改成 <code>true</code> 即可）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If auto, trigger search by changing input.</span></span><br><span class="line">  <span class="comment"># If manual, trigger search by pressing enter key or search button.</span></span><br><span class="line">  <span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>根據 <a href="https://github.com/theme-next/hexo-generator-searchdb" target="_blank" rel="noopener">官方教學</a>，需要輸入以下指令安裝：（cmd 在 Hexo 資料夾根目錄下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>接著要在 Hexo 資料夾根目錄的 _config.yml 加入以下內容，相關參數設定可以查看 <a href="https://github.com/theme-next/hexo-generator-searchdb#Options" target="_blank" rel="noopener">官方文件</a>，基本上照預設走即可：（加在檔案最下方即可）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章搜尋功能</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p>實際結果如下圖：</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277179/original/39abbaf3f292fcb1f5406ade609e4214.png" />
+
+<h2 id="pace-頁面載入進度條安裝"><a href="#pace-頁面載入進度條安裝" class="headerlink" title=" pace 頁面載入進度條安裝"></a><font color=#FF6600> pace 頁面載入進度條安裝</font></h2><p>頁面載入進度條就是點 Youtube 某支影片時，畫面頂端會有一條紅色的載入進度條，跑到底就代表載入完成；而 pace 可以做出類似的效果。</p>
+<p>要啟用 pace，首先到 <code>/themes/next/_config.yml</code>，修改 <code>enable: true</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Progress bar in the top during page loading.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-pace</span></span><br><span class="line"><span class="comment"># For more information: https://github.com/HubSpot/pace</span></span><br><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#false 改成 true</span></span><br><span class="line">  <span class="comment"># Themes list:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">minimal</span>  <span class="comment">#theme 可以從上面的 list 選擇</span></span><br></pre></td></tr></table></figure>
+
+<p>根據 <a href="https://github.com/theme-next/theme-next-pace" target="_blank" rel="noopener">官方教學</a>，需要輸入以下指令載入 pace 必要檔案：（cmd 在 Hexo 資料夾根目錄下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-pace themes/next/<span class="built_in">source</span>/lib/pace</span><br></pre></td></tr></table></figure>
+
+<p>使用者可以挑選喜歡的 theme 來套用，雖然 <code>minimal</code> 是最不花俏的XD</p>
+<h2 id="sitemap-xml-製作"><a href="#sitemap-xml-製作" class="headerlink" title="sitemap.xml 製作"></a><font color=#FF6600>sitemap.xml 製作</font></h2><p>若要提升 SEO，就必須把 sitemap.xml 提交到 Google Search Console，在後台能了解：</p>
+<ul>
+<li>不同網頁的搜尋總點擊次數</li>
+<li>使用者搜尋什麼關鍵字而找到自己的部落格</li>
+<li>使用者是從哪些國家搜尋</li>
+<li>行動裝置可用性</li>
+<li>…等等</li>
+</ul>
+<p>在此之前，我們要安裝個套件，讓我們在輸入<code>hexo g</code>時，就會自動生成 sitemap.xml：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>接著要在 Hexo 資料夾根目錄的 _config.yml 加入以下內容：（加在檔案最下方即可）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p>如此一來，以後在輸入<code>hexo g</code>時，會自動生成 sitemap.xml 檔案；並且在 push 到網路上後，輸入 https://部落格網址/sitemap.xml 就會看到自己的網站地圖了。</p>
+<h2 id="sidebar-加入近期文章"><a href="#sidebar-加入近期文章" class="headerlink" title="sidebar 加入近期文章"></a><font color=#FF6600>sidebar 加入近期文章</font></h2><p>到 <code>/根目錄/source/_data/</code> 這個路徑<strong>（不是 next 主題的資料夾路徑）</strong>，如果沒有 _data 資料夾要自己新增，然後在 <strong>_data 資料夾內新增 sidebar.swig 檔案</strong>，並加入以下內容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;# Blogroll #&#125;</span><br><span class="line">&#123;% if theme.recent_posts %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll motion-element &#123;&#123; "</span><span class="attr">links-of-blogroll-</span>" + <span class="attr">theme.recent_posts_layout</span>  &#125;&#125;"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-title"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 設定你要的fa fa icon--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-history fa-&#123;&#123; theme.recent_posts_icon | lower &#125;&#125;"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    &#123;&#123; theme.recent_posts_title &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-list"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&#123;% set posts = site.posts.sort('-date') %&#125;--&gt;</span></span><br><span class="line">    &#123;% set posts = site.posts.sort('-date').toArray() %&#125;</span><br><span class="line">    &#123;% for post in posts.slice('0', '5') %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'pull-left'</span> <span class="attr">style</span>=<span class="string">"white-space:normal; text-align:left"</span> &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">time</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; __('post.created') &#125;&#125;"</span> <span class="attr">itemprop</span>=<span class="string">"dateCreated datePublished"</span> <span class="attr">datetime</span>=<span class="string">"&#123;&#123; moment(post.date).format() &#125;&#125;"</span>&gt;</span></span><br><span class="line">        &#123;&#123; date(post.date, 'MM/DD') &#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url_for(post.path) &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; post.title &#125;&#125;"</span>&gt;</span>&#123;&#123; post.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接著修改 <code>/themes/next/_config.yml</code> 檔案，將 sidebar 那行取消註解，代表我們要使用自己的 sidebar.swig 檔案。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.swig</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.swig</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="string">source/_data/sidebar.swig</span> <span class="comment">#這行取消註解</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.swig</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.swig</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.swig</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.swig</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="comment">#style: source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下圖：</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277180/original/50240436ea9d7237900c29b335dcc992.png" />
+
+<h2 id="樣板編輯"><a href="#樣板編輯" class="headerlink" title="樣板編輯"></a><font color=#FF6600>樣板編輯</font></h2><p>首先修改 <code>/themes/next/_config.yml</code> 檔案，將 style 那行取消註解。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.swig</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.swig</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="string">source/_data/sidebar.swig</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.swig</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.swig</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.swig</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.swig</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span>  <span class="comment">#這行取消註解</span></span><br></pre></td></tr></table></figure>
+
+<p>接著到 <code>/根目錄/source/_data/</code> 這個路徑<strong>（不是 next 主題的資料夾路徑）</strong>，如果沒有 _data 資料夾要自己新增，然後在 <strong>_data 資料夾內新增 styles.styl 檔案</strong>，下方教學全都是在 styles.styl 新增樣式，有需要的才要新增：</p>
+<h3 id="背景圖片設定"><a href="#背景圖片設定" class="headerlink" title="背景圖片設定"></a><font color=#008000>背景圖片設定</font></h3><p>在 styles.styl 檔案中加入：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//設定部落格背景</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    background:url(/images/bg.jpg); //圖片路徑</span><br><span class="line">    background-repeat: no-repeat; //不重複</span><br><span class="line">    background-attachment:fixed; //不管頁面怎麼滾，背景都不會動</span><br><span class="line">    background-size: cover; //使背景圖放大至內容的大小</span><br><span class="line">    background-position:50% 50%; //背景位置置中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接著記得要把背景圖片放到 <code>/根目錄/source/images/bg.jpg</code> ，也就是前面設定的路徑。</p>
+<h3 id="更改文章內超連結樣式"><a href="#更改文章內超連結樣式" class="headerlink" title="更改文章內超連結樣式"></a><font color=#008000>更改文章內超連結樣式</font></h3><p>在 styles.styl 檔案中加入：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 文章内超連結樣式</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  color: #00c3ff; //超連結顏色(淺藍)</span><br><span class="line">  <span class="selector-tag">border-bottom</span>: <span class="selector-tag">none</span>;</span><br><span class="line">  <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#00c3ff</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    color: #0044ff; //滑鼠游標移到超連結上的顏色(深藍)</span><br><span class="line">    <span class="selector-tag">border-bottom</span>: <span class="selector-tag">none</span>;</span><br><span class="line">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#0044ff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>實際結果如下圖：</p>
+<img src="https://cdn1-t17.techbang.com/system/attached_images/2020/05/277181/original/87536e970d757b91fab3ace649db62bf.gif" />
+
+<h1 id="小結"><a href="#小結" class="headerlink" title="小結"></a><font color=#0000FF>小結</font></h1><p>距離上次更新 Next 主題版本已過了近兩年，過程中 Next 更新了許多功能/客製化介面/套件api，花了不少時間更新主題和轉移資料，因為擔心之後忘記自己修改過什麼介面功能，所以特地寫了一篇文章來記錄。若要說筆者最有感的兩大更新：</p>
+<ol>
+<li><p>首先是 <strong>pjax</strong>，前面提到它可以實現網頁不用整個重新載入，因此<font color=#800000>本部落格的音樂播放器也不會因切換頁面而中斷播放。</font></p>
+</li>
+<li><p>再來是<strong>修改主題樣式</strong>的部分，基本上大多數的客製化主題除了基本款都在 _config.yml 的檔案修改就好；進階款就是可以新增 custom file 在 <code>/部落格根目錄/source/_data/</code> 路徑下，這樣子好處是之後要更新主題，則不用又要重新修改 next 資料夾內的檔案，因為<font color=#800000> hexo 主題會優先讀取自己寫的 custom file。</font></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/hexo-folder-theme/" rel="next" title="[教學] Hexo 資料夾/檔案架構、佈景主題修改介紹">
+      [教學] Hexo 資料夾/檔案架構、佈景主題修改介紹 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-部落格升級移轉、Next-主題升級"><span class="nav-number">1.</span> <span class="nav-text">Hexo 部落格升級移轉、Next 主題升級</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重建-Hexo-資料夾"><span class="nav-number">1.1.</span> <span class="nav-text">重建 Hexo 資料夾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比對-config-yml-檔案"><span class="nav-number">1.2.</span> <span class="nav-text">比對 _config.yml 檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#複製-source-下資料"><span class="nav-number">1.3.</span> <span class="nav-text">複製 &#x2F;source 下資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-主題升級"><span class="nav-number">1.4.</span> <span class="nav-text">Next 主題升級</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比對-Next-主題的-config-yml-檔案"><span class="nav-number">1.5.</span> <span class="nav-text">比對 Next 主題的 _config.yml 檔案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next-客製功能及樣板編輯筆記"><span class="nav-number">2.</span> <span class="nav-text">Next 客製功能及樣板編輯筆記</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pjax-安裝"><span class="nav-number">2.1.</span> <span class="nav-text">pjax 安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章字數統計-閱讀時間安裝"><span class="nav-number">2.2.</span> <span class="nav-text">文章字數統計&#x2F;閱讀時間安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Aplayer-音樂播放器安裝"><span class="nav-number">2.3.</span> <span class="nav-text">Aplayer 音樂播放器安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章搜尋功能安裝"><span class="nav-number">2.4.</span> <span class="nav-text">文章搜尋功能安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pace-頁面載入進度條安裝"><span class="nav-number">2.5.</span> <span class="nav-text"> pace 頁面載入進度條安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sitemap-xml-製作"><span class="nav-number">2.6.</span> <span class="nav-text">sitemap.xml 製作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sidebar-加入近期文章"><span class="nav-number">2.7.</span> <span class="nav-text">sidebar 加入近期文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#樣板編輯"><span class="nav-number">2.8.</span> <span class="nav-text">樣板編輯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景圖片設定"><span class="nav-number">2.8.1.</span> <span class="nav-text">背景圖片設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改文章內超連結樣式"><span class="nav-number">2.8.2.</span> <span class="nav-text">更改文章內超連結樣式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小結"><span class="nav-number">3.</span> <span class="nav-text">小結</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EDEN"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">EDEN</p>
+  <div class="site-description" itemprop="description">文章多以開箱文、教學文為主~~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+<div class="links-of-blogroll motion-element links-of-blogroll-block">
+<br>
+<div class="links-of-blogroll-title">
+    <!-- 設定你要的fa fa icon-->
+    <i class="fa fa-history fa-" aria-hidden="true"></i>
+    最新文章
+</div>
+<ul class="links-of-blogroll-list">
+    <!---->
+    
+    
+    <li class='pull-left' style="white-space:normal; text-align:left; font-size:12px; color:#5ccdff;" >
+      <!--<time title="創建時間" itemprop="dateCreated datePublished" datetime="2020-05-19T23:31:54+08:00">
+        05/19
+      </time>-->
+      • <a href="/2020/05/hexo-next-upgrade/" title="[教學] Hexo 部落格升級、Next 主題升級、客製功能及樣板編輯全記錄">[教學] Hexo 部落格升級、Next 主題升級、客製功能及樣板編輯全記錄</a>
+      <br>
+    </li>
+    
+    <li class='pull-left' style="white-space:normal; text-align:left; font-size:12px; color:#5ccdff;" >
+      <!--<time title="創建時間" itemprop="dateCreated datePublished" datetime="2020-05-02T02:00:00+08:00">
+        05/02
+      </time>-->
+      • <a href="/2020/05/hexo-folder-theme/" title="[教學] Hexo 資料夾/檔案架構、佈景主題修改介紹">[教學] Hexo 資料夾/檔案架構、佈景主題修改介紹</a>
+      <br>
+    </li>
+    
+    <li class='pull-left' style="white-space:normal; text-align:left; font-size:12px; color:#5ccdff;" >
+      <!--<time title="創建時間" itemprop="dateCreated datePublished" datetime="2020-04-30T22:30:00+08:00">
+        04/30
+      </time>-->
+      • <a href="/2020/04/PC-cillin-2020-mission-six/" title="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 六部曲：家長防護網">[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 六部曲：家長防護網</a>
+      <br>
+    </li>
+    
+    <li class='pull-left' style="white-space:normal; text-align:left; font-size:12px; color:#5ccdff;" >
+      <!--<time title="創建時間" itemprop="dateCreated datePublished" datetime="2020-03-31T22:30:00+08:00">
+        03/31
+      </time>-->
+      • <a href="/2020/03/PC-cillin-2020-mission-five/" title="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 五部曲：行動裝置安全防護">[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 五部曲：行動裝置安全防護</a>
+      <br>
+    </li>
+    
+    <li class='pull-left' style="white-space:normal; text-align:left; font-size:12px; color:#5ccdff;" >
+      <!--<time title="創建時間" itemprop="dateCreated datePublished" datetime="2020-02-29T05:30:00+08:00">
+        02/29
+      </time>-->
+      • <a href="/2020/02/PC-cillin-2020-mission-four/" title="[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 四部曲：電腦安全與資料防護（下）">[教學] PC-cillin 2020 雲端版 電腦安全教戰守則 四部曲：電腦安全與資料防護（下）</a>
+      <br>
+    </li>
+    
+	<br>
+</ul>
+</div>
+
+
+
+<div style="">
+  <canvas id="canvas" style="width:60%;">目前瀏覽器不支援canvas，請更換瀏覽器後再試</canvas>
+</div>
+<script>
+(function(){
+    var WINDOW_WIDTH = 860;
+    var WINDOW_HEIGHT = 250;
+    var RADIUS = 7; //球半径
+    var NUMBER_GAP = 15; //数字之间的间隙
+    var u=0.5; //碰撞能量损耗系数
+    var context; //Canvas绘制上下文
+    var balls = []; //存储彩色的小球
+    const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"]; //彩色小球的颜色
+    var currentNums = []; //屏幕显示的8个字符
+    var digit =
+        [
+            [
+                [0,0,1,1,1,0,0],
+                [0,1,1,0,1,1,0],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,0,1,1,0],
+                [0,0,1,1,1,0,0]
+            ],//0
+            [
+                [0,0,0,1,1,0,0],
+                [0,1,1,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [1,1,1,1,1,1,1]
+            ],//1
+            [
+                [0,1,1,1,1,1,0],
+                [1,1,0,0,0,1,1],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,1,1,0],
+                [0,0,0,1,1,0,0],
+                [0,0,1,1,0,0,0],
+                [0,1,1,0,0,0,0],
+                [1,1,0,0,0,0,0],
+                [1,1,0,0,0,1,1],
+                [1,1,1,1,1,1,1]
+            ],//2
+            [
+                [1,1,1,1,1,1,1],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,1,1,0],
+                [0,0,0,1,1,0,0],
+                [0,0,1,1,1,0,0],
+                [0,0,0,0,1,1,0],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,1,1,1,0]
+            ],//3
+            [
+                [0,0,0,0,1,1,0],
+                [0,0,0,1,1,1,0],
+                [0,0,1,1,1,1,0],
+                [0,1,1,0,1,1,0],
+                [1,1,0,0,1,1,0],
+                [1,1,1,1,1,1,1],
+                [0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,0],
+                [0,0,0,1,1,1,1]
+            ],//4
+            [
+                [1,1,1,1,1,1,1],
+                [1,1,0,0,0,0,0],
+                [1,1,0,0,0,0,0],
+                [1,1,1,1,1,1,0],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,1,1,1,0]
+            ],//5
+            [
+                [0,0,0,0,1,1,0],
+                [0,0,1,1,0,0,0],
+                [0,1,1,0,0,0,0],
+                [1,1,0,0,0,0,0],
+                [1,1,0,1,1,1,0],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,1,1,1,0]
+            ],//6
+            [
+                [1,1,1,1,1,1,1],
+                [1,1,0,0,0,1,1],
+                [0,0,0,0,1,1,0],
+                [0,0,0,0,1,1,0],
+                [0,0,0,1,1,0,0],
+                [0,0,0,1,1,0,0],
+                [0,0,1,1,0,0,0],
+                [0,0,1,1,0,0,0],
+                [0,0,1,1,0,0,0],
+                [0,0,1,1,0,0,0]
+            ],//7
+            [
+                [0,1,1,1,1,1,0],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,1,1,1,0],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,1,1,1,0]
+            ],//8
+            [
+                [0,1,1,1,1,1,0],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [1,1,0,0,0,1,1],
+                [0,1,1,1,0,1,1],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,0,1,1],
+                [0,0,0,0,1,1,0],
+                [0,0,0,1,1,0,0],
+                [0,1,1,0,0,0,0]
+            ],//9
+            [
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0],
+                [0,0,1,1,0,0],
+                [0,0,1,1,0,0],
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0],
+                [0,0,1,1,0,0],
+                [0,0,1,1,0,0],
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0]
+            ]//:
+        ];
+
+    function drawDatetime(cxt){
+        var nums = [];
+
+        context.fillStyle="rgba(255,255,255,0.9)"
+        var date = new Date();
+        var offsetX = 50, offsetY = 30;
+        var hours = date.getHours();
+        var num1 = Math.floor(hours/10);
+        var num2 = hours%10;
+        nums.push({num: num1});
+        nums.push({num: num2});
+        nums.push({num: 10}); //冒号
+        var minutes = date.getMinutes();
+        var num1 = Math.floor(minutes/10);
+        var num2 = minutes%10;
+        nums.push({num: num1});
+        nums.push({num: num2});
+        nums.push({num: 10}); //冒号
+        var seconds = date.getSeconds();
+        var num1 = Math.floor(seconds/10);
+        var num2 = seconds%10;
+        nums.push({num: num1});
+        nums.push({num: num2});
+
+        for(var x = 0;x<nums.length;x++){
+            nums[x].offsetX = offsetX;
+            offsetX = drawSingleNumber(offsetX,offsetY, nums[x].num,cxt);
+            //两个数字连一块，应该间隔一些距离
+            if(x<nums.length-1){
+                if((nums[x].num!=10) &&(nums[x+1].num!=10)){
+                    offsetX+=NUMBER_GAP;
+                }
+            }
+        }
+
+        //说明这是初始化
+        if(currentNums.length ==0){
+            currentNums = nums;
+        }else{
+            //进行比较
+            for(var index = 0;index<currentNums.length;index++){
+                if(currentNums[index].num!=nums[index].num){
+                    //不一样时，添加彩色小球
+                    addBalls(nums[index]);
+                    currentNums[index].num=nums[index].num;
+                }
+            }
+        }
+        renderBalls(cxt);
+        updateBalls();
+
+        return date;
+    }
+
+    function addBalls (item) {
+        var num = item.num;
+        var numMatrix = digit[num];
+        for(var y = 0;y<numMatrix.length;y++){
+            for(var x = 0;x<numMatrix[y].length;x++){
+                if(numMatrix[y][x]==1){
+                    var ball={
+                        offsetX:item.offsetX+RADIUS+RADIUS*2*x,
+                        offsetY:30+RADIUS+RADIUS*2*y,
+                        color:colors[Math.floor(Math.random()*colors.length)],
+                        g:1.5+Math.random(),
+                        vx:Math.pow(-1, Math.ceil(Math.random()*10))*4+Math.random(),
+                        vy:-5
+                    }
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    function renderBalls(cxt){
+        for(var index = 0;index<balls.length;index++){
+            cxt.beginPath();
+            cxt.fillStyle=balls[index].color;
+            cxt.arc(balls[index].offsetX, balls[index].offsetY, RADIUS, 0, 2*Math.PI);
+            cxt.fill();
+        }
+    }
+
+    function updateBalls () {
+        var i =0;
+        for(var index = 0;index<balls.length;index++){
+            var ball = balls[index];
+            ball.offsetX += ball.vx;
+            ball.offsetY += ball.vy;
+            ball.vy+=ball.g;
+            if(ball.offsetY > (WINDOW_HEIGHT-RADIUS)){
+                ball.offsetY= WINDOW_HEIGHT-RADIUS;
+                ball.vy=-ball.vy*u;
+            }
+            if(ball.offsetX>RADIUS&&ball.offsetX<(WINDOW_WIDTH-RADIUS)){
+
+                balls[i]=balls[index];
+                i++;
+            }
+        }
+        //去除出边界的球
+        for(;i<balls.length;i++){
+            balls.pop();
+        }
+    }
+    function drawSingleNumber(offsetX, offsetY, num, cxt){
+        var numMatrix = digit[num];
+        for(var y = 0;y<numMatrix.length;y++){
+            for(var x = 0;x<numMatrix[y].length;x++){
+                if(numMatrix[y][x]==1){
+                    cxt.beginPath();
+                    cxt.arc(offsetX+RADIUS+RADIUS*2*x,offsetY+RADIUS+RADIUS*2*y,RADIUS,0,2*Math.PI);
+                    cxt.fill();
+                }
+            }
+        }
+        cxt.beginPath();
+        offsetX += numMatrix[0].length*RADIUS*2;
+        return offsetX;
+    }
+
+    var canvas = document.getElementById("canvas");
+    canvas.width=WINDOW_WIDTH;
+    canvas.height=WINDOW_HEIGHT;
+    context = canvas.getContext("2d");
+
+    //记录当前绘制的时刻
+    var currentDate = new Date();
+
+    setInterval(function(){
+        //清空整个Canvas，重新绘制内容
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        drawDatetime(context);
+    }, 50)
+})();
+</script>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EDEN</span>
+</div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"YoLycdOLhFPQmvl9mi5Qnsge-gzGzoHsz","app_key":"YwbCQICgq3ec30JjffgxRlR6","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'ede825d02e67d9c5edc3',
+      clientSecret: '78710c0d61a5890dc4769c8abca4021a80568848',
+      repo        : 'comments',
+      owner       : 'ed521',
+      admin       : ['ed521'],
+      id          : '2770ce3a0249504ffc84a23f0f919fb2',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+  
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>
