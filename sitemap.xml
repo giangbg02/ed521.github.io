@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ed521.github.io/2019/08/hexo-markdown/</loc>
+    
+    <lastmod>2020-05-19T16:55:39.545Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ed521.github.io/about/index.html</loc>
     
     <lastmod>2020-05-19T16:43:36.271Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://ed521.github.io/2019/07/hexo-install/</loc>
     
     <lastmod>2020-05-19T16:22:37.631Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ed521.github.io/2019/08/hexo-markdown/</loc>
-    
-    <lastmod>2020-05-19T16:22:33.010Z</lastmod>
     
   </url>
   
