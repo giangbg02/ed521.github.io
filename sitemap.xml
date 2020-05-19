@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ed521.github.io/2020/05/hexo-next-upgrade/</loc>
+    
+    <lastmod>2020-05-19T16:28:04.211Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ed521.github.io/2020/05/hexo-folder-theme/</loc>
     
     <lastmod>2020-05-19T16:22:40.457Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://ed521.github.io/2019/08/hexo-admin/</loc>
     
     <lastmod>2020-05-19T16:22:29.670Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ed521.github.io/2020/05/hexo-next-upgrade/</loc>
-    
-    <lastmod>2020-05-19T16:16:59.005Z</lastmod>
     
   </url>
   
