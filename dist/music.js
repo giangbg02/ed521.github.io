@@ -756,6 +756,30 @@ const ap = new APlayer({
         cover: '/music/cover/茜さす.jpg',
 		lrc: '/music/lyrics/茜さす.lrc',
 		theme: '#ec3a36'
+      },
+	  {
+        name: '過客',
+        artist: '周思涵',
+        url: 'https://drive.google.com/uc?export=download&id=1x_e86AcYm7uza50gpgUHguk7E0R8nDwz',
+        cover: '/music/cover/過客.jpg',
+		lrc: '/music/lyrics/過客.lrc',
+		theme: '#003b43'
+      },
+	  {
+        name: '聽見下雨的聲音',
+        artist: '魏如昀',
+        url: 'https://drive.google.com/uc?export=download&id=1E5-9QJSkodi2ehP0l9PdnxIm1TeWe6Vh',
+        cover: '/music/cover/聽見下雨的聲音.jpg',
+		lrc: '/music/lyrics/聽見下雨的聲音.lrc',
+		theme: '#185278'
+      },
+	  {
+        name: 'Sweet but Psycho',
+        artist: 'Ava Max',
+        url: 'https://drive.google.com/uc?export=download&id=1y3y2-Y1ADyeyHtdz74WVxtYqT9q1ZTpe',
+        cover: '/music/cover/Sweet_but_Psycho.jpg',
+		lrc: '/music/lyrics/Sweet_but_Psycho.lrc',
+		theme: '#a0263a'
       }
     ]
 });
